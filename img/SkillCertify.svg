@@ -1,0 +1,103 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SkillCertify Artistic Animated Banner">
+  <defs>
+    <linearGradient id="gradText" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4ADE80"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <radialGradient id="pulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#22D3EE"/>
+    </filter>
+  </defs>
+  <rect width="800" height="400" rx="20" fill="#0f172a"/>
+<!--Animated Glow Circle-->
+  <circle cx="100" cy="100" r="60" fill="url(#pulse)" opacity="0.3">
+    <animate attributeName="r" values="40;60;40" dur="6s" repeatCount="indefinite"/>
+  </circle>
+<!--Stylized Icon: Dynamic Book with Sparkle + Animated Check-->
+  <g transform="translate(60, 100)">
+    <rect x="0" y="0" width="80" height="100" rx="14" fill="#1E293B" stroke="#4F46E5" stroke-width="2" filter="url(#glow)"/>
+    <path d="M30 50l10 10 20 -20" stroke="#34D399" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="stroke-dasharray" values="0,40;40,0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <circle cx="70" cy="10" r="4" fill="#22D3EE">
+      <animate attributeName="r" values="4;6;4" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <animateTransform attributeName="transform" type="translate" values="60,80;60,50;60,80" dur="5s" repeatCount="indefinite"/>
+  </g>
+<!--Brand Text-->
+  <text x="170" y="80" font-family="'Segoe UI', sans-serif" font-size="44" fill="url(#gradText)" font-weight="bold">
+    SkillCertify
+    <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite"/>
+
+  </text>
+<!--Subtitle-->
+  <text x="170" y="115" font-family="'Segoe UI', sans-serif" font-size="18" fill="#94a3b8" font-style="italic" font-weight="bold">
+    Prepare, Practice, and Excel in Your Certification Exams
+  </text>
+  <text x="170" y="135" font-family="'Segoe UI', sans-serif" font-size="16" fill="#A5F3FC">
+    🔍 This is excellent material for Interview preparation also
+  </text>
+<!--Feature Checklist Section-->
+  <g transform="translate(170, 160)">
+<!--Feature 1-->
+    <g>
+      <path d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V7M4 7c0-1.1.9-2 2-2h12a2 2 0 012 2M4 7h16m-5 5h-6" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="30" y="17" font-family="sans-serif" font-size="16" font-weight="bold" fill="#E0F2FE">Fully Dynamic Exams</text>
+      <text x="30" y="37" font-family="sans-serif" font-size="14" fill="#94a3b8">Content is managed via JSON for effortless updates.</text>
+    </g>
+<!--Feature 2-->
+    <g transform="translate(0, 65)">
+      <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#10B981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="30" y="17" font-family="sans-serif" font-size="16" font-weight="bold" fill="#E0F2FE">Realistic Timed Simulation</text>
+      <text x="30" y="37" font-family="sans-serif" font-size="14" fill="#94a3b8">A 90-minute timer and progress bar create an authentic environment.</text>
+    </g>
+<!--Feature 3-->
+    <g transform="translate(0, 130)">
+      <path d="M3 13.125C3 12.504 3.504 12 4.125 12h15.75c.621 0 1.125.504 1.125 1.125v6.75c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 19.875v-6.75zM3 8.625c0-.621.504-1.125 1.125-1.125h15.75c.621 0 1.125.504 1.125 1.125v.375c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 9v-.375z" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <text x="30" y="17" font-family="sans-serif" font-size="16" font-weight="bold" fill="#E0F2FE">Instant Detailed Reporting</text>
+      <text x="30" y="40" font-family="sans-serif" font-size="14" fill="#94a3b8">Immediate feedback with explanations to accelerate learning.</text>
+    </g>
+  </g>
+<!--Floating JSON Icon-->
+  <g transform="translate(700, 60)">
+    <rect x="0" y="0" width="56" height="56" rx="12" fill="#1E293B" stroke="#22D3EE" stroke-width="2" filter="url(#glow)"/>
+    <text x="28" y="38" text-anchor="middle" font-family="monospace" font-size="20" fill="#22D3EE">{json}</text>
+    <animateTransform attributeName="transform" type="translate" values="700,90;700,60;700,90" dur="5s" repeatCount="indefinite"/>
+  </g>
+<!--Enhanced Tech Badges-->
+  <g font-family="'Segoe UI', sans-serif" font-size="12" font-weight="600">
+    <g transform="translate(80,350)">
+      <rect x="0" y="0" width="108" height="28" rx="6" fill="#1E40AF" stroke="#3B82F6" stroke-width="1.5"/>
+      <text x="12" y="18" fill="#E0F2FE">🐍 Python 3.8+</text>
+      <animateTransform attributeName="transform" type="translate" values="80,350;80,345;80,350" begin="1s" dur="2s" repeatCount="indefinite"/>
+    </g>
+    <g transform="translate(205, 350)">
+      <rect x="0" y="0" width="90" height="28" rx="6" fill="#0F766E" stroke="#2DD4BF" stroke-width="1.5"/>
+      <text x="12" y="18" fill="#CCFBF1">⚗️ Flask</text>
+      <animateTransform attributeName="transform" type="translate" values="205,350;205,345;205,350" begin="2s" dur="2s" repeatCount="indefinite"/>
+    </g>
+    <g transform="translate(310, 350)">
+      <rect x="0" y="0" width="130" height="28" rx="6" fill="#1E293B" stroke="#06B6D4" stroke-width="1.5"/>
+      <text x="12" y="18" fill="#67E8F9">🎨 Tailwind CSS</text>
+      <animateTransform attributeName="transform" type="translate" values="310,350;310,345;310,350" begin="3s" dur="2s" repeatCount="indefinite"/>
+    </g>
+    <g transform="translate(460, 350)">
+      <rect x="0" y="0" width="90" height="28" rx="6" fill="#312E81" stroke="#818CF8" stroke-width="1.5"/>
+      <text x="12" y="18" fill="#C7D2FE">🧪 Jinja2</text>
+      <animateTransform attributeName="transform" type="translate" values="460,350;460,345;460,350" begin="4s" dur="2s" repeatCount="indefinite"/>
+    </g>
+    <g transform="translate(570, 350)">
+      <rect x="0" y="0" width="110" height="28" rx="6" fill="#422006" stroke="#FACC15" stroke-width="1.5"/>
+      <text x="12" y="18" fill="#FEF08A">📜 MIT License</text>
+      <animateTransform attributeName="transform" type="translate" values="570,350;570,345;570,350" begin="5s" dur="2s" repeatCount="indefinite"/>
+    </g>
+  </g>
+</svg>

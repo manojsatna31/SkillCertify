@@ -1,16 +1,47 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Manoj-1996-m/SkillCertify/main/q_bank_app/static/icons/svg/logo.svg" alt="SkillCertify Logo" width="140">
+  <img src="img/SkillCertify.svg" alt="SkillCertify Logo" width="600">  
 </p>
 
 <h3 align="center">Master Your Tech Skills. Ace Your Certifications.</h3>
 
 <p align="center">
-  <!-- Badges -->
-  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python Version"></a>
-  <a href="https://jinja.palletsprojects.com/"><img src="https://img.shields.io/badge/built%20with-Jinja2-orange.svg" alt="Built with Jinja2"></a>
-  <a href="https://github.com/your-username/certiforge/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/status-active-brightgreen.svg" alt="Status"></a>  
+
+  <!-- Python Version -->
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/python-3.8+-blue.svg" alt="Python Version">
+  </a>
+
+  <!-- Jinja2 Badge -->
+  <a href="https://jinja.palletsprojects.com/">
+    <img src="https://img.shields.io/badge/Jinja2-Template%20Engine-orange.svg?logo=jinja&logoColor=white" alt="Jinja2">
+  </a>
+
+  <!-- Tailwind CSS Badge -->
+  <a href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/badge/Tailwind-CSS-38BDF8.svg?logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  </a>
+
+  <!-- Flask Badge -->
+  <a href="https://flask.palletsprojects.com/">
+    <img src="https://img.shields.io/badge/Flask-Web%20Framework-black.svg?logo=flask&logoColor=white" alt="Flask">
+  </a>
+
+  <!-- License -->
+  <a href="https://github.com/your-username/certiforge/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+  </a>
+
+  <!-- Status -->
+  <a href="#">
+    <img src="https://img.shields.io/badge/status-active-brightgreen.svg" alt="Status">
+  </a>
+
 </p>
+
+
+<!-- <p align="center"> 
+  <img src="img/SkillCertify.png" alt="SkillCertify Logo" width="600">
+</p> -->
 
 **SkillCertify** is more than just a quiz platform; it's a comprehensive training ground designed to bridge the gap between theoretical knowledge and certified expertise. Built with a clean, modern, and highly performant tech stack, it provides a seamless and realistic exam simulation environment to help developers and practitioners achieve their career goals.
 
@@ -24,15 +55,16 @@ Technical interviews aren't just about knowing the answer; they're about demonst
 *   **Practice Under Pressure:** The timed environment simulates the stress of a real interview, training you to think clearly and perform when it counts.
 *   **Articulate Complex Topics:** Reviewing detailed explanations helps you master the "why" behind the "what," enabling you to articulate your reasoning with confidence—a key trait that interviewers look for.
 
+<!-- 
 ---
 
 ### 🎥 Live Demo in Action
 
-A quick walkthrough of the user experience, from selecting a topic to reviewing the final report.
+A quick walkthrough of the user experience, from selecting a topic to reviewing the final report. -->
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://raw.githubusercontent.com/Manoj-1996-m/SkillCertify/main/demo.gif" alt="SkillCertify Live Demo GIF" width="800">
-</p>
+</p> -->
 
 ---
 
@@ -113,11 +145,11 @@ copy .env.example .env
 
 Use the Flask Command-Line Interface to run the development server.
 
-```bash
-flask run
+```python
+python run
 ```
 
-The application will now be running at `http://127.0.0.1:5000`.
+The application will now be running at `http://localhost:5000`.
 
 ---
 
