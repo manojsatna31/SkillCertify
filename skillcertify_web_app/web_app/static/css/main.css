@@ -1,23 +1,174 @@
-/* Custom styles for the SkillCertify Application */
+/* static/css/main.css */
 
+/* Base button styles */
 .btn {
-    @apply px-6 py-2 font-semibold rounded-lg shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 }
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn:focus:not(:disabled) {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5); /* Blue-600 with opacity */
+}
+
+/* Primary Button */
 .btn-primary {
-    @apply bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500;
+    background-color: #3B82F6 !important; /* Blue-500 */
+    color: #FFFFFF !important;
 }
-.btn-danger {
-    @apply bg-red-600 hover:bg-red-700 text-white focus:ring-red-500;
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #2563EB !important; /* Blue-600 */
 }
-.btn-success {
-    @apply bg-green-600 hover:bg-green-700 text-white focus:ring-green-500;
-}
+
+/* Secondary Button */
 .btn-secondary {
-    @apply bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500;
+    background-color: #6B7280 !important; /* Gray-500 */
+    color: #FFFFFF !important;
 }
-.disabled-btn {
-    @apply disabled:bg-gray-400 disabled:cursor-not-allowed disabled:shadow-none;
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: #4B5563 !important; /* Gray-600 */
 }
+
+/* Danger Button */
+.btn-danger {
+    background-color: #EF4444 !important; /* Red-500 */
+    color: #FFFFFF !important;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background-color: #DC2626 !important; /* Red-600 */
+}
+
+/* Success Button */
+.btn-success {
+    background-color: #22C55E !important; /* Green-500 */
+    color: #FFFFFF !important;
+}
+
+.btn-success:hover:not(:disabled) {
+    background-color: #16A34A !important; /* Green-600 */
+}
+
+/* Disabled state */
+.btn:disabled, .disabled-btn {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Modal specific styles */
 .modal {
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Dark mode styles */
+body.dark {
+    background-color: #1A202C; /* Gray-900 */
+    color: #E2E8F0; /* Gray-200 */
+}
+
+body.dark .bg-white {
+    background-color: #2D3748; /* Gray-800 */
+}
+
+body.dark .text-gray-900 {
+    color: #E2E8F0;
+}
+
+body.dark .text-gray-800 {
+    color: #E2E8F0;
+}
+
+body.dark .text-gray-700 {
+    color: #CBD5E0;
+}
+
+body.dark .text-gray-600 {
+    color: #A0AEC0;
+}
+
+body.dark .border-gray-200 {
+    border-color: #4A5568;
+}
+
+body.dark .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .hover\\:bg-gray-100:hover {
+    background-color: #4A5568;
+}
+
+/* Specific dark mode adjustments for elements that don't auto-darken */
+body.dark .dark\\:bg-gray-800 { background-color: #2D3748 !important; }
+body.dark .dark\\:text-blue-400 { color: #90CDF4 !important; }
+body.dark .dark\\:text-gray-400 { color: #A0AEC0 !important; }
+body.dark .dark\\:border-gray-600 { border-color: #4A5568 !important; }
+body.dark .dark\\:hover\\:text-gray-200:hover { color: #E2E8F0 !important; }
+body.dark .dark\\:text-gray-300 { color: #CBD5E0 !important; }
+
+/* Styles for the dark/light mode toggle */
+.theme-switch {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 9999px; /* Pill shape */
+    background-color: #E2E8F0; /* Light background for switch */
+    border: 1px solid #CBD5E0;
+    transition: all 0.3s ease;
+}
+
+.dark .theme-switch {
+    background-color: #4A5568; /* Darker background for switch */
+    border: 1px solid #2D3748;
+}
+
+.theme-switch .icon {
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.theme-switch .icon.sun {
+    color: #F6E05E; /* Yellow for sun */
+}
+
+.theme-switch .icon.moon {
+    color: #A0AEC0; /* Lighter gray for moon */
+}
+
+.theme-switch.dark .icon.sun {
+    color: #CBD5E0; /* Dim sun in dark mode */
+}
+
+.theme-switch.dark .icon.moon {
+    color: #F6E05E; /* Bright moon in dark mode */
+}
+
+.theme-switch:hover {
+    background-color: #CBD5E0;
+}
+
+.dark .theme-switch:hover {
+    background-color: #6B7280;
 }
