@@ -3,71 +3,92 @@
 
 {% block title %}{{ topic_title }} Exam - SkillCertify{% endblock %}
 
+{# CHANGE 1: This block should be 'header' to override the base header. #}
+{% block header %}
+<!-- This template hosts the single-page application for the exam. -->
+<!-- The SPA has its own header, which is now correctly placed. -->
+<header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <h1 id="header-title" class="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-400">{{ topic_title }}
+            Exam</h1>
+        <div id="timer-container" class="text-center invisible">
+            <div class="text-sm text-gray-500 dark:text-gray-400">Time Remaining</div>
+            <div id="timer" class="text-2xl font-mono font-bold text-red-600 dark:text-red-400">90:00</div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
+{# CHANGE 2: This is now the one and only 'content' block for this template. #}
 {% block content %}
-    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40 mb-6">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 id="header-title" class="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-400">{{ topic_title }} Exam</h1>
-            <div id="timer-container" class="text-center invisible">
-                <div class="text-sm text-gray-500 dark:text-gray-400">Time Remaining</div>
-                <div id="timer" class="text-2xl font-mono font-bold text-red-600 dark:text-red-400">90:00</div>
-            </div>
+
+<!-- Screen 1: Set Selection -->
+<div id="set-selection-screen">
+    <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-white">Choose an Exam Set</h2>
+    <div id="set-selection-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div>
+
+<!-- Screen 2: Exam Start Confirmation -->
+<div id="exam-start-screen" class="hidden text-center py-10 relative">
+    {{ ui_components.button('← Back to Sets', style='secondary', id='back-to-sets-start-btn', classes='absolute top-0
+    left-0 text-sm') }}
+    <h2 id="start-screen-title" class="text-3xl font-bold mb-4 text-gray-800 dark:text-white"></h2>
+    <p id="start-screen-details" class="text-lg text-gray-600 dark:text-gray-400 mb-8"></p>
+    {{ ui_components.button('Start Exam', style='primary', id='start-exam-btn') }}
+</div>
+
+
+<!-- Screen 3: The Live Exam -->
+<div id="exam-screen" class="hidden">
+    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div class="flex justify-between items-center mb-4">
+            <h2 id="question-counter" class="text-lg font-semibold text-gray-600 dark:text-gray-400"></h2>
+            {{ ui_components.button('← Back to Sets', style='secondary', id='back-to-sets-exam-btn', classes='!px-3
+            !py-1 text-sm') }}
         </div>
-    </header>
+        <div id="question-text" class="text-xl font-medium mb-6 text-gray-900 dark:text-white"></div>
+        <div id="options-container" class="space-y-3"></div>
+    </div>
+    <div class="mt-6 flex justify-between items-center">
+        {{ ui_components.button('Previous', style='primary', id='prev-btn', disabled=True) }}
+        {{ ui_components.button('Finish Exam', style='danger', id='finish-exam-btn', disabled=True) }}
+        {{ ui_components.button('Next', style='primary', id='next-btn', disabled=True) }}
+    </div>
+</div>
 
-    <main class="container mx-auto">
-        <div id="set-selection-screen">
-            <h2 class="text-3xl font-bold mb-6 text-center dark:text-white">Choose an Exam Set</h2>
-            <div id="set-selection-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        </div>
+<!-- Screen 4: Post-Exam Message -->
+<div id="post-exam-screen" class="hidden text-center">
+    <h2 id="final-message" class="text-3xl font-bold mb-8 text-gray-800 dark:text-white"></h2>
+    {{ ui_components.button('View Detailed Report', style='success', id='view-solutions-btn', classes='text-xl') }}
+</div>
 
-        <div id="exam-start-screen" class="hidden text-center py-10 relative">
-            {{ ui_components.button('← Back to Sets', style='secondary', id='back-to-sets-start-btn', classes='absolute top-0 left-0 text-sm') }}
-            <h2 id="start-screen-title" class="text-3xl font-bold mb-4 dark:text-white"></h2>
-            <p id="start-screen-details" class="text-lg text-gray-600 dark:text-gray-400 mb-8"></p>
-            {{ ui_components.button('Start Exam', style='primary', id='start-exam-btn') }}
-        </div>
+<!-- Screen 5: The Detailed Report -->
+<div id="report-screen" class="hidden">
+    <div class="text-center mb-8">
+        <a href="{{ url_for('main.home') }}"
+           class="btn btn-secondary rounded-lg bg-blue-600 text-white !px-4 !py-1 text-sm float-left">← Back to
+            Topics</a> {# This button can also be converted to a macro if needed elsewhere #}
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-white">Exam Report</h2>
+        <p id="score-summary" class="text-2xl font-semibold mt-2 text-gray-700 dark:text-gray-300"></p>
+    </div>
+    <div id="report-container" class="space-y-4"></div>
+</div>
 
 
-        <div id="exam-screen" class="hidden">
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 id="question-counter" class="text-lg font-semibold text-gray-600 dark:text-gray-400"></h2>
-                    {{ ui_components.button('← Back to Sets', style='secondary', id='back-to-sets-exam-btn', classes='!px-3 !py-1 text-sm') }}
-                </div>
-                <div id="question-text" class="text-xl font-medium mb-6 dark:text-white"></div>
-                <div id="options-container" class="space-y-3"></div>
-            </div>
-            <div class="mt-6 flex justify-between items-center">
-                {{ ui_components.button('Previous', style='secondary', id='prev-btn', disabled=True) }}
-                {{ ui_components.button('Finish Exam', style='danger', id='finish-exam-btn', disabled=True) }}
-                {{ ui_components.button('Next', style='primary', id='next-btn', disabled=True) }}
-            </div>
-        </div>
-
-        <div id="post-exam-screen" class="hidden text-center">
-             <h2 id="final-message" class="text-3xl font-bold mb-8 dark:text-white"></h2>
-             {{ ui_components.button('View Detailed Report', style='success', id='view-solutions-btn', classes='text-xl') }}
-        </div>
-
-        <div id="report-screen" class="hidden">
-            <div class="text-center mb-8">
-                <a href="{{ url_for('main.home') }}" class="btn btn-secondary rounded-lg bg-blue-600 text-white !px-4 !py-1 text-sm float-left">← Back to Topics</a> {# This button can also be converted to a macro if needed elsewhere #}
-                <h2 class="text-3xl font-bold dark:text-white">Exam Report</h2>
-                <p id="score-summary" class="text-2xl font-semibold mt-2 dark:text-gray-300"></p>
-            </div>
-            <div id="report-container" class="space-y-4"></div>
-        </div>
-    </main>
-
-    {% include 'components/modal.html' %}
+<!-- Solution Modal -->
+{% include 'components/modal.html' %}
 {% endblock %}
 
 
 {% block scripts %}
-    <script>
-        window.EXAM_DATA = {{ all_sets_data_json | safe }};
-        window.TOPIC_TITLE = "{{ topic_title | e }}";
-    </script>
+<!-- This block will be populated with the script tags needed for the exam page -->
+<!-- 1. Data Island: Pass data from Flask/Jinja2 to the global window object -->
+<script>
+    window.EXAM_DATA = {{ all_sets_data_json | safe }};
+    window.TOPIC_TITLE = "{{ topic_title | e }}";
+</script>
 
-    <script src="{{ url_for('static', filename='js/exam.js') }}"></script>
+<!-- 2. Link to our external JavaScript file, which will use the data above -->
+<script src="{{ url_for('static', filename='js/exam.js') }}"></script>
 {% endblock %}
