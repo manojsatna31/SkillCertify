@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{# 1. Import the macro file and assign it a namespace ('components') #}
+{% import 'components/_macros.html' as components %}
+
+
+{% block title %}Select Your Topic - SkillCertify{% endblock %}
+
+
+{% block content %}
+<div class="text-center mb-10">
+    <h1 class="text-4xl font-bold text-gray-800">Welcome to SkillCertify</h1>
+    <p class="text-xl text-gray-600 mt-2">Choose a topic below to start your exam.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    {% for topic_id, topic_data in topics.items() %}
+      
+      {# 2. Call the macro like a function, passing the arguments. #}
+      {{ components.topic_card(id=topic_id, title=topic_data.title, description=topic_data.description) }}
+
+    {% else %}
+      <p class="text-center col-span-full text-gray-500">No topics are available. Please check your data folder and manifest file.</p>
+    {% endfor %}
+
+</div>
+{% endblock %}

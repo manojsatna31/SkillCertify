@@ -39,9 +39,34 @@
 </p>
 
 
-<!-- <p align="center"> 
+<!-- 
+<p align="center"> 
   <img src="img/SkillCertify.png" alt="SkillCertify Logo" width="600">
-</p> -->
+</p> 
+-->
+
+
+
+---
+## 📚 Table of Contents
+
+- [📌 Overview](#Overview)
+- [🚀 Beyond Certification: Your Interview Prep Powerhouse](#-beyond-certification-your-interview-prep-powerhouse)
+- [✨ Key Features](#-key-features)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [⚙️ Local Setup & Installation](#️-local-setup--installation)
+  - [1. Prerequisites](#1-prerequisites)
+  - [2. Clone the Repository](#2-clone-the-repository)
+  - [3. Set Up the Virtual Environment](#3-set-up-the-virtual-environment)
+  - [4. Install Dependencies](#4-install-dependencies)
+  - [5. Configure the Environment](#5-configure-the-environment)
+  - [6. Run the Application](#6-run-the-application)
+- [📝 How to Add New Exams](#-how-to-add-new-exams)
+- [🏗️ Project Architecture](#️-project-architecture)
+- [📜 License](#-license)
+
+---
+## 🧠 Overview
 
 **SkillCertify** is more than just a quiz platform; it's a comprehensive training ground designed to bridge the gap between theoretical knowledge and certified expertise. Built with a clean, modern, and highly performant tech stack, it provides a seamless and realistic exam simulation environment to help developers and practitioners achieve their career goals.
 
@@ -62,9 +87,11 @@ Technical interviews aren't just about knowing the answer; they're about demonst
 
 A quick walkthrough of the user experience, from selecting a topic to reviewing the final report. -->
 
-<!-- <p align="center">
+<!-- 
+<p align="center">
   <img src="https://raw.githubusercontent.com/Manoj-1996-m/SkillCertify/main/demo.gif" alt="SkillCertify Live Demo GIF" width="800">
-</p> -->
+</p> 
+-->
 
 ---
 
@@ -190,27 +217,54 @@ The platform's content is 100% data-driven. Here’s how to add a new exam topic
 The project follows a standard Flask application structure for scalability and separation of concerns.
 
 ```
-SkillCertify/
-├── data/
-│   ├── topics_manifest.json  # <-- Central index of all topics
-│   └── ...                   # <-- Question data files
-├── q_bank_app/
-│   ├── __init__.py           # Application factory (create_app)
-│   ├── routes.py             # App routes (Blueprint)
-│   ├── static/
-│   │   ├── css/main.css      # Custom Tailwind styles
-│   │   ├── js/exam.js        # Frontend exam logic
-│   │   └── icons/svg/        # SVG icons for topic cards
-│   └── templates/
-│       ├── base.html         # Master layout template
-│       ├── components/       # Reusable template partials
-│       └── pages/            # Main page templates
-├── .env                      # Local environment variables
-├── config.py                 # Configuration loader
-├── question_bank.py          # Dynamic data loader
-├── requirements.txt          # Python dependencies
-├── run.py                    # Application entry point
-└── README.md                 # This file
+📁 SkillCertify/
+├── 🧠 core_config/                     # App-wide configuration & logging setup
+│   ├── 🗂️ logging/                     # Logging YAMLs for each environment
+│   │   ├── 📝 logging_dev.yml
+│   │   ├── 🛡️ logging_prod.yml
+│   │   ├── 🧪 logging_test.yml
+│   ├── 📦 __init__.py                 # Makes Config and LoggerUtility importable
+│   ├── ⚙️ config.py                   # Loads env variables, constants, directory paths
+│   └── 🧾 logger_util.py              # Initializes structured logging
+|
+├── 📂 data/                           # Question bank source files
+│   ├── 🗃️ topics_manifest.json        # JSON index of all topics
+│   └── 📄 *.json                      # Topic-specific exam data files (e.g., ai_basics.json)
+|
+├── 🖼️ img/                            # Static images (banners, headers, diagrams)
+|
+├── 🚀 skillcertify_web_app/           # Flask application and runtime logic
+│   ├── 📦 __init__.py                 # App factory access point and global preload
+│   ├── 🔄 data_loader/                # Loads question sets into Q_BANK at startup
+│   │   ├── 📦 __init__.py
+│   │   └── 📂 question_bank_loader.py # Parses exam sets and formats into memory
+│   ├── 🎨 static/                     # Frontend assets (JS, CSS, SVGs)
+│   │   ├── 🧵 css/main.css            # Tailwind output or custom styles
+│   │   ├── ⚙️ js/exam.js              # Client-side quiz logic
+│   │   └── 🖍️ icons/svg/              # Reusable scalable vector UI assets
+│   ├── 🧱 templates/                  # Jinja2 view templates (HTML)
+│   │   ├── 🧩 base.html               # Primary layout template (includes header/footer)
+│   │   ├── 🪄 components/             # UI partials (used in many views)
+│   │   │   ├── ⚙️ _macros.html        # Helper macros for templating logic
+│   │   │   ├── 🔻 footer.html
+│   │   │   ├── 🔺 header.html
+│   │   │   └── 🪟 modal.html          # Generic dialog overlay
+│   │   ├── 🚨 errors/                 # Custom error screens
+│   │   │   └── 🚫 404.html            # Not Found error view
+│   │   ├── 🔣 macros/                 # Shared macro utilities
+│   │   │   └── 🧮 ui_macros.html      # UI buttons, looping widgets, etc.
+│   │   └── 🗂️ pages/                  # Full-screen pages
+│   │       ├── 🧪 exam.html           # Quiz UI and dynamic exam rendering
+│   │       └── 🏠 index.html          # Homepage with available topics
+│   └── 🧩 web_app/                    # Blueprint and route logic
+│       ├── 📦 __init__.py             # Blueprint registration for routes
+│       ├── 🌐 routes.py               # Route handlers for home, exam, fallback
+│       └── 🏗️ web_app.py              # App factory method and lifecycle glue
+|
+├── 🔐 .env                            # Environment variables for Flask & app config
+├── 📜 requirements.txt                # Python dependency lockfile
+├── 🏁 run.py                          # Startup CLI + logging bootstrap
+└── 📘 README.md                       # Project overview and setup instructions
 ```
 
 ---

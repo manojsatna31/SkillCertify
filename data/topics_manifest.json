@@ -1,0 +1,32 @@
+[
+  {
+    "topic_id": "java",
+    "filename": "java.json",
+    "title": "Java",
+    "description": "Core Java concepts, OOP, collections, and more."
+  },
+  {
+    "topic_id": "aws",
+    "filename": "AWS-AI-Practitioner.json",
+    "title": "AWS AI Practitioner",
+    "description": "Foundational concepts of AI/ML services on AWS."
+  },
+  {
+    "topic_id": "ReactAndNodejs",
+    "filename": "ReactAndNodeJs.json",
+    "title": "React And Nodejs",
+    "description": "Core concept on React and Nodejs"
+  },
+  {
+    "topic_id": "Spring-Boot",
+    "filename": "SpringBoot.json",
+    "title": "Spring Boot",
+    "description": "Core concept on Spring Boot"
+  },
+  {
+    "topic_id": "Hibernate-Spring-jpa",
+    "filename": "Hibernate-Spring-Jpa.json",
+    "title": "Hibernate And Spring Jpa",
+    "description": "Core concept on Hibernate and Spring Jpa"
+  }
+]

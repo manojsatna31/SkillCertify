@@ -1,0 +1,919 @@
+{
+  "exam_sets": [
+    {
+      "name": "Practice Set 1",
+      "questions": [
+        {
+          "id": "d1_q001_s1",
+          "domain": "Angular Fundamentals",
+          "difficulty": "Easy",
+          "question_text": "What command is used to create a new Angular application using the Angular CLI?",
+          "options": [
+            "A) ng new",
+            "B) ng init",
+            "C) ng start",
+            "D) ng generate"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `ng new` command initializes a new Angular workspace and scaffold a new Angular app. `ng init` is deprecated, `ng start` is not a valid command, and `ng generate` is used to scaffold components, services, etc."
+        },
+        {
+          "id": "d1_q002_s1",
+          "domain": "Components & Templates",
+          "difficulty": "Easy",
+          "question_text": "Which decorator marks a class as an Angular component and provides metadata about the component?",
+          "options": [
+            "A) @Injectable",
+            "B) @NgModule",
+            "C) @Component",
+            "D) @Directive"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`@Component` decorator is used to define an Angular component and its metadata, including the selector, template, and styles."
+        },
+        {
+          "id": "d1_q003_s1",
+          "domain": "Components & Templates",
+          "difficulty": "Easy",
+          "question_text": "In an Angular component template, how do you bind a property named `title` in the component class to an HTML element?",
+          "options": [
+            "A) {{ title }}",
+            "B) [title]",
+            "C) (title)",
+            "D) *title"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Interpolation using `{{ title }}` binds the component’s `title` property into the template’s HTML."
+        },
+        {
+          "id": "d1_q004_s1",
+          "domain": "Data Binding",
+          "difficulty": "Easy",
+          "question_text": "Which syntax is used for two-way data binding in Angular forms?",
+          "options": [
+            "A) [( )]",
+            "B) {{} }",
+            "C) [()]",
+            "D) (( ))"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The banana-in-a-box syntax `[()]` is used for two-way binding in Angular (e.g., `<input [(ngModel)]=\"value\">`)."
+        },
+        {
+          "id": "d1_q005_s1",
+          "domain": "Directives",
+          "difficulty": "Easy",
+          "question_text": "Which built-in structural directive is used to conditionally include or exclude a template?",
+          "options": [
+            "A) *ngFor",
+            "B) *ngIf",
+            "C) ngModel",
+            "D) ngClass"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`*ngIf` adds or removes elements from the DOM based on a boolean expression."
+        },
+        {
+          "id": "d1_q006_s1",
+          "domain": "Directives",
+          "difficulty": "Easy",
+          "question_text": "Which directive is used to repeat a template for each item in a collection?",
+          "options": [
+            "A) *ngSwitch",
+            "B) *ngFor",
+            "C) ngTemplate",
+            "D) ngRepeat"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`*ngFor` iterates over a list and renders the template for each item."
+        },
+        {
+          "id": "d1_q007_s1",
+          "domain": "Services & DI",
+          "difficulty": "Easy",
+          "question_text": "Which decorator marks a class as available for dependency injection?",
+          "options": [
+            "A) @Injectable",
+            "B) @Component",
+            "C) @Directive",
+            "D) @Pipe"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`@Injectable` tells Angular that the class can be used with the dependency injection system."
+        },
+        {
+          "id": "d1_q008_s1",
+          "domain": "Modules",
+          "difficulty": "Easy",
+          "question_text": "What is the root module of an Angular application by convention?",
+          "options": [
+            "A) AppModule",
+            "B) CoreModule",
+            "C) MainModule",
+            "D) RootModule"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "By convention, the root module is named `AppModule` and bootstraps the root component."
+        },
+        {
+          "id": "d1_q009_s1",
+          "domain": "Routing",
+          "difficulty": "Easy",
+          "question_text": "Which module is required to configure routing in an Angular application?",
+          "options": [
+            "A) BrowserModule",
+            "B) RouterModule",
+            "C) HttpClientModule",
+            "D) FormsModule"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`RouterModule` provides directives and services for routing and navigation."
+        },
+        {
+          "id": "d1_q010_s1",
+          "domain": "Forms",
+          "difficulty": "Easy",
+          "question_text": "Which Angular module do you import to work with template-driven forms?",
+          "options": [
+            "A) ReactiveFormsModule",
+            "B) FormsModule",
+            "C) NgModelModule",
+            "D) FormGroupModule"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`FormsModule` contains the directives and providers to work with template-driven forms, including `ngModel`."
+        },
+        {
+          "id": "d1_q011_s1",
+          "domain": "HTTP Client",
+          "difficulty": "Easy",
+          "question_text": "Which Angular service is used to make HTTP requests?",
+          "options": [
+            "A) HttpService",
+            "B) HttpClient",
+            "C) HttpModule",
+            "D) HttpRequest"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`HttpClient` from `@angular/common/http` is the primary service for making HTTP requests."
+        },
+        {
+          "id": "d1_q012_s1",
+          "domain": "Pipes",
+          "difficulty": "Easy",
+          "question_text": "Which built-in pipe would you use to format a date?",
+          "options": [
+            "A) uppercase",
+            "B) date",
+            "C) currency",
+            "D) json"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `date` pipe formats a date value according to locale rules."
+        },
+        {
+          "id": "d1_q013_s1",
+          "domain": "Pipes",
+          "difficulty": "Easy",
+          "question_text": "How do you apply a pipe in a template to transform a value?",
+          "options": [
+            "A) {{ value | pipeName }}",
+            "B) {{ pipeName(value) }}",
+            "C) [value | pipeName]",
+            "D) (value | pipeName)"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Use the pipe operator `|` inside interpolation to apply a pipe to a value."
+        },
+        {
+          "id": "d1_q014_s1",
+          "domain": "Lifecycle Hooks",
+          "difficulty": "Easy",
+          "question_text": "Which lifecycle hook is called once after the first `ngOnChanges`?",
+          "options": [
+            "A) ngOnInit",
+            "B) ngAfterViewInit",
+            "C) ngDoCheck",
+            "D) ngAfterContentInit"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`ngOnInit` is called once after the first `ngOnChanges` and is a good place to perform component initialization."
+        },
+        {
+          "id": "d1_q015_s1",
+          "domain": "Lifecycle Hooks",
+          "difficulty": "Easy",
+          "question_text": "Which hook is called when the component’s view has been fully initialized?",
+          "options": [
+            "A) ngAfterContentChecked",
+            "B) ngAfterViewChecked",
+            "C) ngAfterViewInit",
+            "D) ngAfterContentInit"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`ngAfterViewInit` is called after Angular initializes the component’s views and child views."
+        },
+        {
+          "id": "d1_q016_s1",
+          "domain": "Dependency Injection",
+          "difficulty": "Medium",
+          "question_text": "How do you provide a service at the root level, making it a singleton application-wide?",
+          "options": [
+            "A) Add it to providers in `@Component`",
+            "B) Add it to `providers` array in AppModule",
+            "C) Use `providedIn: 'root'` in `@Injectable`",
+            "D) Declare it in `bootstrap` array"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Using `providedIn: 'root'` in the `@Injectable` decorator ensures the service is registered with the root injector as a singleton."
+        },
+        {
+          "id": "d1_q017_s1",
+          "domain": "Routing",
+          "difficulty": "Medium",
+          "question_text": "Which route configuration property allows you to lazy-load a module?",
+          "options": [
+            "A) loadChildren",
+            "B) component",
+            "C) children",
+            "D) outlet"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`loadChildren` is used in route configurations to lazy-load feature modules."
+        },
+        {
+          "id": "d1_q018_s1",
+          "domain": "Routing",
+          "difficulty": "Medium",
+          "question_text": "How would you guard a route so that only authenticated users can access it?",
+          "options": [
+            "A) Use `canActivate` with an AuthGuard",
+            "B) Use `canLoad` with an AuthGuard",
+            "C) Use `resolve` with an AuthGuard",
+            "D) Use `data` with an AuthGuard"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`canActivate` guard runs before activating the route and can prevent unauthorized access."
+        },
+        {
+          "id": "d1_q019_s1",
+          "domain": "Forms",
+          "difficulty": "Medium",
+          "question_text": "Which class represents a form control in a reactive form?",
+          "options": [
+            "A) FormGroup",
+            "B) FormControl",
+            "C) FormBuilder",
+            "D) NgForm"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`FormControl` tracks the value and validation status of an individual form element in reactive forms."
+        },
+        {
+          "id": "d1_q020_s1",
+          "domain": "Forms",
+          "difficulty": "Medium",
+          "question_text": "Which service helps build form controls in reactive forms?",
+          "options": [
+            "A) NgModel",
+            "B) FormArray",
+            "C) FormBuilder",
+            "D) Validators"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`FormBuilder` provides syntactic sugar that eases creation of `FormGroup`, `FormControl`, and `FormArray` objects."
+        },
+        {
+          "id": "d1_q021_s1",
+          "domain": "HTTP Client",
+          "difficulty": "Medium",
+          "question_text": "Which operator would you use to transform the HTTP response before subscribing?",
+          "options": [
+            "A) map",
+            "B) mergeMap",
+            "C) filter",
+            "D) take"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `map` operator from RxJS lets you transform the emitted HTTP response data before it reaches the subscriber."
+        },
+        {
+          "id": "d1_q022_s1",
+          "domain": "HTTP Client",
+          "difficulty": "Medium",
+          "question_text": "How do you globally handle HTTP errors for all requests made by HttpClient?",
+          "options": [
+            "A) Use HttpInterceptor",
+            "B) Catch error in each subscribe",
+            "C) Override HttpClient",
+            "D) Use a service wrapper"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "An `HttpInterceptor` can intercept all HTTP requests and responses to handle errors globally."
+        },
+        {
+          "id": "d1_q023_s1",
+          "domain": "Lifecycle Hooks",
+          "difficulty": "Medium",
+          "question_text": "Which hook is called every time Angular performs change detection?",
+          "options": [
+            "A) ngOnChanges",
+            "B) ngDoCheck",
+            "C) ngAfterViewChecked",
+            "D) ngAfterContentChecked"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngDoCheck` is called with every change detection run, allowing custom change detection logic."
+        },
+        {
+          "id": "d1_q024_s1",
+          "domain": "Directives",
+          "difficulty": "Medium",
+          "question_text": "How do you create a structural directive that adds or removes elements?",
+          "options": [
+            "A) Use @Directive with selector starting with *",
+            "B) Use @Component",
+            "C) Use @Pipe",
+            "D) Use Renderer2 directly"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Structural directives use `@Directive` with a selector prefixed by `*` to manipulate the DOM structure."
+        },
+        {
+          "id": "d1_q025_s1",
+          "domain": "Pipes",
+          "difficulty": "Medium",
+          "question_text": "Which method must you implement when creating a custom pipe?",
+          "options": [
+            "A) transform",
+            "B) transformValue",
+            "C) write",
+            "D) apply"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Custom pipes implement the `PipeTransform` interface, which requires a `transform` method."
+        },
+        {
+          "id": "d1_q026_s1",
+          "domain": "Modules",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of a feature module in Angular?",
+          "options": [
+            "A) To bootstrap the application",
+            "B) To group related components, services, and directives",
+            "C) To replace the root module",
+            "D) To define routes only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Feature modules help organize related functionality (components, services, directives) into cohesive blocks."
+        },
+        {
+          "id": "d1_q027_s1",
+          "domain": "Routing",
+          "difficulty": "Medium",
+          "question_text": "Which property would you use to pass static data to a routed component?",
+          "options": [
+            "A) data",
+            "B) params",
+            "C) resolve",
+            "D) extras"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `data` property in route configuration provides static data that can be injected into the activated component."
+        },
+        {
+          "id": "d1_q028_s1",
+          "domain": "Dependency Injection",
+          "difficulty": "Medium",
+          "question_text": "What is a hierarchical injector in Angular?",
+          "options": [
+            "A) An injector that only exists at root",
+            "B) A tree of injectors that resolve providers at various module/component levels",
+            "C) An injector that caches instances",
+            "D) An injector for directives only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Angular’s hierarchical injectors allow providers to be scoped at different levels (root, module, component) forming a tree structure."
+        },
+        {
+          "id": "d1_q029_s1",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "Which change detection strategy checks only when input properties change rather than on every event?",
+          "options": [
+            "A) Default",
+            "B) OnPush",
+            "C) Detached",
+            "D) Manual"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`OnPush` strategy only runs change detection when the component’s inputs change or an event originates from it."
+        },
+        {
+          "id": "d1_q030_s1",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "Which testing utility is provided by Angular to make HTTP testing easier?",
+          "options": [
+            "A) HttpClientTestingModule",
+            "B) HttpModule",
+            "C) HttpMockModule",
+            "D) HttpClientModule"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`HttpClientTestingModule` provides `HttpTestingController` to mock HTTP requests in unit tests."
+        },
+        {
+          "id": "d1_q031_s1",
+          "domain": "RxJS & Observables",
+          "difficulty": "Medium",
+          "question_text": "Which RxJS function creates an observable from an array?",
+          "options": [
+            "A) of",
+            "B) from",
+            "C) defer",
+            "D) create"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`from` converts an array (or iterable) into an observable sequence emitting each item."
+        },
+        {
+          "id": "d1_q032_s1",
+          "domain": "RxJS & Observables",
+          "difficulty": "Medium",
+          "question_text": "How do you unsubscribe from an observable to prevent memory leaks?",
+          "options": [
+            "A) observable.cancel()",
+            "B) subscription.unsubscribe()",
+            "C) subscription.complete()",
+            "D) observable.stop()"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Calling `unsubscribe()` on the Subscription stops notifications and prevents memory leaks."
+        },
+        {
+          "id": "d1_q033_s1",
+          "domain": "Advanced Components",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of `ngTemplateOutlet`?",
+          "options": [
+            "A) To render dynamic components",
+            "B) To embed an `<ng-template>` into the view",
+            "C) To apply styles",
+            "D) To perform routing"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngTemplateOutlet` inserts an `<ng-template>` reference into the DOM at runtime."
+        },
+        {
+          "id": "d1_q034_s1",
+          "domain": "Advanced Components",
+          "difficulty": "Medium",
+          "question_text": "Which metadata property of `@Component` allows you to define inline styles?",
+          "options": [
+            "A) styleUrls",
+            "B) styles",
+            "C) css",
+            "D) inlineStyles"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `styles` property accepts an array of inline CSS strings to apply directly to the component."
+        },
+        {
+          "id": "d1_q035_s1",
+          "domain": "Modules",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the `forRoot()` pattern in Angular modules?",
+          "options": [
+            "A) To configure providers that should be singletons",
+            "B) To lazy-load a module",
+            "C) To export components",
+            "D) To define routing"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `forRoot()` static method convention returns a module configured with providers that should be instantiated once (singleton)."
+        },
+        {
+          "id": "d1_q036_s1",
+          "domain": "Routing",
+          "difficulty": "Hard",
+          "question_text": "How can you preload feature modules after the app has bootstrapped?",
+          "options": [
+            "A) Using `preloadAllModules` strategy",
+            "B) Manually importing modules in AppModule",
+            "C) Using `canLoad` guards",
+            "D) Using `data` on routes"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Setting `PreloadAllModules` in RouterModule’s configuration preloads lazy-loaded modules in the background."
+        },
+        {
+          "id": "d1_q037_s1",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "Which tool can you use to analyze bundle size and optimize an Angular application?",
+          "options": [
+            "A) Webpack Bundle Analyzer",
+            "B) Angular Service Worker",
+            "C) Protractor",
+            "D) TSLint"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Webpack Bundle Analyzer visualizes the size of webpack output files to help identify optimization opportunities."
+        },
+        {
+          "id": "d1_q038_s1",
+          "domain": "Internationalization",
+          "difficulty": "Hard",
+          "question_text": "Which Angular feature allows you to mark text for translation in templates?",
+          "options": [
+            "A) i18n attribute",
+            "B) translate pipe",
+            "C) ngLocale",
+            "D) @Translate decorator"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Using the `i18n` attribute in templates marks text for extraction and translation."
+        },
+        {
+          "id": "d1_q039_s1",
+          "domain": "Security",
+          "difficulty": "Hard",
+          "question_text": "How does Angular protect against Cross-Site Scripting (XSS) by default?",
+          "options": [
+            "A) Automatically escaping interpolated values",
+            "B) Sanitizing all HTTP responses",
+            "C) Using Content Security Policy header",
+            "D) Disabling user input"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Angular automatically escapes potentially dangerous values in templates to prevent XSS attacks."
+        },
+        {
+          "id": "d1_q040_s1",
+          "domain": "Security",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of DomSanitizer in Angular?",
+          "options": [
+            "A) To bypass Angular’s security and trust a value",
+            "B) To sanitize HTML on the server",
+            "C) To encrypt data",
+            "D) To validate forms"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`DomSanitizer` allows you to mark values as trusted, bypassing Angular’s built-in security checks when necessary."
+        },
+        {
+          "id": "d1_q041_s1",
+          "domain": "Testing",
+          "difficulty": "Hard",
+          "question_text": "Which function in TestBed configures a testing module before creating components?",
+          "options": [
+            "A) configureTestingModule",
+            "B) initTestModule",
+            "C) setUp",
+            "D) beforeEachTest"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`TestBed.configureTestingModule()` sets up an Angular testing module with declarations, imports, and providers."
+        },
+        {
+          "id": "d1_q042_s1",
+          "domain": "Testing",
+          "difficulty": "Hard",
+          "question_text": "Which test utility selects an element from a fixture’s debug element by CSS selector?",
+          "options": [
+            "A) query",
+            "B) querySelector",
+            "C) queryAll",
+            "D) query(By.css)"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "`debugElement.query(By.css('selector'))` finds the first element matching the CSS selector in the component’s template."
+        },
+        {
+          "id": "d1_q043_s1",
+          "domain": "Advanced Dependency Injection",
+          "difficulty": "Hard",
+          "question_text": "What happens if you register the same provider at both a component and the root injector?",
+          "options": [
+            "A) Component-level provider overrides root",
+            "B) Root-level provider overrides component",
+            "C) Both instances are merged",
+            "D) Error thrown"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "A provider registered at the component level overrides the root provider for that component subtree."
+        },
+        {
+          "id": "d1_q044_s1",
+          "domain": "Animation",
+          "difficulty": "Hard",
+          "question_text": "Which module do you import to use Angular’s animation DSL?",
+          "options": [
+            "A) BrowserModule",
+            "B) BrowserAnimationsModule",
+            "C) AnimationModule",
+            "D) NoopAnimationsModule"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`BrowserAnimationsModule` enables Angular’s animation features in the browser."
+        },
+        {
+          "id": "d1_q045_s1",
+          "domain": "RxJS & Observables",
+          "difficulty": "Hard",
+          "question_text": "Which operator would you use to retry a failed HTTP request a specified number of times?",
+          "options": [
+            "A) retry",
+            "B) retryWhen",
+            "C) catchError",
+            "D) repeat"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`retry(n)` automatically re-subscribes to the source observable up to `n` times upon error."
+        },
+        {
+          "id": "d1_q046_s1",
+          "domain": "Change Detection",
+          "difficulty": "Hard",
+          "question_text": "How do you detach a component from the change detection tree manually?",
+          "options": [
+            "A) ChangeDetectorRef.detach()",
+            "B) ChangeDetectorRef.markForCheck()",
+            "C) ChangeDetectorRef.detectChanges()",
+            "D) ChangeDetectorRef.checkNoChanges()"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`detach()` removes the component’s ChangeDetectorRef from the detection tree, stopping automatic checks."
+        },
+        {
+          "id": "d1_q047_s1",
+          "domain": "Internationalization",
+          "difficulty": "Hard",
+          "question_text": "Which file format is used by Angular CLI to store translation strings?",
+          "options": [
+            "A) .json",
+            "B) .xlf",
+            "C) .po",
+            "D) .xml"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Angular uses the XLIFF (`.xlf`) format by default for i18n translation files."
+        },
+        {
+          "id": "d1_q048_s1",
+          "domain": "Security",
+          "difficulty": "Hard",
+          "question_text": "Which HTTP header can help mitigate clickjacking attacks in Angular apps?",
+          "options": [
+            "A) X-Frame-Options",
+            "B) Content-Security-Policy",
+            "C) X-XSS-Protection",
+            "D) Strict-Transport-Security"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`X-Frame-Options` header prevents the app from being framed, mitigating clickjacking risks."
+        },
+        {
+          "id": "d1_q049_s1",
+          "domain": "Modules",
+          "difficulty": "Hard",
+          "question_text": "What does the `exports` array in an NgModule do?",
+          "options": [
+            "A) Declares components",
+            "B) Makes components, directives, and pipes available to other modules",
+            "C) Registers providers",
+            "D) Imports external modules"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `exports` array controls which declarations (components, directives, pipes) are visible to consuming modules."
+        },
+        {
+          "id": "d1_q050_s1",
+          "domain": "Animations",
+          "difficulty": "Hard",
+          "question_text": "Which trigger metadata property defines a named animation.",
+          "options": [
+            "A) state",
+            "B) trigger",
+            "C) transition",
+            "D) style"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`trigger` defines an animation with a name and associated state/transition definitions."
+        },
+        {
+          "id": "d1_q051_s1",
+          "domain": "Routing Guards",
+          "difficulty": "Hard",
+          "question_text": "Which guard interface would you implement to prevent the router from destroying loaded child routes?",
+          "options": [
+            "A) CanActivateChild",
+            "B) CanDeactivate",
+            "C) CanLoad",
+            "D) CanActivate"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`CanDeactivate` checks before leaving a route, preventing destruction if it returns false."
+        },
+        {
+          "id": "d1_q052_s1",
+          "domain": "Schemas & Metadata",
+          "difficulty": "Hard",
+          "question_text": "Which metadata field in `@NgModule` allows non-Angular elements (custom elements)?",
+          "options": [
+            "A) schemas",
+            "B) declarations",
+            "C) imports",
+            "D) entryComponents"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `schemas` array can include `CUSTOM_ELEMENTS_SCHEMA` to allow use of custom elements in templates."
+        },
+        {
+          "id": "d1_q053_s1",
+          "domain": "PWA",
+          "difficulty": "Hard",
+          "question_text": "Which Angular CLI flag generates a service worker and PWA configuration?",
+          "options": [
+            "A) --pwa",
+            "B) --service-worker",
+            "C) --enable-pwa",
+            "D) --deploy-pwa"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`ng add @angular/pwa --project <name>` or `--pwa` flag adds service worker support and PWA manifest."
+        },
+        {
+          "id": "d1_q054_s1",
+          "domain": "Dependency Injection",
+          "difficulty": "Hard",
+          "question_text": "What token would you use to inject the document object in Angular?",
+          "options": [
+            "A) WINDOW",
+            "B) DOCUMENT",
+            "C) DOCUMENT_TOKEN",
+            "D) APP_DOCUMENT"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Angular provides the `DOCUMENT` injection token from `@angular/common` to inject the browser document object."
+        },
+        {
+          "id": "d1_q055_s1",
+          "domain": "Observables",
+          "difficulty": "Hard",
+          "question_text": "Which operator delays the source Observable by a given time?",
+          "options": [
+            "A) delay",
+            "B) debounceTime",
+            "C) throttleTime",
+            "D) bufferTime"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`delay` postpones the emissions of the source Observable by a given duration."
+        },
+        {
+          "id": "d1_q056_s1",
+          "domain": "Advanced Components",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of `ng-content` in Angular?",
+          "options": [
+            "A) To define a dynamic component location",
+            "B) To project external content into a component’s template",
+            "C) To iterate lists",
+            "D) To conditionally render elements"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`<ng-content>` acts as a placeholder in the component’s template for projected content from its parent."
+        },
+        {
+          "id": "d1_q057_s1",
+          "domain": "Internationalization",
+          "difficulty": "Hard",
+          "question_text": "Which CLI command extracts marked messages for translation into an XLIFF file?",
+          "options": [
+            "A) ng xi18n",
+            "B) ng i18n:extract",
+            "C) ng extract-i18n",
+            "D) ng translate:extract"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`ng extract-i18n` collects messages marked with the `i18n` attribute and writes them to a translation file."
+        },
+        {
+          "id": "d1_q058_s1",
+          "domain": "Security",
+          "difficulty": "Hard",
+          "question_text": "Which Angular feature helps mitigate CSRF attacks when making HTTP requests?",
+          "options": [
+            "A) HttpInterceptor with XSRF-TOKEN header",
+            "B) Sanitizing HTTP bodies",
+            "C) CORS configuration",
+            "D) Content Security Policy"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Angular’s `HttpClientXsrfModule` automatically adds an XSRF token header for CSRF protection."
+        },
+        {
+          "id": "d1_q059_s1",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "How can you optimize initial bundle load by splitting vendor code?",
+          "options": [
+            "A) Enable differential loading",
+            "B) Use lazy-loaded modules and separate vendor chunk",
+            "C) Use AoT compilation",
+            "D) Tree-shake only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Separating vendor code into its own chunk and lazy-loading feature modules reduces initial bundle size."
+        },
+        {
+          "id": "d1_q060_s1",
+          "domain": "Advanced Routing",
+          "difficulty": "Hard",
+          "question_text": "Which router event fires when navigation ends successfully?",
+          "options": [
+            "A) NavigationStart",
+            "B) NavigationEnd",
+            "C) RoutesRecognized",
+            "D) NavigationError"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`NavigationEnd` event is emitted by the router when navigation to a route completes successfully."
+        },
+        {
+          "id": "d1_q061_s1",
+          "domain": "Animations",
+          "difficulty": "Hard",
+          "question_text": "Which function defines a state transition in Angular animations DSL?",
+          "options": [
+            "A) state",
+            "B) animate",
+            "C) transition",
+            "D) keyframes"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`transition` declares the animation between two states, defining when and how to animate."
+        },
+        {
+          "id": "d1_q062_s1",
+          "domain": "Testing",
+          "difficulty": "Hard",
+          "question_text": "Which utility creates mock components and directives for shallow testing?",
+          "options": [
+            "A) ComponentFixture",
+            "B) NO_ERRORS_SCHEMA",
+            "C) MockBuilder",
+            "D) shallowRender"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`MockBuilder` from Angular’s testing utilities helps create mocks for components, directives, and modules."
+        },
+        {
+          "id": "d1_q063_s1",
+          "domain": "Dependency Injection",
+          "difficulty": "Hard",
+          "question_text": "Which decorator injects a value from an @NgModule `providers` array by token?",
+          "options": [
+            "A) @Injectable",
+            "B) @Optional",
+            "C) @Inject",
+            "D) @Self"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`@Inject(TOKEN)` lets you inject a dependency using a specific injection token from the providers."
+        },
+        {
+          "id": "d1_q064_s1",
+          "domain": "Release & Deployment",
+          "difficulty": "Hard",
+          "question_text": "Which Angular CLI command builds a production-ready bundle?",
+          "options": [
+            "A) ng serve --prod",
+            "B) ng build --prod",
+            "C) ng compile --prod",
+            "D) ng pack --prod"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ng build --prod` (now `--configuration production`) compiles and optimizes the app for production."
+        },
+        {
+          "id": "d1_q065_s1",
+          "domain": "Optimizations",
+          "difficulty": "Hard",
+          "question_text": "Which Angular compiler option reduces bundle size by removing Angular decorators?",
+          "options": [
+            "A) enableIvy",
+            "B) compileOnly",
+            "C) removeDecorators",
+            "D) buildOptimizer"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "The `buildOptimizer` option in the Angular CLI removes unnecessary Angular decorator metadata, reducing bundle size."
+        }
+      ]
+    }
+  ]
+}

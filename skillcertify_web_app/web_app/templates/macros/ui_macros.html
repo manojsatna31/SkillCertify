@@ -1,0 +1,46 @@
+{#
+  File: templates/macros/ui_macros.html
+  Purpose: Defines reusable functions (macros) for generating common UI elements.
+  - `button`: Creates a styled button.
+  - `set_selection_card`: Creates a card for the exam set selection screen.
+#}
+
+{#
+  Generates a styled button.
+  - text: The text displayed on the button.
+  - style: 'primary', 'secondary', 'danger', 'success'. Defaults to 'secondary'.
+  - id: The HTML id attribute.
+  - classes: Any additional CSS classes to apply.
+  - disabled: Boolean to set the disabled attribute.
+  - attributes: A string of any extra HTML attributes (e.g., 'data-foo="bar"').
+#}
+{% macro button(text, style='secondary', id=None, classes='', disabled=False, attributes='') %}
+    {% set style_map = {
+        'primary': 'btn-primary',
+        'danger': 'btn-danger',
+        'success': 'btn-success',
+        'secondary': 'btn-secondary'
+    } %}
+    <button
+        type="button"
+        {% if id %}id="{{ id }}"{% endif %}
+        class="btn disabled-btn {{ style_map.get(style, 'btn-secondary') }} {{ classes }}"
+        {% if disabled %}disabled{% endif %}
+        {{ attributes|safe }}
+    >
+        {{ text }}
+    </button>
+{% endmacro %}
+
+
+{#
+  Generates a card for the set selection screen.
+  - set_name: The key for the set (e.g., 'set_1').
+  - set_data: The dictionary containing set details like title and questions.
+#}
+{% macro set_selection_card(set_name, set_data) %}
+    <button class="set-choice-btn block w-full text-left p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transform transition-all" data-set-name="{{ set_name }}">
+        <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">{{ set_data.title }}</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">{{ set_data.questions|length }} questions</p>
+    </button>
+{% endmacro %}

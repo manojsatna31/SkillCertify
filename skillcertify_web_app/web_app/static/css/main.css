@@ -1,0 +1,23 @@
+/* Custom styles for the SkillCertify Application */
+
+.btn {
+    @apply px-6 py-2 font-semibold rounded-lg shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+.btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500;
+}
+.btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white focus:ring-red-500;
+}
+.btn-success {
+    @apply bg-green-600 hover:bg-green-700 text-white focus:ring-green-500;
+}
+.btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-500;
+}
+.disabled-btn {
+    @apply disabled:bg-gray-400 disabled:cursor-not-allowed disabled:shadow-none;
+}
+.modal {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
