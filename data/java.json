@@ -1,0 +1,1834 @@
+{
+    "exam_sets": [
+        {
+            "name": "Java Core & JVM Fundamentals - Practice Set 1",
+            "questions": [
+                {
+                    "id": "d5_q001_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Easy",
+                    "question_text": "Which JVM memory area stores method and class-level data, including the runtime constant pool?",
+                    "options": [
+                        "A) Heap Area",
+                        "B) Stack Area",
+                        "C) Method Area",
+                        "D) PC Register"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The Method Area is a shared runtime data area in the JVM that stores per-class structures such as the runtime constant pool, field and method data, and the code for methods and constructors. The Heap is for objects, the Stack is for thread-local method execution, and PC Registers track the current instruction."
+                },
+                {
+                    "id": "d5_q002_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Easy",
+                    "question_text": "What is the result of the expression `5 + 15 / 3 * 2 - 8 % 3` in Java?",
+                    "options": [
+                        "A) 13",
+                        "B) 11.67",
+                        "C) 7",
+                        "D) 15"
+                    ],
+                    "correct_answer_index": 0,
+                    "explanation": "Due to operator precedence, multiplication, division, and modulus are evaluated first from left to right. So, `15 / 3` is 5. Then `5 * 2` is 10. Then `8 % 3` is 2. The expression becomes `5 + 10 - 2`, which evaluates to 13."
+                },
+                {
+                    "id": "d5_q003_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "Which OOP principle allows a subclass to provide a specific implementation of a method that is already provided by its superclass?",
+                    "options": [
+                        "A) Encapsulation",
+                        "B) Inheritance",
+                        "C) Method Overriding (Polymorphism)",
+                        "D) Method Overloading"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Method overriding is a feature of runtime polymorphism in Java where a subclass provides a specific implementation for a method that is already defined in its parent class. This allows a class to inherit from a superclass whose behavior is 'close enough' and then modify behavior as needed."
+                },
+                {
+                    "id": "d5_q004_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is the primary purpose of the `Optional` class introduced in Java 8?",
+                    "options": [
+                        "A) To make methods optional to implement in an interface.",
+                        "B) To replace all uses of `null` in an application.",
+                        "C) To provide a type-safe container for a value that may be absent, helping to avoid NullPointerExceptions.",
+                        "D) To provide an optional, alternative implementation for a class."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `Optional` class is a container object which may or may not contain a non-null value. Its main purpose is to provide a better way to handle `null` values by making it explicit that a value may be absent, thus forcing developers to handle that case and reducing the risk of `NullPointerException`."
+                },
+                {
+                    "id": "d5_q005_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Easy",
+                    "question_text": "Which collection class is an ordered collection that allows duplicate elements and provides fast random access?",
+                    "options": [
+                        "A) HashSet",
+                        "B) LinkedList",
+                        "C) ArrayList",
+                        "D) TreeMap"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "`ArrayList` is an implementation of the `List` interface that is backed by a dynamic array. This allows for fast random access (O(1) time complexity) because elements can be accessed directly via their index. It maintains insertion order and allows duplicate elements."
+                },
+                {
+                    "id": "d5_q006_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Medium",
+                    "question_text": "What is the main difference between `Runnable` and `Callable` interfaces in Java concurrency?",
+                    "options": [
+                        "A) `Runnable` can return a value, while `Callable` cannot.",
+                        "B) `Callable` can return a value and throw a checked exception, while `Runnable` cannot.",
+                        "C) `Callable` is an older interface replaced by `Runnable`.",
+                        "D) `Runnable` tasks are executed by `ExecutorService`, while `Callable` tasks are not."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `Callable` interface is similar to `Runnable`, in that both are designed for classes whose instances are intended to be executed by another thread. However, a `Callable` can return a result (via a `Future` object) and is able to throw a checked exception, whereas the `run()` method of a `Runnable` has a `void` return type and cannot throw checked exceptions."
+                },
+                {
+                    "id": "d5_q007_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Medium",
+                    "question_text": "In the context of JVM garbage collection, what does a 'stop-the-world' pause mean?",
+                    "options": [
+                        "A) The entire JVM process is terminated and restarted.",
+                        "B) All application threads are paused while the garbage collection process runs.",
+                        "C) Only the thread that triggered the garbage collection is paused.",
+                        "D) The garbage collector stops collecting garbage to allow the application to run."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A 'stop-the-world' (STW) event is a phase during garbage collection where the JVM temporarily stops all running application threads to perform its memory cleanup tasks safely. The length of these pauses is a critical performance consideration for many applications."
+                },
+                {
+                    "id": "d5_q008_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Medium",
+                    "question_text": "Which access modifier restricts access to members of a class to the class itself, any subclasses, and other classes in the same package?",
+                    "options": [
+                        "A) public",
+                        "B) private",
+                        "C) protected",
+                        "D) default (package-private)"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `protected` access modifier makes a member accessible within its own package and also accessible to subclasses, even if they are in a different package. `private` is most restrictive, and `default` only allows access within the same package."
+                },
+                {
+                    "id": "d5_q009_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is a 'functional interface' in Java 8?",
+                    "options": [
+                        "A) An interface with only functional methods.",
+                        "B) An interface that can have only one method.",
+                        "C) Any interface used in a functional programming context.",
+                        "D) An interface that has exactly one abstract method (SAM)."
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "A functional interface is an interface that contains exactly one abstract method. They are also known as Single Abstract Method (SAM) interfaces. They can have multiple default or static methods. They are used as the target type for lambda expressions and method references."
+                },
+                {
+                    "id": "d5_q010_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Medium",
+                    "question_text": "What is a key difference between `HashMap` and `TreeMap`?",
+                    "options": [
+                        "A) `HashMap` allows null values, but `TreeMap` does not.",
+                        "B) `HashMap` stores key-value pairs, while `TreeMap` stores only keys.",
+                        "C) `HashMap` does not guarantee any order, while `TreeMap` maintains its entries in sorted order based on the natural ordering of keys or a provided Comparator.",
+                        "D) `TreeMap` is faster for lookups than `HashMap`."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The primary difference is ordering. `HashMap` makes no guarantees about the iteration order. `TreeMap`, on the other hand, is a `SortedMap` implementation that maintains its entries in ascending key order, which can be either the natural order of the keys or an order defined by a `Comparator`."
+                },
+                {
+                    "id": "d5_q011_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What does the `volatile` keyword in Java guarantee?",
+                    "options": [
+                        "A) It guarantees that operations on the variable are atomic.",
+                        "B) It guarantees that the variable is stored only in main memory, not in CPU caches.",
+                        "C) It guarantees visibility of changes to variables across threads.",
+                        "D) It guarantees both atomicity and visibility."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "`volatile` guarantees that any write to a volatile variable will be visible to any subsequent read by another thread. It ensures that reads and writes happen from/to main memory. However, it does NOT guarantee atomicity for compound operations like `i++`."
+                },
+                {
+                    "id": "d5_q012_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "What is the 'diamond problem' in the context of multiple inheritance, and how does Java 8+ address it for interfaces?",
+                    "options": [
+                        "A) It refers to the ambiguity when a class inherits from two classes with the same method; Java solves it by disallowing multiple class inheritance.",
+                        "B) It is a performance issue with diamond-shaped inheritance trees; Java solves it with optimized virtual method tables.",
+                        "C) It refers to the ambiguity when a class implements two interfaces with the same default method; Java requires the implementing class to provide its own implementation.",
+                        "D) Both A and C are correct."
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "The diamond problem arises when a class inherits from two superclasses that have a common ancestor. Java avoids this by not allowing multiple inheritance of classes. However, with default methods in interfaces (Java 8+), a similar issue can occur. If a class implements two interfaces that provide a default implementation for the same method, the compiler forces the implementing class to explicitly override the method to resolve the ambiguity."
+                },
+                {
+                    "id": "d5_q013_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Medium",
+                    "question_text": "What is the difference between `==` and the `.equals()` method when comparing objects in Java?",
+                    "options": [
+                        "A) `==` compares object content, while `.equals()` compares memory addresses.",
+                        "B) `==` compares memory addresses (reference equality), while `.equals()` is intended to compare object content (value equality).",
+                        "C) They are interchangeable and produce the same result.",
+                        "D) `.equals()` can only be used for String objects, while `==` can be used for any object."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `==` operator compares the memory locations of two objects to see if they are the exact same instance. The `.equals()` method, as defined in the `Object` class, also checks for reference equality by default. However, it is often overridden in classes (like `String`, `Integer`) to provide a 'logical' or 'value-based' equality check."
+                },
+                {
+                    "id": "d5_q014_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Hard",
+                    "question_text": "Which Garbage Collector became the default in Java 9, aiming for better pause time goals on multi-processor machines with large memory?",
+                    "options": [
+                        "A) Serial GC",
+                        "B) Parallel GC",
+                        "C) G1 (Garbage-First) GC",
+                        "D) ZGC"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "G1 (Garbage-First) GC was introduced to replace the Parallel GC as the default garbage collector in Java 9. It is designed for large heap sizes and aims to provide more predictable pause times by partitioning the heap into regions and collecting those with the most garbage first."
+                },
+                {
+                    "id": "d5_q015_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is a key feature of the Java 8 Stream API?",
+                    "options": [
+                        "A) It is a new type of I/O stream for files.",
+                        "B) It provides a way to process collections of data in a functional, declarative way, supporting operations like filter, map, and reduce.",
+                        "C) It is a new framework for streaming video and audio.",
+                        "D) It replaces the Collections Framework entirely."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The Stream API provides a sequence of elements supporting sequential and parallel aggregate operations. It allows for a functional style of programming for processing collections, which can lead to more concise and readable code compared to traditional loops. It does not store data; it pulls elements from a source through a pipeline of operations."
+                },
+                {
+                    "id": "d5_q016_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Medium",
+                    "question_text": "What is the main purpose of the `hashCode()` method in Java?",
+                    "options": [
+                        "A) To generate a unique ID for every object.",
+                        "B) To provide a cryptographic hash of an object's state.",
+                        "C) To support the efficient storage and retrieval of objects in hash-based collections like `HashMap` and `HashSet`.",
+                        "D) To return the memory address of an object."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `hashCode()` method is used by hash-based collections to determine the 'bucket' where an object should be stored. The contract between `hashCode()` and `equals()` is critical: if two objects are equal according to `equals()`, they MUST have the same hash code. This allows for efficient lookups."
+                },
+                {
+                    "id": "d5_q017_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is a `ReentrantLock` in `java.util.concurrent.locks`?",
+                    "options": [
+                        "A) A lock that can only be acquired once.",
+                        "B) A lock that automatically re-acquires itself after being released.",
+                        "C) A mutual exclusion lock that allows the same thread to acquire it multiple times without deadlocking.",
+                        "D) A lock that prevents re-entrant method calls."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "`ReentrantLock` implements the `Lock` interface and provides reentrant mutual exclusion. 'Reentrant' means that a thread that already holds the lock can acquire it again without blocking. It offers the same basic behavior as the `synchronized` keyword but with extended capabilities like fairness policies and interruptible lock acquisition."
+                },
+                {
+                    "id": "d5_q018_s1",
+                    "domain": "Exceptions",
+                    "difficulty": "Easy",
+                    "question_text": "What is the difference between a checked exception and an unchecked exception in Java?",
+                    "options": [
+                        "A) Checked exceptions occur at compile time, while unchecked exceptions occur at runtime.",
+                        "B) Checked exceptions must be declared in a method's `throws` clause or handled in a `try-catch` block, while unchecked exceptions do not have this requirement.",
+                        "C) Unchecked exceptions are subclasses of `Exception`, while checked exceptions are subclasses of `RuntimeException`.",
+                        "D) Checked exceptions are errors that cannot be recovered from."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The key difference is how the compiler handles them. Checked exceptions (subclasses of `Exception` but not `RuntimeException`) are subject to the 'Catch or Specify Requirement'. Unchecked exceptions (subclasses of `RuntimeException` or `Error`) are not, as they typically represent programming errors or unrecoverable conditions."
+                },
+                {
+                    "id": "d5_q019_s1",
+                    "domain": "Generics",
+                    "difficulty": "Medium",
+                    "question_text": "What is Type Erasure in Java Generics?",
+                    "options": [
+                        "A) A process where generic type information is added at runtime.",
+                        "B) A feature that allows generic types to be erased from memory after use.",
+                        "C) A process where the compiler removes generic type information and replaces it with casts to ensure backward compatibility.",
+                        "D) An error that occurs when a generic type cannot be inferred."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Type erasure is a mechanism in the Java compiler. It erases all generic type information at compile time, replacing type parameters with their bounds (or `Object` if unbounded) and inserting type casts where necessary. This was done to ensure that generic code could be compatible with legacy Java code written before generics were introduced."
+                },
+                {
+                    "id": "d5_q020_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Hard",
+                    "question_text": "What is the difference between an intermediate operation and a terminal operation in the Java Stream API?",
+                    "options": [
+                        "A) Intermediate operations are executed immediately, while terminal operations are lazy.",
+                        "B) Intermediate operations are lazy and return a new stream, while terminal operations trigger the processing and produce a result or side-effect.",
+                        "C) Intermediate operations can only be applied once, while terminal operations can be chained.",
+                        "D) Terminal operations always return a `void`."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Stream operations are divided into two categories. Intermediate operations (like `filter()`, `map()`) are lazy; they don't execute until a terminal operation is invoked. They return a new stream, allowing operations to be chained. Terminal operations (like `forEach()`, `collect()`, `count()`) start the processing of the stream and produce a final result or side-effect."
+                },
+                {
+                    "id": "d5_q021_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Easy",
+                    "question_text": "What is the default value of a boolean primitive type in Java?",
+                    "options": [
+                        "A) true",
+                        "B) false",
+                        "C) 0",
+                        "D) null"
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "In Java, if a boolean primitive type is declared as an instance or static variable without being initialized, it is assigned a default value of `false`. Local variables, however, must be explicitly initialized before use."
+                },
+                {
+                    "id": "d5_q022_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "Can a class be both `abstract` and `final` in Java?",
+                    "options": [
+                        "A) Yes, if it has at least one abstract method.",
+                        "B) Yes, but it's not a common practice.",
+                        "C) No, because `abstract` requires a class to be subclassed, while `final` prevents it.",
+                        "D) Only if the class is part of the `java.lang` package."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "A class cannot be declared as both `abstract` and `final`. The purpose of an `abstract` class is to be extended by subclasses, while the `final` keyword explicitly prohibits a class from being extended. These two concepts are mutually exclusive, and the compiler will report an error."
+                },
+                {
+                    "id": "d5_q023_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Medium",
+                    "question_text": "Which of these collections guarantees that the elements are processed in a First-In, First-Out (FIFO) manner?",
+                    "options": [
+                        "A) Stack",
+                        "B) PriorityQueue",
+                        "C) HashSet",
+                        "D) LinkedList (used as a Queue)"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "`LinkedList` implements the `Queue` interface and, when used as such (e.g., via its `add()` and `poll()` methods), provides a strict First-In, First-Out (FIFO) ordering. A `Stack` is LIFO (Last-In, First-Out), a `PriorityQueue` orders elements by priority, and a `HashSet` has no guaranteed order."
+                },
+                {
+                    "id": "d5_q024_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is a `CountDownLatch` used for in `java.util.concurrent`?",
+                    "options": [
+                        "A) To count down from a number and then stop the application.",
+                        "B) A synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes.",
+                        "C) A latch that prevents more than a certain number of threads from running.",
+                        "D) To count how many times a lock has been acquired."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "`CountDownLatch` is a synchronizer initialized with a count. Threads can call `await()` to block until the count reaches zero. Other threads call `countDown()` to decrement the count. It's useful for making a main thread wait for the completion of several worker threads."
+                },
+                {
+                    "id": "d5_q025_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Medium",
+                    "question_text": "What is the primary role of the JIT (Just-In-Time) compiler in the JVM?",
+                    "options": [
+                        "A) To compile `.java` files into `.class` files.",
+                        "B) To interpret bytecode line by line.",
+                        "C) To improve performance by compiling frequently executed bytecode into native machine code at runtime.",
+                        "D) To manage the garbage collection process."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The JIT compiler is a key component of the JVM's execution engine. It analyzes the bytecode as it runs and identifies 'hot spots' (frequently executed code). It then compiles these hot spots into optimized native machine code, which can be executed much faster than interpreted bytecode, significantly improving application performance."
+                },
+                {
+                    "id": "d5_q026_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Medium",
+                    "question_text": "Which method in the Stream API is a terminal operation that performs an action for each element of the stream?",
+                    "options": [
+                        "A) map()",
+                        "B) filter()",
+                        "C) forEach()",
+                        "D) peek()"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "`forEach()` is a terminal operation that consumes the stream and applies a provided `Consumer` to each element. `map()` and `filter()` are intermediate operations that return a new stream. `peek()` is also an intermediate operation used for debugging, as it performs an action on each element while still returning a new stream."
+                },
+                {
+                    "id": "d5_q027_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Hard",
+                    "question_text": "What is the difference between `String`, `StringBuilder`, and `StringBuffer`?",
+                    "options": [
+                        "A) `String` is mutable, while `StringBuilder` and `StringBuffer` are immutable.",
+                        "B) `String` is immutable; `StringBuffer` is mutable and thread-safe; `StringBuilder` is mutable but not thread-safe.",
+                        "C) `StringBuilder` is the fastest, `String` is the slowest.",
+                        "D) They are all mutable, but `StringBuffer` is synchronized."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The key distinction is mutability and thread safety. `String` objects are immutable. `StringBuffer` and `StringBuilder` represent mutable sequences of characters. `StringBuffer` is thread-safe (its methods are synchronized), making it suitable for multi-threaded environments but with a performance cost. `StringBuilder` is not thread-safe but is faster, making it the preferred choice for single-threaded string manipulation."
+                },
+                {
+                    "id": "d5_q028_s1",
+                    "domain": "Exceptions",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of the `finally` block in a `try-catch-finally` statement?",
+                    "options": [
+                        "A) To execute code only if an exception is caught.",
+                        "B) To execute code only if no exception occurs.",
+                        "C) To define the final exception type to be thrown.",
+                        "D) To execute cleanup code regardless of whether an exception was thrown or caught."
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "The `finally` block is guaranteed to be executed after the `try` block exits, whether an exception was thrown, caught, or not. Its primary purpose is for resource cleanup, such as closing files or database connections, to ensure that resources are released properly."
+                },
+                {
+                    "id": "d5_q029_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "What does it mean for a class to be 'immutable'?",
+                    "options": [
+                        "A) The class cannot be extended.",
+                        "B) The state of an object of that class cannot be modified after it is created.",
+                        "C) The class can only have static methods.",
+                        "D) The class cannot be instantiated."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "An immutable class is one whose instances cannot have their state changed after creation. This is typically achieved by making all fields `final` and `private`, not providing any setter methods, and ensuring that any mutable object fields are defensively copied. `String` is a classic example of an immutable class in Java."
+                },
+                {
+                    "id": "d5_q030_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Hard",
+                    "question_text": "What happens if you try to add a duplicate element to a `HashSet`?",
+                    "options": [
+                        "A) It throws a `DuplicateElementException`.",
+                        "B) The new element replaces the existing one.",
+                        "C) The operation is ignored, and the method returns `false`.",
+                        "D) The `HashSet` is converted into a `List` to allow duplicates."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `Set` interface, which `HashSet` implements, does not allow duplicate elements. The `add()` method of a `Set` returns a boolean value. If the element is not already present, it is added, and the method returns `true`. If the element already exists, the `add()` call does nothing and returns `false`."
+                },
+                {
+                    "id": "d5_q031_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Medium",
+                    "question_text": "A `StackOverflowError` is most likely caused by which of the following?",
+                    "options": [
+                        "A) Attempting to allocate an object that is too large for the Heap.",
+                        "B) An infinite loop that does not allocate memory.",
+                        "C) Deep or infinite recursion, causing too many method calls to be placed on the stack.",
+                        "D) Loading too many classes into the Method Area."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Each thread in a Java application has its own stack, which stores frames for each method invocation. A `StackOverflowError` is thrown when a thread's stack space is exhausted. This is typically caused by very deep or infinite recursion, where method calls are nested to a point that exceeds the stack's capacity."
+                },
+                {
+                    "id": "d5_q032_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "Which statement about Java constructors is true?",
+                    "options": [
+                        "A) A constructor can have a `void` return type.",
+                        "B) A constructor is inherited by subclasses.",
+                        "C) A constructor must have the same name as the class it is in.",
+                        "D) A class can have only one constructor."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "A constructor in Java is a special method used to initialize objects. It must have the exact same name as the class, and it does not have a return type, not even `void`. Constructors are not inherited, and a class can have multiple overloaded constructors."
+                },
+                {
+                    "id": "d5_q033_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Easy",
+                    "question_text": "Which new API was introduced in Java 8 for handling dates and times in a more robust and immutable way?",
+                    "options": [
+                        "A) java.util.Date",
+                        "B) java.util.Calendar",
+                        "C) java.time.LocalDate",
+                        "D) java.sql.Timestamp"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Java 8 introduced the new Date and Time API in the `java.time` package to address the shortcomings of the old `java.util.Date` and `java.util.Calendar` classes. Classes like `LocalDate`, `LocalTime`, and `ZonedDateTime` are immutable and thread-safe, providing a much cleaner API."
+                },
+                {
+                    "id": "d5_q034_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Medium",
+                    "question_text": "If you need a `List` implementation that is synchronized and thread-safe, which class would you use?",
+                    "options": [
+                        "A) ArrayList",
+                        "B) LinkedList",
+                        "C) Vector",
+                        "D) CopyOnWriteArrayList"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "`Vector` is a legacy class from Java 1.0 that is essentially a synchronized version of `ArrayList`. Its methods are synchronized, making it thread-safe but often with a performance penalty. `CopyOnWriteArrayList` is another thread-safe option, but `Vector` is the direct synchronized counterpart to `ArrayList`."
+                },
+                {
+                    "id": "d5_q035_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is the purpose of the `ExecutorService` framework?",
+                    "options": [
+                        "A) To execute operating system commands.",
+                        "B) To manage a pool of threads for executing tasks asynchronously, decoupling task submission from execution.",
+                        "C) To provide a service for discovering other services on the network.",
+                        "D) To execute scheduled tasks only at a fixed time."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `ExecutorService` framework, part of `java.util.concurrent`, provides a higher-level abstraction for managing threads. It allows you to create and manage thread pools, submit tasks (`Runnable` or `Callable`) for execution, and manage the lifecycle of the service. This decouples the business logic (the task) from the thread management."
+                },
+                {
+                    "id": "d5_q036_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Easy",
+                    "question_text": "Which keyword is used to prevent a method from being overridden by subclasses?",
+                    "options": [
+                        "A) static",
+                        "B) private",
+                        "C) final",
+                        "D) abstract"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `final` keyword can be applied to methods to indicate that they cannot be overridden by any subclass. This is used when you want to enforce a specific implementation throughout an inheritance hierarchy. `private` methods are implicitly final as they are not visible to subclasses."
+                },
+                {
+                    "id": "d5_q037_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "An interface in Java can contain which of the following?",
+                    "options": [
+                        "A) Only abstract methods.",
+                        "B) Only abstract methods and static final constants.",
+                        "C) Instance fields and constructors.",
+                        "D) Abstract methods, default methods, static methods, and static final constants."
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "Since Java 8, interfaces have become more powerful. They can contain abstract methods (which are the default), `static final` constants, `default` methods (with an implementation), and `static` methods (with an implementation). They cannot contain instance fields or constructors."
+                },
+                {
+                    "id": "d5_q038_s1",
+                    "domain": "Generics",
+                    "difficulty": "Hard",
+                    "question_text": "What does the declaration `List<? super Number>` mean in Java Generics?",
+                    "options": [
+                        "A) A list that can hold any object that is a superclass of Number.",
+                        "B) A list that can hold objects of type Number or any of its superclasses (like Object).",
+                        "C) A list that can hold objects of any type.",
+                        "D) A list that can hold objects of type Number or any of its subclasses (like Integer)."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "This is a lower-bounded wildcard. `List<? super Number>` means a list of some unknown type that is a superclass of `Number`. This could be a `List<Number>` or a `List<Object>`. This type of wildcard is often used when you want to add elements of type `Number` or its subtypes to the list."
+                },
+                {
+                    "id": "d5_q039_s1",
+                    "domain": "Exceptions",
+                    "difficulty": "Medium",
+                    "question_text": "What is the `try-with-resources` statement, introduced in Java 7?",
+                    "options": [
+                        "A) A `try` block that attempts to allocate resources from the operating system.",
+                        "B) A statement that ensures any resource implementing `AutoCloseable` is automatically closed at the end of the statement.",
+                        "C) A `try` block that can have multiple `catch` blocks.",
+                        "D) A way to try acquiring a lock on a resource."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `try-with-resources` statement is a `try` statement that declares one or more resources. A resource is an object that must be closed after the program is finished with it. The statement ensures that each resource is closed at the end of the statement's execution, which simplifies code and avoids resource leaks."
+                },
+                {
+                    "id": "d5_q040_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Medium",
+                    "question_text": "What is a 'race condition' in multithreading?",
+                    "options": [
+                        "A) When two threads run a race to see which finishes first.",
+                        "B) A condition where the system's substantive behavior depends on the sequence or timing of uncontrollable events.",
+                        "C) When a thread runs faster than the main application thread.",
+                        "D) An error that occurs when a thread pool runs out of threads."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A race condition is a concurrency bug that occurs when the outcome of a computation depends on the non-deterministic scheduling of two or more threads. It typically happens when multiple threads access and manipulate shared data concurrently, and the final result depends on the order in which their operations are executed."
+                },
+                {
+                    "id": "d5_q041_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Medium",
+                    "question_text": "What is the `this` keyword in Java used for?",
+                    "options": [
+                        "A) To create a new instance of the current class.",
+                        "B) To refer to a static member of the class.",
+                        "C) To refer to the current object instance from within one of its instance methods or constructors.",
+                        "D) To call a method in the superclass."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `this` keyword is a reference to the current object — the object whose method or constructor is being called. It can be used to disambiguate between instance variables and local variables, to call another constructor from within a constructor (constructor chaining), or to pass the current object as an argument."
+                },
+                {
+                    "id": "d5_q042_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of the `-Xmx` JVM flag?",
+                    "options": [
+                        "A) To set the initial size of the heap.",
+                        "B) To set the maximum size of the heap.",
+                        "C) To set the stack size for each thread.",
+                        "D) To set the size of the Metaspace."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `-Xmx` command-line option is used to specify the maximum heap size for the Java Virtual Machine. For example, `-Xmx512m` sets the maximum heap size to 512 megabytes. This is a critical tuning parameter for managing application memory."
+                },
+                {
+                    "id": "d5_q043_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "What is method overloading?",
+                    "options": [
+                        "A) Providing two different implementations for the same method in a superclass and subclass.",
+                        "B) Creating a method that can handle an excessive amount of data.",
+                        "C) A feature that allows a class to have more than one method with the same name, as long as their parameter lists are different.",
+                        "D) Overriding the default behavior of a method from the `Object` class."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Method overloading, or compile-time polymorphism, allows multiple methods in the same class to share the same name, provided they have different numbers or types of parameters. The compiler determines which version of the method to call based on the arguments provided."
+                },
+                {
+                    "id": "d5_q044_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Medium",
+                    "question_text": "Which of these is NOT a valid terminal operation in the Java Stream API?",
+                    "options": [
+                        "A) collect()",
+                        "B) count()",
+                        "C) map()",
+                        "D) reduce()"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "`map()` is an intermediate operation. It transforms each element of a stream and returns a new stream containing the transformed elements. `collect()`, `count()`, and `reduce()` are all terminal operations that consume the stream and produce a result."
+                },
+                {
+                    "id": "d5_q045_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Medium",
+                    "question_text": "What is the primary difference between an `Iterator` and an `ListIterator`?",
+                    "options": [
+                        "A) `Iterator` can only traverse forward, while `ListIterator` can traverse both forward and backward.",
+                        "B) `Iterator` can modify the collection, while `ListIterator` cannot.",
+                        "C) `ListIterator` is faster than `Iterator`.",
+                        "D) `Iterator` is for `Set`, and `ListIterator` is for `List`."
+                    ],
+                    "correct_answer_index": 0,
+                    "explanation": "`ListIterator` is an extension of `Iterator` specifically for `List` implementations. It provides additional functionality, including bidirectional traversal (using `hasPrevious()` and `previous()`), the ability to modify the list (`add()`, `set()`), and access to the element's index."
+                },
+                {
+                    "id": "d5_q046_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is a `Semaphore` in Java concurrency used for?",
+                    "options": [
+                        "A) To send signals between threads.",
+                        "B) A lock that can be acquired by multiple threads at the same time.",
+                        "C) To control access to a shared resource through the use of a counter or a set of permits.",
+                        "D) To create a semaphore-style signal light in a GUI."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "A `Semaphore` maintains a set of permits. Threads acquire a permit to access a resource and release it when they are done. If no permit is available, the thread blocks until one is released. This is a classic way to limit the number of threads that can access a resource concurrently."
+                },
+                {
+                    "id": "d5_q047_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Medium",
+                    "question_text": "What will be the output of `System.out.println('j' + 'a' + 'v' + 'a');`?",
+                    "options": [
+                        "A) java",
+                        "B) The code will not compile.",
+                        "C) 418",
+                        "D) j a v a"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "In Java, when the `+` operator is used with `char` primitives, it performs arithmetic addition based on their ASCII/Unicode values, not string concatenation. The ASCII values for 'j', 'a', 'v', 'a' are 106, 97, 118, 97. Their sum is 418. To get 'java', you would need to start with an empty string: `\"\" + 'j' + 'a' + 'v' + 'a'`."
+                },
+                {
+                    "id": "d5_q048_s1",
+                    "domain": "Exceptions",
+                    "difficulty": "Easy",
+                    "question_text": "Which class is the superclass for all errors and exceptions in the Java language?",
+                    "options": [
+                        "A) Exception",
+                        "B) RuntimeException",
+                        "C) Error",
+                        "D) Throwable"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "The `Throwable` class is the root of Java's exception hierarchy. Only objects that are instances of this class (or one of its subclasses) are thrown by the JVM or can be thrown by the Java `throw` statement. `Exception` and `Error` are the two main direct subclasses of `Throwable`."
+                },
+                {
+                    "id": "d5_q049_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Medium",
+                    "question_text": "In the Classloader subsystem, what is the 'delegation model'?",
+                    "options": [
+                        "A) A model where the JVM delegates task execution to the operating system.",
+                        "B) A model where a classloader delegates the request to load a class to its parent classloader before attempting to load it itself.",
+                        "C) A model where memory allocation is delegated to the garbage collector.",
+                        "D) A model where child classloaders can override classes loaded by parent classloaders."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The delegation model is a core principle of Java's classloading mechanism. To load a class, a classloader first delegates the search to its parent classloader. This process continues up the hierarchy. This prevents the same class from being loaded multiple times and ensures that core Java classes are loaded by the trusted Bootstrap Classloader, which enhances security."
+                },
+                {
+                    "id": "d5_q050_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "Which of these is NOT a principle of Object-Oriented Programming?",
+                    "options": [
+                        "A) Inheritance",
+                        "B) Encapsulation",
+                        "C) Polymorphism",
+                        "D) Normalization"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "Inheritance, Encapsulation, and Polymorphism are three of the four major principles of OOP (the fourth being Abstraction). Normalization is a concept related to database design, aimed at reducing data redundancy and improving data integrity."
+                },
+                {
+                    "id": "d5_q051_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Medium",
+                    "question_text": "How do you create a parallel stream from a collection in Java 8?",
+                    "options": [
+                        "A) By using the `new ParallelStream()` constructor.",
+                        "B) By calling the `.parallelStream()` method on the collection.",
+                        "C) By annotating the stream with `@Parallel`.",
+                        "D) All streams are parallel by default."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `Collection` interface in Java 8 was enhanced with the `parallelStream()` method, which returns a possibly parallel `Stream` with the collection as its source. This is the standard way to leverage multi-core processors for stream operations."
+                },
+                {
+                    "id": "d5_q052_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Hard",
+                    "question_text": "What is the initial default capacity of an `ArrayList` if created with the no-argument constructor?",
+                    "options": [
+                        "A) 16",
+                        "B) 0, but the internal array is initialized to a capacity of 10 on the first element addition.",
+                        "C) 10",
+                        "D) 1"
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Since Java 7, creating an `ArrayList` with its no-arg constructor results in an empty internal array. The capacity is lazily initialized to a default of 10 only when the first element is added. This is a small optimization to save memory if the list is created but never used."
+                },
+                {
+                    "id": "d5_q053_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "Which of the following is an example of a 'deadlock'?",
+                    "options": [
+                        "A) When a thread runs indefinitely without releasing resources.",
+                        "B) When two or more threads are blocked forever, each waiting for the other to release a resource.",
+                        "C) When a thread's priority is too low to get CPU time.",
+                        "D) When a thread tries to acquire a lock that it already holds."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A deadlock is a classic concurrency problem where two or more threads are stuck in a state of mutual waiting. For example, Thread A holds Lock 1 and is waiting for Lock 2, while Thread B holds Lock 2 and is waiting for Lock 1. Neither can proceed, and they will be blocked indefinitely."
+                },
+                {
+                    "id": "d5_q054_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of the `static` keyword in Java?",
+                    "options": [
+                        "A) To make a variable or method belong to an instance of a class, rather than the class itself.",
+                        "B) To make a variable constant and unchangeable.",
+                        "C) To make a variable or method belong to the class, rather than to any specific instance of the class.",
+                        "D) To indicate that a method cannot be inherited."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `static` keyword indicates that the particular member belongs to the type itself, rather than to an instance of that type. This means you can access static members without creating an object of the class. There is only one copy of a static member, shared among all instances of the class."
+                },
+                {
+                    "id": "d5_q055_s1",
+                    "domain": "Generics",
+                    "difficulty": "Medium",
+                    "question_text": "Why were Generics introduced in Java 5?",
+                    "options": [
+                        "A) To improve the performance of collections.",
+                        "B) To allow collections to store primitive types directly.",
+                        "C) To provide compile-time type safety for collections and eliminate the need for casting.",
+                        "D) To add new types of collections to the framework."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The primary motivation for adding generics to Java was to provide stronger type checks at compile time. Before generics, collections stored objects of type `Object`, requiring developers to manually cast them back to their original type, which was error-prone. Generics allow you to specify the type of objects a collection can hold, and the compiler enforces this, catching errors early."
+                },
+                {
+                    "id": "d5_q056_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Hard",
+                    "question_text": "What is the difference between composition and inheritance?",
+                    "options": [
+                        "A) Composition is a 'has-a' relationship, while inheritance is an 'is-a' relationship.",
+                        "B) Inheritance is a 'has-a' relationship, while composition is an 'is-a' relationship.",
+                        "C) Composition is used for code reuse, while inheritance is not.",
+                        "D) They are different terms for the same concept."
+                    ],
+                    "correct_answer_index": 0,
+                    "explanation": "This is a fundamental design principle. Inheritance represents an 'is-a' relationship (e.g., a `Dog` is an `Animal`). Composition represents a 'has-a' relationship (e.g., a `Car` has an `Engine`). The common design advice 'favor composition over inheritance' suggests that it is often more flexible to build classes by composing them from other classes rather than inheriting from them."
+                },
+                {
+                    "id": "d5_q057_s1",
+                    "domain": "JVM Architecture",
+                    "difficulty": "Medium",
+                    "question_text": "What is stored in a thread's Program Counter (PC) Register?",
+                    "options": [
+                        "A) The total number of instructions executed by the thread.",
+                        "B) The memory address of the next bytecode instruction to be executed.",
+                        "C) A pointer to the thread's current stack frame.",
+                        "D) The priority level of the thread."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The PC Register is a small, per-thread memory area that contains the address of the Java Virtual Machine instruction currently being executed. If the method is native, the value of the PC register is undefined."
+                },
+                {
+                    "id": "d5_q058_s1",
+                    "domain": "Java 8 Features",
+                    "difficulty": "Medium",
+                    "question_text": "A lambda expression in Java can be used to provide an implementation for which type of interface?",
+                    "options": [
+                        "A) Any interface.",
+                        "B) A marker interface (an interface with no methods).",
+                        "C) A functional interface (an interface with a single abstract method).",
+                        "D) Only interfaces from the `java.util.function` package."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Lambda expressions provide a concise way to implement the single abstract method of a functional interface. The compiler can infer the method signature from the context in which the lambda is used, making the code much more compact."
+                },
+                {
+                    "id": "d5_q059_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Hard",
+                    "question_text": "What is a `ConcurrentModificationException`?",
+                    "options": [
+                        "A) An exception thrown when two threads modify a file at the same time.",
+                        "B) An exception thrown when a collection is modified while it is being iterated over in a way that is not permitted by the iterator.",
+                        "C) A checked exception that must be handled when using concurrent collections.",
+                        "D) An exception thrown when modifying a `final` collection."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "This exception is thrown by 'fail-fast' iterators (like those for `ArrayList` and `HashMap`) if they detect that the underlying collection has been structurally modified (e.g., an element was added or removed) by a means other than the iterator's own `remove()` method during iteration."
+                },
+                {
+                    "id": "d5_q060_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "How can you create a daemon thread in Java?",
+                    "options": [
+                        "A) By extending the `DaemonThread` class.",
+                        "B) By passing `true` to the `setDaemon()` method of a `Thread` object before it is started.",
+                        "C) By annotating the thread's `run()` method with `@Daemon`.",
+                        "D) All threads are daemon threads by default."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A daemon thread is a low-priority thread that runs in the background. The JVM does not wait for daemon threads to finish before exiting. You can mark a thread as a daemon by calling its `setDaemon(true)` method. This must be done before the thread is started, or an `IllegalThreadStateException` will be thrown."
+                },
+                {
+                    "id": "d5_q061_s1",
+                    "domain": "Java Language Basics",
+                    "difficulty": "Easy",
+                    "question_text": "What is the entry point for any standalone Java application?",
+                    "options": [
+                        "A) The `start()` method.",
+                        "B) The main constructor of the primary class.",
+                        "C) The `public static void main(String[] args)` method.",
+                        "D) The `init()` method."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The Java Virtual Machine starts execution by looking for a method with the exact signature `public static void main(String[] args)`. This method serves as the starting point for the program's execution."
+                },
+                {
+                    "id": "d5_q062_s1",
+                    "domain": "Object-Oriented Programming",
+                    "difficulty": "Medium",
+                    "question_text": "Can an abstract class have a constructor in Java?",
+                    "options": [
+                        "A) No, because abstract classes cannot be instantiated.",
+                        "B) Yes, and it can be called directly to create an instance.",
+                        "C) Yes, it is called implicitly when a concrete subclass is instantiated to initialize the superclass part of the object.",
+                        "D) Only if the abstract class has no abstract methods."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Yes, an abstract class can have a constructor. While you cannot directly instantiate an abstract class, its constructor is invoked (via `super()`) from the constructor of its concrete subclasses. It is used to initialize the state defined in the abstract class."
+                },
+                {
+                    "id": "d5_q063_s1",
+                    "domain": "Exceptions",
+                    "difficulty": "Medium",
+                    "question_text": "What happens if an exception is thrown in a `try` block and there is no matching `catch` block?",
+                    "options": [
+                        "A) The program continues execution from the `finally` block and then terminates.",
+                        "B) The `finally` block (if present) is executed, and then the exception propagates up the call stack.",
+                        "C) The program terminates immediately without executing the `finally` block.",
+                        "D) The compiler reports an error."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "If an exception is not caught by any `catch` block within a method, the `finally` block is still executed. After the `finally` block completes, the exception is propagated up to the calling method, where the process repeats. If it reaches the top of the call stack (the `main` method) without being caught, the program terminates."
+                },
+                {
+                    "id": "d5_q064_s1",
+                    "domain": "Collections Framework",
+                    "difficulty": "Medium",
+                    "question_text": "Which `Map` implementation maintains the insertion order of its entries?",
+                    "options": [
+                        "A) HashMap",
+                        "B) TreeMap",
+                        "C) Hashtable",
+                        "D) LinkedHashMap"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "`LinkedHashMap` is a subclass of `HashMap` that maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is normally the order in which keys were inserted into the map (insertion-order)."
+                },
+                {
+                    "id": "d5_q065_s1",
+                    "domain": "Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is a `Future` object in Java concurrency?",
+                    "options": [
+                        "A) An object that predicts the future state of the application.",
+                        "B) A placeholder for a result that is not yet available from an asynchronous computation.",
+                        "C) A configuration object for future scheduled tasks.",
+                        "D) A new type of thread that runs in the future."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A `Future` represents the result of an asynchronous computation. When you submit a `Callable` to an `ExecutorService`, it returns a `Future`. You can use this `Future` to check if the computation is complete, to wait for its completion, and to retrieve the final result once it's available, using the `get()` method."
+                }
+            ]
+        },
+        {
+            "name": "Modern & Advanced Java - Practice Set 2",
+            "questions": [
+                {
+                    "id": "d6_q001_s2",
+                    "domain": "Java 11 Features",
+                    "difficulty": "Easy",
+                    "question_text": "Which feature was standardized in Java 11, providing a modern, non-blocking API for making HTTP requests?",
+                    "options": [
+                        "A) Apache HttpClient",
+                        "B) The built-in `java.net.http.HttpClient`",
+                        "C) The `HttpUrlConnection` class",
+                        "D) The `RestTemplate` class"
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Java 11 standardized the new HTTP Client API, located in the `java.net.http` package. It provides a modern, fluent, and easy-to-use API that supports both synchronous and asynchronous programming models, as well as HTTP/1.1 and HTTP/2."
+                },
+                {
+                    "id": "d6_q002_s2",
+                    "domain": "Java 17 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is the primary purpose of 'sealed classes' introduced in Java 17?",
+                    "options": [
+                        "A) To create classes that cannot be modified.",
+                        "B) To secure classes from being accessed by reflection.",
+                        "C) To restrict which other classes or interfaces may extend or implement them.",
+                        "D) To seal a class so its source code cannot be viewed."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Sealed classes and interfaces allow an author to control which classes are permitted to be direct subclasses or implementors. This provides a more declarative way than access modifiers to restrict the use of a superclass and is very useful for domain modeling and pattern matching."
+                },
+                {
+                    "id": "d6_q003_s2",
+                    "domain": "Java 21 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is the main benefit of 'Virtual Threads' (Project Loom), finalized in Java 21?",
+                    "options": [
+                        "A) They run faster than traditional platform threads.",
+                        "B) They allow for writing high-throughput concurrent applications with a simple, blocking, thread-per-request style.",
+                        "C) They consume more memory but offer better security.",
+                        "D) They are a new way to write parallel streams."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Virtual threads are lightweight threads managed by the JVM, not the OS. They allow developers to write simple, blocking code that is easy to read and debug, while achieving massive scalability. Millions of virtual threads can be run on a small number of OS threads, dramatically improving the throughput of concurrent server applications."
+                },
+                {
+                    "id": "d6_q004_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is a key advantage of `CompletableFuture` over a regular `Future`?",
+                    "options": [
+                        "A) It can be completed only once.",
+                        "B) It provides a rich, non-blocking API for composing, combining, and chaining asynchronous operations.",
+                        "C) It automatically uses a daemon thread.",
+                        "D) It can hold results of any primitive type directly."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "While a `Future` is a simple placeholder for a result, `CompletableFuture` (Java 8+) is a full-fledged asynchronous programming tool. It allows you to build pipelines of asynchronous tasks, transforming and combining their results in a non-blocking way using methods like `thenApply()`, `thenCompose()`, and `thenCombine()`."
+                },
+                {
+                    "id": "d6_q005_s2",
+                    "domain": "Java Module System",
+                    "difficulty": "Medium",
+                    "question_text": "What is the name of the module descriptor file used in the Java Platform Module System (Project Jigsaw)?",
+                    "options": [
+                        "A) module.xml",
+                        "B) build.gradle",
+                        "C) pom.xml",
+                        "D) module-info.java"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "The Java Platform Module System (JPMS), introduced in Java 9, uses a file named `module-info.java` to declare a module. This file specifies the module's name, its dependencies (`requires`), and the packages it makes available to other modules (`exports`)."
+                },
+                {
+                    "id": "d6_q006_s2",
+                    "domain": "Java 10 Features",
+                    "difficulty": "Easy",
+                    "question_text": "What does the `var` keyword, introduced in Java 10, allow for?",
+                    "options": [
+                        "A) Creating variables with dynamic types like in JavaScript.",
+                        "B) Declaring global variables.",
+                        "C) Type inference for local variables with initializers.",
+                        "D) Creating variant types that can hold different data types."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "`var` allows you to declare a local variable without explicitly writing its type. The compiler infers the type from the initializer on the right-hand side. The variable is still statically typed; its type is fixed at compile time and cannot change."
+                },
+                {
+                    "id": "d6_q007_s2",
+                    "domain": "Java 16 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is the primary benefit of using `Records`, finalized in Java 16?",
+                    "options": [
+                        "A) To record audio and video in Java applications.",
+                        "B) To act as transparent, immutable carriers for data, significantly reducing boilerplate code for data-holder classes.",
+                        "C) To create database records directly from Java code.",
+                        "D) A new way to record macros for repetitive tasks."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A `record` is a concise syntax for declaring classes that are simple data aggregates. The compiler automatically generates the constructor, private final fields, accessor methods (e.g., `x()`), `equals()`, `hashCode()`, and `toString()` methods, which drastically reduces the boilerplate code required for simple POJOs or DTOs."
+                },
+                {
+                    "id": "d6_q008_s2",
+                    "domain": "Java 17 Features",
+                    "difficulty": "Hard",
+                    "question_text": "How does 'Pattern Matching for switch' enhance the `switch` statement?",
+                    "options": [
+                        "A) It allows `switch` statements to use regular expression patterns.",
+                        "B) It allows you to switch on any object and test it against type patterns, binding the object to a new variable if the pattern matches.",
+                        "C) It allows `switch` to match design patterns like Singleton or Factory.",
+                        "D) It introduces a new `pattern` keyword for `switch`."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Pattern matching for `switch` (previewed in Java 17 and finalized later) allows the `switch` statement to test a variable against a number of patterns. This includes type patterns, so you can check an object's type and bind it to a new, correctly-typed variable within the `case` label, eliminating the need for verbose `if-else` chains with `instanceof` checks and casts."
+                },
+                {
+                    "id": "d6_q009_s2",
+                    "domain": "Advanced I/O (NIO.2)",
+                    "difficulty": "Medium",
+                    "question_text": "Which class in Java NIO.2 is the main entry point for working with the modern file system API?",
+                    "options": [
+                        "A) java.io.File",
+                        "B) java.nio.file.FileSystem",
+                        "C) java.nio.file.Files",
+                        "D) java.nio.file.Path"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `java.nio.file.Files` class is a utility class that consists exclusively of static methods that operate on files, directories, or other types of files. It provides comprehensive methods for reading, writing, and manipulating files and directories, serving as the primary entry point for NIO.2 file operations."
+                },
+                {
+                    "id": "d6_q010_s2",
+                    "domain": "Advanced Generics",
+                    "difficulty": "Hard",
+                    "question_text": "What is a 'bounded wildcard' in Java Generics?",
+                    "options": [
+                        "A) A wildcard that can only be used within a specific method.",
+                        "B) A wildcard that restricts the unknown type to be a subtype of a specific type (upper bound) or a supertype of a specific type (lower bound).",
+                        "C) A wildcard that has a limited number of possible types.",
+                        "D) A feature that is not available in Java."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Bounded wildcards add constraints to generic types. An upper-bounded wildcard (`<? extends T>`) restricts the unknown type to be a specific type `T` or one of its subtypes. A lower-bounded wildcard (`<? super T>`) restricts the unknown type to be a specific type `T` or one of its supertypes. This is crucial for creating flexible and type-safe APIs."
+                },
+                {
+                    "id": "d6_q011_s2",
+                    "domain": "Java 12 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What was the main change introduced with Switch Expressions in Java 12 (as a preview feature)?",
+                    "options": [
+                        "A) It allowed `switch` to be used with `double` values.",
+                        "B) It allowed `switch` to be used as an expression that returns a value, and introduced the `yield` keyword.",
+                        "C) It replaced `case` labels with `=>` syntax.",
+                        "D) It made all `switch` statements thread-safe."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Switch expressions extended the `switch` statement so it could be used as an expression that evaluates to a single value. This avoids the need for temporary variables and complex `break` statements. It also introduced arrow syntax (`case L -> ...`) for concise branches and the `yield` keyword to return a value from a traditional switch block."
+                },
+                {
+                    "id": "d6_q012_s2",
+                    "domain": "Java 15 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What are 'Text Blocks', finalized in Java 15?",
+                    "options": [
+                        "A) A new way to block text from being copied in a GUI.",
+                        "B) A multi-line string literal that avoids the need for most escape sequences.",
+                        "C) A block of code that only processes text.",
+                        "D) A new data structure for storing blocks of text."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Text blocks are a new kind of string literal in Java that makes it easy to work with multi-line strings, such as snippets of JSON, XML, or SQL. They start with three double-quote characters (`\"\"\"`) followed by a newline and end with `\"\"\"`. They preserve indentation and avoid the need for explicit newline escape sequences (`\\n`)."
+                },
+                {
+                    "id": "d6_q013_s2",
+                    "domain": "Security",
+                    "difficulty": "Hard",
+                    "question_text": "In Java 17, the Security Manager was deprecated for removal. What was its primary function?",
+                    "options": [
+                        "A) To manage user authentication and authorization.",
+                        "B) To provide a fine-grained access control policy for system resources, defining what a piece of code is allowed to do.",
+                        "C) To manage SSL/TLS certificates.",
+                        "D) To scan code for security vulnerabilities at compile time."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The Security Manager was a legacy mechanism for defining a security policy for a Java application. It could restrict actions like reading/writing files, opening network connections, or accessing system properties. It was primarily used in applets and is being removed in favor of more modern security mechanisms."
+                },
+                {
+                    "id": "d6_q014_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is the Fork/Join framework in Java used for?",
+                    "options": [
+                        "A) A framework for managing forks in a Git repository.",
+                        "B) An implementation of the `ExecutorService` interface that helps you take advantage of multiple processors to solve problems that can be broken down into smaller pieces recursively.",
+                        "C) A framework for joining multiple threads into a single one.",
+                        "D) A GUI framework for creating forks and joins in a user interface."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The Fork/Join framework is designed for work-stealing. It's ideal for divide-and-conquer algorithms where a task can be recursively broken down ('forked') into smaller subtasks until they are simple enough to be solved directly. The results are then combined ('joined'). It's the mechanism that powers parallel streams."
+                },
+                {
+                    "id": "d6_q015_s2",
+                    "domain": "Java 14 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of 'Pattern Matching for instanceof', finalized in Java 16?",
+                    "options": [
+                        "A) It allows `instanceof` to be used in regular expressions.",
+                        "B) It combines the type check (`instanceof`) and the cast into a single, more concise operation.",
+                        "C) It allows `instanceof` to check against multiple types at once.",
+                        "D) It provides a new design pattern for using `instanceof`."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "This feature simplifies a common coding pattern. Instead of writing `if (obj instanceof String) { String s = (String) obj; ... }`, you can now write `if (obj instanceof String s) { ... }`. If the `instanceof` check is true, the variable `s` is automatically declared, cast, and available within the scope of the `if` block."
+                },
+                {
+                    "id": "d6_q016_s2",
+                    "domain": "Java 11 Features",
+                    "difficulty": "Medium",
+                    "question_text": "Which new method was added to the `String` class in Java 11 to check if a string is empty or contains only white space?",
+                    "options": [
+                        "A) isEmpty()",
+                        "B) isBlank()",
+                        "C) isWhitespace()",
+                        "D) hasContent()"
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Java 11 introduced the `isBlank()` method. It returns `true` if the string is empty or contains only white space characters. This is different from `isEmpty()`, which only returns `true` if the string's length is 0."
+                },
+                {
+                    "id": "d6_q017_s2",
+                    "domain": "JVM Internals",
+                    "difficulty": "Hard",
+                    "question_text": "What is 'escape analysis' in the context of JVM optimization?",
+                    "options": [
+                        "A) A security analysis to prevent escaping from a sandbox.",
+                        "B) A compiler analysis to determine if an object's lifetime is confined to a method, potentially allowing for stack allocation instead of heap allocation.",
+                        "C) An analysis of how to handle escape characters in strings.",
+                        "D) A garbage collection technique to find objects that have 'escaped' the young generation."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Escape analysis is a powerful optimization performed by the JIT compiler. If it can prove that a new object never 'escapes' the scope of the method it was created in (i.e., it's not returned or assigned to a field), it can allocate the object on the stack instead of the heap. This is much faster and avoids garbage collection overhead."
+                },
+                {
+                    "id": "d6_q018_s2",
+                    "domain": "Java 21 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of 'Sequenced Collections', introduced in Java 21?",
+                    "options": [
+                        "A) A new framework for creating DNA sequences.",
+                        "B) A new set of interfaces that provide a uniform API for collections with a defined encounter order.",
+                        "C) A new way to sequence and schedule tasks.",
+                        "D) A collection that can only be accessed sequentially."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Sequenced Collections (JEP 431) introduced new interfaces (`SequencedCollection`, `SequencedSet`, `SequencedMap`) to the collections hierarchy. These interfaces provide a common, easy-to-use set of methods (`getFirst()`, `getLast()`, `reversed()`) for any collection that has a defined order, unifying the APIs of `List`, `Deque`, `LinkedHashSet`, etc."
+                },
+                {
+                    "id": "d6_q019_s2",
+                    "domain": "Advanced Exception Handling",
+                    "difficulty": "Medium",
+                    "question_text": "What is a 'suppressed' exception in Java?",
+                    "options": [
+                        "A) An exception that is ignored by the JVM.",
+                        "B) An exception that is logged but does not stop the program.",
+                        "C) An exception that is thrown from the `close()` method of a resource in a `try-with-resources` statement, which is 'suppressed' by an exception thrown from the `try` block.",
+                        "D) An exception that has been handled and can no longer be thrown."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Suppressed exceptions are a feature of the `try-with-resources` statement. If an exception is thrown in the `try` block and another exception is thrown when `close()` is called on the resource, the second exception is 'suppressed' and attached to the first one. This prevents exceptions from being lost."
+                },
+                {
+                    "id": "d6_q020_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is a key feature of the `StampedLock` class?",
+                    "options": [
+                        "A) It adds a timestamp to every lock acquisition.",
+                        "B) It provides an optimistic reading mode in addition to traditional read and write locks.",
+                        "C) It is a lock that can only be used with timestamped data.",
+                        "D) It is a simpler, faster version of `ReentrantLock`."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "`StampedLock` is an advanced lock that offers three modes: writing, reading, and optimistic reading. The optimistic read (`tryOptimisticRead()`) returns a 'stamp' without blocking. The thread can then read fields and validate the stamp. If the stamp is still valid, the read was consistent, avoiding the overhead of a full read lock. This can significantly improve performance in read-heavy scenarios."
+                },
+                {
+                    "id": "d6_q021_s2",
+                    "domain": "Java 16 Features",
+                    "difficulty": "Medium",
+                    "question_text": "Which of the following is automatically generated for a Java `record`?",
+                    "options": [
+                        "A) A no-argument constructor.",
+                        "B) Setter methods for all its components.",
+                        "C) An `all-args` constructor, accessor methods, `equals()`, `hashCode()`, and `toString()`.",
+                        "D) A `clone()` method."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "A `record` is a concise syntax for a data carrier class. The compiler automatically generates the 'canonical' constructor that takes all components as arguments, public accessor methods with the same names as the components, and implementations of `equals()`, `hashCode()`, and `toString()` based on all the components."
+                },
+                {
+                    "id": "d6_q022_s2",
+                    "domain": "Java Module System",
+                    "difficulty": "Medium",
+                    "question_text": "In the Java Module System, what does the `requires transitive` directive do in a `module-info.java` file?",
+                    "options": [
+                        "A) It makes a module's dependency available to any other module that depends on the current module.",
+                        "B) It requires a dependency that is only needed for a short period of time.",
+                        "C) It marks a dependency as optional.",
+                        "D) It requires a module from a remote repository."
+                    ],
+                    "correct_answer_index": 0,
+                    "explanation": "`requires transitive` creates an implied readability. If module A `requires transitive` module B, and module C `requires` module A, then module C can also read module B without explicitly requiring it. This is useful for modules that expose types from another module in their own public API."
+                },
+                {
+                    "id": "d6_q023_s2",
+                    "domain": "Java 11 Features",
+                    "difficulty": "Medium",
+                    "question_text": "How can you run a single-file Java program directly from the command line in Java 11+?",
+                    "options": [
+                        "A) `java compile HelloWorld.java`",
+                        "B) `javac HelloWorld.java && java HelloWorld`",
+                        "C) `java HelloWorld.java`",
+                        "D) `run java HelloWorld.java`"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Java 11 introduced the ability to launch single-file source-code programs directly. The `java` launcher will compile the source file in memory and then execute it, simplifying the process for small utilities and scripts without needing a separate `javac` step."
+                },
+                {
+                    "id": "d6_q024_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is the `Thread.onSpinWait()` method, introduced in Java 9, used for?",
+                    "options": [
+                        "A) To make a thread spin in a tight loop indefinitely.",
+                        "B) A hint to the JVM that the code is in a spin-wait loop, potentially allowing for performance optimizations on some hardware.",
+                        "C) To start a new thread that will spin-wait.",
+                        "D) To set the priority of a spinning thread."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "`Thread.onSpinWait()` is a performance hint. When implementing spin-wait loops (busy-waiting), calling this method inside the loop can indicate to the underlying hardware that the thread is busy-waiting. On certain architectures, this can improve performance by, for example, conserving power or making better use of hyper-threading resources."
+                },
+                {
+                    "id": "d6_q025_s2",
+                    "domain": "JVM Internals",
+                    "difficulty": "Hard",
+                    "question_text": "What is the role of the 'Code Cache' in the JVM?",
+                    "options": [
+                        "A) It caches the source code of the application.",
+                        "B) It is a memory area where the JIT compiler stores compiled native code.",
+                        "C) It is a cache for commonly used String objects.",
+                        "D) It caches bytecode before it is interpreted."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The Code Cache is a specific memory area in the JVM that is used to store the native machine code generated by the Just-In-Time (JIT) compiler. When a method is JIT-compiled for performance, the resulting native code is stored here so it can be executed directly in the future without re-interpretation."
+                },
+                {
+                    "id": "d6_q026_s2",
+                    "domain": "Java 21 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is 'Structured Concurrency' in Java?",
+                    "options": [
+                        "A) A way to structure code using a specific set of concurrency classes.",
+                        "B) A feature that treats multiple tasks running in different threads as a single unit of work, simplifying error handling and cancellation.",
+                        "C) A requirement that all concurrent code must be written inside a `struct` block.",
+                        "D) A framework for building concurrent data structures."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Structured Concurrency (in preview in Java 21) is a programming model that aims to simplify concurrent programming. By using scopes (like `StructuredTaskScope`), it ensures that if a task splits into concurrent subtasks, they all return to the same place, making it easier to manage their lifecycle, handle errors from any subtask, and reliably cancel them as a group."
+                },
+                {
+                    "id": "d6_q027_s2",
+                    "domain": "Advanced Generics",
+                    "difficulty": "Hard",
+                    "question_text": "What problem does the PECS (Producer Extends, Consumer Super) principle solve in Java Generics?",
+                    "options": [
+                        "A) It determines whether to use `extends` or `super` in class definitions.",
+                        "B) It provides a mnemonic to help decide whether to use an upper-bounded wildcard (`extends`) or a lower-bounded wildcard (`super`) for a collection parameter.",
+                        "C) It is a principle for securing producer and consumer threads.",
+                        "D) It defines the performance characteristics of producers and consumers."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "PECS is a guideline for using wildcards in generic APIs. 'Producer Extends': If a generic collection is a producer (you only read from it), use an `extends` wildcard (`? extends T`). 'Consumer Super': If a generic collection is a consumer (you only write to it), use a `super` wildcard (`? super T`). This maximizes the flexibility of your API."
+                },
+                {
+                    "id": "d6_q028_s2",
+                    "domain": "Java 17 Features",
+                    "difficulty": "Medium",
+                    "question_text": "When using a sealed class, which keyword is used by the sealed class to specify its permitted subclasses?",
+                    "options": [
+                        "A) extends",
+                        "B) allows",
+                        "C) implements",
+                        "D) permits"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "A sealed class or interface uses the `permits` clause to explicitly list the classes that are allowed to directly extend or implement it. For example: `public sealed class Shape permits Circle, Square { ... }`."
+                },
+                {
+                    "id": "d6_q029_s2",
+                    "domain": "Advanced I/O (NIO.2)",
+                    "difficulty": "Medium",
+                    "question_text": "What is a `Path` object in Java NIO.2?",
+                    "options": [
+                        "A) A direct representation of a file's contents.",
+                        "B) An object that represents the path to a file or directory in the file system, but not the file itself.",
+                        "C) A replacement for the `String` class for file paths.",
+                        "D) A thread-safe version of the `java.io.File` class."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A `Path` object is a central abstraction in NIO.2. It represents a hierarchical path on the file system. It is important to note that a `Path` object is not the file; it is just a representation of its location. The `Files` utility class is then used to operate on the file or directory at that path."
+                },
+                {
+                    "id": "d6_q030_s2",
+                    "domain": "Security",
+                    "difficulty": "Medium",
+                    "question_text": "Which of the following is a common mitigation for Cross-Site Scripting (XSS) vulnerabilities in a Java web application?",
+                    "options": [
+                        "A) Using prepared statements for all database queries.",
+                        "B) Encrypting all data stored in the database.",
+                        "C) Encoding or sanitizing user-provided data before it is rendered in an HTML page.",
+                        "D) Using strong passwords for all user accounts."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "XSS attacks occur when malicious scripts are injected into trusted websites. The primary defense is to treat all user input as untrusted. Before displaying user-provided data back in a web page, it must be properly sanitized (to remove malicious tags) or contextually encoded (e.g., HTML entity encoding) to prevent the browser from executing it as code."
+                },
+                {
+                    "id": "d6_q031_s2",
+                    "domain": "Java 15 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What keyword is used inside a `switch` expression to return a value from a block `case`?",
+                    "options": [
+                        "A) return",
+                        "B) break",
+                        "C) yield",
+                        "D) produce"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "When using a traditional block with `{}` for a `case` in a switch expression, you cannot use `return` or `break` to provide the value. Instead, the `yield` keyword was introduced for this purpose. For example: `case 1 -> { System.out.println(\"One\"); yield \"A\"; }`."
+                },
+                {
+                    "id": "d6_q032_s2",
+                    "domain": "JVM Internals",
+                    "difficulty": "Hard",
+                    "question_text": "In the context of the Z Garbage Collector (ZGC), what is the purpose of 'colored pointers'?",
+                    "options": [
+                        "A) To color-code pointers in a debugger for easier visualization.",
+                        "B) A technique where metadata (like whether an object has been marked) is stored in the unused bits of a 64-bit memory address pointer.",
+                        "C) To point to objects of different colors in a GUI application.",
+                        "D) A way to tag pointers as safe or unsafe for access."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Colored pointers are a key technique used by ZGC. On 64-bit platforms, not all 64 bits of a memory address are used. ZGC leverages these unused bits to store GC-related metadata directly in the pointer itself. This allows ZGC to perform tasks like marking and relocation concurrently with the application threads, enabling its ultra-low pause times."
+                },
+                {
+                    "id": "d6_q033_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Medium",
+                    "question_text": "What is the main difference between `CyclicBarrier` and `CountDownLatch`?",
+                    "options": [
+                        "A) `CountDownLatch` is for counting down, `CyclicBarrier` is for counting up.",
+                        "B) `CountDownLatch` is a one-time event, while `CyclicBarrier` can be reset and reused after the waiting threads are released.",
+                        "C) `CyclicBarrier` is faster but less reliable.",
+                        "D) `CountDownLatch` can be used by any number of threads, while `CyclicBarrier` is limited to two."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The key difference is reusability. A `CountDownLatch` cannot be reset; once its count reaches zero, it's done. A `CyclicBarrier`, on the other hand, is 'cyclic'. After all waiting threads are released, the barrier can be reset (or it resets automatically) to be used again for another synchronization point."
+                },
+                {
+                    "id": "d6_q034_s2",
+                    "domain": "Java 13 Features",
+                    "difficulty": "Medium",
+                    "question_text": "Which feature, enhanced in Java 13 as a preview, added multi-line string literals to the Java language?",
+                    "options": [
+                        "A) String Blocks",
+                        "B) Multi-Strings",
+                        "C) Raw String Literals",
+                        "D) Text Blocks"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "Text Blocks, which were previewed in Java 13 and finalized in Java 15, provide a convenient syntax for creating multi-line string literals. They improve readability and reduce the clutter of concatenation and escape sequences for strings containing multiple lines."
+                },
+                {
+                    "id": "d6_q035_s2",
+                    "domain": "Advanced Exception Handling",
+                    "difficulty": "Hard",
+                    "question_text": "What is the 'multi-catch' feature introduced in Java 7?",
+                    "options": [
+                        "A) The ability to catch multiple exceptions in a single `try` block.",
+                        "B) The ability for a single `catch` block to handle more than one type of exception.",
+                        "C) A new exception type called `MultiException`.",
+                        "D) A feature that allows multiple threads to catch the same exception."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The multi-catch feature allows a single `catch` block to handle several different exception types, reducing code duplication. The syntax uses a pipe character (`|`) to separate the exception types. For example: `catch (IOException | SQLException ex) { ... }`."
+                },
+                {
+                    "id": "d6_q036_s2",
+                    "domain": "Java Module System",
+                    "difficulty": "Medium",
+                    "question_text": "In the Java Module System, what is the 'unnamed module'?",
+                    "options": [
+                        "A) A module that has not been given a name in its descriptor.",
+                        "B) A special module that contains all types from the classpath that are not in explicit modules.",
+                        "C) A module that is not visible to other modules.",
+                        "D) An empty module used for testing."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "To maintain backward compatibility, all code on the traditional classpath is treated as belonging to a special module known as the 'unnamed module'. It can read every other module, and its exported packages are determined by the JARs on the classpath. This allows legacy code to work alongside modular code."
+                },
+                {
+                    "id": "d6_q037_s2",
+                    "domain": "Java 16 Features",
+                    "difficulty": "Medium",
+                    "question_text": "When using Pattern Matching for `instanceof`, what is a 'binding variable'?",
+                    "options": [
+                        "A) A variable that binds the `instanceof` check to a specific thread.",
+                        "B) A variable that is declared and initialized with the casted object if the `instanceof` check is successful.",
+                        "C) A variable used to store the boolean result of the `instanceof` check.",
+                        "D) A global variable that is bound to the object."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The variable declared as part of the pattern in `instanceof` (e.g., the `s` in `obj instanceof String s`) is called a binding variable. If the pattern matches, this variable is bound to the result of casting the expression, making it available within the scope of the `if` statement."
+                },
+                {
+                    "id": "d6_q038_s2",
+                    "domain": "Security",
+                    "difficulty": "Medium",
+                    "question_text": "What is a primary defense against SQL Injection attacks in a Java application?",
+                    "options": [
+                        "A) Using `String.format()` to build SQL queries.",
+                        "B) Always using an ORM like Hibernate.",
+                        "C) Validating user input and using Prepared Statements (or parameterized queries).",
+                        "D) Storing SQL queries in a separate configuration file."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "SQL Injection occurs when user input is concatenated into a SQL query, allowing an attacker to alter the query's logic. The primary defense is to use Prepared Statements with parameter markers (`?`). This separates the SQL command from the data, ensuring that user input is treated as literal data and not executable code."
+                },
+                {
+                    "id": "d6_q039_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Medium",
+                    "question_text": "Which of the following classes provides atomic operations for object references?",
+                    "options": [
+                        "A) AtomicInteger",
+                        "B) AtomicBoolean",
+                        "C) AtomicReference",
+                        "D) SynchronizedReference"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The `AtomicReference` class, part of `java.util.concurrent.atomic`, provides a way to update an object reference atomically. It is useful for implementing non-blocking data structures and algorithms, using methods like `compareAndSet()` to ensure thread-safe updates without explicit locks."
+                },
+                {
+                    "id": "d6_q040_s2",
+                    "domain": "JVM Internals",
+                    "difficulty": "Hard",
+                    "question_text": "What is the purpose of the `-XX:+UseStringDeduplication` JVM flag?",
+                    "options": [
+                        "A) It prevents duplicate strings from being created in the first place.",
+                        "B) It enables a garbage collection optimization that reduces the memory footprint of `String` objects by having duplicate strings share the same underlying character array.",
+                        "C) It replaces all duplicate strings with a single reference at compile time.",
+                        "D) It creates a deduplicated log of all strings used in the application."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "This flag, available in G1 GC, enables an optimization where the garbage collector identifies `String` objects that have the same value and makes them point to the same internal character array. This can significantly reduce the memory usage of applications that have many duplicate strings on the heap."
+                },
+                {
+                    "id": "d6_q041_s2",
+                    "domain": "Java 12 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What does the `teeing()` collector, introduced in Java 12's `Collectors` class, do?",
+                    "options": [
+                        "A) It separates a stream into two, like a 'T' junction.",
+                        "B) It is a composite collector that applies two separate collectors to the same stream and then merges their results using a provided function.",
+                        "C) It collects stream elements into a `Tee` object.",
+                        "D) It collects stream elements into a `Map` where the key is 'T'."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `teeing()` collector is a powerful addition that allows you to perform two different collection operations on a stream in a single pass. For example, you could calculate both the sum and the average of a stream of numbers simultaneously, and then combine those two results into a final object."
+                },
+                {
+                    "id": "d6_q042_s2",
+                    "domain": "Java 17 Features",
+                    "difficulty": "Medium",
+                    "question_text": "When a sealed class specifies its permitted subclasses, what restriction is placed on those subclasses?",
+                    "options": [
+                        "A) They must all be in the same package.",
+                        "B) They must all be public.",
+                        "C) They must each be declared as `final`, `sealed`, or `non-sealed`.",
+                        "D) They cannot have any subclasses of their own."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "A direct subclass of a sealed class must explicitly declare how it continues the sealing. It can be `final` (preventing further extension), `sealed` (continuing the restricted hierarchy), or `non-sealed` (reverting to normal behavior, allowing any class to extend it)."
+                },
+                {
+                    "id": "d6_q043_s2",
+                    "domain": "Advanced I/O (NIO.2)",
+                    "difficulty": "Medium",
+                    "question_text": "What is a key benefit of using Java NIO channels over traditional I/O streams?",
+                    "options": [
+                        "A) Channels are always faster than streams.",
+                        "B) Channels are bidirectional and can be used for non-blocking I/O operations.",
+                        "C) Channels can only be used for network I/O.",
+                        "D) Channels automatically handle character encoding."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Unlike streams, which are typically one-way (either input or output), channels are often bidirectional. A more significant advantage is their ability to be used in non-blocking mode, which is fundamental to building scalable servers that can handle many concurrent connections with a small number of threads, using selectors."
+                },
+                {
+                    "id": "d6_q044_s2",
+                    "domain": "Java 21 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What do 'Unnamed Patterns and Variables', a preview feature in Java 21, allow developers to do?",
+                    "options": [
+                        "A) Create variables with no name.",
+                        "B) Use the underscore `_` as a placeholder for a variable name or pattern that is required by syntax but not used.",
+                        "C) Use patterns without a `case` label.",
+                        "D) Create unnamed classes."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "This feature allows the use of the underscore `_` to denote an unnamed pattern variable or an unnamed pattern. This is useful when a variable must be declared (e.g., in a `catch` block or a pattern match) but its value is never used, which can improve code readability by signaling intent."
+                },
+                {
+                    "id": "d6_q045_s2",
+                    "domain": "Advanced Generics",
+                    "difficulty": "Hard",
+                    "question_text": "If a method signature is `public <T extends Number> void process(T number)`, what can you say about `T`?",
+                    "options": [
+                        "A) `T` can be any object.",
+                        "B) `T` must be the `Number` class itself.",
+                        "C) `T` is a generic type parameter that must be `Number` or one of its subclasses (like `Integer` or `Double`).",
+                        "D) `T` must be a primitive number type like `int`."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "This is a declaration of a generic method with a bounded type parameter. The `<T extends Number>` part specifies that `T` can be any type, as long as that type is a subclass of `Number` (or `Number` itself). This allows the `process` method to work with different kinds of numbers while ensuring they all have the methods of the `Number` class."
+                },
+                {
+                    "id": "d6_q046_s2",
+                    "domain": "Advanced Exception Handling",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of the `addSuppressed()` method on the `Throwable` class?",
+                    "options": [
+                        "A) To prevent an exception from being thrown.",
+                        "B) To attach a secondary exception to a primary one, typically in a `try-with-resources` block.",
+                        "C) To suppress the stack trace of an exception for security reasons.",
+                        "D) To count the number of suppressed exceptions."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `addSuppressed()` method allows you to associate one exception with another. Its primary use case is in the `try-with-resources` statement, where an exception thrown during the closing of a resource is added as a 'suppressed' exception to the original exception thrown from the `try` block."
+                },
+                {
+                    "id": "d6_q047_s2",
+                    "domain": "Security",
+                    "difficulty": "Medium",
+                    "question_text": "What is the 'principle of least privilege' in software security?",
+                    "options": [
+                        "A) Granting all users the lowest level of privilege by default.",
+                        "B) A principle where a user or component should only be given the minimum levels of access – or permissions – needed to perform its tasks.",
+                        "C) Giving users the privilege to choose their own security level.",
+                        "D) The principle that security is the least important concern."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The principle of least privilege is a fundamental computer security concept. It recommends that any user, program, or process should have only the bare minimum privileges necessary to perform its function. This minimizes the potential damage from an accident or an attack."
+                },
+                {
+                    "id": "d6_q048_s2",
+                    "domain": "Java Module System",
+                    "difficulty": "Medium",
+                    "question_text": "In `module-info.java`, what does the `exports` keyword do?",
+                    "options": [
+                        "A) It exports the entire module to a JAR file.",
+                        "B) It makes the public types within a specific package accessible to other modules.",
+                        "C) It specifies which modules this module depends on.",
+                        "D) It exports the module's private keys."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `exports` directive is a core part of a module's declaration. It explicitly lists the packages whose public types and their public/protected members should be accessible to code in other modules. Without an `exports` statement, a package is strongly encapsulated and private to the module."
+                },
+                {
+                    "id": "d6_q049_s2",
+                    "domain": "Java 10 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is a limitation of the `var` keyword for local variable type inference?",
+                    "options": [
+                        "A) It cannot be used with `final`.",
+                        "B) It cannot be used for method parameters or return types.",
+                        "C) It cannot be used inside loops.",
+                        "D) It can only be used for primitive types."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "`var` is restricted to local variables with an initializer, variables in an enhanced for-loop, and index variables in a traditional for-loop. It cannot be used for fields, method parameters, or method return types, as these are part of a class's public API and require explicit types."
+                },
+                {
+                    "id": "d6_q050_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "In the context of `CompletableFuture`, what is the difference between `thenApply()` and `thenCompose()`?",
+                    "options": [
+                        "A) `thenApply()` runs synchronously, while `thenCompose()` runs asynchronously.",
+                        "B) `thenApply()` transforms a result, while `thenCompose()` is used for logging.",
+                        "C) `thenApply()` is used for chaining synchronous functions, while `thenCompose()` is used for chaining asynchronous functions that return another `CompletableFuture`.",
+                        "D) There is no difference."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "Both are used for chaining operations. Use `thenApply()` when your transformation function is synchronous and returns a plain value (e.g., `String -> Integer`). Use `thenCompose()` when your transformation function is itself asynchronous and returns a `CompletableFuture` (e.g., `String -> CompletableFuture<Integer>`). `thenCompose()` flattens the nested `CompletableFuture`."
+                },
+                {
+                    "id": "d6_q051_s2",
+                    "domain": "Java 13 Features",
+                    "difficulty": "Medium",
+                    "question_text": "The `yield` keyword was introduced to be used with which Java feature?",
+                    "options": [
+                        "A) For-loops",
+                        "B) Lambda expressions",
+                        "C) try-catch blocks",
+                        "D) Switch expressions"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "`yield` was introduced as part of the Switch Expressions feature. When using a `case` with a code block `{...}` in a switch expression, `yield` is used to specify the value that the block, and thus the entire switch expression, should produce."
+                },
+                {
+                    "id": "d6_q052_s2",
+                    "domain": "JVM Internals",
+                    "difficulty": "Medium",
+                    "question_text": "When a Java program starts, which classloader is responsible for loading core Java API classes like `java.lang.Object`?",
+                    "options": [
+                        "A) The System/Application Classloader",
+                        "B) The Extension Classloader",
+                        "C) The Bootstrap Classloader",
+                        "D) A custom user-defined classloader"
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "The Bootstrap Classloader is the parent of all other classloaders and is responsible for loading the core Java runtime classes from the `rt.jar` or similar internal modules. It is implemented in native code and is not a Java class itself, so it often appears as `null` in code that queries a class's classloader."
+                },
+                {
+                    "id": "d6_q053_s2",
+                    "domain": "Java 14 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What kind of information does a 'Helpful NullPointerExceptions' (JEP 358) provide?",
+                    "options": [
+                        "A) A prediction of where a NullPointerException might occur in the future.",
+                        "B) A detailed message indicating which specific variable was `null`.",
+                        "C) A link to a help document about NullPointerExceptions.",
+                        "D) A suggestion on how to fix the null pointer."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "This feature, introduced in Java 14, enhances the exception message of a `NullPointerException`. Instead of just saying a null pointer occurred on a line, the message now precisely describes which variable in a chained expression (e.g., `a.b.c`) was null, making debugging much easier."
+                },
+                {
+                    "id": "d6_q054_s2",
+                    "domain": "Advanced I/O (NIO)",
+                    "difficulty": "Medium",
+                    "question_text": "What is a `Buffer` in Java NIO?",
+                    "options": [
+                        "A) A thread-safe queue for I/O operations.",
+                        "B) A fixed-size block of memory into which data can be read or from which data can be written.",
+                        "C) A memory area for buffering screen output.",
+                        "D) A cache for network data."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "A `Buffer` is a fundamental concept in NIO. It is essentially a wrapper around a byte array that provides a structured way to work with data. Data is read from a channel into a buffer, and written from a buffer to a channel. It maintains state like capacity, position, and limit to manage the data within it."
+                },
+                {
+                    "id": "d6_q055_s2",
+                    "domain": "Security",
+                    "difficulty": "Hard",
+                    "question_text": "What is a 'deserialization vulnerability' in Java?",
+                    "options": [
+                        "A) A vulnerability where data cannot be serialized correctly.",
+                        "B) An attack where untrusted data is deserialized, potentially leading to remote code execution by manipulating the object graph.",
+                        "C) A performance issue caused by slow deserialization.",
+                        "D) An error that occurs when a class version ID does not match during deserialization."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Deserialization vulnerabilities are a serious threat. If an application deserializes untrusted data without proper validation, an attacker can craft a malicious object stream. When this stream is deserialized, it can trigger code execution on the server, often by exploiting 'gadget chains' in available library classes. The primary defense is to avoid deserializing untrusted data or use safe alternatives."
+                },
+                {
+                    "id": "d6_q056_s2",
+                    "domain": "Java 17 Features",
+                    "difficulty": "Medium",
+                    "question_text": "Which API was deprecated for removal in Java 17, signaling a move away from browser-based Java code execution?",
+                    "options": [
+                        "A) The Swing API",
+                        "B) The Applet API",
+                        "C) The Servlet API",
+                        "D) The JDBC API"
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The Applet API, which was used to run Java code in web browsers, was marked for removal in Java 17. This reflects the reality that modern browsers have removed support for Java plugins, making applets obsolete."
+                },
+                {
+                    "id": "d6_q057_s2",
+                    "domain": "Advanced Generics",
+                    "difficulty": "Hard",
+                    "question_text": "What is a 'reifiable' type in Java?",
+                    "options": [
+                        "A) A type that can be modified at runtime.",
+                        "B) A type whose type information is fully available at runtime, and is not subject to type erasure.",
+                        "C) A type that can be safely cast to any other type.",
+                        "D) A type that can be instantiated using reflection."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Due to type erasure, most generic types (like `List<String>`) are non-reifiable, meaning their full type information is not present at runtime. Reifiable types are those whose type information is completely preserved, such as non-generic classes, primitive types, and unbounded wildcards (`List<?>`). This distinction is important for operations like `instanceof` and array creation."
+                },
+                {
+                    "id": "d6_q058_s2",
+                    "domain": "Advanced Exception Handling",
+                    "difficulty": "Medium",
+                    "question_text": "When should you define a custom exception class in Java?",
+                    "options": [
+                        "A) For every possible error in the application.",
+                        "B) When you want to provide specific information or handling for a particular type of error that is not well-represented by existing exceptions.",
+                        "C) Only when you are writing a public library.",
+                        "D) You should always use standard Java exceptions."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Creating custom exceptions is a good practice when your application has specific error conditions that you want to handle differently or that need to carry extra information. For example, a `UserNotFoundException` or `InsufficientBalanceException` is more descriptive than a generic `IllegalArgumentException` and allows for more targeted `catch` blocks."
+                },
+                {
+                    "id": "d6_q059_s2",
+                    "domain": "Java Module System",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of the `provides...with` syntax in a `module-info.java` file?",
+                    "options": [
+                        "A) It provides a module with a specific version of a dependency.",
+                        "B) It is used to implement the Service Provider Interface (SPI) pattern in a modular way.",
+                        "C) It provides a module with access to a specific package.",
+                        "D) It is a way to provide configuration data to a module."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "This syntax is for service providers. A module can declare that it `provides` an implementation for a service interface. The `provides` clause specifies the service interface, and the `with` clause specifies the implementation class. This allows for loose coupling and discoverable services in a modular application."
+                },
+                {
+                    "id": "d6_q060_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Hard",
+                    "question_text": "What is 'false sharing' in the context of multi-core CPU performance?",
+                    "options": [
+                        "A) When two threads share a resource that they should not.",
+                        "B) A performance-degrading situation where two threads on different cores modify variables that are located on the same cache line, causing the cache line to be invalidated and re-fetched unnecessarily.",
+                        "C) When a thread incorrectly believes it has exclusive access to a shared variable.",
+                        "D) Sharing data that is known to be false."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "False sharing is a subtle but significant performance issue. Even if two threads are accessing different, independent variables, if those variables happen to reside on the same CPU cache line, a write by one thread will invalidate that cache line for the other core. This forces the other core to fetch the line again from main memory, even though the data it cared about wasn't changed. Padding data structures can mitigate this."
+                },
+                {
+                    "id": "d6_q061_s2",
+                    "domain": "Java 15 Features",
+                    "difficulty": "Medium",
+                    "question_text": "Can a Java `record` implement an interface?",
+                    "options": [
+                        "A) No, records cannot implement interfaces.",
+                        "B) Yes, a record can implement any number of interfaces.",
+                        "C) Only if the interface has no methods.",
+                        "D) Only if the interface is also a record."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Yes, a `record` declaration can include an `implements` clause, just like a regular class. This allows records to conform to a specific contract and be used polymorphically. However, a record cannot extend another class because it implicitly extends `java.lang.Record`."
+                },
+                {
+                    "id": "d6_q062_s2",
+                    "domain": "JVM Internals",
+                    "difficulty": "Hard",
+                    "question_text": "Which JVM garbage collector is designed for extremely low pause times (sub-millisecond) on very large heaps?",
+                    "options": [
+                        "A) Serial GC",
+                        "B) Parallel GC",
+                        "C) G1 GC",
+                        "D) ZGC"
+                    ],
+                    "correct_answer_index": 3,
+                    "explanation": "ZGC (the Z Garbage Collector) is a scalable, low-latency garbage collector designed to work with very large heaps (from a few hundred megabytes to many terabytes). Its key feature is that its pause times do not increase with the size of the heap or the live-set, making it ideal for applications that require consistently low latency."
+                },
+                {
+                    "id": "d6_q063_s2",
+                    "domain": "Java 16 Features",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of the `Stream.toList()` method, which became standard in Java 16?",
+                    "options": [
+                        "A) To print a stream's elements to a list on the console.",
+                        "B) A convenience terminal operation to collect the elements of a stream into a new, unmodifiable `List`.",
+                        "C) To convert a stream into a `LinkedList`.",
+                        "D) To check if a stream's elements are all present in a given list."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "Before Java 16, the common way to collect a stream to a list was `collect(Collectors.toList())`. The `toList()` method was added as a more concise and direct way to achieve this. A key characteristic is that the `List` it returns is unmodifiable."
+                },
+                {
+                    "id": "d6_q064_s2",
+                    "domain": "Advanced I/O (NIO)",
+                    "difficulty": "Hard",
+                    "question_text": "What is a 'Selector' in Java NIO used for?",
+                    "options": [
+                        "A) To select which files to read from a directory.",
+                        "B) To select a character encoding for I/O operations.",
+                        "C) A multiplexor of `SelectableChannel` objects, allowing a single thread to manage multiple I/O channels efficiently.",
+                        "D) To select a specific thread from a thread pool."
+                    ],
+                    "correct_answer_index": 2,
+                    "explanation": "A `Selector` is the core of scalable, non-blocking I/O in Java. You can register multiple channels with a selector and then use a single thread to 'select' the channels that are ready for an I/O operation (e.g., ready to be read from or written to). This allows a single thread to handle many concurrent connections, which is the foundation of high-performance network servers."
+                },
+                {
+                    "id": "d6_q065_s2",
+                    "domain": "Advanced Concurrency",
+                    "difficulty": "Medium",
+                    "question_text": "What is the purpose of the `invokeAll()` method on an `ExecutorService`?",
+                    "options": [
+                        "A) It invokes all methods on a given object.",
+                        "B) It executes a collection of `Callable` tasks, and returns a list of `Future` objects after all tasks have completed.",
+                        "C) It invokes a single task on all available threads in the pool.",
+                        "D) It invokes all pending tasks and then shuts down the service."
+                    ],
+                    "correct_answer_index": 1,
+                    "explanation": "The `invokeAll()` method is a blocking operation that takes a collection of `Callable` tasks, submits them to the executor service, and waits for all of them to complete. It returns a `List<Future>` where each `Future` corresponds to one of the submitted tasks, allowing you to retrieve their results."
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{#
+  File: templates/macros/ui_macros.html
+  Purpose: Defines reusable functions (macros) for generating common UI elements.
+  - `button`: Creates a styled button.
+  - `set_selection_card`: Creates a card for the exam set selection screen.
+  - `topic_card`: Creates a card for displaying exam topics.
+#}
+
+{% macro button(text, style='secondary', id=None, classes='', disabled=False, attributes='', icon_class=None) %}
+    {% set style_map = {
+        'primary': 'btn-primary',
+        'danger': 'btn-danger',
+        'success': 'btn-success',
+        'secondary': 'btn-secondary'
+    } %}
+    <button
+        type="button"
+        {% if id %}id="{{ id }}"{% endif %}
+        class="btn {{ style_map.get(style, 'btn-secondary') }} {{ classes }}"
+        {% if disabled %}disabled{% endif %}
+        {{ attributes|safe }}
+    >
+        {% if icon_class %}<i class="{{ icon_class }}"></i>{% endif %}
+        {{ text }}
+    </button>
+{% endmacro %}
+
+
+{% macro set_selection_card(set_name, set_data) %}
+    <button class="set-choice-btn block w-full text-left p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transform transition-all" data-set-name="{{ set_name }}">
+        <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">{{ set_data.title }}</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">{{ set_data.questions|length }} questions</p>
+    </button>
+{% endmacro %}
+
+{% macro topic_card(id, title, description, icon_class=None) %}
+<a href="{{ url_for('main.exam', topic_id=id) }}"
+   class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-lg transition-all transform hover:-translate-y-1 group">
+    <div class="flex items-center mb-2">
+        {% if icon_class %}
+        <i class="{{ icon_class }} text-4xl text-blue-500 dark:text-blue-400 mr-3 group-hover:scale-110 transition-transform"></i>
+        {% endif %}
+        <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ title }}</h5>
+    </div>
+    <p class="font-normal text-gray-700 dark:text-gray-300">{{ description }}</p>
+</a>
+{% endmacro %}

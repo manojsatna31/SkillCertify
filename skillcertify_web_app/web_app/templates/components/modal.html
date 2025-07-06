@@ -1,0 +1,25 @@
+{#
+  File: templates/components/modal.html
+  Purpose: Defines the structure for the solution explanation modal.
+  - Its content is populated dynamically by JavaScript.
+#}
+<div id="solution-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 invisible opacity-0">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto" role="dialog" aria-modal="true">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4 pb-4 border-b dark:border-gray-600">
+                <h3 class="text-2xl font-bold">Solution Explanation</h3>
+                <button id="modal-close-btn" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200" aria-label="Close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="modal-content" class="space-y-4">
+                <h4 class="text-lg font-semibold" id="modal-question-text"></h4>
+                <div id="modal-options-body" class="space-y-2"></div>
+                <div>
+                    <h5 class="font-bold text-blue-600 dark:text-blue-400">Explanation:</h5>
+                    <p id="modal-explanation" class="mt-1 text-gray-700 dark:text-gray-300"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

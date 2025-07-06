@@ -1,0 +1,919 @@
+{
+  "exam_sets": [
+    {
+      "name": "Practice Set 1",
+      "questions": [
+        {
+          "id": "d1_q001_s1",
+          "domain": "Hibernate",
+          "difficulty": "Easy",
+          "question_text": "Which annotation marks a class as a JPA entity in Hibernate?",
+          "options": [
+            "A) @Table",
+            "B) @Entity",
+            "C) @Component",
+            "D) @HibernateEntity"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@Entity is the standard JPA annotation to designate a class as a persistent entity."
+        },
+        {
+          "id": "d1_q002_s1",
+          "domain": "Hibernate",
+          "difficulty": "Easy",
+          "question_text": "Which annotation specifies the database table a Hibernate entity maps to?",
+          "options": [
+            "A) @Column",
+            "B) @JoinTable",
+            "C) @Table",
+            "D) @MappedSuperclass"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "@Table(name = \"...\") tells Hibernate which table in the database the entity corresponds to."
+        },
+        {
+          "id": "d1_q003_s1",
+          "domain": "Hibernate",
+          "difficulty": "Easy",
+          "question_text": "What annotation identifies the primary key of an entity?",
+          "options": [
+            "A) @PrimaryKey",
+            "B) @Key",
+            "C) @Id",
+            "D) @PK"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "@Id is used to denote the primary key field or property of a JPA entity."
+        },
+        {
+          "id": "d1_q004_s1",
+          "domain": "Hibernate",
+          "difficulty": "Easy",
+          "question_text": "Which @GeneratedValue strategy lets the database generate the primary key identity?",
+          "options": [
+            "A) AUTO",
+            "B) IDENTITY",
+            "C) SEQUENCE",
+            "D) TABLE"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "GenerationType.IDENTITY relies on an auto-increment column in the database to generate primary keys."
+        },
+        {
+          "id": "d1_q005_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "What does @Column(nullable = false) enforce?",
+          "options": [
+            "A) Non-null Java field",
+            "B) NOT NULL constraint on the column",
+            "C) Default value enforcement",
+            "D) Unique constraint"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "nullable = false generates a NOT NULL constraint on the corresponding database column."
+        },
+        {
+          "id": "d1_q006_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which annotation prevents a field from being persisted?",
+          "options": [
+            "A) @Transient",
+            "B) @Ignore",
+            "C) @NonPersistent",
+            "D) @Hide"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "@Transient tells the JPA provider not to include the field in persistence."
+        },
+        {
+          "id": "d1_q007_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "What is the default fetch type for @ManyToOne associations?",
+          "options": [
+            "A) LAZY",
+            "B) EAGER",
+            "C) PROXY",
+            "D) JOIN"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@ManyToOne and @OneToOne default to FetchType.EAGER, loading association immediately."
+        },
+        {
+          "id": "d1_q008_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which annotation defines the foreign key column for a relationship?",
+          "options": [
+            "A) @JoinColumn",
+            "B) @ForeignKey",
+            "C) @ColumnRef",
+            "D) @KeyColumn"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "@JoinColumn(name = \"...\") specifies the column that joins an association."
+        },
+        {
+          "id": "d1_q009_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which cascade type propagates all operations (persist, merge, remove, refresh, detach)?",
+          "options": [
+            "A) CascadeType.ALL",
+            "B) CascadeType.PERSIST",
+            "C) CascadeType.MERGE",
+            "D) CascadeType.REFRESH"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "CascadeType.ALL applies every cascade operation to the associated entity."
+        },
+        {
+          "id": "d1_q010_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "What’s the difference between Session.persist() and Session.merge()?",
+          "options": [
+            "A) persist returns detached instance, merge returns managed",
+            "B) persist makes transient instance managed, merge copies state into a managed instance",
+            "C) persist can update, merge cannot",
+            "D) No difference"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "persist() makes a transient instance managed; merge() copies detached state into a managed instance and returns it."
+        },
+        {
+          "id": "d1_q011_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "What is first-level cache in Hibernate?",
+          "options": [
+            "A) SessionFactory cache across sessions",
+            "B) Session-local cache of loaded entities",
+            "C) Query result cache",
+            "D) Second-level cache"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Each Session maintains its own first-level cache of entities loaded or saved during that session."
+        },
+        {
+          "id": "d1_q012_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "Which cache is shared across Sessions and optional?",
+          "options": [
+            "A) First-level cache",
+            "B) Query cache",
+            "C) Second-level cache",
+            "D) JDBC cache"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The second-level cache (SessionFactory-level) is optional and can be provided by providers like EHCache."
+        },
+        {
+          "id": "d1_q013_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "How do you enable the query cache in Hibernate?",
+          "options": [
+            "A) hibernate.cache.use_query_cache = true",
+            "B) queryCacheEnabled = true",
+            "C) @EnableQueryCache",
+            "D) cacheQueries = true"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "In configuration: hibernate.cache.use_query_cache = true and mark queries as cacheable."
+        },
+        {
+          "id": "d1_q014_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which language does Hibernate use for object-oriented queries?",
+          "options": [
+            "A) SQL",
+            "B) HQL",
+            "C) DQL",
+            "D) OQL"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "HQL (Hibernate Query Language) is Hibernate’s object-oriented query language."
+        },
+        {
+          "id": "d1_q015_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of Criteria API in Hibernate?",
+          "options": [
+            "A) Static compile-time queries",
+            "B) Dynamic, programmatic query building",
+            "C) Named queries only",
+            "D) Schema generation"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Criteria API allows building queries dynamically using Java objects rather than strings."
+        },
+        {
+          "id": "d1_q016_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "How does Hibernate solve the N+1 SELECT problem?",
+          "options": [
+            "A) Batching inserts",
+            "B) StatelessSession",
+            "C) Using FETCH JOIN in HQL",
+            "D) Disabling lazy loading"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "A FETCH JOIN in HQL retrieves parent and children in one SQL query, avoiding N+1 selects."
+        },
+        {
+          "id": "d1_q017_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which API provides low-level, stateless data operations?",
+          "options": [
+            "A) StatelessSession",
+            "B) EntityManager",
+            "C) Session",
+            "D) SessionFactory"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "StatelessSession is a lower-level API without first-level cache or persistent context."
+        },
+        {
+          "id": "d1_q018_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "What does @Version support in Hibernate?",
+          "options": [
+            "A) Automatic primary key generation",
+            "B) Optimistic locking",
+            "C) Second-level caching",
+            "D) Audit logging"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@Version annotation enables optimistic locking by incrementing a version column on updates."
+        },
+        {
+          "id": "d1_q019_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "What is the role of Interceptor in Hibernate?",
+          "options": [
+            "A) Managing transactions",
+            "B) Listening to and intercepting entity lifecycle events",
+            "C) Caching queries",
+            "D) Schema validation"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Interceptor interfaces let you plug in callbacks before or after CRUD operations on entities."
+        },
+        {
+          "id": "d1_q020_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which annotation defines a composite primary key class?",
+          "options": [
+            "A) @EmbeddedId",
+            "B) @CompositeKey",
+            "C) @IdClass",
+            "D) @PrimaryKeys"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "@IdClass specifies an external class holding multiple primary key fields."
+        },
+        {
+          "id": "d1_q021_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "What does @NaturalId denote?",
+          "options": [
+            "A) Primary key field",
+            "B) Unique business key",
+            "C) Auto-generated ID",
+            "D) Foreign key"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@NaturalId marks a property as a natural identifier (unique business key) that can be cached."
+        },
+        {
+          "id": "d1_q022_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "How can you implement a custom type mapping in Hibernate?",
+          "options": [
+            "A) @TypeDef and a UserType implementation",
+            "B) @CustomMapping",
+            "C) @MappingOverride",
+            "D) @TypeOverride"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Use @TypeDef with a class implementing UserType or AttributeConverter for custom mappings."
+        },
+        {
+          "id": "d1_q023_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which configuration file defines Hibernate settings in XML?",
+          "options": [
+            "A) persistence.xml",
+            "B) hibernate.cfg.xml",
+            "C) application.properties",
+            "D) session.xml"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "hibernate.cfg.xml is the native Hibernate configuration file with DB connection and mapping settings."
+        },
+        {
+          "id": "d1_q024_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "What is the default flush mode for a Hibernate Session?",
+          "options": [
+            "A) AUTO",
+            "B) COMMIT",
+            "C) ALWAYS",
+            "D) MANUAL"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "FlushMode.AUTO synchronizes session state with the database before query execution or transaction commit."
+        },
+        {
+          "id": "d1_q025_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which method detaches all managed entities from the session?",
+          "options": [
+            "A) session.clear()",
+            "B) session.evictAll()",
+            "C) session.disconnect()",
+            "D) session.close()"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "session.clear() removes all entities from the first-level cache, detaching them."
+        },
+        {
+          "id": "d1_q026_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Easy",
+          "question_text": "Which interface provides CRUD operations in Spring Data JPA?",
+          "options": [
+            "A) CrudRepository",
+            "B) JpaRepository",
+            "C) Repository",
+            "D) DataRepository"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "CrudRepository defines methods like save, findById, findAll, count, delete."
+        },
+        {
+          "id": "d1_q027_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Easy",
+          "question_text": "Which interface extends PagingAndSortingRepository to add JPA-specific methods?",
+          "options": [
+            "A) CrudRepository",
+            "B) Repository",
+            "C) JpaRepository",
+            "D) JpaCrudRepository"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "JpaRepository extends PagingAndSortingRepository and adds JPA methods like flush."
+        },
+        {
+          "id": "d1_q028_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Easy",
+          "question_text": "What is the return type of findById in Spring Data JPA?",
+          "options": [
+            "A) Entity",
+            "B) Optional<Entity>",
+            "C) Entity[]",
+            "D) List<Entity>"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "findById returns an Optional to safely handle absent values."
+        },
+        {
+          "id": "d1_q029_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which keyword in a repository method name enables ordering results?",
+          "options": [
+            "A) SortBy",
+            "B) OrderBy",
+            "C) Sorted",
+            "D) AscDesc"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Methods like findByAgeOrderByNameDesc allow sorting by Name descending."
+        },
+        {
+          "id": "d1_q030_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "How do you write a JPQL query in a repository?",
+          "options": [
+            "A) @JPQL(\"...\")",
+            "B) @Query(\"...\")",
+            "C) @Sql(\"...\")",
+            "D) @NativeQuery(\"...\")"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@Query(\"SELECT e FROM Entity e WHERE ...\") defines a JPQL query on a method."
+        },
+        {
+          "id": "d1_q031_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which attribute on @Query marks it as a native SQL query?",
+          "options": [
+            "A) sql = true",
+            "B) native = true",
+            "C) nativeQuery = true",
+            "D) useNative = true"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "@Query(nativeQuery = true, value = \"SELECT * FROM ...\") runs a native SQL query."
+        },
+        {
+          "id": "d1_q032_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "What does @Modifying do on a @Query method?",
+          "options": [
+            "A) Marks it as SELECT",
+            "B) Allows INSERT, UPDATE, DELETE statements",
+            "C) Enables stored procedures",
+            "D) Disables transactions"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@Modifying is required for queries that change data (update/delete/insert)."
+        },
+        {
+          "id": "d1_q033_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "Which annotation enables declarative transactions on service methods?",
+          "options": [
+            "A) @Transactional",
+            "B) @Tx",
+            "C) @UnitOfWork",
+            "D) @Commit"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "@Transactional manages transaction boundaries around a method or class."
+        },
+        {
+          "id": "d1_q034_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which propagation setting will join an existing transaction or create a new one if none exists?",
+          "options": [
+            "A) REQUIRED",
+            "B) REQUIRES_NEW",
+            "C) SUPPORTS",
+            "D) MANDATORY"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Propagation.REQUIRED uses an existing transaction or creates a new one."
+        },
+        {
+          "id": "d1_q035_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "What does saveAndFlush() do differently than save()?",
+          "options": [
+            "A) Rolls back changes",
+            "B) Immediately syncs changes to the database",
+            "C) Only saves new entities",
+            "D) Only flushes cache"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "saveAndFlush() triggers flush after saving so changes are instantly persisted."
+        },
+        {
+          "id": "d1_q036_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Easy",
+          "question_text": "Which method counts entities in a repository?",
+          "options": [
+            "A) countAll()",
+            "B) count()",
+            "C) getTotal()",
+            "D) findCount()"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "count() returns the total number of entities in the repository."
+        },
+        {
+          "id": "d1_q037_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "How do you implement custom behavior in a Spring Data repository?",
+          "options": [
+            "A) Extend CustomInterface",
+            "B) Provide implementation in a class named RepositoryImpl",
+            "C) Annotate with @CustomImpl",
+            "D) Use @Qualifier"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Define a custom interface and an implementation named XxxRepositoryImpl; Spring picks it up automatically."
+        },
+        {
+          "id": "d1_q038_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which feature allows query-by-example in Spring Data JPA?",
+          "options": [
+            "A) ExampleMatcher",
+            "B) QueryBy",
+            "C) ExampleQuery",
+            "D) TypeSafeQuery"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "ExampleMatcher plus Example<T> lets you find entities matching a probe instance."
+        },
+        {
+          "id": "d1_q039_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "What interface do you implement for Specification-based queries?",
+          "options": [
+            "A) JpaSpecificationExecutor",
+            "B) SpecificationRepository",
+            "C) PredicateRepository",
+            "D) CriteriaBuilder"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "JpaSpecificationExecutor<T> allows execution of JPA Criteria API–based specifications."
+        },
+        {
+          "id": "d1_q040_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "How can you project query results into a DTO interface?",
+          "options": [
+            "A) Use @Projection",
+            "B) Define interface getters matching column names",
+            "C) Use @Dto",
+            "D) Use ResultTransformer"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Spring Data can map results to an interface with getter methods matching property names."
+        },
+        {
+          "id": "d1_q041_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which annotation on a repository interface adds HAL-based REST endpoints automatically?",
+          "options": [
+            "A) @RepositoryRestResource",
+            "B) @RestRepository",
+            "C) @EnableRest",
+            "D) @ExposeRest"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "@RepositoryRestResource from Spring Data REST exposes CRUD endpoints over HTTP."
+        },
+        {
+          "id": "d1_q042_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which annotation enables JPA auditing for created and modified dates?",
+          "options": [
+            "A) @EnableJpaAudit",
+            "B) @EnableJpaAuditing",
+            "C) @EnableAudits",
+            "D) @Audited"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@EnableJpaAuditing combined with @CreatedDate/@LastModifiedDate on fields enables audit timestamps."
+        },
+        {
+          "id": "d1_q043_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "Which annotation on a query method applies a pessimistic lock?",
+          "options": [
+            "A) @Lock(LockModeType.OPTIMISTIC)",
+            "B) @Lock(LockModeType.PESSIMISTIC_WRITE)",
+            "C) @PessimisticLock",
+            "D) @LockMode"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@Lock(LockModeType.PESSIMISTIC_WRITE) forces a database-level write lock."
+        },
+        {
+          "id": "d1_q044_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "What does saveAll() return?",
+          "options": [
+            "A) void",
+            "B) Iterable<T>",
+            "C) List<T>",
+            "D) Stream<T>"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "saveAll(Iterable<T>) returns the saved entities as an Iterable<T>."
+        },
+        {
+          "id": "d1_q045_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Easy",
+          "question_text": "Which method deletes an entity by its ID?",
+          "options": [
+            "A) removeById",
+            "B) delete",
+            "C) deleteById",
+            "D) purgeById"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "deleteById(ID) removes the entity with the given identifier."
+        },
+        {
+          "id": "d1_q046_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "How do you pass query hints to a repository method?",
+          "options": [
+            "A) @QueryHint",
+            "B) @Hints",
+            "C) @QueryHints",
+            "D) Both A and C"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Use @QueryHints({@QueryHint(name=\"hintName\", value=\"...\")}) on the method."
+        },
+        {
+          "id": "d1_q047_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which flush mode setting on EntityManager defers all SQL until commit?",
+          "options": [
+            "A) AUTO",
+            "B) COMMIT",
+            "C) MANUAL",
+            "D) ALWAYS"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "FlushModeType.COMMIT only synchronizes changes at transaction commit time."
+        },
+        {
+          "id": "d1_q048_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "What interface do you use to support JPA change tracking outside a transaction?",
+          "options": [
+            "A) OpenEntityManagerInViewFilter",
+            "B) LazyInitializationHandler",
+            "C) EntityGraph",
+            "D) DirtyChecking"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "OpenEntityManagerInViewFilter keeps the EntityManager open for the web request to allow lazy loading."
+        },
+        {
+          "id": "d1_q049_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which annotation lets you specify an EntityGraph on a repository method?",
+          "options": [
+            "A) @FetchGraph",
+            "B) @EntityGraph",
+            "C) @GraphFetch",
+            "D) @SubGraph"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@EntityGraph(attributePaths={\"...\"}) defines which associations to fetch eagerly."
+        },
+        {
+          "id": "d1_q050_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "How do you expose pagination parameters in Spring Data REST?",
+          "options": [
+            "A) ?page=&size=",
+            "B) ?p=&s=",
+            "C) ?offset=&limit=",
+            "D) ?start=&count="
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Spring Data REST uses page and size query parameters for pagination."
+        },
+        {
+          "id": "d1_q051_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "Which dialect setting is required for PostgreSQL in Hibernate?",
+          "options": [
+            "A) org.hibernate.dialect.MySQLDialect",
+            "B) org.hibernate.dialect.PostgreSQLDialect",
+            "C) org.hibernate.dialect.SQLServerDialect",
+            "D) org.hibernate.dialect.H2Dialect"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Specify PostgreSQLDialect to tailor SQL generation to PostgreSQL syntax."
+        },
+        {
+          "id": "d1_q052_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "How can you batch multiple inserts in Hibernate?",
+          "options": [
+            "A) session.setJdbcBatchSize()",
+            "B) spring.batch.size",
+            "C) hibernate.jdbc.batch_size",
+            "D) @BatchInsert"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "hibernate.jdbc.batch_size in configuration enables JDBC-level batching for inserts/updates."
+        },
+        {
+          "id": "d1_q053_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "Which feature avoids redundant SQL when merging detached entities?",
+          "options": [
+            "A) IdentifierGenerators",
+            "B) Dirty checking",
+            "C) Second-level cache",
+            "D) StatelessSession"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Dirty checking detects changed fields and only updates those, preventing full updates."
+        },
+        {
+          "id": "d1_q054_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "Which annotation defines a many-to-many relationship through a join table?",
+          "options": [
+            "A) @ManyToMany",
+            "B) @OneToMany",
+            "C) @OneToOne",
+            "D) @JoinTable"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "@ManyToMany with @JoinTable configures a join table for the relationship."
+        },
+        {
+          "id": "d1_q055_s1",
+          "domain": "Hibernate",
+          "difficulty": "Hard",
+          "question_text": "What does Session.lock(entity, LockMode.NONE) do?",
+          "options": [
+            "A) Upgrades lock to write",
+            "B) Reattaches a detached entity without version check",
+            "C) Releases all locks",
+            "D) Throws exception"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "LockMode.NONE reattaches a detached entity without performing version checks."
+        },
+        {
+          "id": "d1_q056_s1",
+          "domain": "Hibernate",
+          "difficulty": "Medium",
+          "question_text": "What tool generates database schema from entity mappings?",
+          "options": [
+            "A) hbm2ddl.auto",
+            "B) schema-gen",
+            "C) ddl-export",
+            "D) dbtool"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Setting hibernate.hbm2ddl.auto to create or update auto-generates tables."
+        },
+        {
+          "id": "d1_q057_s1",
+          "domain": "Hibernate",
+          "difficulty": "Easy",
+          "question_text": "Which API is the JPA standard EntityManager equivalent in Hibernate?",
+          "options": [
+            "A) Session",
+            "B) SessionFactory",
+            "C) EntityManagerFactory",
+            "D) StatelessSession"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Hibernate’s Session interface implements JPA’s EntityManager semantics."
+        },
+        {
+          "id": "d1_q058_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Easy",
+          "question_text": "Which annotation on an entity field marks creation timestamp?",
+          "options": [
+            "A) @CreatedOn",
+            "B) @CreatedDate",
+            "C) @Timestamp",
+            "D) @CreationTime"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "@CreatedDate works with auditing to automatically set the creation time."
+        },
+        {
+          "id": "d1_q059_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "How do you map a projection DTO via constructor expression in JPQL?",
+          "options": [
+            "A) SELECT new com.pkg.Dto(e.name, e.age) FROM Entity e",
+            "B) @DtoConstructor",
+            "C) @ProjectionConstructor",
+            "D) SELECT construct Dto(e.name, e.age)"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "JPQL supports constructor expressions: SELECT new com.pkg.Dto(...) FROM Entity."
+        },
+        {
+          "id": "d1_q060_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which repository method signature returns a Stream for large results?",
+          "options": [
+            "A) Stream<T> streamAll()",
+            "B) Stream<T> findAllBy()",
+            "C) Stream<T> readAll()",
+            "D) Stream<T> findAllByCustom()"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "findAllBy returns a Stream<T>, enabling lazy retrieval of large result sets."
+        },
+        {
+          "id": "d1_q061_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "How can you customize repository base class?",
+          "options": [
+            "A) spring.data.jpa.repository.base-class",
+            "B) @EnableJpaRepositories(repositoryBaseClass=...)",
+            "C) Implement BaseRepository",
+            "D) Use custom @Repository"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Use @EnableJpaRepositories(repositoryBaseClass = CustomImpl.class) in configuration."
+        },
+        {
+          "id": "d1_q062_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "Which property disables DDL generation in Spring Boot?",
+          "options": [
+            "A) spring.jpa.hibernate.ddl-auto=none",
+            "B) spring.jpa.generate-ddl=false",
+            "C) spring.jpa.hibernate.auto=false",
+            "D) spring.datasource.initialize=false"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "spring.jpa.generate-ddl=false prevents Spring Boot from generating DDL."
+        },
+        {
+          "id": "d1_q063_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Hard",
+          "question_text": "What annotation allows rollback only on specific exceptions?",
+          "options": [
+            "A) @Transactional(rollbackFor=...)",
+            "B) @RollbackOn",
+            "C) @ExceptionRollback",
+            "D) @RollbackFor"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "@Transactional(rollbackFor = CustomException.class) rolls back only for that exception."
+        },
+                        {
+          "id": "d1_q064_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Medium",
+          "question_text": "How do you enable support for Spring Data JPA repositories?",
+          "options": [
+            "A) @EnableJpaRepositories",
+            "B) @EnableRepositories",
+            "C) @EnableDataJpa",
+            "D) @EnableJpa"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "@EnableJpaRepositories on a @Configuration class scans and registers repository interfaces."
+        },
+                        {
+          "id": "d1_q065_s1",
+          "domain": "Spring Data JPA",
+          "difficulty": "Easy",
+          "question_text": "Which method flushes pending changes to the database immediately?",
+          "options": [
+            "A) flush()",
+            "B) synchronize()",
+            "C) commit()",
+            "D) apply()"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "flush() on JpaRepository or EntityManager forces the persistence context to synchronize with the database."
+        }
+      ]
+    }
+  ]
+}
