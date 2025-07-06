@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {# 1. Import the macro file and assign it a namespace ('components') #}
-{% import 'components/_macros.html' as components %}
+{% import 'macros/ui_macros.html' as components %}
 
 
 {% block title %}Select Your Topic - SkillCertify{% endblock %}
@@ -9,8 +9,8 @@
 
 {% block content %}
 <div class="text-center mb-10">
-    <h1 class="text-4xl font-bold text-gray-800">Welcome to SkillCertify</h1>
-    <p class="text-xl text-gray-600 mt-2">Choose a topic below to start your exam.</p>
+  <h1 class="text-4xl font-bold text-gray-800 dark:text-white">Welcome to SkillCertify</h1>
+  <p class="text-xl text-gray-600 dark:text-gray-300 mt-2">Choose a topic below to start your exam.</p>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
