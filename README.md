@@ -80,19 +80,6 @@ Technical interviews aren't just about knowing the answer; they're about demonst
 *   **Practice Under Pressure:** The timed environment simulates the stress of a real interview, training you to think clearly and perform when it counts.
 *   **Articulate Complex Topics:** Reviewing detailed explanations helps you master the "why" behind the "what," enabling you to articulate your reasoning with confidence—a key trait that interviewers look for.
 
-<!-- 
----
-
-### 🎥 Live Demo in Action
-
-A quick walkthrough of the user experience, from selecting a topic to reviewing the final report. -->
-
-<!-- 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Manoj-1996-m/SkillCertify/main/demo.gif" alt="SkillCertify Live Demo GIF" width="800">
-</p> 
--->
-
 ---
 
 ### ✨ Key Features
@@ -109,10 +96,12 @@ A quick walkthrough of the user experience, from selecting a topic to reviewing 
 
 ### 🛠️ Technology Stack
 
-*   **Backend:** 🐍 Python, Flask
-*   **Frontend:** 🌐 HTML5, Tailwind CSS, Vanilla JavaScript
-*   **Templating:** ✨ Jinja2
-*   **Data Format:** 📄 JSON
+| 🧱 Layer        | 🚀 Technologies                         |
+|--------------|----------------------------------------|
+| 🧠 **Backend**   | 🐍 Python, 🍶 Flask                        |
+| 🖥️ **Frontend** | 🔤 HTML5, 🎨 Tailwind CSS, 🟨 Vanilla JS |
+| 🧾 **Templates** | ✨ Jinja2                              |
+| 📂 **Data Format**      | 📄 JSON                                  |
 
 ---
 
