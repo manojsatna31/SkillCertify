@@ -47,7 +47,8 @@
 ---
 ![SkillCertify.gif](img/SkillCertify.gif)
 
-
+---
+![SkillCertify-Dark.gif](img/SkillCertify-Dark.gif)
 ---
 ## 📚 Table of Contents
 
