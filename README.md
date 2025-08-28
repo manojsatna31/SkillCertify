@@ -44,7 +44,8 @@
   <img src="img/SkillCertify.png" alt="SkillCertify Logo" width="600">
 </p> 
 -->
-
+---
+![SkillCertify.gif](img/SkillCertify.gif)
 
 
 ---
