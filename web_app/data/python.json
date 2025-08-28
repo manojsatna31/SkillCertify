@@ -1,0 +1,2396 @@
+{
+  "id": "tech-python",
+  "name": "Python Development Path",
+  "icon": "fab fa-python text-blue-500",
+  "description": "Expand your Python skills across core programming, object-oriented design, asynchronous programming, testing,</br> and full-stack web development with modern frameworks.",
+  "exam_sets": [
+    {
+      "id": "tech-python-django-set1",
+      "name": "Django Fundamentals & ORM",
+      "title": "Mastering the Django MVT Architecture",
+      "focus_on": "Core Django concepts including the Model-View-Template (MVT) pattern, powerful Object-Relational Mapper (ORM) for database interactions, URL routing, form handling, and leveraging the built-in admin interface. This set builds a strong foundation for any Django developer.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-database text-green-400",
+          "topic": "Django ORM (QuerySets, Migrations, Relationships)"
+        },
+        {
+          "icon": "fas fa-sitemap text-blue-400",
+          "topic": "Views and URL Routing"
+        },
+        {
+          "icon": "fas fa-file-alt text-yellow-400",
+          "topic": "Django Template Language (DTL)"
+        },
+        {
+          "icon": "fab fa-wpforms text-red-400",
+          "topic": "Form Handling and Validation"
+        },
+        {
+          "icon": "fas fa-user-shield text-gray-400",
+          "topic": "Django Admin Customization"
+        }
+      ],
+      "difficulty": "Associate",
+      "description": "Evaluates your understanding of Django's core components. Perfect for developers starting their journey with Django or preparing for junior-level roles.",
+      "icon": "fab fa-python text-green-500",
+      "passing_score": "75",
+      "active": true,
+      "total_questions": "40",
+      "time_limit": "60",
+      "questions": [
+        {
+          "id": "q001_s1",
+          "domain": "Django Core Concepts",
+          "difficulty": "Easy",
+          "question_text": "In the context of Django's MVT architecture, what is the primary responsibility of the 'View'?",
+          "options": [
+            "A) To define the data structure and database schema.",
+            "B) To handle the presentation logic and render the final HTML.",
+            "C) To process the user's request and return a response.",
+            "D) To map URLs to specific functions or classes."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "In Django, the 'View' is a request handler. It takes an HTTP request, applies business logic (like fetching data from models), and returns an HTTP response, which might be an HTML page, a redirect, or a 404 error."
+        },
+        {
+          "id": "q002_s1",
+          "domain": "Django ORM",
+          "difficulty": "Easy",
+          "question_text": "Which command is used to create the necessary database tables for all apps in your project whose tables have not yet been created?",
+          "options": [
+            "A) `python manage.py makemigrations`",
+            "B) `python manage.py migrate`",
+            "C) `python manage.py create_tables`",
+            "D) `python manage.py syncdb`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`python manage.py migrate` is the command that applies migrations, which includes creating new tables in the database based on your models and migration files. `makemigrations` creates the migration files but doesn't apply them."
+        },
+        {
+          "id": "q003_s1",
+          "domain": "Django Templates",
+          "difficulty": "Easy",
+          "question_text": "How do you access a variable named `user_name` passed from a view to a Django template?",
+          "options": [
+            "A) `{{ user_name }}`",
+            "B) `{% user_name %}`",
+            "C) `{# user_name #}`",
+            "D) `(( user_name ))`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "In the Django Template Language (DTL), double curly braces `{{ variable }}` are used to output the value of a variable."
+        },
+        {
+          "id": "q004_s1",
+          "domain": "Django ORM",
+          "difficulty": "Medium",
+          "question_text": "To retrieve all `Product` objects where the price is greater than 100, which Django ORM query is correct?",
+          "options": [
+            "A) `Product.objects.filter(price > 100)`",
+            "B) `Product.objects.get(price__gt=100)`",
+            "C) `Product.objects.filter(price__gt=100)`",
+            "D) `Product.objects.select(price > 100)`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The correct syntax for field lookups in Django's ORM is using a double underscore. `__gt` stands for 'greater than'. `filter()` returns a QuerySet of all matching objects, whereas `get()` would raise an error if more than one object matched."
+        },
+        {
+          "id": "q005_s1",
+          "domain": "Django URLs",
+          "difficulty": "Easy",
+          "question_text": "What is the purpose of the `urls.py` file in a Django application?",
+          "options": [
+            "A) To define the application's database models.",
+            "B) To store static files like CSS and JavaScript.",
+            "C) To define the URL patterns and map them to views.",
+            "D) To configure the application's settings."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `urls.py` file acts as a table of contents for your Django-powered site. It contains a list of `path()` or `re_path()` instances, which define how URLs are mapped to the corresponding view functions or classes."
+        },
+        {
+          "id": "q006_s1",
+          "domain": "Django Models",
+          "difficulty": "Medium",
+          "question_text": "How do you define a one-to-many relationship between an `Author` and a `Book` model, where one author can have many books?",
+          "options": [
+            "A) Add a `ManyToManyField` to the `Author` model.",
+            "B) Add a `OneToOneField` to the `Book` model.",
+            "C) Add a `ForeignKey` to the `Author` model pointing to `Book`.",
+            "D) Add a `ForeignKey` to the `Book` model pointing to `Author`."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "A one-to-many relationship is defined using `models.ForeignKey`. The field should be placed on the 'many' side of the relationship. In this case, each `Book` has one `Author`, so the `ForeignKey` goes in the `Book` model."
+        },
+        {
+          "id": "q007_s1",
+          "domain": "Django Forms",
+          "difficulty": "Medium",
+          "question_text": "In a Django `forms.Form`, how do you check if the submitted data is valid in your view?",
+          "options": [
+            "A) `if form.is_valid():`",
+            "B) `if form.validate():`",
+            "C) `if form.cleaned_data:`",
+            "D) `if request.POST.is_valid():`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "After instantiating a form with POST data (e.g., `form = MyForm(request.POST)`), you call the `form.is_valid()` method. This runs all validation routines for the form fields and returns `True` if the data is clean."
+        },
+        {
+          "id": "q008_s1",
+          "domain": "Django Admin",
+          "difficulty": "Medium",
+          "question_text": "To display a model named `Product` in the Django admin site, what is the minimal required step?",
+          "options": [
+            "A) Add `admin.autodiscover()` to `urls.py`.",
+            "B) Create a `ModelAdmin` class for `Product` in `admin.py`.",
+            "C) Register the model in the app's `admin.py` file using `admin.site.register(Product)`.",
+            "D) Add the app to the `ADMIN_APPS` list in `settings.py`."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The simplest way to make a model visible in the admin interface is to register it using `admin.site.register(YourModel)` within the `admin.py` file of the corresponding application."
+        },
+        {
+          "id": "q009_s1",
+          "domain": "Django Templates",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `{% csrf_token %}` template tag in a Django form?",
+          "options": [
+            "A) To encrypt the form data before submission.",
+            "B) To prevent Cross-Site Scripting (XSS) attacks.",
+            "C) To prevent Cross-Site Request Forgery (CSRF) attacks.",
+            "D) To validate the user's session cookie."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `{% csrf_token %}` tag generates a hidden input field containing a unique token. Django checks for this token on all POST requests to ensure that the request is coming from your own site, thus protecting against CSRF attacks."
+        },
+        {
+          "id": "q010_s1",
+          "domain": "Django ORM",
+          "difficulty": "Hard",
+          "question_text": "Which ORM query efficiently retrieves all `Category` objects along with the count of `Product` objects in each category?",
+          "options": [
+            "A) `Category.objects.prefetch_related('product_set').count()`",
+            "B) `Category.objects.annotate(product_count=Count('product'))`",
+            "C) `Category.objects.aggregate(product_count=Count('product'))`",
+            "D) `Category.objects.all().extra(select={'product_count': 'COUNT(product.id)'})`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`annotate()` is used to add a calculated field to each object in the QuerySet. `Count('product')` will count the related `Product` objects for each `Category`. `aggregate()` would return a single dictionary with the total count across all categories, not per category."
+        },
+        {
+          "id": "q011_s1",
+          "domain": "Django Views",
+          "difficulty": "Medium",
+          "question_text": "What is the main difference between a Function-Based View (FBV) and a Class-Based View (CBV) in Django?",
+          "options": [
+            "A) FBVs are more secure than CBVs.",
+            "B) CBVs cannot handle POST requests.",
+            "C) CBVs allow for better code reuse and extensibility through inheritance.",
+            "D) FBVs are faster and more performant than CBVs."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The primary advantage of Class-Based Views is their reusability. They provide built-in functionality (e.g., `ListView`, `DetailView`) that can be extended and customized through inheritance, reducing boilerplate code compared to writing everything from scratch in a function."
+        },
+        {
+          "id": "q012_s1",
+          "domain": "Django Settings",
+          "difficulty": "Easy",
+          "question_text": "In which file would you typically define your database connection settings in a Django project?",
+          "options": [
+            "A) `manage.py`",
+            "B) `urls.py`",
+            "C) `settings.py`",
+            "D) `models.py`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `settings.py` file contains all the configuration for a Django project, including the `DATABASES` dictionary where you define connection details for your database(s)."
+        },
+        {
+          "id": "q013_s1",
+          "domain": "Django ORM",
+          "difficulty": "Medium",
+          "question_text": "What does the `select_related()` ORM method do?",
+          "options": [
+            "A) It selects a random object from the database.",
+            "B) It performs a SQL `JOIN` to fetch related many-to-one and one-to-one objects in a single query.",
+            "C) It fetches related many-to-many objects in a separate query.",
+            "D) It creates a database view for the selected fields."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`select_related()` is a performance optimizer that follows foreign-key relationships, selecting additional related-object data when it executes its query. This avoids further database queries when you access the related objects, but it only works for single-valued relationships (ForeignKey, OneToOneField)."
+        },
+        {
+          "id": "q014_s1",
+          "domain": "Django Templates",
+          "difficulty": "Medium",
+          "question_text": "How can you extend a base template (`base.html`) in another Django template (`child.html`)?",
+          "options": [
+            "A) `{% include 'base.html' %}` at the top of `child.html`",
+            "B) `{% extends 'base.html' %}` at the top of `child.html`",
+            "C) `{% import 'base.html' %}` at the top of `child.html`",
+            "D) `{% load 'base.html' %}` at the top of `child.html`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `{% extends %}` tag is used for template inheritance. It must be the very first tag in the template and tells the template engine that this template 'extends' another one, allowing you to override blocks defined in the parent template."
+        },
+        {
+          "id": "q015_s1",
+          "domain": "Django Models",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of `on_delete=models.CASCADE` in a `ForeignKey` field?",
+          "options": [
+            "A) It creates a cascading stylesheet for the model in the admin.",
+            "B) When the referenced object is deleted, all objects that have a `ForeignKey` to it will be deleted as well.",
+            "C) It sets the `ForeignKey` to `NULL` when the referenced object is deleted.",
+            "D) It prevents the referenced object from being deleted if any other objects link to it."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`on_delete=models.CASCADE` implements the SQL `ON DELETE CASCADE` constraint. It means that if a record in the 'parent' table is deleted, then the corresponding records in the 'child' table will automatically be deleted."
+        },
+        {
+          "id": "q016_s1",
+          "domain": "Django Admin",
+          "difficulty": "Medium",
+          "question_text": "In a `ModelAdmin` class, which attribute do you use to control which fields are displayed on the change list page of the admin?",
+          "options": [
+            "A) `fields`",
+            "B) `display_fields`",
+            "C) `list_display`",
+            "D) `readonly_fields`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `list_display` attribute in a `ModelAdmin` class is a tuple or list of field names (as strings) that you want to show as columns on the admin's object list page."
+        },
+        {
+          "id": "q017_s1",
+          "domain": "Django ORM",
+          "difficulty": "Hard",
+          "question_text": "What is the difference between `filter()` and `exclude()` in a Django QuerySet?",
+          "options": [
+            "A) `filter()` returns objects that match the lookup parameters, while `exclude()` returns objects that do not match.",
+            "B) `filter()` can only be used on `CharField`, while `exclude()` can be used on any field.",
+            "C) `filter()` returns a single object, while `exclude()` returns a QuerySet.",
+            "D) There is no difference; they are aliases for the same function."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`filter(**kwargs)` returns a new QuerySet containing objects that match the given lookup parameters. `exclude(**kwargs)` returns a new QuerySet containing objects that do NOT match the given lookup parameters. They are opposites."
+        },
+        {
+          "id": "q018_s1",
+          "domain": "Django Forms",
+          "difficulty": "Medium",
+          "question_text": "If `form.is_valid()` returns `True`, where can you find the validated and cleaned data?",
+          "options": [
+            "A) `form.data`",
+            "B) `form.cleaned_data`",
+            "C) `form.valid_data`",
+            "D) `request.POST`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "After successful validation via `is_valid()`, the `form.cleaned_data` dictionary is populated with the validated data, converted to the appropriate Python types."
+        },
+        {
+          "id": "q019_s1",
+          "domain": "Django Core Concepts",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of 'middleware' in Django?",
+          "options": [
+            "A) It's a tool for managing database migrations.",
+            "B) It's a framework for building reusable Django applications.",
+            "C) It's a system of hooks into Django's request/response processing.",
+            "D) It's a templating engine for rendering HTML."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Middleware is a light, low-level 'plugin' system for globally altering Django's input or output. It's a framework of hooks that allows you to process requests before they reach the view and responses before they are sent to the client."
+        },
+        {
+          "id": "q020_s1",
+          "domain": "Django Models",
+          "difficulty": "Medium",
+          "question_text": "Which model field type is most appropriate for storing a large amount of text, like a blog post body?",
+          "options": [
+            "A) `models.CharField(max_length=5000)`",
+            "B) `models.SlugField()`",
+            "C) `models.TextField()`",
+            "D) `models.FileField()`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`TextField` is designed for large text fields. While `CharField` can be used for text, it requires a `max_length` and is intended for smaller strings, often leading to database-level inefficiencies for large content."
+        },
+        {
+          "id": "q021_s1",
+          "domain": "Django ORM",
+          "difficulty": "Hard",
+          "question_text": "How can you perform a case-insensitive filter for a `name` field in a Django model?",
+          "options": [
+            "A) `Model.objects.filter(name__exact_case=value)`",
+            "B) `Model.objects.filter(name__icontains=value)`",
+            "C) `Model.objects.filter(name.lower()==value.lower())`",
+            "D) `Model.objects.filter(name__case_insensitive=value)`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Django's ORM provides field lookups for common operations. The `i` prefix in lookups like `iexact` or `icontains` stands for 'case-insensitive'."
+        },
+        {
+          "id": "q022_s1",
+          "domain": "Django Templates",
+          "difficulty": "Medium",
+          "question_text": "What does the `|date:\"Y-m-d\"` filter do in a Django template?",
+          "options": [
+            "A) It validates that a variable is a valid date.",
+            "B) It formats a date object into a string like '2023-10-27'.",
+            "C) It creates a new date object with the current date.",
+            "D) It filters a list of objects, returning only those from the specified date."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `date` filter formats a date/datetime object according to a format string, similar to PHP's `date()` function. `Y` is a 4-digit year, `m` is a 2-digit month, and `d` is a 2-digit day."
+        },
+        {
+          "id": "q023_s1",
+          "domain": "Django URLs",
+          "difficulty": "Medium",
+          "question_text": "In `path('articles/<int:year>/', views.year_archive)`, what is the purpose of `<int:year>`?",
+          "options": [
+            "A) It's a comment explaining the URL.",
+            "B) It captures a part of the URL as a string named 'year'.",
+            "C) It captures an integer from the URL and passes it as a keyword argument named 'year' to the view.",
+            "D) It's a static part of the URL that must be 'int:year'."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "This syntax uses a path converter. `int:` specifies that it should match digits, and it converts the matched string into an integer. The value is then passed to the `year_archive` view as a keyword argument: `year_archive(request, year=2023)`."
+        },
+        {
+          "id": "q024_s1",
+          "domain": "Django ORM",
+          "difficulty": "Hard",
+          "question_text": "What is the primary use case for `prefetch_related()`?",
+          "options": [
+            "A) To perform a SQL `JOIN` for one-to-one relationships.",
+            "B) To efficiently fetch related objects for many-to-many or many-to-one relationships by doing a separate lookup.",
+            "C) To pre-populate the cache with query results.",
+            "D) To fetch data from a different database connection."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`prefetch_related` works by doing a separate lookup for the 'many' side of the relationship and then joining the data in Python. This is more efficient than the massive `JOIN` that `select_related` would create for a many-to-many relationship, avoiding duplicate main model results."
+        },
+        {
+          "id": "q025_s1",
+          "domain": "Django Models",
+          "difficulty": "Medium",
+          "question_text": "How do you define a field that must be unique across the entire table in a Django model?",
+          "options": [
+            "A) `models.CharField(unique=True)`",
+            "B) `models.CharField(primary_key=True)`",
+            "C) `models.CharField(db_index=True)`",
+            "D) `models.CharField(editable=False)`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `unique=True` option on a model field creates a `UNIQUE` constraint at the database level, ensuring that no two rows in the table can have the same value for that column."
+        },
+        {
+          "id": "q026_s1",
+          "domain": "Django Core Concepts",
+          "difficulty": "Easy",
+          "question_text": "What is a Django 'app'?",
+          "options": [
+            "A) The entire Django project.",
+            "B) A self-contained module within a Django project that has a specific function (e.g., a blog, a poll).",
+            "C) A third-party package installed via pip.",
+            "D) A Python script that starts the development server."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A Django project is made up of one or more 'apps'. An app is a web application that does something – e.g., a blog app, a user authentication app. The idea is to create small, reusable, and self-contained components."
+        },
+        {
+          "id": "q027_s1",
+          "domain": "Django Views",
+          "difficulty": "Medium",
+          "question_text": "Which generic Class-Based View is used to display a list of objects from a model?",
+          "options": [
+            "A) `DetailView`",
+            "B) `FormView`",
+            "C) `TemplateView`",
+            "D) `ListView`"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "`ListView` is a generic CBV designed to display a list of objects. It handles the logic of fetching objects from the database, paginating them, and passing them to a template."
+        },
+        {
+          "id": "q028_s1",
+          "domain": "Django ORM",
+          "difficulty": "Medium",
+          "question_text": "What does `MyModel.objects.get(pk=1)` do?",
+          "options": [
+            "A) It returns a QuerySet containing the object with primary key 1.",
+            "B) It returns a single model instance with primary key 1, or raises `MyModel.DoesNotExist` if not found.",
+            "C) It returns the first object in the table.",
+            "D) It returns a dictionary representation of the object with primary key 1."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `get()` method is used to retrieve a single, unique object. It raises a `DoesNotExist` exception if no object matches the query and a `MultipleObjectsReturned` exception if more than one object matches."
+        },
+        {
+          "id": "q029_s1",
+          "domain": "Django Forms",
+          "difficulty": "Hard",
+          "question_text": "What is the difference between `forms.Form` and `forms.ModelForm`?",
+          "options": [
+            "A) `ModelForm` is used for search forms, while `Form` is for data entry.",
+            "B) `ModelForm` automatically builds a form from a Django model, while `Form` requires you to define fields manually.",
+            "C) `Form` can only handle GET requests, while `ModelForm` can handle POST.",
+            "D) There is no functional difference, only a naming convention."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ModelForm` is a helper class that lets you create a `Form` class from a Django model. It introspects the model and automatically generates the corresponding form fields, reducing boilerplate code for creating and updating model instances."
+        },
+        {
+          "id": "q030_s1",
+          "domain": "Django Templates",
+          "difficulty": "Easy",
+          "question_text": "Which template tag is used to iterate over a list of items in Django?",
+          "options": [
+            "A) `{% for item in item_list %}`",
+            "B) `{% if item in item_list %}`",
+            "C) `{% loop item in item_list %}`",
+            "D) `{% each item in item_list %}`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `{% for %}` tag is the standard way to loop through each item in an array or list. The loop is closed with an `{% endfor %}` tag."
+        },
+        {
+          "id": "q031_s1",
+          "domain": "Django Admin",
+          "difficulty": "Hard",
+          "question_text": "How can you add a custom action to a `ModelAdmin` change list that operates on a selection of objects?",
+          "options": [
+            "A) By defining a method on the model and adding its name to the `list_actions` attribute.",
+            "B) By defining a function in `admin.py` and adding its name to the `actions` attribute of the `ModelAdmin` class.",
+            "C) By creating a new template tag called `admin_action`.",
+            "D) By overriding the `get_actions` method in the `ModelAdmin` and returning a list of callables."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "You can add custom actions by writing a function that takes `modeladmin`, `request`, and `queryset` as arguments. Then, you add the name of this function to the `actions` list or tuple in your `ModelAdmin` class."
+        },
+        {
+          "id": "q032_s1",
+          "domain": "Django ORM",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of a `ManyToManyField` with a `through` model?",
+          "options": [
+            "A) To create a one-to-one relationship that bypasses the ORM.",
+            "B) To specify an intermediary model to store extra data associated with the many-to-many relationship.",
+            "C) To improve query performance by creating a materialized view.",
+            "D) To define a relationship that spans across multiple databases."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "When you need to store extra information about the relationship between two models (e.g., the date a student enrolled in a course), you can specify a `through` model. This custom model will have `ForeignKey`s to the two related models, plus any additional fields you need."
+        },
+        {
+          "id": "q033_s1",
+          "domain": "Django Core Concepts",
+          "difficulty": "Medium",
+          "question_text": "What is the role of `manage.py` in a Django project?",
+          "options": [
+            "A) It is the main entry point for the web server to run the application.",
+            "B) It contains the project's global settings.",
+            "C) It's a command-line utility for administrative tasks like running the server, creating apps, and running migrations.",
+            "D) It defines the database models for the project."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`manage.py` is a thin wrapper around `django-admin`. It's used to perform various project-specific administrative tasks, such as `runserver`, `startapp`, `makemigrations`, `migrate`, `collectstatic`, etc."
+        },
+        {
+          "id": "q034_s1",
+          "domain": "Django Views",
+          "difficulty": "Medium",
+          "question_text": "How do you get the currently logged-in user in a Django view?",
+          "options": [
+            "A) `request.user`",
+            "B) `session.get('user')`",
+            "C) `django.auth.get_user()`",
+            "D) `request.session.user`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "If you are using Django's authentication system, the `request` object passed to your view will have a `user` attribute. This attribute will be an instance of `AnonymousUser` if the user is not logged in, or a `User` model instance if they are."
+        },
+        {
+          "id": "q035_s1",
+          "domain": "Django Models",
+          "difficulty": "Easy",
+          "question_text": "Which command creates the initial migration files for a new model you've just defined?",
+          "options": [
+            "A) `python manage.py migrate`",
+            "B) `python manage.py sqlmigrate`",
+            "C) `python manage.py makemigrations`",
+            "D) `python manage.py create_model`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`makemigrations` is responsible for inspecting your `models.py` files and creating new migration files based on the changes it detects since the last migration."
+        },
+        {
+          "id": "q036_s1",
+          "domain": "Django ORM",
+          "difficulty": "Hard",
+          "question_text": "Which of the following best describes a Django `Q` object?",
+          "options": [
+            "A) A queue for processing background tasks.",
+            "B) An object used to encapsulate a collection of keyword arguments for complex, conditional database queries (e.g., with OR statements).",
+            "C) A quality assurance tool for testing models.",
+            "D) A shortcut for creating a QuerySet."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`Q` objects are used to build complex queries. For example, to find products that are either out of stock OR have a price less than 10, you would write: `Product.objects.filter(Q(stock=0) | Q(price__lt=10))`."
+        },
+        {
+          "id": "q037_s1",
+          "domain": "Django Templates",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `static` template tag (e.g., `{% static 'css/style.css' %}`)?",
+          "options": [
+            "A) To define a static variable within the template.",
+            "B) To make a part of the template non-dynamic.",
+            "C) To generate the correct URL for a static file defined in your `STATIC_URL` setting.",
+            "D) To include another template file statically."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `static` tag uses the configured `STATICFILES_STORAGE` to build the URL for the given relative path. This is the correct way to refer to static files like CSS, JavaScript, and images in your templates."
+        },
+        {
+          "id": "q038_s1",
+          "domain": "Django Views",
+          "difficulty": "Hard",
+          "question_text": "What is a 'mixin' in the context of Django's Class-Based Views?",
+          "options": [
+            "A) A type of database field for storing mixed data types.",
+            "B) A special class that provides a set of methods and functionality that can be inherited by other views, without being a complete view itself.",
+            "C) A security feature to mix up session IDs.",
+            "D) A template filter for combining two variables."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Mixins are a form of multiple inheritance where you can 'mix in' specific pieces of functionality into a class. For example, `LoginRequiredMixin` can be added to a CBV to ensure only logged-in users can access it, without you having to write the checking logic yourself."
+        },
+        {
+          "id": "q039_s1",
+          "domain": "Django ORM",
+          "difficulty": "Medium",
+          "question_text": "How do you order a QuerySet of `Article` objects by their `publication_date` in descending order?",
+          "options": [
+            "A) `Article.objects.order_by('publication_date')`",
+            "B) `Article.objects.sort('-publication_date')`",
+            "C) `Article.objects.order_by('-publication_date')`",
+            "D) `Article.objects.all().desc('publication_date')`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `order_by()` method is used to sort a QuerySet. To specify descending order, you prefix the field name with a hyphen (`-`)."
+        },
+        {
+          "id": "q040_s1",
+          "domain": "Django Core Concepts",
+          "difficulty": "Medium",
+          "question_text": "What is the 'Signals' dispatcher in Django used for?",
+          "options": [
+            "A) To handle incoming HTTP requests.",
+            "B) To send notifications to users via email or SMS.",
+            "C) To allow decoupled applications to get notified when actions occur elsewhere in the framework.",
+            "D) To manage URL routing."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Signals are a way to let certain senders notify a set of receivers that some action has taken place. This is useful for decoupling apps. For example, a `post_save` signal is sent after a model's `save()` method is called, and another app could listen for this signal to perform an action, like invalidating a cache."
+        }
+      ]
+    },
+    {
+      "id": "tech-python-flask-set3",
+      "name": "Flask & Microservices Essentials",
+      "title": "Building Web Applications with Flask",
+      "focus_on": "Fundamentals of the Flask microframework, including application setup, routing, the request-response cycle, and Jinja2 templating. Explores common extensions like Flask-SQLAlchemy for database integration and Flask-Migrate for migrations. Emphasizes best practices for structuring larger applications using Blueprints and the application factory pattern.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-route text-cyan-400",
+          "topic": "Flask Routing and View Functions"
+        },
+        {
+          "icon": "fas fa-file-code text-orange-400",
+          "topic": "Jinja2 Templating"
+        },
+        {
+          "icon": "fas fa-project-diagram text-indigo-400",
+          "topic": "Blueprints and Application Structure"
+        },
+        {
+          "icon": "fas fa-database text-green-400",
+          "topic": "Flask-SQLAlchemy and Database Models"
+        },
+        {
+          "icon": "fas fa-box-open text-yellow-500",
+          "topic": "Flask Extensions and Configuration"
+        }
+      ],
+      "difficulty": "Associate",
+      "description": "This exam set covers the essential skills needed to build, structure, and deploy web applications and simple APIs using Flask and its ecosystem.",
+      "icon": "fas fa-flask text-gray-700",
+      "passing_score": "75",
+      "active": true,
+      "total_questions": "40",
+      "time_limit": "60",
+      "questions": [
+        {
+          "id": "q081_s3",
+          "domain": "Flask Core",
+          "difficulty": "Easy",
+          "question_text": "How do you create a basic Flask application instance?",
+          "options": [
+            "A) `app = Flask.new(__name__)`",
+            "B) `app = Flask(__name__)`",
+            "C) `app = new Flask(__name__)`",
+            "D) `app = Flask.create_app()`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "You create a Flask application by instantiating the `Flask` class. The `__name__` argument is needed so that Flask knows where to look for resources like templates and static files."
+        },
+        {
+          "id": "q082_s3",
+          "domain": "Flask Routing",
+          "difficulty": "Easy",
+          "question_text": "Which decorator is used to bind a function to a URL in Flask?",
+          "options": [
+            "A) `@app.url()`",
+            "B) `@app.path()`",
+            "C) `@app.route()`",
+            "D) `@app.view()`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `@app.route()` decorator is the standard way to register a view function for a given URL rule. For example, `@app.route('/')` maps the function to the root URL of the application."
+        },
+        {
+          "id": "q083_s3",
+          "domain": "Jinja2 Templating",
+          "difficulty": "Easy",
+          "question_text": "Which function is used to render a template in Flask?",
+          "options": [
+            "A) `render('template.html')`",
+            "B) `render_template('template.html')`",
+            "C) `show_template('template.html')`",
+            "D) `template('template.html')`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `render_template()` function, imported from the `flask` package, finds a template in the `templates` folder, renders it with the provided context variables, and returns it as a response."
+        },
+        {
+          "id": "q084_s3",
+          "domain": "Request/Response",
+          "difficulty": "Medium",
+          "question_text": "How do you access URL query parameters (e.g., `?name=John`) in a Flask view?",
+          "options": [
+            "A) `request.query['name']`",
+            "B) `request.params.get('name')`",
+            "C) `request.args.get('name')`",
+            "D) `request.get('name')`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `request` object, imported from `flask`, has an `args` attribute which is a dictionary-like object containing the parsed URL query parameters. Using `.get()` is safer than `[]` as it avoids a `KeyError` if the parameter is missing."
+        },
+        {
+          "id": "q085_s3",
+          "domain": "Flask-SQLAlchemy",
+          "difficulty": "Medium",
+          "question_text": "How do you define a model in Flask-SQLAlchemy?",
+          "options": [
+            "A) By creating a class that inherits from `db.Model`.",
+            "B) By creating a dictionary with the table schema.",
+            "C) By writing a raw SQL `CREATE TABLE` statement.",
+            "D) By creating a class that inherits from `flask.Model`."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "With Flask-SQLAlchemy, you define your models as Python classes that inherit from `db.Model`, where `db` is your `SQLAlchemy` instance. Columns are defined as class attributes using `db.Column`."
+        },
+        {
+          "id": "q086_s3",
+          "domain": "Blueprints",
+          "difficulty": "Medium",
+          "question_text": "What is the primary purpose of using Blueprints in a Flask application?",
+          "options": [
+            "A) To define the visual design and layout of the application.",
+            "B) To run background tasks and jobs.",
+            "C) To organize a group of related views, templates, and static files into a reusable application component.",
+            "D) To manage database connections."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Blueprints are Flask's concept for making application components. A Blueprint allows you to structure your Flask application into distinct, reusable parts, which is essential for managing complexity as the application grows."
+        },
+        {
+          "id": "q087_s3",
+          "domain": "Flask Core",
+          "difficulty": "Medium",
+          "question_text": "What is the 'application context' in Flask?",
+          "options": [
+            "A) The directory where the application's code is stored.",
+            "B) A context that keeps track of the application-level data during a request, such as the application instance and its configuration.",
+            "C) The user's session data.",
+            "D) The environment variables available to the application."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The application context (`app_context`) makes the `current_app` and `g` objects available to your code. It's pushed onto a stack when a request starts, allowing you to access application-specific configuration and resources without having to pass the `app` object around."
+        },
+        {
+          "id": "q088_s3",
+          "domain": "Flask Routing",
+          "difficulty": "Medium",
+          "question_text": "How do you specify that a URL variable should be an integer in a Flask route?",
+          "options": [
+            "A) `@app.route('/post/<id:int>')`",
+            "B) `@app.route('/post/<id>')` and then `int(id)` in the view.",
+            "C) `@app.route('/post/<int:id>')`",
+            "D) `@app.route('/post/<id as integer>')`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Flask's router has built-in converters. The syntax `<converter:variable_name>` allows you to specify the expected type. `<int:id>` will match only if `id` is an integer and will pass it to the view function as an integer type."
+        },
+        {
+          "id": "q089_s3",
+          "domain": "Jinja2 Templating",
+          "difficulty": "Medium",
+          "question_text": "What is the syntax for an `if/else` statement in a Jinja2 template?",
+          "options": [
+            "A) `{{ if user }} ... {{ else }} ... {{ endif }}`",
+            "B) `{# if user #} ... {# else #} ... {# endif #}`",
+            "C) `{% if user %} ... {% else %} ... {% endif %}`",
+            "D) `(( if user )) ... (( else )) ... (( endif ))`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "In Jinja2 (and Django templates), control structures like loops and conditionals are enclosed in `{% ... %}` blocks. The structure is `{% if condition %}`, optionally `{% elif condition %}` or `{% else %}`, and must be closed with `{% endif %}`."
+        },
+        {
+          "id": "q090_s3",
+          "domain": "Flask-SQLAlchemy",
+          "difficulty": "Hard",
+          "question_text": "How do you add a new object to the database and save it using Flask-SQLAlchemy?",
+          "options": [
+            "A) `db.session.save(new_user)`",
+            "B) `db.session.add(new_user)` followed by `db.session.commit()`",
+            "C) `new_user.save()`",
+            "D) `db.add(new_user)`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "SQLAlchemy works with a 'session' object that acts as a staging area for database changes. You first `add()` objects to the session, and then `commit()` the session to write all staged changes to the database in a single transaction."
+        },
+        {
+          "id": "q091_s3",
+          "domain": "Request/Response",
+          "difficulty": "Medium",
+          "question_text": "How can a Flask view function return a JSON response?",
+          "options": [
+            "A) `return json.dumps({'key': 'value'})`",
+            "B) `return jsonify({'key': 'value'})`",
+            "C) `return Response({'key': 'value'}, mimetype='application/json')`",
+            "D) Both B and C are valid ways."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "The `jsonify()` helper function is the most common and convenient way. It serializes the given arguments to JSON and creates a `Response` object with the correct `application/json` mimetype. Creating a `Response` object manually also works but is more verbose."
+        },
+        {
+          "id": "q092_s3",
+          "domain": "Flask Core",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the `g` object in Flask?",
+          "options": [
+            "A) It stores global configuration for the application.",
+            "B) It is a global object for storing data during a single request's lifecycle.",
+            "C) It represents the GET request data.",
+            "D) It is an alias for the `current_app` object."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`g` stands for 'global' but it is global only within a single request context. It's a place to store data that might be accessed by multiple functions during a request, like a database connection or the currently logged-in user, without passing it as an argument everywhere."
+        },
+        {
+          "id": "q093_s3",
+          "domain": "Blueprints",
+          "difficulty": "Hard",
+          "question_text": "How do you register a Blueprint named `user_bp` with your main Flask application instance `app`?",
+          "options": [
+            "A) `app.add_blueprint(user_bp)`",
+            "B) `app.register_blueprint(user_bp)`",
+            "C) `app.include_blueprint(user_bp)`",
+            "D) `app.use(user_bp)`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "After creating a Blueprint instance (e.g., `user_bp = Blueprint(...)`), you must register it on the application instance using the `app.register_blueprint()` method. You can also specify a `url_prefix` at this stage."
+        },
+        {
+          "id": "q094_s3",
+          "domain": "Flask-Migrate",
+          "difficulty": "Medium",
+          "question_text": "What is the role of Flask-Migrate in a Flask application?",
+          "options": [
+            "A) It helps migrate users from an old authentication system.",
+            "B) It provides database migration handling for a Flask-SQLAlchemy application using Alembic.",
+            "C) It migrates a Flask application to a different server.",
+            "D) It converts a Django project to a Flask project."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Flask-Migrate is an extension that integrates the powerful Alembic database migration tool with Flask-SQLAlchemy. It allows you to manage changes to your database schema over time with commands like `flask db migrate` and `flask db upgrade`."
+        },
+        {
+          "id": "q095_s3",
+          "domain": "Configuration",
+          "difficulty": "Medium",
+          "question_text": "What is a common way to load configuration into a Flask app from a file?",
+          "options": [
+            "A) `app.config.load_from_file('config.py')`",
+            "B) `app.config.from_pyfile('config.py')`",
+            "C) `app.load_config('config.py')`",
+            "D) `app.settings.from_file('config.py')`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `app.config` object has several methods for loading configuration. `from_pyfile()` executes a Python file and loads any uppercase variables defined within it into the config. `from_object()` and `from_envvar()` are other common methods."
+        },
+        {
+          "id": "q096_s3",
+          "domain": "Request/Response",
+          "difficulty": "Medium",
+          "question_text": "How do you get the HTTP method (e.g., 'GET', 'POST') of the current request in Flask?",
+          "options": [
+            "A) `request.http_method`",
+            "B) `request.method`",
+            "C) `request.verb`",
+            "D) `request.get_method()`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `request` object has a `method` attribute that holds the current request method as an uppercase string (e.g., 'GET', 'POST', 'PUT')."
+        },
+        {
+          "id": "q097_s3",
+          "domain": "Jinja2 Templating",
+          "difficulty": "Hard",
+          "question_text": "How can you prevent Jinja2 from interpreting a block of text that contains template-like syntax?",
+          "options": [
+            "A) `{% verbatim %} ... {% endverbatim %}`",
+            "B) `{% raw %} ... {% endraw %}`",
+            "C) `{% literal %} ... {% endliteral %}`",
+            "D) `<!-- ... -->`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `{% raw %}` block is used to output its contents exactly as they appear, without any template processing. This is useful when you need to display example Jinja2 or other template syntax on a page."
+        },
+        {
+          "id": "q098_s3",
+          "domain": "Flask Core",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `url_for()` function in Flask?",
+          "options": [
+            "A) To check if a URL is valid.",
+            "B) To fetch the content of an external URL.",
+            "C) To generate a URL for a given view function (endpoint).",
+            "D) To redirect the user to a different URL."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`url_for()` is used for URL building. Instead of hardcoding URLs in your templates and code, you refer to them by the name of the view function. This makes your application more maintainable, as changing a route in one place doesn't require you to find and replace it everywhere."
+        },
+        {
+          "id": "q099_s3",
+          "domain": "Flask-SQLAlchemy",
+          "difficulty": "Medium",
+          "question_text": "Which query would retrieve a `User` with the primary key of 5 using Flask-SQLAlchemy?",
+          "options": [
+            "A) `User.query.get(5)`",
+            "B) `User.query.filter(id=5)`",
+            "C) `User.query.find(5)`",
+            "D) `User.query.pk(5)`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `.get()` method is a shortcut specifically for retrieving an object by its primary key. It is generally more efficient than using `.filter_by(id=5).first()` for this purpose."
+        },
+        {
+          "id": "q100_s3",
+          "domain": "Error Handling",
+          "difficulty": "Medium",
+          "question_text": "How do you register a custom error handler for 404 Not Found errors in Flask?",
+          "options": [
+            "A) `@app.on_error(404)`",
+            "B) `@app.handle_error(404)`",
+            "C) `@app.errorhandler(404)`",
+            "D) `@app.catch(404)`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `@app.errorhandler()` decorator is used to register a function to handle specific HTTP error codes or exceptions. The decorated function will be called whenever a 404 error occurs."
+        },
+        {
+          "id": "q101_s3",
+          "domain": "Flask Core",
+          "difficulty": "Easy",
+          "question_text": "What does `app.run(debug=True)` do?",
+          "options": [
+            "A) It runs the application in production mode.",
+            "B) It starts the built-in development server with the debugger and reloader enabled.",
+            "C) It runs the application's test suite.",
+            "D) It prints debugging information to the console without starting a server."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Running in debug mode activates two key features for development: the interactive debugger (which shows a traceback in the browser on error) and the reloader (which automatically restarts the server when code changes are detected)."
+        },
+        {
+          "id": "q102_s3",
+          "domain": "Request/Response",
+          "difficulty": "Medium",
+          "question_text": "How do you perform a redirect to another URL in a Flask view?",
+          "options": [
+            "A) `return redirect(url_for('other_view'))`",
+            "B) `return forward(url_for('other_view'))`",
+            "C) `return Response.redirect(url_for('other_view'))`",
+            "D) `request.redirect(url_for('other_view'))`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "You import the `redirect` function from `flask`. It returns a `Response` object with a 302 status code and a `Location` header pointing to the new URL. It's best practice to use `url_for` to generate the URL."
+        },
+        {
+          "id": "q103_s3",
+          "domain": "Flask-WTF",
+          "difficulty": "Medium",
+          "question_text": "What is the primary purpose of the Flask-WTF extension?",
+          "options": [
+            "A) To provide a What-You-See-Is-What-You-Get editor for Flask.",
+            "B) To simplify the integration of WTForms for handling web forms, including validation and CSRF protection.",
+            "C) To handle WebSocket connections.",
+            "D) To provide a testing framework for Flask applications."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Flask-WTF integrates the powerful WTForms library with Flask. It makes it easy to define, render, and validate forms, and it automatically handles CSRF protection, which is crucial for security."
+        },
+        {
+          "id": "q104_s3",
+          "domain": "Application Factory",
+          "difficulty": "Hard",
+          "question_text": "What is the 'Application Factory' pattern in Flask?",
+          "options": [
+            "A) A design pattern for creating multiple Flask application instances on the fly.",
+            "B) A function that takes configuration and returns a configured Flask application instance, which helps avoid circular imports and makes testing easier.",
+            "C) A tool that automatically generates a boilerplate Flask application.",
+            "D) A way to create factory-style model objects."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The application factory pattern involves wrapping the creation of your Flask app in a function (e.g., `create_app`). This allows you to create different app instances for different configurations (development, testing, production) and is the recommended way to structure non-trivial Flask applications."
+        },
+        {
+          "id": "q105_s3",
+          "domain": "Flask-SQLAlchemy",
+          "difficulty": "Hard",
+          "question_text": "How do you query for all users whose name starts with 'J' using Flask-SQLAlchemy?",
+          "options": [
+            "A) `User.query.filter(User.name.startswith('J')).all()`",
+            "B) `User.query.filter(User.name.like('J%')).all()`",
+            "C) `User.query.startswith('name', 'J').all()`",
+            "D) Both A and B are valid ways."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Both methods work. `.startswith()` is a Python-style convenience method provided by SQLAlchemy that generates the appropriate SQL. `.like('J%')` uses the standard SQL `LIKE` operator with a wildcard (`%`), which is more explicit and sometimes more flexible."
+        },
+        {
+          "id": "q106_s3",
+          "domain": "Jinja2 Templating",
+          "difficulty": "Medium",
+          "question_text": "How do you include the contents of another template (`_nav.html`) inside the current template?",
+          "options": [
+            "A) `{% extends '_nav.html' %}`",
+            "B) `{% import '_nav.html' %}`",
+            "C) `{% include '_nav.html' %}`",
+            "D) `{% use '_nav.html' %}`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `{% include %}` statement is used to render another template and include its output in the current location. This is useful for reusing template partials like navigation bars, footers, or sidebars."
+        },
+        {
+          "id": "q107_s3",
+          "domain": "Request/Response",
+          "difficulty": "Medium",
+          "question_text": "How do you access data from a submitted HTML form in a Flask view?",
+          "options": [
+            "A) `request.data`",
+            "B) `request.form`",
+            "C) `request.body`",
+            "D) `request.POST`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "For standard HTML form submissions (with `Content-Type: application/x-www-form-urlencoded` or `multipart/form-data`), Flask parses the data into the `request.form` dictionary-like object."
+        },
+        {
+          "id": "q108_s3",
+          "domain": "Flask Core",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `session` object in Flask?",
+          "options": [
+            "A) To manage the database connection session.",
+            "B) To store information specific to a user across multiple requests.",
+            "C) To manage the application's lifecycle.",
+            "D) To store temporary files."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `session` object allows you to store data that persists between a user's requests. Flask's default implementation uses cryptographically signed cookies to store this data on the client side. You must set a `SECRET_KEY` on your app to use sessions."
+        },
+        {
+          "id": "q109_s3",
+          "domain": "Blueprints",
+          "difficulty": "Hard",
+          "question_text": "When using a Blueprint, how do you use `url_for` to generate a URL for a view defined within that Blueprint?",
+          "options": [
+            "A) `url_for('view_name')`",
+            "B) `url_for('blueprint_name.view_name')`",
+            "C) `url_for('blueprint_name/view_name')`",
+            "D) `blueprint_name.url_for('view_name')`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "When a view is registered on a Blueprint, its endpoint name is prefixed with the Blueprint's name. To generate a URL for it, you must use the format `'.<view_name>'` if you are in the same blueprint, or `'blueprint_name.view_name'` from elsewhere."
+        },
+        {
+          "id": "q110_s3",
+          "domain": "Flask-SQLAlchemy",
+          "difficulty": "Medium",
+          "question_text": "How do you define a one-to-many relationship between `User` and `Post` models in Flask-SQLAlchemy?",
+          "options": [
+            "A) Add `posts = db.relationship('Post')` to `User` and `user_id = db.ForeignKey('user.id')` to `Post`.",
+            "B) Add `posts = db.relationship('Post', backref='user')` to `User` and `user_id = db.Column(db.Integer, db.ForeignKey('user.id'))` to `Post`.",
+            "C) Add `posts = db.OneToMany('Post')` to `User`.",
+            "D) Add `user = db.ManyToOne('User')` to `Post`."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The standard way is to define a `ForeignKey` column on the 'many' side (`Post`) that references the primary key of the 'one' side (`User`). Then, you add a `db.relationship` on the 'one' side (`User`) to provide a convenient way to access the related `Post` objects. `backref` creates a reverse property on the `Post` model."
+        },
+        {
+          "id": "q111_s3",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "How do you get a test client for your Flask application to make requests in a pytest test?",
+          "options": [
+            "A) `client = app.test_client()`",
+            "B) `client = app.client()`",
+            "C) `client = flask.TestClient(app)`",
+            "D) `client = app.request_client()`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `app.test_client()` method returns an instance of Flask's test client. This client has methods like `.get()`, `.post()`, etc., that allow you to simulate requests to your application without running a live server."
+        },
+        {
+          "id": "q112_s3",
+          "domain": "Request/Response",
+          "difficulty": "Hard",
+          "question_text": "What is a 'streaming' response in Flask, and when would you use it?",
+          "options": [
+            "A) A response that streams video content.",
+            "B) A response that is sent to the client in chunks over time, useful for generating large files or for long-polling.",
+            "C) A response that is compressed using gzip streaming.",
+            "D) A response that uses WebSockets for real-time communication."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A streaming response is created by passing a generator function to the `Response` object. Instead of generating the entire response body in memory at once, Flask iterates over the generator and sends each yielded chunk to the client. This is memory-efficient for large responses like CSV exports."
+        },
+        {
+          "id": "q113_s3",
+          "domain": "Flask Core",
+          "difficulty": "Medium",
+          "question_text": "What is the role of a WSGI server (like Gunicorn or uWSGI) in a production Flask deployment?",
+          "options": [
+            "A) It's a replacement for the Flask framework itself.",
+            "B) It's a database server optimized for Flask.",
+            "C) It's a production-ready server that handles multiple concurrent requests and communicates with the Flask application, which is not designed to be a standalone server.",
+            "D) It's a tool for managing static files."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The server started with `app.run()` is for development only. A WSGI (Web Server Gateway Interface) server is a robust, production-grade server that can handle many requests simultaneously and efficiently manages worker processes to run your Flask application."
+        },
+        {
+          "id": "q114_s3",
+          "domain": "Jinja2 Templating",
+          "difficulty": "Medium",
+          "question_text": "How do you define and use a macro in Jinja2?",
+          "options": [
+            "A) Define with `{% function %}` and call with `{{ function() }}`.",
+            "B) Define with `{% macro %}` and call by importing and then using it like a function.",
+            "C) Define with `{% define %}` and call with `{% call %}`.",
+            "D) Define with `{% block %}` and call with `{{ super() }}`."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Macros are like functions in templates. You define them with `{% macro my_macro(args) %}...{% endmacro %}`. You can then call them in the same template as `{{ my_macro(args) }}` or import them into other templates using `{% from 'macros.html' import my_macro %}`."
+        },
+        {
+          "id": "q115_s3",
+          "domain": "Flask-Login",
+          "difficulty": "Medium",
+          "question_text": "In the Flask-Login extension, what is the purpose of the `@login_required` decorator?",
+          "options": [
+            "A) It ensures that the user has admin privileges.",
+            "B) It renders a login form.",
+            "C) It protects a view so that it can only be accessed by authenticated users.",
+            "D) It logs the user in."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `@login_required` decorator checks if the current user is authenticated. If they are, the view function is executed. If not, they are redirected to the login page (as configured by `login_manager.login_view`)."
+        },
+        {
+          "id": "q116_s3",
+          "domain": "Configuration",
+          "difficulty": "Easy",
+          "question_text": "How do you set a configuration variable, like a secret key, on a Flask app object?",
+          "options": [
+            "A) `app.config['SECRET_KEY'] = 'my-secret'`",
+            "B) `app.settings.SECRET_KEY = 'my-secret'`",
+            "C) `app.SECRET_KEY = 'my-secret'`",
+            "D) `app.configure(SECRET_KEY='my-secret')`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Configuration values are stored in the `app.config` dictionary. You can set them directly using standard dictionary syntax. It's convention to use all-uppercase names for configuration keys."
+        },
+        {
+          "id": "q117_s3",
+          "domain": "Flask-SQLAlchemy",
+          "difficulty": "Hard",
+          "question_text": "What does `db.session.rollback()` do?",
+          "options": [
+            "A) It reverts the last migration.",
+            "B) It discards all changes that have been added to the current database session, restoring the session to its state at the last commit.",
+            "C) It deletes the entire database.",
+            "D) It commits the current transaction and starts a new one."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`rollback()` is used to abort a transaction. If an error occurs while you are making a series of changes, you can call `rollback()` to ensure that none of the partial changes are written to the database, maintaining data integrity."
+        },
+        {
+          "id": "q118_s3",
+          "domain": "Request/Response",
+          "difficulty": "Medium",
+          "question_text": "How can you set a cookie in a Flask response?",
+          "options": [
+            "A) `response.set_cookie('key', 'value')`",
+            "B) `session['key'] = 'value'`",
+            "C) `request.cookies['key'] = 'value'`",
+            "D) `response.cookies.set('key', 'value')`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "To set a cookie, you must first create a response object (e.g., using `make_response`). Then you can call the `set_cookie()` method on that response object before returning it from the view."
+        },
+        {
+          "id": "q119_s3",
+          "domain": "Flask Core",
+          "difficulty": "Hard",
+          "question_text": "What is the 'request context' in Flask?",
+          "options": [
+            "A) The same as the application context.",
+            "B) A context that is pushed at the beginning of a request and holds request-specific information, making objects like `request` and `session` available.",
+            "C) A security feature to prevent cross-site request forgery.",
+            "D) The data sent in the body of a request."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The request context is more specific than the application context. It's created for each request and provides access to the `request` object (containing details of the current HTTP request) and the `session` object. It is automatically managed by Flask when handling requests."
+        },
+        {
+          "id": "q120_s3",
+          "domain": "Jinja2 Templating",
+          "difficulty": "Medium",
+          "question_text": "What does the `|safe` filter do in Jinja2?",
+          "options": [
+            "A) It ensures the variable is safe to use in a URL.",
+            "B) It marks a string as safe, meaning Jinja2's auto-escaping will not be applied to it.",
+            "C) It encrypts the variable before rendering.",
+            "D) It checks if the variable contains any harmful code."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "By default, Jinja2 escapes all variables to prevent XSS attacks. If you have a variable that contains trusted HTML that you want to render as-is, you can use the `|safe` filter to disable escaping for that specific variable. This should be used with extreme caution."
+        }
+      ]
+    },
+    {
+      "id": "tech-python-drf-set2",
+      "name": "Advanced Django & REST APIs",
+      "title": "Building Scalable APIs with Django REST Framework",
+      "focus_on": "Deep dive into Django REST Framework (DRF) for building powerful and secure web APIs. Covers serialization, class-based views and viewsets, authentication (Token, Session), permissions, and routing. Also explores advanced Django topics like caching, custom middleware, and performance optimization for production environments.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-exchange-alt text-purple-400",
+          "topic": "DRF Serializers (ModelSerializer, Validation)"
+        },
+        {
+          "icon": "fas fa-cubes text-teal-400",
+          "topic": "DRF ViewSets and Routers"
+        },
+        {
+          "icon": "fas fa-key text-yellow-500",
+          "topic": "API Authentication & Permissions"
+        },
+        {
+          "icon": "fas fa-bolt text-orange-400",
+          "topic": "Django Caching & Performance"
+        },
+        {
+          "icon": "fas fa-filter text-red-400",
+          "topic": "Custom Middleware and Signals"
+        }
+      ],
+      "difficulty": "Professional",
+      "description": "This exam set targets developers aiming to build robust APIs and optimize Django applications. It tests in-depth knowledge of DRF and advanced backend concepts.",
+      "icon": "fas fa-cogs text-blue-500",
+      "passing_score": "80",
+      "active": true,
+      "total_questions": "40",
+      "time_limit": "60",
+      "questions": [
+        {
+          "id": "q041_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Easy",
+          "question_text": "What is the primary purpose of a Serializer in Django REST Framework?",
+          "options": [
+            "A) To handle URL routing for API endpoints.",
+            "B) To convert complex data types, like querysets and model instances, into native Python datatypes that can then be easily rendered into JSON or XML.",
+            "C) To manage user authentication and permissions.",
+            "D) To perform database migrations for API-related models."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Serializers are the core of DRF. They are responsible for two main tasks: serializing data (converting model instances to JSON) for responses, and deserializing data (validating and converting incoming JSON into model instances) for requests."
+        },
+        {
+          "id": "q042_s2",
+          "domain": "DRF Views",
+          "difficulty": "Easy",
+          "question_text": "Which DRF generic view is best suited for creating a read-only endpoint for a list of model instances?",
+          "options": [
+            "A) `CreateAPIView`",
+            "B) `ListAPIView`",
+            "C) `RetrieveAPIView`",
+            "D) `UpdateAPIView`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ListAPIView` is a generic class-based view that provides the `get` method handler for listing a queryset. It's specifically designed for read-only list endpoints."
+        },
+        {
+          "id": "q043_s2",
+          "domain": "DRF Authentication",
+          "difficulty": "Medium",
+          "question_text": "Which of the following is a common token-based authentication scheme provided by DRF?",
+          "options": [
+            "A) `OAuth1Authentication`",
+            "B) `SessionAuthentication`",
+            "C) `TokenAuthentication`",
+            "D) `JWTAuthentication`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`TokenAuthentication` is a built-in scheme where clients authenticate by including a secret token in an `Authorization` HTTP header, like `Authorization: Token 9944b091...`. While JWT is popular, it requires a third-party package."
+        },
+        {
+          "id": "q044_s2",
+          "domain": "DRF ViewSets",
+          "difficulty": "Medium",
+          "question_text": "What is the main advantage of using a `ModelViewSet` over separate `ListCreateAPIView` and `RetrieveUpdateDestroyAPIView`?",
+          "options": [
+            "A) `ModelViewSet` is more secure by default.",
+            "B) `ModelViewSet` combines the logic for a complete set of standard list, create, retrieve, update, and destroy actions into a single class.",
+            "C) `ModelViewSet` allows for custom actions, which APIViews do not.",
+            "D) `ModelViewSet` is the only way to use DRF's Routers."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A `ModelViewSet` inherits from `GenericViewSet` and includes implementations for various actions by mixing in the behavior of `ListModelMixin`, `CreateModelMixin`, etc. This drastically reduces the amount of boilerplate code needed for a standard CRUD interface."
+        },
+        {
+          "id": "q045_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Hard",
+          "question_text": "How can you include a representation of a related model in a `ModelSerializer` instead of just its primary key?",
+          "options": [
+            "A) By setting `related_field=True` on the serializer.",
+            "B) By using a nested serializer or specifying the `depth` Meta option.",
+            "C) By overriding the `get_related()` method.",
+            "D) This is not possible; you must make a separate API call."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "You can achieve this in two main ways: 1) Set `depth = 1` (or higher) in the serializer's `Meta` class to automatically nest relationships. 2) For more control, define another serializer for the related model and use it as a field on the parent serializer (e.g., `author = AuthorSerializer()`)."
+        },
+        {
+          "id": "q046_s2",
+          "domain": "DRF Permissions",
+          "difficulty": "Medium",
+          "question_text": "Which built-in DRF permission class allows any user, including anonymous users, to access an endpoint?",
+          "options": [
+            "A) `IsAuthenticated`",
+            "B) `IsAdminUser`",
+            "C) `AllowAny`",
+            "D) `IsAuthenticatedOrReadOnly`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `AllowAny` permission class will always grant access, regardless of whether the request was authenticated or not. It is the default permission policy if none are specified."
+        },
+        {
+          "id": "q047_s2",
+          "domain": "Advanced Django",
+          "difficulty": "Medium",
+          "question_text": "What is the primary purpose of Django's caching framework?",
+          "options": [
+            "A) To store user session data.",
+            "B) To save the result of expensive operations (like database queries or template rendering) so you don't have to perform them again for subsequent requests.",
+            "C) To cache static files like CSS and JavaScript.",
+            "D) To automatically back up the database."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Django's cache framework is designed to store dynamic content so that it doesn't have to be calculated for each request. This can significantly improve performance for high-traffic sites by reducing database load and rendering time."
+        },
+        {
+          "id": "q048_s2",
+          "domain": "DRF Routers",
+          "difficulty": "Medium",
+          "question_text": "What is the function of a `Router` in Django REST Framework?",
+          "options": [
+            "A) To handle database routing for read/write replicas.",
+            "B) To automatically generate the URL patterns for a `ViewSet`.",
+            "C) To route incoming requests to different servers based on load.",
+            "D) To define the serialization format for a view."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Routers, like `SimpleRouter` or `DefaultRouter`, work with `ViewSets` to automatically create the URL conf for you. By registering a viewset with a router, you get the standard set of URLs for list, create, retrieve, update, etc., without having to define each `path()` manually."
+        },
+        {
+          "id": "q049_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Hard",
+          "question_text": "You have a read-only field in your API response that is computed from several model fields. Which type of serializer field is best for this?",
+          "options": [
+            "A) `CharField(read_only=True)`",
+            "B) `SerializerMethodField()`",
+            "C) `ReadOnlyField()`",
+            "D) `ComputedField()`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`SerializerMethodField` is a read-only field that gets its value by calling a method on the serializer class it is part of. The method is named `get_<field_name>` and allows you to write custom logic to compute the field's value."
+        },
+        {
+          "id": "q050_s2",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "Which class from DRF's test utilities is commonly used to make API requests in your tests?",
+          "options": [
+            "A) `APIRequestFactory`",
+            "B) `APITestCase`",
+            "C) `RequestsClient`",
+            "D) `TestClient`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`APITestCase` extends Django's `TestCase` and provides a `self.client` that can make API requests. It's ideal for testing views and the full request-response cycle. `APIRequestFactory` is lower-level and is used to create request instances to test views directly."
+        },
+        {
+          "id": "q051_s2",
+          "domain": "Advanced Django",
+          "difficulty": "Hard",
+          "question_text": "In Django middleware, which method is called for requests before the view is processed?",
+          "options": [
+            "A) `process_request(self, request)`",
+            "B) `process_view(self, request, view_func, view_args, view_kwargs)`",
+            "C) `__call__(self, request)`",
+            "D) `process_response(self, request, response)`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "In the modern, class-based middleware style (new in Django 1.10), the `__init__` method is called once at server startup, and the `__call__` method is called for each request. It's responsible for processing the request and, if needed, the response."
+        },
+        {
+          "id": "q052_s2",
+          "domain": "DRF Permissions",
+          "difficulty": "Hard",
+          "question_text": "How do you implement object-level permissions in a DRF view, for example, to allow only the author of a post to edit it?",
+          "options": [
+            "A) By setting `permission_classes = [IsOwner]` in the view.",
+            "B) By overriding the view's `check_permissions()` method.",
+            "C) By creating a custom permission class that implements the `has_object_permission()` method.",
+            "D) By filtering the queryset in the `get_queryset()` method."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "For object-level permissions, you create a custom permission class and implement the `has_object_permission(self, request, view, obj)` method. This method is called after the object has been retrieved and checks if the requesting user has permission to act on that specific object (`obj`)."
+        },
+        {
+          "id": "q053_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Medium",
+          "question_text": "In a `ModelSerializer`, how do you make a model field read-only in the API?",
+          "options": [
+            "A) By adding the field name to the `exclude` list in the `Meta` class.",
+            "B) By defining the field explicitly on the serializer with `read_only=True`.",
+            "C) By using the `read_only_fields` tuple in the `Meta` class.",
+            "D) Both B and C are valid ways."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "DRF provides two convenient ways to make a field read-only: either by adding its name to the `read_only_fields` tuple in the `Meta` class, or by declaring it explicitly on the serializer (e.g., `my_field = serializers.CharField(read_only=True)`)."
+        },
+        {
+          "id": "q054_s2",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "You have an API endpoint that is slow due to complex database queries. Which caching strategy would be most effective for a read-only list endpoint that changes infrequently?",
+          "options": [
+            "A) Caching the entire view's response using the `@cache_page` decorator.",
+            "B) Using Django's low-level cache API to cache the queryset result.",
+            "C) Caching the rendered template fragment.",
+            "D) Both A and B are effective strategies."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Both are valid and effective. `@cache_page(timeout)` is a high-level, easy way to cache the entire output of a view. Using the low-level cache API (`cache.set`, `cache.get`) to store the complex queryset gives you more granular control and can be reused in other parts of your code, but requires more manual implementation."
+        },
+        {
+          "id": "q055_s2",
+          "domain": "DRF Views",
+          "difficulty": "Hard",
+          "question_text": "How can you add a custom action to a `ModelViewSet` that operates on a single object and is accessible via a POST request?",
+          "options": [
+            "A) Define a method in the ViewSet and add it to a `custom_actions` list.",
+            "B) Use the `@action(detail=True, methods=['post'])` decorator on a method within the ViewSet.",
+            "C) Create a separate `APIView` and link to it from the ViewSet.",
+            "D) Override the `post()` method of the ViewSet."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `@action` decorator is the standard way to add custom endpoints to a ViewSet. `detail=True` means it operates on a specific instance (e.g., `/items/1/custom_action/`), and `methods=['post']` restricts it to POST requests."
+        },
+        {
+          "id": "q056_s2",
+          "domain": "Advanced Django",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `post_save` signal in Django?",
+          "options": [
+            "A) To validate data before a model instance is saved.",
+            "B) To execute code immediately after a model's `save()` method has completed.",
+            "C) To handle HTTP POST requests.",
+            "D) To save a blog post to the database."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`post_save` is a signal that gets sent at the end of the `save()` method. It's useful for triggering side effects, like sending a notification or updating an aggregate value, in a decoupled way after an object has been successfully saved to the database."
+        },
+        {
+          "id": "q057_s2",
+          "domain": "DRF Authentication",
+          "difficulty": "Medium",
+          "question_text": "When using `TokenAuthentication`, how should the client typically send the token to the server?",
+          "options": [
+            "A) As a query parameter in the URL, like `?token=...`",
+            "B) In the request body of a POST request.",
+            "C) In an HTTP header: `Authorization: Token <your_token>`",
+            "D) In a cookie named `auth_token`."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The standard and most secure method for bearer tokens is to use the `Authorization` HTTP header. The value should be prefixed with the authentication scheme, which is 'Token' for DRF's built-in token auth."
+        },
+        {
+          "id": "q058_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Hard",
+          "question_text": "How do you perform custom validation on a `ModelSerializer` that depends on multiple fields at once (e.g., `end_date` must be after `start_date`)?",
+          "options": [
+            "A) By defining a `validate_<field_name>()` method for each field.",
+            "B) By defining a `validate()` method on the serializer class.",
+            "C) By adding a `validators` list to the `Meta` class.",
+            "D) By defining a `clean()` method on the serializer, similar to Django Forms."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "For validation that involves multiple fields, you should implement the `validate(self, data)` method on the serializer. This method receives a dictionary of the field values (`data`) and you can raise a `serializers.ValidationError` if the cross-field validation fails."
+        },
+        {
+          "id": "q059_s2",
+          "domain": "DRF Throttling",
+          "difficulty": "Medium",
+          "question_text": "What is 'throttling' in the context of a web API?",
+          "options": [
+            "A) A technique to reduce the size of JSON responses.",
+            "B) A way to restrict the rate of requests that clients can make to an API.",
+            "C) A method for optimizing database queries.",
+            "D) A security feature to prevent SQL injection."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Throttling is used to control the rate of API requests to prevent abuse or overuse from a single user or IP address. DRF provides classes like `AnonRateThrottle` and `UserRateThrottle` to easily implement rate limiting."
+        },
+        {
+          "id": "q060_s2",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "To solve the 'N+1' query problem in a DRF serializer that lists authors and their books, what is the most efficient approach in the corresponding view?",
+          "options": [
+            "A) Use `select_related('author')` on the Book queryset.",
+            "B) Use `prefetch_related('books')` on the Author queryset.",
+            "C) Increase the database connection pool size.",
+            "D) Manually query for books inside a `SerializerMethodField`."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The 'N+1' problem occurs when you fetch a list of N authors and then perform a separate query for the books of each author. `prefetch_related('books')` solves this by fetching all the authors in one query, and then all their related books in a second query, joining them in Python. This reduces N+1 queries to just 2."
+        },
+        {
+          "id": "q061_s2",
+          "domain": "DRF Pagination",
+          "difficulty": "Medium",
+          "question_text": "How do you enable pagination for a list view in DRF?",
+          "options": [
+            "A) By setting `PAGINATE_BY = 10` in `settings.py`.",
+            "B) By setting a `pagination_class` on the view or globally in the DRF settings.",
+            "C) By manually slicing the queryset in the `get_queryset` method.",
+            "D) By adding `?paginate=true` to the request URL."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "DRF's pagination is enabled by setting a pagination class. You can do this globally with the `DEFAULT_PAGINATION_CLASS` setting, or on a per-view basis by setting the `pagination_class` attribute on your `APIView` or `ViewSet`."
+        },
+        {
+          "id": "q062_s2",
+          "domain": "Advanced Django",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of `ATOMIC_REQUESTS` in Django's database settings?",
+          "options": [
+            "A) To ensure all database queries are performed asynchronously.",
+            "B) To wrap each incoming HTTP request in a database transaction.",
+            "C) To split large requests into smaller, atomic parts.",
+            "D) To enable a more efficient database connection engine."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "When `ATOMIC_REQUESTS` is set to `True` for a database connection, every view function is wrapped in a transaction. If the view returns a response successfully, the transaction is committed. If the view raises an exception, the transaction is rolled back, ensuring database integrity."
+        },
+        {
+          "id": "q063_s2",
+          "domain": "DRF Filtering",
+          "difficulty": "Medium",
+          "question_text": "Which DRF filtering backend allows users to filter a list endpoint by adding query parameters to the URL, like `/users?username=john`?",
+          "options": [
+            "A) `SearchFilter`",
+            "B) `OrderingFilter`",
+            "C) `DjangoFilterBackend`",
+            "D) `QueryParameterFilter`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`DjangoFilterBackend`, which integrates the `django-filter` library, is the most powerful and common way to enable field-based filtering. You define a `FilterSet` class or simply add a `filterset_fields` list to your view to specify which fields can be filtered on."
+        },
+        {
+          "id": "q064_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `source` argument on a serializer field, e.g., `author_name = serializers.CharField(source='author.name')`?",
+          "options": [
+            "A) To specify the source code file where the field is defined.",
+            "B) To rename a field in the API representation.",
+            "C) To control which attribute of the instance is used to populate the field.",
+            "D) To link to an external data source for the field."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `source` argument allows you to control which attribute on the model instance is used for a field. It's particularly useful for accessing attributes on related models (as in the example) or for renaming fields in your API without changing your model."
+        },
+        {
+          "id": "q065_s2",
+          "domain": "DRF Content Negotiation",
+          "difficulty": "Hard",
+          "question_text": "What is the role of a 'Renderer' class in Django REST Framework?",
+          "options": [
+            "A) To render Django templates into HTML.",
+            "B) To determine which parser should be used for an incoming request.",
+            "C) To allow the API response to be returned in different media types, such as JSON or browsable HTML.",
+            "D) To render static assets for the API."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Renderers are responsible for serializing the response data into a specific format. DRF's content negotiation process inspects the client's `Accept` header to select the appropriate renderer, allowing the same endpoint to serve JSON to a script and HTML to a web browser."
+        },
+        {
+          "id": "q066_s2",
+          "domain": "Testing",
+          "difficulty": "Hard",
+          "question_text": "When testing a DRF view that requires authentication, how can you force authentication for a user in an `APITestCase`?",
+          "options": [
+            "A) `self.client.login(username='test', password='password')`",
+            "B) `self.client.force_authenticate(user=self.user)`",
+            "C) `self.client.set_header('Authorization', 'Token ...')`",
+            "D) Both A and B are common methods."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`force_authenticate` is a utility provided by DRF's test client specifically for API tests. It bypasses the actual authentication process and directly associates the request with a given user or token, making tests simpler and faster. `login` is for session-based auth, and setting the header manually is also possible but more verbose."
+        },
+        {
+          "id": "q067_s2",
+          "domain": "Advanced Django",
+          "difficulty": "Hard",
+          "question_text": "What is a `database router` in Django used for?",
+          "options": [
+            "A) To automatically generate API URLs.",
+            "B) To determine which database to use for a read or write operation for a given model.",
+            "C) A piece of network hardware for database connections.",
+            "D) A tool for visualizing database schemas."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A database router is a class that implements methods like `db_for_read`, `db_for_write`, and `allow_relation`. It allows you to programmatically control database routing on a per-model basis, which is essential for implementing complex setups like read replicas or sharding."
+        },
+        {
+          "id": "q068_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Medium",
+          "question_text": "What does `{'write_only': True}` do when passed as an extra keyword argument to a serializer field?",
+          "options": [
+            "A) It ensures the field can only be written to the database once.",
+            "B) It marks the field as being used for input (deserialization) but not for output (serialization).",
+            "C) It makes the field required during write operations.",
+            "D) It encrypts the field's value before saving."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A `write_only` field will be used when validating and deserializing input data (e.g., from a POST or PUT request), but it will not be included in the serialized output representation. This is commonly used for fields like passwords."
+        },
+        {
+          "id": "q069_s2",
+          "domain": "DRF Permissions",
+          "difficulty": "Medium",
+          "question_text": "What is the behavior of the `IsAuthenticatedOrReadOnly` permission class?",
+          "options": [
+            "A) It allows full access to authenticated users, and no access to anonymous users.",
+            "B) It allows read-only access to all users, but write access only to admin users.",
+            "C) It allows full access (read/write) to authenticated users, but only read-only access to anonymous users.",
+            "D) It requires all users to be authenticated, but some views may be marked as read-only."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "This permission class is very common for public APIs. It allows any user (authenticated or not) to perform 'safe' methods like GET, HEAD, OPTIONS. However, for 'unsafe' methods like POST, PUT, PATCH, DELETE, the user must be authenticated."
+        },
+        {
+          "id": "q070_s2",
+          "domain": "DRF Routers",
+          "difficulty": "Hard",
+          "question_text": "What is the main difference between `SimpleRouter` and `DefaultRouter` in DRF?",
+          "options": [
+            "A) `SimpleRouter` only supports GET requests, while `DefaultRouter` supports all methods.",
+            "B) `DefaultRouter` is for ModelViewSets, while `SimpleRouter` is for regular ViewSets.",
+            "C) `DefaultRouter` automatically includes a root API view that lists all the registered endpoints, while `SimpleRouter` does not.",
+            "D) `SimpleRouter` is faster but less flexible."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The key functional difference is that `DefaultRouter` provides an extra API root view. When you visit the base URL of the router, you get a hyperlinked list of all the API endpoints it has generated, which is very useful for browsability."
+        },
+        {
+          "id": "q071_s2",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "Which Django management command is used to gather all static files from your various apps into a single directory for production deployment?",
+          "options": [
+            "A) `runserver`",
+            "B) `makemigrations`",
+            "C) `collectstatic`",
+            "D) `deploy`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `collectstatic` command finds all static files in your project (based on your `STATICFILES_FINDERS` setting) and copies them into the directory specified by your `STATIC_ROOT` setting. This single directory can then be served efficiently by a web server like Nginx."
+        },
+        {
+          "id": "q072_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Hard",
+          "question_text": "When creating a new object with a `ModelSerializer`, how does the `.save()` method know whether to create a new instance or update an existing one?",
+          "options": [
+            "A) It always creates a new instance.",
+            "B) It checks if the `pk` field is present in the validated data.",
+            "C) It relies on the `instance` keyword argument passed to the serializer's constructor.",
+            "D) It depends on whether the request method was POST or PUT."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "If you instantiate the serializer with an existing model instance (e.g., `serializer = MySerializer(instance=my_obj, data=request.data)`), calling `.save()` will call the `.update()` method. If you instantiate it only with data (`serializer = MySerializer(data=request.data)`), `.save()` will call the `.create()` method."
+        },
+        {
+          "id": "q073_s2",
+          "domain": "Advanced Django",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of a custom Manager in a Django model?",
+          "options": [
+            "A) To manage user permissions for the model in the admin.",
+            "B) To add extra, table-level functionality or to modify the initial QuerySet the model's manager returns.",
+            "C) To manage the deployment process of the model.",
+            "D) To handle form validation for the model."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A custom Manager allows you to add custom methods that operate on the whole table (e.g., `Post.objects.published_posts()`). You can also override `get_queryset()` to change the default set of objects returned (e.g., to always exclude inactive items)."
+        },
+        {
+          "id": "q074_s2",
+          "domain": "DRF Views",
+          "difficulty": "Medium",
+          "question_text": "In a DRF `APIView`, how do you access the parsed request data (e.g., JSON body)?",
+          "options": [
+            "A) `request.POST`",
+            "B) `request.body`",
+            "C) `request.data`",
+            "D) `request.JSON`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "DRF's `Request` object wraps Django's standard `HttpRequest`. It has a `request.data` attribute that automatically parses the request body based on the `Content-Type` header, handling JSON, form data, and more. This is a key difference from Django's `request.POST` which only handles form data."
+        },
+        {
+          "id": "q075_s2",
+          "domain": "DRF Authentication",
+          "difficulty": "Hard",
+          "question_text": "What is the primary advantage of using JWT (JSON Web Tokens) for authentication over DRF's built-in `TokenAuthentication`?",
+          "options": [
+            "A) JWT is easier to implement with no extra packages.",
+            "B) JWTs are stateless; the server does not need to store the token in a database, which improves scalability.",
+            "C) DRF's `TokenAuthentication` is not secure.",
+            "D) JWTs can only be used with HTTPS."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The main benefit of JWT is that it's stateless. The token itself contains the user's identity and an expiration date, signed by the server. The server can verify the token's signature without needing a database lookup, which is more scalable than DRF's default Token auth, which requires a database query to validate the token on every request."
+        },
+        {
+          "id": "q076_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Medium",
+          "question_text": "How can you specify that a field is required in a DRF serializer?",
+          "options": [
+            "A) By default, all fields are required.",
+            "B) By adding `required=True` to the field definition.",
+            "C) By adding the field name to a `required_fields` list in the `Meta` class.",
+            "D) Both A and B are correct, depending on the field type."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "While model fields are required by default in a `ModelSerializer`, the explicit and universal way to control this behavior is with the `required=True` (the default) or `required=False` argument on the serializer field itself."
+        },
+        {
+          "id": "q077_s2",
+          "domain": "Advanced Django",
+          "difficulty": "Hard",
+          "question_text": "What problem does `transaction.on_commit()` solve?",
+          "options": [
+            "A) It ensures a database transaction is started before a view is executed.",
+            "B) It allows you to schedule a function to be executed only after the current database transaction has been successfully committed.",
+            "C) It commits the current transaction immediately.",
+            "D) It rolls back the transaction if an error occurs."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`transaction.on_commit()` is crucial for tasks that should only happen if the database write is successful. For example, you would use it to queue a background task (like sending an email) that depends on the newly saved data. This prevents the task from running if the transaction is later rolled back."
+        },
+        {
+          "id": "q078_s2",
+          "domain": "DRF Versioning",
+          "difficulty": "Medium",
+          "question_text": "What is API versioning, and why is it important?",
+          "options": [
+            "A) It's a way to track the version of the DRF library you are using.",
+            "B) It allows you to introduce breaking changes to your API without affecting existing client applications.",
+            "C) It's a method for versioning your database schema.",
+            "D) It's a feature for A/B testing different API responses."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "API versioning allows you to have different versions of your API running concurrently (e.g., `/api/v1/` and `/api/v2/`). This is critical for maintaining backward compatibility. When you need to make a change that would break existing clients, you can release it as a new version, giving clients time to migrate."
+        },
+        {
+          "id": "q079_s2",
+          "domain": "DRF Serializers",
+          "difficulty": "Hard",
+          "question_text": "You need to serialize a `ManyToManyField`. How can you represent the related objects using a specific field (e.g., their `name`) instead of their primary keys?",
+          "options": [
+            "A) Use a `SlugRelatedField(slug_field='name')`.",
+            "B) Use a `PrimaryKeyRelatedField(source='name')`.",
+            "C) This requires a custom `SerializerMethodField`.",
+            "D) Set `display_field='name'` on the `ManyToManyField` in the model."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`SlugRelatedField` is designed for this exact purpose. It allows you to represent the target of a relationship using one of its fields (a 'slug'). You specify which field to use with the `slug_field` argument."
+        },
+        {
+          "id": "q080_s2",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "What is the primary benefit of using a connection pooler like PgBouncer with a Django application?",
+          "options": [
+            "A) It automatically backs up your PostgreSQL database.",
+            "B) It encrypts the connection between Django and the database.",
+            "C) It reduces the overhead of establishing new database connections for each request by maintaining a pool of active connections.",
+            "D) It provides a web interface for managing the database."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Opening and closing database connections is an expensive operation. A connection pooler maintains a set of open connections. The application borrows a connection from the pool when needed and returns it when done, which is much faster and more resource-efficient, especially under high load."
+        }
+      ]
+    },
+    {
+      "id": "tech-python-fullstack-set4",
+      "name": "Full-Stack Integration & Deployment",
+      "title": "Connecting Python Backends with Modern Frontends",
+      "focus_on": "Bridging the gap between a Python backend (Django/Flask) and a modern JavaScript frontend (React/Vue). Covers essential concepts like Cross-Origin Resource Sharing (CORS), stateless authentication with JSON Web Tokens (JWT), and best practices for designing and consuming REST APIs. Also includes containerization with Docker and production deployment strategies using WSGI/ASGI servers and Nginx.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-fingerprint text-red-500",
+          "topic": "JWT Authentication"
+        },
+        {
+          "icon": "fas fa-arrows-alt-h text-orange-500",
+          "topic": "Cross-Origin Resource Sharing (CORS)"
+        },
+        {
+          "icon": "fab fa-docker text-blue-500",
+          "topic": "Containerization with Docker"
+        },
+        {
+          "icon": "fas fa-server text-green-500",
+          "topic": "WSGI/ASGI Deployment (Gunicorn/Uvicorn)"
+        },
+        {
+          "icon": "fas fa-network-wired text-gray-500",
+          "topic": "Reverse Proxy with Nginx"
+        }
+      ],
+      "difficulty": "Professional",
+      "description": "Aimed at developers building and deploying full-stack applications. This set tests practical knowledge of the technologies and concepts required to connect and deploy decoupled frontends and backends.",
+      "icon": "fas fa-layer-group text-purple-500",
+      "passing_score": "80",
+      "active": true,
+      "total_questions": "40",
+      "time_limit": "60",
+      "questions": [
+        {
+          "id": "q121_s4",
+          "domain": "CORS",
+          "difficulty": "Easy",
+          "question_text": "What is the primary problem that CORS (Cross-Origin Resource Sharing) is designed to solve?",
+          "options": [
+            "A) It prevents SQL injection attacks.",
+            "B) It allows a web page from one domain to safely make requests to an API on a different domain.",
+            "C) It encrypts communication between the client and server.",
+            "D) It compresses API responses to save bandwidth."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "By default, web browsers enforce the Same-Origin Policy, which prevents a script on one domain from making requests to another. CORS is a mechanism that uses HTTP headers to tell the browser that it's safe to allow a web application at one origin (domain) to access resources from a server at a different origin."
+        },
+        {
+          "id": "q122_s4",
+          "domain": "JWT",
+          "difficulty": "Medium",
+          "question_text": "What are the three parts of a JSON Web Token (JWT), separated by dots?",
+          "options": [
+            "A) Header, Payload, Signature",
+            "B) User, Permissions, Expiration",
+            "C) Algorithm, Data, Hash",
+            "D) Issuer, Subject, Secret"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "A JWT consists of three Base64-Url encoded parts: the Header (containing the token type and signing algorithm), the Payload (containing claims like user ID and expiration time), and the Signature (used to verify the token's authenticity)."
+        },
+        {
+          "id": "q123_s4",
+          "domain": "Docker",
+          "difficulty": "Easy",
+          "question_text": "What is the purpose of a `Dockerfile`?",
+          "options": [
+            "A) It's a script for running an application inside a container.",
+            "B) It's a text file that contains the instructions for building a Docker image.",
+            "C) It's a configuration file for the Docker daemon.",
+            "D) It's a log file generated by a running container."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A `Dockerfile` is a recipe for creating a Docker image. It contains a series of commands (like `FROM`, `COPY`, `RUN`, `CMD`) that Docker executes in sequence to assemble the image with the correct base OS, dependencies, and application code."
+        },
+        {
+          "id": "q124_s4",
+          "domain": "Deployment",
+          "difficulty": "Medium",
+          "question_text": "In a typical production setup, what is the role of Gunicorn?",
+          "options": [
+            "A) It's a web server that serves static files directly to clients.",
+            "B) It's a database management tool.",
+            "C) It's a WSGI HTTP server that runs the Python web application and manages worker processes.",
+            "D) It's a reverse proxy that handles SSL termination."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Gunicorn ('Green Unicorn') is a WSGI server. It acts as an interface between a reverse proxy (like Nginx) and your Python application (Django/Flask). It translates HTTP requests into a format the application understands and manages multiple worker processes to handle concurrent requests."
+        },
+        {
+          "id": "q125_s4",
+          "domain": "Nginx",
+          "difficulty": "Medium",
+          "question_text": "What is a 'reverse proxy' in the context of deploying a Python web application?",
+          "options": [
+            "A) A proxy that hides the client's IP address from the server.",
+            "B) A server (like Nginx) that sits in front of the application server (like Gunicorn) and forwards client requests to it.",
+            "C) A tool for proxying database connections.",
+            "D) A DNS service that resolves domain names."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A reverse proxy takes requests from the internet and forwards them to one or more backend servers. In a typical setup, Nginx acts as the reverse proxy, handling tasks like serving static files, SSL termination, load balancing, and passing dynamic requests to the Gunicorn/application server."
+        },
+        {
+          "id": "q126_s4",
+          "domain": "JWT",
+          "difficulty": "Medium",
+          "question_text": "Why is it important that JWTs are 'stateless'?",
+          "options": [
+            "A) It means they don't contain any user information.",
+            "B) It improves scalability because the server doesn't need to store session state or look up a token in a database for every request.",
+            "C) It means the token never expires.",
+            "D) It makes the token easier to read by humans."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Statelessness means all the information needed to authenticate the user is contained within the token itself. The server can verify the token's signature and trust its contents without needing to maintain a session store, which simplifies the architecture and makes it easier to scale horizontally."
+        },
+        {
+          "id": "q127_s4",
+          "domain": "CORS",
+          "difficulty": "Medium",
+          "question_text": "What is a CORS 'preflight' request?",
+          "options": [
+            "A) A request sent by the server to check if the client is ready.",
+            "B) An `OPTIONS` request sent by the browser before the actual request to check if the server understands and allows the actual request's method and headers.",
+            "C) The first request a user makes to an application to establish a session.",
+            "D) A request used to test the network latency."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "For requests that are not 'simple' (e.g., those using methods other than GET/HEAD/POST, or with custom headers), the browser first sends an `OPTIONS` request (the preflight). The server must respond with the appropriate CORS headers (`Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`) to indicate that the actual request is permitted."
+        },
+        {
+          "id": "q128_s4",
+          "domain": "Docker",
+          "difficulty": "Medium",
+          "question_text": "What is the difference between a Docker image and a Docker container?",
+          "options": [
+            "A) They are the same thing.",
+            "B) An image is a running instance of a container.",
+            "C) An image is a lightweight, standalone, executable package that includes everything needed to run a piece of software. A container is a running instance of an image.",
+            "D) A container is a template for creating an image."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The relationship is analogous to a class and an object in programming. The image is the blueprint (the class), and the container is a runnable instance of that blueprint (the object). You can create many containers from a single image."
+        },
+        {
+          "id": "q129_s4",
+          "domain": "API Design",
+          "difficulty": "Medium",
+          "question_text": "In REST API design, which HTTP method is idempotent and used to fully update an existing resource?",
+          "options": [
+            "A) `POST`",
+            "B) `GET`",
+            "C) `PATCH`",
+            "D) `PUT`"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "`PUT` is used to replace an entire resource at a specific URI. It is idempotent, meaning that making the same `PUT` request multiple times will have the same effect as making it once. `PATCH` is used for partial updates and is not necessarily idempotent."
+        },
+        {
+          "id": "q130_s4",
+          "domain": "Deployment",
+          "difficulty": "Hard",
+          "question_text": "What is the difference between a WSGI and an ASGI server?",
+          "options": [
+            "A) WSGI is for Django, and ASGI is for Flask.",
+            "B) WSGI is synchronous and designed for traditional request-response cycles, while ASGI is asynchronous and supports long-lived connections like WebSockets.",
+            "C) WSGI is the newer, faster standard.",
+            "D) There is no functional difference, only a different specification name."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "WSGI (Web Server Gateway Interface) is the long-standing standard for synchronous Python web apps. ASGI (Asynchronous Server Gateway Interface) is its spiritual successor, designed to handle asynchronous Python code (using `async`/`await`) and to support protocols beyond simple HTTP request-response, such as WebSockets."
+        },
+        {
+          "id": "q131_s4",
+          "domain": "JWT",
+          "difficulty": "Hard",
+          "question_text": "How does a server verify the authenticity of a JWT?",
+          "options": [
+            "A) By decrypting the entire token with a secret key.",
+            "B) By checking if the user ID in the payload exists in the database.",
+            "C) By re-calculating the signature using the header, payload, and its own secret key, and comparing it to the signature on the token.",
+            "D) By making a request to the original token issuer."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The server takes the received header and payload, applies the signing algorithm specified in the header (e.g., HMAC-SHA256) using the secret key it has stored, and generates a signature. If this newly generated signature matches the signature part of the JWT, the token is considered valid and untampered."
+        },
+        {
+          "id": "q132_s4",
+          "domain": "Docker",
+          "difficulty": "Medium",
+          "question_text": "In a `Dockerfile`, what is the difference between the `RUN` and `CMD` instructions?",
+          "options": [
+            "A) `RUN` executes commands when the container starts, while `CMD` executes when the image is built.",
+            "B) `RUN` is used to install packages, while `CMD` is used to run the application.",
+            "C) `RUN` executes a command during the image build process and commits the result to a new layer. `CMD` specifies the default command to run when a container is started from the image.",
+            "D) They are interchangeable."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`RUN` is for build-time steps (e.g., `RUN pip install -r requirements.txt`). `CMD` is for the run-time command (e.g., `CMD [\"gunicorn\", \"--bind\", \"0.0.0.0:8000\", \"myapp.wsgi\"]`). A `Dockerfile` can have many `RUN` instructions but only one `CMD` is effective."
+        },
+        {
+          "id": "q133_s4",
+          "domain": "Nginx",
+          "difficulty": "Hard",
+          "question_text": "In an Nginx configuration for a Django/Flask app, what is the purpose of the `proxy_pass` directive?",
+          "options": [
+            "A) To specify the password for the proxy server.",
+            "B) To define the location of static files.",
+            "C) To set HTTP headers for the proxied request.",
+            "D) To forward the request to the backend application server (e.g., Gunicorn running on a specific port)."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "The `proxy_pass` directive is the core of a reverse proxy setup. It tells Nginx where to send the request. For example, `proxy_pass http://127.0.0.1:8000;` would forward the request to a server listening on port 8000 on the same machine."
+        },
+        {
+          "id": "q134_s4",
+          "domain": "Frontend Integration",
+          "difficulty": "Medium",
+          "question_text": "A React frontend running on `localhost:3000` needs to fetch data from a Django API on `localhost:8000`. What is the most common first step to make this work?",
+          "options": [
+            "A) Configure the Django API to listen on port 3000.",
+            "B) Use a library like `django-cors-headers` in the Django project to add the necessary CORS headers.",
+            "C) Hardcode the API URL in the React app.",
+            "D) Run both servers in the same Docker container."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Because the frontend and backend are on different origins (different ports), the browser's Same-Origin Policy will block the request. The standard solution is to configure the backend server (Django) to send CORS headers (like `Access-Control-Allow-Origin: http://localhost:3000`) to tell the browser that requests from the frontend's origin are allowed."
+        },
+        {
+          "id": "q135_s4",
+          "domain": "JWT",
+          "difficulty": "Medium",
+          "question_text": "Where should a JWT typically be stored on the client-side (in a web browser)?",
+          "options": [
+            "A) In a global JavaScript variable.",
+            "B) In an `HttpOnly` secure cookie.",
+            "C) In `localStorage`.",
+            "D) Both B and C are common, with different security trade-offs."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Both are common patterns. Storing in `localStorage` is simple and makes it easy for JavaScript to access the token, but it's vulnerable to XSS attacks. Storing in an `HttpOnly` cookie is more secure against XSS (the token can't be read by JavaScript), but it can be vulnerable to CSRF attacks if not properly protected."
+        },
+        {
+          "id": "q136_s4",
+          "domain": "Docker",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of `docker-compose`?",
+          "options": [
+            "A) It's a tool for writing Dockerfiles in YAML format.",
+            "B) It's a tool for defining and running multi-container Docker applications.",
+            "C) It's a graphical user interface for managing Docker containers.",
+            "D) It's a tool for optimizing the size of Docker images."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`docker-compose` uses a YAML file (`docker-compose.yml`) to configure an application's services (e.g., a web server, a database, a caching service). With a single command (`docker-compose up`), you can create and start all the services from your configuration, making it ideal for local development and testing complex applications."
+        },
+        {
+          "id": "q137_s4",
+          "domain": "API Design",
+          "difficulty": "Medium",
+          "question_text": "What HTTP status code should an API return when a new resource has been successfully created as a result of a `POST` request?",
+          "options": [
+            "A) `200 OK`",
+            "B) `201 Created`",
+            "C) `204 No Content`",
+            "D) `302 Found`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`201 Created` is the standard and most descriptive status code for a successful resource creation. It's also common practice to include a `Location` header in the response, pointing to the URL of the newly created resource."
+        },
+        {
+          "id": "q138_s4",
+          "domain": "Deployment",
+          "difficulty": "Medium",
+          "question_text": "What are environment variables, and why are they crucial for deployment?",
+          "options": [
+            "A) They are variables defined inside the application's source code.",
+            "B) They are variables set in the operating system or container environment, used to configure the application without changing its code.",
+            "C) They are used to control the Python interpreter's version.",
+            "D) They are temporary variables that only exist during a single request."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Environment variables are essential for the 'Twelve-Factor App' methodology. They allow you to separate configuration (like database URLs, secret keys, debug flags) from your code. This makes your application portable and secure, as you can have different configurations for development, staging, and production without modifying the codebase."
+        },
+        {
+          "id": "q139_s4",
+          "domain": "Nginx",
+          "difficulty": "Hard",
+          "question_text": "What is 'SSL Termination' when using Nginx as a reverse proxy?",
+          "options": [
+            "A) Nginx blocks all non-SSL traffic.",
+            "B) Nginx handles the incoming HTTPS connection, decrypts the traffic, and forwards it as unencrypted HTTP to the backend application server.",
+            "C) Nginx terminates the connection if the SSL certificate is invalid.",
+            "D) Nginx encrypts the traffic between itself and the backend server."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "SSL/TLS encryption is computationally expensive. SSL termination means the reverse proxy (Nginx) handles the encryption/decryption part of the communication with the client. The connection between Nginx and the backend Gunicorn server (which is on a private network) can then be plain HTTP, simplifying the application's configuration and offloading the cryptographic work to Nginx."
+        },
+        {
+          "id": "q140_s4",
+          "domain": "Frontend Integration",
+          "difficulty": "Medium",
+          "question_text": "How does a frontend application typically send a JWT to the backend API for an authenticated request?",
+          "options": [
+            "A) In the URL as a query parameter.",
+            "B) In the `Authorization` HTTP header, prefixed with `Bearer`.",
+            "C) In a custom header called `X-JWT-Token`.",
+            "D) In the request body."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The standard practice (defined in RFC 6750) for sending bearer tokens like JWTs is to use the `Authorization` header with the format `Authorization: Bearer <token>`. Most API frameworks are configured to look for the token in this header by default."
+        },
+        {
+          "id": "q141_s4",
+          "domain": "Docker",
+          "difficulty": "Hard",
+          "question_text": "What is a multi-stage build in a `Dockerfile` and what is its primary benefit?",
+          "options": [
+            "A) A build process that creates multiple images for different environments.",
+            "B) A feature that allows you to use one stage for building/compiling your application and another, smaller stage for the final production image, resulting in a significantly smaller image size.",
+            "C) A build that runs on multiple CPU cores to speed up the process.",
+            "D) A build that can be paused and resumed."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Multi-stage builds let you use intermediate images as build environments. For example, you can use a large image with all the build tools (like a compiler or Node.js for a frontend build) in a 'build' stage, and then `COPY` only the final compiled artifacts into a minimal, clean 'production' stage (like a slim Python image). This keeps the final image small and secure by not including unnecessary build dependencies."
+        },
+        {
+          "id": "q142_s4",
+          "domain": "CORS",
+          "difficulty": "Hard",
+          "question_text": "Which CORS response header specifies which origins are allowed to access the resource?",
+          "options": [
+            "A) `Access-Control-Allow-Methods`",
+            "B) `Access-Control-Allow-Headers`",
+            "C) `Access-Control-Allow-Origin`",
+            "D) `Access-Control-Allow-Credentials`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `Access-Control-Allow-Origin` header is the most critical CORS header. The server sends this header in its response to indicate which origin(s) are permitted. It can be a specific origin (e.g., `https://example.com`) or a wildcard (`*`), though the wildcard is often discouraged for security reasons."
+        },
+        {
+          "id": "q143_s4",
+          "domain": "JWT",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the 'exp' (expiration time) claim in a JWT payload?",
+          "options": [
+            "A) To indicate when the user's account expires.",
+            "B) To specify the expected time it will take for the request to complete.",
+            "C) To define the time after which the JWT must not be accepted for processing.",
+            "D) To track the user's experience points."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The 'exp' claim is a security feature that gives the token a limited lifetime. When the server receives a JWT, it MUST validate that the current time is before the expiration time specified in this claim. This helps mitigate the risk of a compromised token being used indefinitely."
+        },
+        {
+          "id": "q144_s4",
+          "domain": "Deployment",
+          "difficulty": "Medium",
+          "question_text": "What is the '12-Factor App' methodology?",
+          "options": [
+            "A) A specific set of 12 technologies required to build modern web apps.",
+            "B) A methodology for building software-as-a-service apps that outlines 12 best practices for things like codebase, dependencies, config, and deployment.",
+            "C) A 12-step tutorial for learning Python web development.",
+            "D) A security standard with 12 requirements for API development."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The 12-Factor App is a set of principles for building robust and scalable web applications. It covers best practices such as storing config in the environment, treating logs as event streams, and maintaining dev/prod parity, which are highly relevant to modern full-stack deployment."
+        },
+        {
+          "id": "q145_s4",
+          "domain": "Nginx",
+          "difficulty": "Medium",
+          "question_text": "Besides acting as a reverse proxy, what is another common and important role for Nginx in a production deployment?",
+          "options": [
+            "A) Running the Python application code directly.",
+            "B) Managing the database.",
+            "C) Serving static files (CSS, JS, images) efficiently.",
+            "D) Compiling frontend assets."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Nginx is extremely fast and efficient at serving static content directly from the filesystem. A common pattern is to configure Nginx to handle requests for `/static/` or `/media/` itself, and only pass other requests (for dynamic content) to the backend Python application. This frees up the application server to focus on business logic."
+        },
+        {
+          "id": "q146_s4",
+          "domain": "API Design",
+          "difficulty": "Hard",
+          "question_text": "What does it mean for a REST API to be 'stateless'?",
+          "options": [
+            "A) The API has no database.",
+            "B) Each request from a client to the server must contain all the information needed to understand and complete the request. The server does not store any client context between requests.",
+            "C) The API can only be accessed by clients within the same country.",
+            "D) The API does not use cookies."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Statelessness is a key constraint of REST. It means that the server does not hold any session state for the client. Every request is treated as a new, independent transaction. Any state (like authentication) must be sent with each request, which is why token-based authentication (like JWT) is a perfect fit for REST APIs."
+        },
+        {
+          "id": "q147_s4",
+          "domain": "Docker",
+          "difficulty": "Medium",
+          "question_text": "In a `docker-compose.yml` file, what does the `depends_on` option do?",
+          "options": [
+            "A) It specifies which services must be built before the current service.",
+            "B) It controls the order of service startup and shutdown.",
+            "C) It installs the dependencies listed in a `requirements.txt` file.",
+            "D) It creates a network dependency between services."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`depends_on` expresses a dependency between services. For example, if your `web` service `depends_on` a `db` service, `docker-compose up` will start the `db` service before it starts the `web` service. It does not, however, wait for the `db` service to be 'ready'."
+        },
+        {
+          "id": "q148_s4",
+          "domain": "Frontend Integration",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of a refresh token in a JWT authentication flow?",
+          "options": [
+            "A) It's a token used to refresh the web page.",
+            "B) It's a second, long-lived token that can be securely exchanged for a new, short-lived access token without requiring the user to re-enter their credentials.",
+            "C) It's an identical copy of the access token, used as a backup.",
+            "D) It's a token used only during the initial login process."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Access tokens are kept short-lived (e.g., 15 minutes) for security. When one expires, the client can send the long-lived (e.g., 7 days) refresh token to a special endpoint. If the refresh token is valid, the server issues a new access token. This provides a better user experience than forcing a re-login every 15 minutes, while still limiting the exposure of the powerful access token."
+        },
+        {
+          "id": "q149_s4",
+          "domain": "Deployment",
+          "difficulty": "Medium",
+          "question_text": "What is Uvicorn?",
+          "options": [
+            "A) A WSGI server for Django.",
+            "B) A database ORM.",
+            "C) A lightning-fast ASGI server, built on uvloop and httptools.",
+            "D) A frontend JavaScript framework."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Uvicorn is the ASGI equivalent of Gunicorn. It's a high-performance server used to run asynchronous Python web applications built with frameworks like FastAPI, Starlette, or recent versions of Django that support ASGI."
+        },
+        {
+          "id": "q150_s4",
+          "domain": "Nginx",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the `X-Forwarded-For` header when using a reverse proxy?",
+          "options": [
+            "A) It tells the backend server which protocol (HTTP/HTTPS) the client used.",
+            "B) It contains the original IP address of the client, which would otherwise be lost because the backend only sees the proxy's IP.",
+            "C) It specifies which server the request should be forwarded to.",
+            "D) It's a security header to prevent clickjacking."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "When Nginx forwards a request, the backend application (e.g., Django) will see the request as coming from Nginx's IP address. The `X-Forwarded-For` header is a standard way for the proxy to pass along the original client's IP address so the application can use it for logging, geolocation, or rate-limiting."
+        },
+        {
+          "id": "q151_s4",
+          "domain": "Docker",
+          "difficulty": "Medium",
+          "question_text": "What is a 'volume' in Docker?",
+          "options": [
+            "A) The amount of memory allocated to a container.",
+            "B) A mechanism for persisting data generated by and used by Docker containers, stored on the host machine.",
+            "C) The size of a Docker image.",
+            "D) A network interface for a container."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Containers are ephemeral, meaning their filesystems are destroyed when they are removed. Volumes provide a way to store data outside the container's lifecycle. This is essential for things like databases, where you need the data to persist even if the database container is recreated or updated."
+        },
+        {
+          "id": "q152_s4",
+          "domain": "API Design",
+          "difficulty": "Medium",
+          "question_text": "Which HTTP method is best suited for partially updating a resource in a REST API (e.g., changing only a user's email address)?",
+          "options": [
+            "A) `POST`",
+            "B) `PUT`",
+            "C) `UPDATE`",
+            "D) `PATCH`"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "`PATCH` is the standard HTTP method for applying partial modifications to a resource. Unlike `PUT`, which requires the client to send the entire resource representation, `PATCH` only needs the fields that are being changed."
+        },
+        {
+          "id": "q153_s4",
+          "domain": "CORS",
+          "difficulty": "Medium",
+          "question_text": "If a server responds with `Access-Control-Allow-Origin: *`, what does it mean?",
+          "options": [
+            "A) Only the original server can make requests.",
+            "B) No cross-origin requests are allowed.",
+            "C) Any domain is allowed to make cross-origin requests to this resource.",
+            "D) The request must include credentials."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The wildcard `*` value for `Access-Control-Allow-Origin` is a permissive setting that tells the browser that the resource can be accessed by any origin. While useful for public APIs, it can be a security risk if the endpoint handles sensitive data."
+        },
+        {
+          "id": "q154_s4",
+          "domain": "Deployment",
+          "difficulty": "Hard",
+          "question_text": "What is a 'health check' endpoint and why is it important for container orchestration systems like Kubernetes?",
+          "options": [
+            "A) An endpoint that provides performance metrics for the application.",
+            "B) A simple API endpoint (e.g., `/healthz`) that returns a `200 OK` status if the application is running correctly.",
+            "C) An endpoint that checks for security vulnerabilities.",
+            "D) An endpoint that displays the application's logs."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Orchestration systems use health checks to monitor the status of containers. If the health check endpoint fails to respond or returns an error, the orchestrator can automatically restart the container or stop sending traffic to it, ensuring high availability and self-healing."
+        },
+        {
+          "id": "q155_s4",
+          "domain": "JWT",
+          "difficulty": "Medium",
+          "question_text": "What is a major security consideration when using JWTs?",
+          "options": [
+            "A) The payload is encrypted by default.",
+            "B) The payload is only Base64 encoded and is not encrypted, so sensitive information should not be stored in it.",
+            "C) JWTs can only be used over HTTPS.",
+            "D) The secret key must be shared with the client."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A common misconception is that JWTs are encrypted. They are only signed. The payload is easily readable by anyone who intercepts the token. Therefore, you should never store highly sensitive data like passwords or personal identification numbers in a JWT payload. Its purpose is to prove identity and permissions, not to hide data."
+        },
+        {
+          "id": "q156_s4",
+          "domain": "Docker",
+          "difficulty": "Medium",
+          "question_text": "In a `Dockerfile`, what is the purpose of the `EXPOSE` instruction?",
+          "options": [
+            "A) It publishes the port to the host machine.",
+            "B) It acts as documentation to inform the user which port the application inside the container is listening on.",
+            "C) It creates a firewall rule to open the port.",
+            "D) It forces the container to use a specific port."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`EXPOSE` does not actually publish the port. It functions as a type of documentation between the person who builds the image and the person who runs the container. To actually map the port to the host, you use the `-p` or `--publish` flag when running `docker run` (e.g., `docker run -p 8080:80 my-image`)."
+        },
+        {
+          "id": "q157_s4",
+          "domain": "Nginx",
+          "difficulty": "Hard",
+          "question_text": "What is rate limiting in Nginx, and why would you use it?",
+          "options": [
+            "A) To limit the speed of file uploads.",
+            "B) To control the number of requests a client can make in a given period, which helps prevent DoS attacks and API abuse.",
+            "C) To limit the CPU usage of the Nginx worker processes.",
+            "D) To set a maximum size for request bodies."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Rate limiting is a crucial security and stability feature. Using directives like `limit_req_zone` and `limit_req`, you can configure Nginx to restrict how many requests a single IP address can make per second or minute. This protects your backend application from being overwhelmed by malicious or misbehaving clients."
+        },
+        {
+          "id": "q158_s4",
+          "domain": "API Design",
+          "difficulty": "Medium",
+          "question_text": "What does 'HATEOAS' (Hypermedia as the Engine of Application State) mean in the context of REST APIs?",
+          "options": [
+            "A) It's a principle that states API responses should include links to other related actions or resources, allowing clients to navigate the API dynamically.",
+            "B) It's a security protocol for APIs.",
+            "C) It's a specification for API error messages.",
+            "D) It's a caching strategy for API responses."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "HATEOAS is a constraint of REST that makes APIs more self-discoverable. For example, a response for a user object might include a `_links` section with URLs for 'edit-user', 'view-posts', etc. This decouples the client from hardcoded URLs, as it can follow the links provided by the server."
+        },
+        {
+          "id": "q159_s4",
+          "domain": "Deployment",
+          "difficulty": "Medium",
+          "question_text": "What is the 'Procfile' used for in platforms like Heroku?",
+          "options": [
+            "A) It's a file that lists the project's dependencies.",
+            "B) It's a file that declares what commands are run by the application's dynos (containers) on the platform.",
+            "C) It's a configuration file for the database.",
+            "D) It's a replacement for a Dockerfile."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A `Procfile` is a simple text file that specifies the commands for different process types. For a web application, it would typically contain a line like `web: gunicorn myproject.wsgi --log-file -`, telling the platform how to start the web server."
+        },
+        {
+          "id": "q160_s4",
+          "domain": "Frontend Integration",
+          "difficulty": "Medium",
+          "question_text": "When a frontend app makes an API request that requires authentication, and the API returns a `401 Unauthorized` status, what should the frontend app typically do?",
+          "options": [
+            "A) Retry the request immediately.",
+            "B) Display a generic 'Server Error' message.",
+            "C) Redirect the user to the login page or attempt to use a refresh token to get a new access token.",
+            "D) Ignore the error and continue."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "A `401 Unauthorized` response means the request lacks valid authentication credentials. The correct client-side behavior is to treat the user as logged out. This usually involves clearing any stored tokens and redirecting them to the login page to re-authenticate. If a refresh token flow is implemented, the app could first try to silently get a new access token before forcing a login."
+        }
+      ]
+    }
+  ]
+}

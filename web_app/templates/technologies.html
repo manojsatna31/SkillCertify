@@ -1,0 +1,89 @@
+{#
+    _technologies.html
+    ------------------
+    This template renders a grid of available technology topics for the SkillCertify platform.
+    It is designed to be loaded dynamically (e.g., via HTMX) into the main content area of the homepage.
+
+    Features:
+    - Displays a welcome message and instructions.
+    - Loops through a list of technology dictionaries (passed as 'technologies' from Flask).
+    - For each technology:
+        - If active, renders a clickable card that loads the relevant exam set via HTMX.
+        - If inactive, renders a non-clickable card with an "In Progress" badge.
+    - Uses Tailwind CSS for styling and FontAwesome for icons.
+#}
+<section id="tech-stack" class="py-4">
+    <div class="text-center mb-4">
+        <!-- 
+            Page Title and Subtitle
+            - Welcomes the user and prompts them to select a topic.
+        -->
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-2">Welcome to SkillCertify</h1>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300">Choose a topic below to start your exam</p>
+    </div>
+    {# 
+        Tech Stack Grid:
+        - Displays all available technologies in a responsive grid.
+        - Each technology is shown as a card.
+        - The card's interactivity and appearance depend on its 'active' status.
+    #}
+    <!-- Tech Stack Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  text-gray-800 dark:text-white">
+        {% for item in technologies %}
+            {% set card_classes =
+                "group block p-6 rounded-2xl border shadow-md transition-transform duration-300 hover:-translate-y-4 hover:shadow-2xl " ~
+                "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            %}
+
+            {% if item.active %}
+                <!-- Active Item Card -->
+                <a href="{{ url_for('exam_sets', tech_id=item.id) }}"
+                   hx-get="{{ url_for('exam_sets', tech_id=item.id) }}"
+                   hx-target="#content-area"
+                   hx-push-url="true"
+                   hx-swap="innerHTML"
+                   class="{{ card_classes }}">
+
+                    <!-- Icon + Name(s) -->
+                    <div class="flex flex-wrap items-center gap-4 mb-4">
+                        {% for i in range(item.icon|length) %}
+                            <div class="flex items-center space-x-2">
+                                <i class="{{ item.icon[i] }} text-3xl group-hover:text-blue-500"></i>
+                                <h4 class="text-xl font-semibold">{{ item.name[i] }}</h4>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-sm ext-gray-600 dark:text-gray-300">
+                        {{ item.description }}
+                    </p>
+                </a>
+
+            {% else %}
+                <!-- Inactive Item Card -->
+                <div class="{{ card_classes }} cursor-default relative">
+                    <!-- In Progress Badge -->
+                    <div class="absolute -top-3 -left-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md flex items-center">
+                        <i class="fas fa-tools mr-2"></i> In Progress
+                    </div>
+
+                    <!-- Icon + Name(s) -->
+                    <div class="flex flex-wrap items-center gap-4 mb-4">
+                        {% for i in range(item.icon|length) %}
+                            <div class="flex items-center space-x-2">
+                                <i class="{{ item.icon[i] }} text-3xl"></i>
+                                <h4 class="text-xl font-semibold">{{ item.name[i] }}</h4>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-sm ext-gray-600 dark:text-gray-300">
+                        {{ item.description }}
+                    </p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

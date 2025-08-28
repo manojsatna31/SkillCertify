@@ -1,0 +1,204 @@
+<!-- questions.html with next/prev + review tracking -->
+<!--<div class="flex flex-col min-h-screen bg-slate-50 dark:bg-slate-900">-->
+<div class="w-full max-w-none bg-slate-50 dark:bg-slate-900 rounded-lg p-6">
+  <!-- Header: Title + Timer -->
+  <!-- Header ### Remain Constant  hx-swap="innerHTML" -->
+  <div class="flex justify-between items-center mb-2">
+    <button
+      href="{{ url_for('exam_sets', tech_id=data.tech_id) }}"
+      hx-get="{{ url_for('exam_sets', tech_id=data.tech_id) }}"
+      hx-target="#content-area"
+      hx-push-url="true"
+      hx-swap="innerHTML"
+
+      class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-95 flex items-center">
+      <i class="fas fa-caret-left mr-2 text-lg"></i> Back to Exam Set
+    </button>
+    <div
+      class="text-center text-2xl font-bold text-gray-800 dark:text-gray-200"
+    >
+      {{ data.set_name }}
+    </div>
+    <div id="timerBlock" class="flex justify-between items-center gap-2">
+      <span class="text-lg font-bold mb-2">Time Remaining</span>
+      <div
+        class="px-4 py-2 text-sm border border-blue-500 font-bold rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+      >
+        <i class="far fa-clock mr-2 text-blue-500"></i>
+        <span
+          id="timer"
+          class="text-2xl font-mono font-bold text-red-600 dark:text-red-400"
+          >{{ data.time_limit }}:00</span
+        >
+      </div>
+    </div>
+  </div>
+  <!-- Dynamic Question Block Replaced via HTMX -->
+  <!-- Question Container -->
+  <div
+    id="question-container"
+    class="w-full max-w-none bg-slate-50 dark:bg-slate-900 rounded-lg"
+  >
+    {% include "question_block.html" %}
+  </div>
+  <!-- Modal (hidden by default) -->
+    <div id="finishModal"
+         class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl max-w-md w-full">
+            <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-white">Confirm Submission</h2>
+            <p id="modalMessage" class="text-gray-700 dark:text-gray-300 mb-6"></p>
+            <div class="flex justify-end gap-4">
+                <button id="cancelFinish"
+                        class="px-4 py-2 bg-gray-300 dark:bg-gray-600 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500">
+                    Cancel
+                </button>
+                <button id="confirmFinish"
+                        class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                    Confirm & Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+      if (!window.examTimerStarted) {
+      // === Exam Timer Configuration ===
+      let totalSeconds =  {{ data.time_limit }} * 60;
+
+      const timerElement = document.getElementById("timer");
+      const statusElement = document.getElementById("status");
+
+      // ⏱️ Function to update the timer display
+      function updateTimerUI() {
+        const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+        const seconds = String(totalSeconds % 60).padStart(2, '0');
+        timerElement.textContent = `${minutes}:${seconds}`;
+      }
+
+      // 🔁 Show first tick immediately
+      updateTimerUI();
+
+      // ⌛ Start interval
+      const timer = setInterval(() => {
+        totalSeconds--;
+
+        if (totalSeconds < 0) {
+          clearInterval(timer);
+          timerElement.textContent = "00:00";
+          statusElement.textContent = "⏰ Time's up! Auto-submitting exam...";
+
+          // Simulated auto-submit behavior
+          setTimeout(() => {
+            statusElement.textContent = "✅ Exam submitted successfully!";
+          }, 1500);
+
+          return;
+        }
+
+        updateTimerUI();
+      }, 1000);
+
+      // expose a stopper
+    window.stopExamTimer = function () {
+      if (window.__examTimer) {
+        clearInterval(window.__examTimer);
+        window.__examTimer = null;
+      }
+    };
+    }
+  //New Script ## Start
+  //document.addEventListener("DOMContentLoaded", () => {
+    // Use event delegation so script works after HTMX swaps
+    document.addEventListener("click", function (e) {
+      // handle Finish click
+      if (e.target.closest && e.target.closest('#finishBtn')) {
+        const reviewCount = parseInt(document.getElementById("reviewCount")?.value || 0, 10);
+        const unansweredCount = parseInt(document.getElementById("unansweredCount")?.value || 0, 10);
+
+        let msg = "";
+        if (reviewCount > 0) {
+          msg += `⚠️ You still have <b>${reviewCount}</b> question(s) marked for review.<br>`;
+        }
+        if (unansweredCount > 0) {
+          msg += `❓ You still have <b>${unansweredCount}</b> unanswered question(s).<br>`;
+        }
+        if (!msg) msg = "✅ All questions are answered. Do you want to finish?";
+
+        document.getElementById("modalMessage").innerHTML = msg;
+        const modal = document.getElementById("finishModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        return;
+      }
+
+      // cancel modal
+      if (e.target && e.target.id === "cancelFinish") {
+        const modal = document.getElementById("finishModal");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        return;
+      }
+
+        // confirm & submit main form
+        if (e.target && e.target.id === "confirmFinish") {
+
+        // ✅ stop the ticking timer
+        if (window.stopExamTimer) window.stopExamTimer();
+
+        // ✅ hide/remove the timer block from the header
+        const tb = document.getElementById("timerBlock");
+        if (tb) tb.remove();
+
+          const modal = document.getElementById("finishModal");
+          modal.classList.add("hidden");
+          modal.classList.remove("flex");
+
+        // find the main exam form by stable id
+        const form = document.getElementById("questionForm");
+        if (!form) {
+          console.error("questionForm not found — cannot submit.");
+          alert("Internal error: cannot find exam form. Please try again.");
+          return;
+        }
+
+        // create or reuse a data-generated hidden input for action=finish
+        let hiddenAction = form.querySelector('input[data-generated-action="true"]');
+        if (!hiddenAction) {
+          hiddenAction = document.createElement("input");
+          hiddenAction.type = "hidden";
+          hiddenAction.name = "action";
+          hiddenAction.value = "finish";
+          hiddenAction.setAttribute("data-generated-action", "true");
+          form.appendChild(hiddenAction);
+        } else {
+          hiddenAction.value = "finish";
+        }
+
+        // --- NEW HTMX-specific part ---
+      // Dynamically add HTMX attributes to the form
+      form.setAttribute('hx-post', '/exam/submit-answer');
+      form.setAttribute('hx-target', '#content-area');
+      //form.setAttribute('hx-swap', 'outerHTML');
+      form.setAttribute('hx-swap', 'innerHTML');
+
+        // --- DEBUG: log FormData to console so you can verify exactly what will be submitted ---
+        try {
+          const fd = new FormData(form);
+          console.group("Submitting exam form (preview FormData)");
+          for (const [k, v] of fd.entries()) {
+            console.log(k, "=", v);
+          }
+          console.groupEnd();
+        } catch (err) {
+          console.warn("Could not read FormData for preview:", err);
+        }
+        // ----------------------------------------------------------------
+
+        // finally submit (letting HTMX intercept and post via AJAX)
+        form.requestSubmit(); // no argument — safest, triggers submit event HTMX listens to
+        return;
+      }
+    }, true);
+  //});
+  //New Script ## End
+</script>

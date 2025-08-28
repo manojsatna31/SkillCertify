@@ -1,0 +1,43 @@
+{
+  "id": "tech-aws",
+  "name": "Conquer AWS Certification with Confidence",
+  "icon": "fab fa-aws text-orange-500",
+  "description": "Accelerate your cloud journey ",
+  "exam_sets": [
+    {
+      "id": "tech-aws-set3",
+      "name": "AWS Certified Developer — Associate",
+      "title": "Building and Optimizing Applications on AWS",
+      "focus_on": "Hands-on AWS development skills including building serverless applications, integrating with core AWS services, securing applications, monitoring performance, and optimizing cost and scalability. The exam set emphasizes developer-centric AWS features, SDK usage, CI/CD, and best practices for resilient cloud-native applications.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-code text-indigo-300 hover:text-indigo-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "AWS SDKs & API Integration (boto3, AWS CLI, SDK for Java/Python/Node)"
+        }
+      ],
+      "difficulty": "Associate",
+      "description": "This exam set is tailored for developers preparing for the AWS Certified Developer — Associate exam. It evaluates practical knowledge of building, deploying, securing, and optimizing applications on AWS using modern developer services and cloud-native best practices.",
+      "icon": "fas fa-laptop-code",
+      "passing_score": "75",
+      "active": true,
+      "total_questions": "65",
+      "time_limit": "90",
+      "questions": [
+        {
+          "id": "d1_q027_s3",
+          "domain": "Fundamentals of AI and ML",
+          "difficulty": "Easy",
+          "question_text": "What is the main goal of unsupervised learning?",
+          "options": [
+            "A) To predict a continuous value based on labeled data.",
+            "B) To find hidden patterns or intrinsic structures in unlabeled data.",
+            "C) To train an agent to maximize a reward.",
+            "D) To classify data into predefined categories."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Unsupervised learning works with data that has no pre-existing labels. Its primary goal is to explore the data to find meaningful structures, such as groups of similar data points (clustering) or to reduce the number of variables (dimensionality reduction)."
+        }
+      ]
+    }
+  ]
+}

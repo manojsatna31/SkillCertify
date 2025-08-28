@@ -174,26 +174,76 @@ The application will now be running at `http://localhost:5000`.
 The platform's content is 100% data-driven. Here’s how to add a new exam topic:
 
 **1. Create the Question File:**
-*   Add a new `.json` file to the `data/` directory (e.g., `data/python_basics.json`).
+*   Add a new `.json` file to the `data/` directory (e.g., `data/python.json`).
 *   Structure it with an `"exam_sets"` array, following the format of the existing files.
 
-**2. Add the Topic Icon:**
-*   Create or find a suitable `.svg` icon for your new topic.
-*   Place it inside the `q_bank_app/static/icons/svg/` directory (e.g., `python.svg`).
+> **Example: Adding a Python topic to `python.json`**
+> ```json
+> {
+  "id": "tech-python",
+  "name": "Python Web Development Mastery",
+  "icon": "fab fa-python text-blue-500",
+  "description": "Comprehensive exam sets for Python web developers, from fundamentals to full-stack deployment.",
+  "exam_sets": [
+    {
+      "id": "tech-python-django-set1",
+      "name": "Django Fundamentals & ORM",
+      "title": "Mastering the Django MVT Architecture",
+      "focus_on": "Core Django concepts including the Model-View-Template (MVT) pattern, powerful Object-Relational Mapper (ORM) for database interactions, URL routing, form handling, and leveraging the built-in admin interface. This set builds a strong foundation for any Django developer.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-database text-green-400",
+          "topic": "Django ORM (QuerySets, Migrations, Relationships)"
+        }
+      ],
+      "difficulty": "Associate",
+      "description": "Evaluates your understanding of Django's core components. Perfect for developers starting their journey with Django or preparing for junior-level roles.",
+      "icon": "fab fa-python text-green-500",
+      "passing_score": "75",
+      "active": true,
+      "total_questions": "40",
+      "time_limit": "60",
+      "questions": [
+        {
+          "id": "q001_s1",
+          "domain": "Django Core Concepts",
+          "difficulty": "Easy",
+          "question_text": "In the context of Django's MVT architecture, what is the primary responsibility of the 'View'?",
+          "options": [
+            "A) To define the data structure and database schema.",
+            "B) To handle the presentation logic and render the final HTML.",
+            "C) To process the user's request and return a response.",
+            "D) To map URLs to specific functions or classes."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "In Django, the 'View' is a request handler. It takes an HTTP request, applies business logic (like fetching data from models), and returns an HTTP response, which might be an HTML page, a redirect, or a 404 error."
+        }        
+      ]
+    }
+  ]
+}
+> ```
+
+
+
+
+
 
 **3. Update the Central Manifest:**
 *   Open the main manifest file: `data/topics_manifest.json`.
 *   Add a new JSON object to the array that describes your new topic.
 
 > **Example: Adding a Python topic to `topics_manifest.json`**
+> 
 > ```json
 > {
->   "topic_id": "python",
->   "filename": "python_basics.json",
->   "title": "Python Basics",
->   "description": "Test your knowledge of Python fundamentals.",
->   "svgfilename": "python.svg"
-> }
+>     "id": "tech-python",
+>     "name": ["Python (Django/Flask)"],
+>     "datafile": "python.json",
+>      "icon": ["fab fa-python text-blue-500"],
+>      "description": "High-level programming language with powerful frameworks for rapid backend development and REST APIs.",
+>      "active": true
+>  }
 > ```
 
 **4. Restart the Server:**
