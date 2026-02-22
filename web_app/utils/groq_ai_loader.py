@@ -60,6 +60,7 @@ def generate_questions( user_content,
     # Load environment variables
     load_dotenv()
 
+    # Add  GROQ_API_KEY to environment variables
     # Initialize Groq client
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:

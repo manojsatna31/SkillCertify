@@ -52,7 +52,7 @@
 ---
 ## 📚 Table of Contents
 
-- [📌 Overview](#Overview)
+- [📌 Overview](#overview)
 - [🚀 Beyond Certification: Your Interview Prep Powerhouse](#-beyond-certification-your-interview-prep-powerhouse)
 - [✨ Key Features](#-key-features)
 - [🛠️ Technology Stack](#️-technology-stack)
@@ -60,11 +60,16 @@
   - [1. Prerequisites](#1-prerequisites)
   - [2. Clone the Repository](#2-clone-the-repository)
   - [3. Set Up the Virtual Environment](#3-set-up-the-virtual-environment)
-  - [4. Install Dependencies](#4-install-dependencies)
-  - [5. Configure the Environment](#5-configure-the-environment)
-  - [6. Run the Application](#6-run-the-application)
+  - [4. Install Python Dependencies](#4-install-python-dependencies)
+  - [5. Upgrade pip](#5-upgrade-pip)
+  - [6. Install CSS Dependencies](#6-install-css-dependencies)
+  - [7. Configure the Environment](#7-configure-the-environment)
+  - [8. Run the Application](#8-run-the-application)
 - [📝 How to Add New Exams](#-how-to-add-new-exams)
 - [🏗️ Project Architecture](#️-project-architecture)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [🤝 Contributing](#-contributing)
+- [📞 Support & Contact](#-support--contact)
 - [📜 License](#-license)
 
 ---
@@ -122,10 +127,7 @@ Follow these steps to get SkillCertify running on your local machine.
 git clone https://github.com/your-username/SkillCertify.git
 cd SkillCertify
 ```
-#### Important Note: Update the pip first by running the below command
-```bash
-  python.exe -m pip install --upgrade pip
-```
+
 #### 3. Set Up the Virtual Environment
 
 Using a virtual environment is crucial for managing project dependencies cleanly.
@@ -141,7 +143,7 @@ Using a virtual environment is crucial for managing project dependencies cleanly
     .\venv\Scripts\activate
     ```
 
-#### 4. Install Dependencies
+#### 4. Install Python Dependencies
 
 Install all required Python packages from the `requirements.txt` file.
 
@@ -149,7 +151,26 @@ Install all required Python packages from the `requirements.txt` file.
 pip install -r requirements.txt
 ```
 
-#### 5. Configure the Environment
+#### 5. Upgrade pip
+
+Update pip to the latest version by running the following command:
+
+```bash
+python.exe -m pip install --upgrade pip
+```
+
+#### 6. Install CSS Dependencies
+
+Navigate to the `web_app` folder and install frontend dependencies:
+
+```bash
+cd web_app
+npm install
+npm run build:css
+cd ..
+```
+
+#### 7. Configure the Environment
 
 Create a `.env` file in the project's root directory. This file stores your application's secret key.
 
@@ -162,12 +183,12 @@ copy .env.example .env
 ```
 > **Security Note:** The `.env` file contains the `SECRET_KEY`. While a default is provided, you should generate a new, secure key for any production-like environment.
 
-#### 6. Run the Application
+#### 8. Run the Application
 
 Use the Flask Command-Line Interface to run the development server.
 
-```python
-python run
+```bash
+python run.py
 ```
 
 The application will now be running at `http://localhost:5000`.
@@ -182,55 +203,53 @@ The platform's content is 100% data-driven. Here’s how to add a new exam topic
 *   Add a new `.json` file to the `data/` directory (e.g., `data/python.json`).
 *   Structure it with an `"exam_sets"` array, following the format of the existing files.
 
-> **Example: Adding a Python topic to `python.json`**
-> ```json
-> {
-  "id": "tech-python",
-  "name": "Python Web Development Mastery",
-  "icon": "fab fa-python text-blue-500",
-  "description": "Comprehensive exam sets for Python web developers, from fundamentals to full-stack deployment.",
-  "exam_sets": [
-    {
-      "id": "tech-python-django-set1",
-      "name": "Django Fundamentals & ORM",
-      "title": "Mastering the Django MVT Architecture",
-      "focus_on": "Core Django concepts including the Model-View-Template (MVT) pattern, powerful Object-Relational Mapper (ORM) for database interactions, URL routing, form handling, and leveraging the built-in admin interface. This set builds a strong foundation for any Django developer.",
-      "key_skills_tested": [
-        {
-          "icon": "fas fa-database text-green-400",
-          "topic": "Django ORM (QuerySets, Migrations, Relationships)"
-        }
-      ],
-      "difficulty": "Associate",
-      "description": "Evaluates your understanding of Django's core components. Perfect for developers starting their journey with Django or preparing for junior-level roles.",
-      "icon": "fab fa-python text-green-500",
-      "passing_score": "75",
-      "active": true,
-      "total_questions": "40",
-      "time_limit": "60",
-      "questions": [
-        {
-          "id": "q001_s1",
-          "domain": "Django Core Concepts",
-          "difficulty": "Easy",
-          "question_text": "In the context of Django's MVT architecture, what is the primary responsibility of the 'View'?",
-          "options": [
-            "A) To define the data structure and database schema.",
-            "B) To handle the presentation logic and render the final HTML.",
-            "C) To process the user's request and return a response.",
-            "D) To map URLs to specific functions or classes."
-          ],
-          "correct_answer_index": 2,
-          "explanation": "In Django, the 'View' is a request handler. It takes an HTTP request, applies business logic (like fetching data from models), and returns an HTTP response, which might be an HTML page, a redirect, or a 404 error."
-        }        
-      ]
-    }
-  ]
-}
-> ```
-
-
-
+    **Example: Adding a Python topic to `python.json`**
+    > 
+    > ```json
+    > {
+    >   "id": "tech-python",
+    >   "name": "Python Web Development Mastery",
+    >   "icon": "fab fa-python text-blue-500",
+    >   "description": "Comprehensive exam sets for Python web developers, from fundamentals to full-stack deployment.",
+    >   "exam_sets": [
+    >     {
+    >       "id": "tech-python-django-set1",
+    >       "name": "Django Fundamentals & ORM",
+    >       "title": "Mastering the Django MVT Architecture",
+    >       "focus_on": "Core Django concepts including the Model-View-Template (MVT) pattern, powerful Object-Relational Mapper (ORM) for database interactions, URL routing, form handling, and leveraging the built-in admin interface. This set builds a strong foundation for any Django developer.",
+    >       "key_skills_tested": [
+    >         {
+    >           "icon": "fas fa-database text-green-400",
+    >           "topic": "Django ORM (QuerySets, Migrations, Relationships)"
+    >         }
+    >       ],
+    >       "difficulty": "Associate",
+    >       "description": "Evaluates your understanding of Django's core components. Perfect for developers starting their journey with Django or preparing for junior-level roles.",
+    >       "icon": "fab fa-python text-green-500",
+    >       "passing_score": "75",
+    >       "active": true,
+    >       "total_questions": "40",
+    >       "time_limit": "60",
+    >       "questions": [
+    >         {
+    >           "id": "q001_s1",
+    >           "domain": "Django Core Concepts",
+    >           "difficulty": "Easy",
+    >           "question_text": "In the context of Django's MVT architecture, what is the primary responsibility of the 'View'?",
+    >           "options": [
+    >             "A) To define the data structure and database schema.",
+    >             "B) To handle the presentation logic and render the final HTML.",
+    >             "C) To process the user's request and return a response.",
+    >             "D) To map URLs to specific functions or classes."
+    >           ],
+    >           "correct_answer_index": 2,
+    >           "explanation": "In Django, the 'View' is a request handler. It takes an HTTP request, applies business logic (like fetching data from models), and returns an HTTP response, which might be an HTML page, a redirect, or a 404 error."
+    >         }
+    >       ]
+    >     }
+    >   ]
+    > }
+    > ```
 
 
 
@@ -313,6 +332,23 @@ The project follows a standard Flask application structure for scalability and s
 
 ---
 
-### 📜 License
+### � Troubleshooting
+
+**Issue: Module not found errors**
+- Solution: Ensure your virtual environment is activated and all dependencies are installed with `pip install -r requirements.txt`.
+
+**Issue: CSS not compiling**
+- Solution: Make sure you have Node.js and npm installed. Navigate to `web_app/` and run `npm install` followed by `npm run build:css`.
+
+**Issue: Port 5000 already in use**
+- Solution: Either stop the process using port 5000 or change the Flask port by setting `FLASK_PORT` in your `.env` file.
+
+**Issue: `.env` file not found**
+- Solution: Create a `.env` file in the project root. You can copy from `.env.example` if available.
+
+---
+
+
+### �📜 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
