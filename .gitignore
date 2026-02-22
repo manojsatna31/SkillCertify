@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+webapp/__pycache__/
+webapp/utils/__pycache__/
+*.py[cod]
+
+# Environments
+.env
+.venv
+env/
+venv/
+# Flask sessions
+flask_session/
+
+# C extensions & Packages
+*.so
+*.egg-info/
+dist/
+build/
+
+# IDE/Editor settings
+.idea
+.git
+.vscode/
+.idea/
+*.swp
+
+# Logs & Databases
+*.log
+*.sqlite3
+
+# Test coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# package lock files
+package-lock.json
+yarn.lock
+
