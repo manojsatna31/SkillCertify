@@ -1,0 +1,3112 @@
+{
+  "id": "tech-sql",
+  "name": "SQL Mastery Path",
+  "icon": "fas fa-database text-blue-700",
+  "description": "Gain confidence in relational database design and usage. Covers querying, indexing, transactions, performance optimization,</br> and distributed data architecture for real-world systems.",
+  "exam_sets": [
+    {
+      "id": "sql-beginner-set-1",
+      "name": "SQL Fundamentals",
+      "title": "Core SQL: SELECT, Filters, Joins & Basics",
+      "focus_area": "Fundamental SQL queries, basic data retrieval, simple joins, filtering, sorting, basic aggregation, and elementary schema concepts.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-database text-green-500 hover:scale-105",
+          "topic": "Basic SELECT queries"
+        },
+        {
+          "icon": "fas fa-filter text-blue-500 hover:scale-105",
+          "topic": "WHERE clause & filtering"
+        },
+        {
+          "icon": "fas fa-columns text-indigo-400 hover:scale-105",
+          "topic": "Joins (INNER/LEFT)"
+        },
+        {
+          "icon": "fas fa-sort-amount-down text-yellow-500 hover:scale-105",
+          "topic": "ORDER BY & LIMIT"
+        },
+        {
+          "icon": "fas fa-calculator text-purple-400 hover:scale-105",
+          "topic": "Basic aggregates (COUNT, SUM, AVG)"
+        },
+        {
+          "icon": "fas fa-key text-red-400 hover:scale-105",
+          "topic": "Primary/Foreign keys & simple constraints"
+        }
+      ],
+      "difficulty": "Beginner",
+      "description": "A 25-question beginner-level set that verifies understanding of core SQL concepts: retrieving and filtering data, simple joins, sorting, basic aggregates, and elementary schema definitions.",
+      "icon": "fas fa-seedling text-green-600",
+      "total_questions": 25,
+      "time_limit": 30,
+      "passing_score": 70,
+      "active": true,
+      "questions": [
+        {
+          "id": "beg1_q01",
+          "domain": "SELECT basics",
+          "difficulty": "Easy",
+          "question_text": "Which SQL statement is used to retrieve data from a table?",
+          "options": [
+            "A) GET",
+            "B) SELECT",
+            "C) FETCH",
+            "D) READ"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "SELECT is the standard SQL keyword used to retrieve rows from a table."
+        },
+        {
+          "id": "beg1_q02",
+          "domain": "Filtering",
+          "difficulty": "Easy",
+          "question_text": "Which clause is used to filter rows returned by a SELECT statement?",
+          "options": [
+            "A) HAVING",
+            "B) ORDER BY",
+            "C) WHERE",
+            "D) GROUP BY"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "WHERE filters rows before grouping/aggregation; HAVING filters groups after GROUP BY."
+        },
+        {
+          "id": "beg1_q03",
+          "domain": "Sorting",
+          "difficulty": "Easy",
+          "question_text": "How do you sort query results by column salary in descending order?",
+          "options": [
+            "A) ORDER BY salary DESC",
+            "B) SORT BY salary DESC",
+            "C) ORDER BY salary DOWN",
+            "D) GROUP BY salary DESC"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "ORDER BY <column> DESC sorts the results in descending order by that column."
+        },
+        {
+          "id": "beg1_q04",
+          "domain": "Limiting",
+          "difficulty": "Easy",
+          "question_text": "Which clause returns only the first 10 rows in most SQL dialects?",
+          "options": [
+            "A) TOP 10",
+            "B) LIMIT 10",
+            "C) FIRST 10",
+            "D) ROWS 10"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "LIMIT 10 is supported by MySQL, PostgreSQL and others. Some systems use TOP 10 (SQL Server)."
+        },
+        {
+          "id": "beg1_q05",
+          "domain": "Distinct",
+          "difficulty": "Easy",
+          "question_text": "Which keyword removes duplicate rows from the result set?",
+          "options": [
+            "A) UNIQUE",
+            "B) DISTINCT",
+            "C) DIFFERENT",
+            "D) NO_DUP"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "DISTINCT filters out duplicate rows based on the selected columns."
+        },
+        {
+          "id": "beg1_q06",
+          "domain": "Aggregates",
+          "difficulty": "Easy",
+          "question_text": "What does the SQL function COUNT() return?",
+          "options": [
+            "A) Number of non-null values in a specific column",
+            "B) Number of distinct values in a column",
+            "C) Total number of rows in the result set",
+            "D) Average value of a numeric column"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "COUNT() counts all rows, including those with NULL values in individual columns."
+        },
+        {
+          "id": "beg1_q07",
+          "domain": "GROUP BY",
+          "difficulty": "Easy",
+          "question_text": "Which clause groups rows so aggregate functions can be applied per group?",
+          "options": [
+            "A) GROUP BY",
+            "B) ORDER BY",
+            "C) PARTITION BY",
+            "D) CLUSTER BY"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "GROUP BY groups rows by the specified column(s) allowing aggregate functions per group."
+        },
+        {
+          "id": "beg1_q08",
+          "domain": "HAVING vs WHERE",
+          "difficulty": "Easy",
+          "question_text": "Which clause is used to filter groups after aggregation?",
+          "options": [
+            "A) WHERE",
+            "B) HAVING",
+            "C) FILTER",
+            "D) GROUP_WHERE"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "HAVING filters results after GROUP BY and aggregate functions have been applied."
+        },
+        {
+          "id": "beg1_q09",
+          "domain": "Joins",
+          "difficulty": "Easy",
+          "question_text": "Which join returns only rows that have matching values in both tables?",
+          "options": [
+            "A) LEFT JOIN",
+            "B) RIGHT JOIN",
+            "C) FULL JOIN",
+            "D) INNER JOIN"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "INNER JOIN returns only rows with matching keys in both joined tables."
+        },
+        {
+          "id": "beg1_q10",
+          "domain": "Left Join",
+          "difficulty": "Easy",
+          "question_text": "What does a LEFT JOIN return?",
+          "options": [
+            "A) Only rows present in the right table",
+            "B) All rows from the left table and matched rows from the right table",
+            "C) Only rows present in both tables",
+            "D) All rows from both tables"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "LEFT JOIN returns all rows from the left table; when there's no match in the right table, right-side columns are NULL."
+        },
+        {
+          "id": "beg1_q11",
+          "domain": "NULL handling",
+          "difficulty": "Easy",
+          "question_text": "Which expression tests whether a column col is NULL?",
+          "options": [
+            "A) col = NULL",
+            "B) col IS NULL",
+            "C) ISNULL(col)",
+            "D) col == NULL"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "SQL uses IS NULL to test for NULL values; equality comparisons with NULL don't work as expected."
+        },
+        {
+          "id": "beg1_q12",
+          "domain": "Data modification",
+          "difficulty": "Easy",
+          "question_text": "Which statement adds a new row into table employees?",
+          "options": [
+            "A) ADD INTO employees (...) VALUES (...)",
+            "B) INSERT INTO employees (...) VALUES (...)",
+            "C) CREATE ROW INTO employees (...)",
+            "D) UPDATE employees SET (...)"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "INSERT INTO ... VALUES ... is used to add new rows to a table."
+        },
+        {
+          "id": "beg1_q13",
+          "domain": "Update",
+          "difficulty": "Easy",
+          "question_text": "Which statement changes existing data in a table?",
+          "options": [
+            "A) MODIFY",
+            "B) CHANGE",
+            "C) UPDATE",
+            "D) ALTER"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "UPDATE table SET column = value WHERE ... modifies existing rows."
+        },
+        {
+          "id": "beg1_q14",
+          "domain": "Delete",
+          "difficulty": "Easy",
+          "question_text": "How do you remove rows from a table?",
+          "options": [
+            "A) REMOVE FROM table WHERE ...",
+            "B) DROP table WHERE ...",
+            "C) DELETE FROM table WHERE ...",
+            "D) TRUNCATE WHERE ..."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "DELETE FROM table WHERE ... deletes specified rows; TRUNCATE removes all rows without WHERE."
+        },
+        {
+          "id": "beg1_q15",
+          "domain": "Primary key",
+          "difficulty": "Easy",
+          "question_text": "Which constraint uniquely identifies each row in a table?",
+          "options": [
+            "A) FOREIGN KEY",
+            "B) UNIQUE",
+            "C) PRIMARY KEY",
+            "D) CHECK"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "PRIMARY KEY uniquely identifies rows and implies NOT NULL; UNIQUE also enforces uniqueness but doesn't imply primary key semantics."
+        },
+        {
+          "id": "beg1_q16",
+          "domain": "Foreign key",
+          "difficulty": "Easy",
+          "question_text": "A FOREIGN KEY in table A references which of the following?",
+          "options": [
+            "A) A column in table A itself only",
+            "B) A primary/unique key column in another table",
+            "C) Any column with an index",
+            "D) Only composite keys"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A foreign key references a primary or unique key in another (or same) table to enforce relational integrity."
+        },
+        {
+          "id": "beg1_q17",
+          "domain": "Data types",
+          "difficulty": "Easy",
+          "question_text": "Which SQL data type is best for storing textual strings of variable length?",
+          "options": [
+            "A) INT",
+            "B) VARCHAR",
+            "C) DATE",
+            "D) BOOLEAN"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "VARCHAR stores variable-length character data; INT for integers, DATE for dates, BOOLEAN for true/false."
+        },
+        {
+          "id": "beg1_q18",
+          "domain": "Aliases",
+          "difficulty": "Easy",
+          "question_text": "How do you assign an alias e to table employees in a query?",
+          "options": [
+            "A) FROM employees AS e",
+            "B) FROM employees TO e",
+            "C) FROM employees = e",
+            "D) FROM employees ALIAS e"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "FROM employees AS e assigns the alias e to refer to the table in the query."
+        },
+        {
+          "id": "beg1_q19",
+          "domain": "Simple subquery",
+          "difficulty": "Easy",
+          "question_text": "Which query finds employees whose salary equals the maximum salary in the employees table?",
+          "options": [
+            "A) SELECT * FROM employees WHERE salary = MAX(salary)",
+            "B) SELECT * FROM employees WHERE salary = (SELECT MAX(salary) FROM employees)",
+            "C) SELECT * FROM employees WHERE salary IN MAX(salary)",
+            "D) SELECT * FROM employees WHERE salary > ALL(salary)"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Use a scalar subquery: salary = (SELECT MAX(salary) FROM employees)."
+        },
+        {
+          "id": "beg1_q20",
+          "domain": "COUNT vs COUNT(column)",
+          "difficulty": "Easy",
+          "question_text": "What is the difference between COUNT() and COUNT(salary)?",
+          "options": [
+            "A) COUNT() counts non-null salary values; COUNT(salary) counts all rows",
+            "B) COUNT() counts all rows; COUNT(salary) counts only non-null salary values",
+            "C) Both are always the same",
+            "D) COUNT() counts distinct rows; COUNT(salary) counts duplicates"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "COUNT(*) counts all rows; COUNT(column) ignores NULLs in that column."
+        },
+        {
+          "id": "beg1_q21",
+          "domain": "ORDER of clauses",
+          "difficulty": "Easy",
+          "question_text": "Which is the correct order of these clauses in a SELECT statement?",
+          "options": [
+            "A) SELECT -> WHERE -> GROUP BY -> HAVING -> ORDER BY",
+            "B) SELECT -> GROUP BY -> WHERE -> HAVING -> ORDER BY",
+            "C) SELECT -> HAVING -> GROUP BY -> WHERE -> ORDER BY",
+            "D) SELECT -> ORDER BY -> WHERE -> GROUP BY -> HAVING"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Correct logical order: SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY (FROM omitted in options)."
+        },
+        {
+          "id": "beg1_q22",
+          "domain": "Simple index concept",
+          "difficulty": "Easy",
+          "question_text": "What is the primary purpose of an index on a column?",
+          "options": [
+            "A) To store duplicate data",
+            "B) To improve query read performance",
+            "C) To compress the table",
+            "D) To automatically backup the table"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Indexes speed up read queries (searches) at the cost of additional storage and slower writes."
+        },
+        {
+          "id": "beg1_q23",
+          "domain": "Transactions basics",
+          "difficulty": "Easy",
+          "question_text": "Which statement ends a successful transaction and makes changes permanent?",
+          "options": [
+            "A) ROLLBACK",
+            "B) SAVEPOINT",
+            "C) COMMIT",
+            "D) BEGIN"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "COMMIT saves the transaction's changes; ROLLBACK undoes them."
+        },
+        {
+          "id": "beg1_q24",
+          "domain": "Simple constraint",
+          "difficulty": "Easy",
+          "question_text": "Which constraint enforces that a column cannot contain NULL values?",
+          "options": [
+            "A) UNIQUE",
+            "B) NOT NULL",
+            "C) DEFAULT",
+            "D) CHECK"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "NOT NULL prevents NULL values in that column."
+        },
+        {
+          "id": "beg1_q25",
+          "domain": "Basic best practice",
+          "difficulty": "Easy",
+          "question_text": "When selecting all columns from a small table for ad-hoc exploration, which is a common practice?",
+          "options": [
+            "A) Use SELECT * only when you need every column",
+            "B) Always use SELECT * in production queries",
+            "C) SELECT * improves performance",
+            "D) SELECT * prevents NULLs"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "SELECT * is convenient for exploration but should be avoided in production queries where only needed columns should be selected for clarity and performance."
+        }
+      ]
+    },
+    {
+      "id": "sql-beginner-set-2",
+      "name": "SQL Essentials",
+      "title": "Foundational SQL: Joins, Subqueries, Strings & Basics",
+      "focus_area": "Core relational operations beyond simple SELECTs: joins (right/full/cross), set operations, basic subqueries, string/date functions, views, simple DDL and elementary concepts in indexing, transactions, and normalization.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-exchange-alt text-blue-500 hover:scale-105",
+          "topic": "Joins (RIGHT, FULL, CROSS)"
+        },
+        {
+          "icon": "fas fa-clone text-indigo-500 hover:scale-105",
+          "topic": "Set operations (UNION / UNION ALL)"
+        },
+        {
+          "icon": "fas fa-search text-yellow-500 hover:scale-105",
+          "topic": "Subqueries & EXISTS/IN"
+        },
+        {
+          "icon": "fas fa-font text-purple-500 hover:scale-105",
+          "topic": "String functions (CONCAT, LIKE, COALESCE)"
+        },
+        {
+          "icon": "fas fa-calendar-alt text-red-500 hover:scale-105",
+          "topic": "Date/time functions"
+        },
+        {
+          "icon": "fas fa-cogs text-green-500 hover:scale-105",
+          "topic": "Basic DDL (CREATE VIEW, ALTER, DROP, TRUNCATE)"
+        }
+      ],
+      "difficulty": "Beginner",
+      "description": "Second beginner-level 25-question set focusing on common relational operations, simple subqueries, set operations, string and date handling, basic DDL, and introductory concepts (ACID, normalization, stored routines). Designed to build practical competence for day-to-day SQL tasks.",
+      "icon": "fas fa-lightbulb text-yellow-600",
+      "total_questions": 25,
+      "time_limit": 35,
+      "passing_score": 70,
+      "active": true,
+      "questions": [
+        {
+          "id": "beg2_q01",
+          "domain": "Joins",
+          "difficulty": "Easy",
+          "question_text": "What does a RIGHT JOIN return?",
+          "options": [
+            "A) Only rows present in the left table",
+            "B) All rows from the right table and matched rows from the left table",
+            "C) Only rows present in both tables",
+            "D) All rows from both tables"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "RIGHT JOIN returns every row from the right table, with matching left-table rows where available; unmatched left columns are NULL."
+        },
+        {
+          "id": "beg2_q02",
+          "domain": "Joins",
+          "difficulty": "Easy",
+          "question_text": "Which join returns all rows from both tables, filling with NULLs when there is no match?",
+          "options": [
+            "A) INNER JOIN",
+            "B) LEFT JOIN",
+            "C) FULL OUTER JOIN",
+            "D) CROSS JOIN"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "FULL OUTER JOIN returns all rows from both sides; unmatched columns are NULL on the opposite side."
+        },
+        {
+          "id": "beg2_q03",
+          "domain": "Joins",
+          "difficulty": "Easy",
+          "question_text": "What is the result of a CROSS JOIN between table A (3 rows) and table B (2 rows)?",
+          "options": [
+            "A) 1 row",
+            "B) 2 rows",
+            "C) 3 rows",
+            "D) 6 rows"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "CROSS JOIN produces the Cartesian product: 3 * 2 = 6 rows."
+        },
+        {
+          "id": "beg2_q04",
+          "domain": "Set operations",
+          "difficulty": "Easy",
+          "question_text": "Which of the following returns all distinct rows from two queries combined?",
+          "options": [
+            "A) UNION ALL",
+            "B) UNION",
+            "C) INTERSECT",
+            "D) EXCEPT"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "UNION combines results and removes duplicates; UNION ALL keeps duplicates."
+        },
+        {
+          "id": "beg2_q05",
+          "domain": "Set operations",
+          "difficulty": "Easy",
+          "question_text": "When might you prefer UNION ALL over UNION?",
+          "options": [
+            "A) When you want duplicates removed",
+            "B) When you want better performance and duplicates are acceptable",
+            "C) When queries return different column counts",
+            "D) When you need ordered results"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "UNION ALL is faster because it skips the duplicate-elimination step, so use it when duplicates are expected/acceptable."
+        },
+        {
+          "id": "beg2_q06",
+          "domain": "Subqueries",
+          "difficulty": "Easy",
+          "question_text": "Which clause is usually faster for checking existence of rows: EXISTS or IN (with a subquery), when dealing with large correlated datasets?",
+          "options": [
+            "A) EXISTS (often faster for correlated checks)",
+            "B) IN (always faster)",
+            "C) Both are identical in all cases",
+            "D) Neither — use JOIN instead"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "EXISTS can be more efficient for correlated subqueries because it short-circuits once a match is found; performance can vary by DBMS."
+        },
+        {
+          "id": "beg2_q07",
+          "domain": "Subqueries",
+          "difficulty": "Easy",
+          "question_text": "What distinguishes a correlated subquery from a non-correlated subquery?",
+          "options": [
+            "A) Correlated subquery references columns from the outer query",
+            "B) Correlated subqueries run only once",
+            "C) Non-correlated subqueries always return multiple columns",
+            "D) Correlated subqueries cannot use aggregate functions"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "A correlated subquery uses values from the outer query for each row evaluated; non-correlated subqueries are independent and can run once."
+        },
+        {
+          "id": "beg2_q08",
+          "domain": "Conditional expressions",
+          "difficulty": "Easy",
+          "question_text": "How does the CASE expression work in SQL?",
+          "options": [
+            "A) It creates temporary tables",
+            "B) It defines conditional logic to return values based on WHEN/THEN branches",
+            "C) It changes column data types",
+            "D) It sorts query results"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "CASE WHEN ... THEN ... ELSE ... END applies conditional logic within SELECT, ORDER BY or elsewhere to return values based on conditions."
+        },
+        {
+          "id": "beg2_q09",
+          "domain": "Null handling",
+          "difficulty": "Easy",
+          "question_text": "What does COALESCE(col, 'N/A') do?",
+          "options": [
+            "A) Replaces NULL in col with 'N/A' and returns the first non-null argument",
+            "B) Converts col to uppercase",
+            "C) Tests whether col is numeric",
+            "D) Drops the column if it contains NULL"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "COALESCE returns the first non-NULL expression; here it substitutes 'N/A' if col is NULL."
+        },
+        {
+          "id": "beg2_q10",
+          "domain": "Null handling",
+          "difficulty": "Easy",
+          "question_text": "What value does NULLIF(col1, col2) return when col1 equals col2?",
+          "options": [
+            "A) col1",
+            "B) col2",
+            "C) NULL",
+            "D) 0"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "NULLIF returns NULL when the two expressions are equal; otherwise it returns the first expression."
+        },
+        {
+          "id": "beg2_q11",
+          "domain": "String operations",
+          "difficulty": "Easy",
+          "question_text": "Which operator is commonly used to perform pattern matching in SQL?",
+          "options": [
+            "A) MATCH",
+            "B) LIKE",
+            "C) CONTAINS",
+            "D) EQUALS"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "LIKE with wildcards (%) and (_) is used for simple pattern matching in SQL."
+        },
+        {
+          "id": "beg2_q12",
+          "domain": "String operations",
+          "difficulty": "Easy",
+          "question_text": "Which function concatenates strings in most modern SQL dialects?",
+          "options": [
+            "A) CONCAT",
+            "B) MERGE",
+            "C) JOIN_STR",
+            "D) ATTACH"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "CONCAT(a,b,...) joins strings; some systems also support the || operator."
+        },
+        {
+          "id": "beg2_q13",
+          "domain": "Date/time",
+          "difficulty": "Easy",
+          "question_text": "Which function typically returns the current date (without time) in SQL?",
+          "options": [
+            "A) NOW()",
+            "B) CURRENT_DATE",
+            "C) GETDATE()",
+            "D) TODAY()"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "CURRENT_DATE returns the current date in SQL standard; NOW()/GETDATE() often return timestamp with time portion (dialect-specific)."
+        },
+        {
+          "id": "beg2_q14",
+          "domain": "Views",
+          "difficulty": "Easy",
+          "question_text": "What is a VIEW in SQL?",
+          "options": [
+            "A) A physical copy of a table's data",
+            "B) A virtual table defined by a query",
+            "C) A type of index",
+            "D) A stored procedure"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A VIEW is a named query that appears like a table but does not necessarily store data (unless it's a materialized view)."
+        },
+        {
+          "id": "beg2_q15",
+          "domain": "DDL",
+          "difficulty": "Easy",
+          "question_text": "Which statement removes all rows from a table but keeps the table structure?",
+          "options": [
+            "A) DELETE FROM table",
+            "B) DROP TABLE table",
+            "C) TRUNCATE TABLE table",
+            "D) REMOVE ALL FROM table"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "TRUNCATE TABLE removes all rows and typically is faster than DELETE without WHERE; the table structure remains."
+        },
+        {
+          "id": "beg2_q16",
+          "domain": "DDL",
+          "difficulty": "Easy",
+          "question_text": "How do you add a new column age INT to an existing table users?",
+          "options": [
+            "A) ALTER TABLE users ADD COLUMN age INT",
+            "B) UPDATE TABLE users ADD age INT",
+            "C) INSERT COLUMN age INTO users",
+            "D) CREATE COLUMN age IN users"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "ALTER TABLE ... ADD COLUMN ... is used to add columns to existing tables."
+        },
+        {
+          "id": "beg2_q17",
+          "domain": "Keys",
+          "difficulty": "Easy",
+          "question_text": "What is a composite primary key?",
+          "options": [
+            "A) A primary key made of multiple columns",
+            "B) A key that references another table",
+            "C) A primary key that allows NULLs",
+            "D) A unique index only"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "A composite primary key uses a combination of columns to uniquely identify rows."
+        },
+        {
+          "id": "beg2_q18",
+          "domain": "Indexes",
+          "difficulty": "Easy",
+          "question_text": "What does a UNIQUE index enforce on a column?",
+          "options": [
+            "A) That the column is always NOT NULL",
+            "B) That all values in the column are distinct",
+            "C) That the column has an index for fast text searches",
+            "D) That the column is the primary key"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A UNIQUE index or constraint ensures no two rows have the same value in the indexed column(s)."
+        },
+        {
+          "id": "beg2_q19",
+          "domain": "Transactions & ACID",
+          "difficulty": "Easy",
+          "question_text": "What does the 'A' in ACID stand for?",
+          "options": [
+            "A) Atomicity",
+            "B) Authenticity",
+            "C) Availability",
+            "D) Accuracy"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "ACID: Atomicity, Consistency, Isolation, Durability — atomicity ensures operations in a transaction are all-or-nothing."
+        },
+        {
+          "id": "beg2_q20",
+          "domain": "Normalization",
+          "difficulty": "Easy",
+          "question_text": "Which of the following best describes First Normal Form (1NF)?",
+          "options": [
+            "A) Every non-key column must be functionally dependent on the whole key",
+            "B) Elimination of transitive dependencies",
+            "C) Each column contains only atomic (indivisible) values",
+            "D) Combining related tables into one"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "1NF requires that each field contains only atomic values (no repeating groups or arrays)."
+        },
+        {
+          "id": "beg2_q21",
+          "domain": "Denormalization",
+          "difficulty": "Easy",
+          "question_text": "Why might a developer intentionally denormalize a database schema?",
+          "options": [
+            "A) To strictly enforce referential integrity",
+            "B) To improve read performance by reducing joins",
+            "C) To reduce storage requirements",
+            "D) To make schema design more complex"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Denormalization duplicates data to reduce the number of joins and improve read/query performance at the cost of write complexity."
+        },
+        {
+          "id": "beg2_q22",
+          "domain": "Stored routines",
+          "difficulty": "Easy",
+          "question_text": "What is a primary benefit of using stored procedures?",
+          "options": [
+            "A) They always execute faster than any other code",
+            "B) They centralize business logic in the database and can reduce client-server round-trips",
+            "C) They eliminate the need for indexes",
+            "D) They automatically normalize data"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Stored procedures keep logic close to the data and can reduce network overhead and centralize logic management."
+        },
+        {
+          "id": "beg2_q23",
+          "domain": "Prepared statements",
+          "difficulty": "Easy",
+          "question_text": "Which advantage do prepared statements typically provide?",
+          "options": [
+            "A) They convert SQL to NoSQL",
+            "B) They help prevent SQL injection and can improve repeated-query performance",
+            "C) They eliminate need for transactions",
+            "D) They automatically tune database indexes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Prepared statements parameterize queries (reducing injection risk) and allow the DBMS to reuse execution plans for repeated statements."
+        },
+        {
+          "id": "beg2_q24",
+          "domain": "Optimization basics",
+          "difficulty": "Easy",
+          "question_text": "Which command shows the query execution plan in most SQL databases?",
+          "options": [
+            "A) EXPLAIN",
+            "B) PLAN OUT",
+            "C) SHOW EXECUTION",
+            "D) DESCRIBE PLAN"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "EXPLAIN (or EXPLAIN ANALYZE in some systems) returns the execution plan used by the optimizer for a query."
+        },
+        {
+          "id": "beg2_q25",
+          "domain": "Best practices",
+          "difficulty": "Easy",
+          "question_text": "Which practice improves safety when building dynamic SQL queries from user input?",
+          "options": [
+            "A) Concatenate user input directly into SQL strings",
+            "B) Use prepared statements or bind parameters",
+            "C) Disable the database firewall",
+            "D) Use dynamic SQL without validation"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Using prepared statements or parameterized queries prevents SQL injection and is a recommended best practice."
+        }
+      ]
+    },
+    {
+      "id": "sql-intermediate-set-1",
+      "name": "SQL Practicum",
+      "title": "Performance, Windowing, CTEs & Reliable DML",
+      "focus_area": "Query performance tuning, indexing strategies, window functions, CTEs (including recursive), transaction isolation & concurrency, advanced joins and reliable DML patterns (UPSERT/MERGE), basic partitioning and materialized views.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-search-dollar text-teal-500 hover:scale-105",
+          "topic": "Indexing & execution plans"
+        },
+        {
+          "icon": "fas fa-stream text-indigo-500 hover:scale-105",
+          "topic": "Window functions (ROW_NUMBER, RANK)"
+        },
+        {
+          "icon": "fas fa-project-diagram text-blue-500 hover:scale-105",
+          "topic": "CTE & Recursive CTE"
+        },
+        {
+          "icon": "fas fa-bolt text-red-500 hover:scale-105",
+          "topic": "Transactions & Isolation levels"
+        },
+        {
+          "icon": "fas fa-database text-yellow-500 hover:scale-105",
+          "topic": "Partitioning & Materialized Views"
+        }
+      ],
+      "difficulty": "Intermediate",
+      "description": "25 intermediate-level questions focused on practical performance tuning, advanced querying (window functions, CTEs), DML reliability (upsert/merge), concurrency control, and basic maintenance topics like partitioning and materialized views. Suitable for developers who write production SQL and diagnose performance or correctness issues.",
+      "icon": "fas fa-tools text-gray-700",
+      "total_questions": 25,
+      "time_limit": 45,
+      "passing_score": 75,
+      "active": true,
+      "questions": [
+        {
+          "id": "int1_q01",
+          "domain": "Indexes",
+          "difficulty": "Medium",
+          "question_text": "Which index type is most likely to speed up range queries on a numeric column (e.g., WHERE salary BETWEEN 50000 AND 100000)?",
+          "options": [
+            "A) Hash index",
+            "B) B-tree (balanced tree) index",
+            "C) Full-text index",
+            "D) Bitmap index"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "B-tree indexes are optimized for range scans; hash indexes are for equality lookups and do not support range efficiently."
+        },
+        {
+          "id": "int1_q02",
+          "domain": "Covering index",
+          "difficulty": "Medium",
+          "question_text": "What is a covering index?",
+          "options": [
+            "A) An index that encrypts data at rest",
+            "B) An index that contains all columns required by a query so the table need not be read",
+            "C) An index that covers multiple tables",
+            "D) An index built automatically by the optimizer"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A covering index contains all columns referenced by a query, allowing the database to satisfy the query using only the index."
+        },
+        {
+          "id": "int1_q03",
+          "domain": "Execution plan",
+          "difficulty": "Medium",
+          "question_text": "In an execution plan, which operator indicates a join algorithm that is typically efficient when one input is small and the other is indexed?",
+          "options": [
+            "A) Hash Join",
+            "B) Nested Loop Join",
+            "C) Merge Join",
+            "D) Cartesian Join"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Nested loop join is efficient when one input is small and the other can be probed via an index; hash and merge joins suit different scenarios."
+        },
+        {
+          "id": "int1_q04",
+          "domain": "Statistics",
+          "difficulty": "Medium",
+          "question_text": "Why are table statistics important for query optimization?",
+          "options": [
+            "A) They store historical query logs",
+            "B) The optimizer uses them to estimate row counts and choose plans",
+            "C) They encrypt sensitive columns",
+            "D) They automatically create indexes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Statistics (histograms, row counts) help the optimizer estimate cardinalities and pick efficient execution plans."
+        },
+        {
+          "id": "int1_q05",
+          "domain": "Index design",
+          "difficulty": "Medium",
+          "question_text": "Which column order is generally best for a composite index used in queries WHERE a = ? AND b = ? ORDER BY b ?",
+          "options": [
+            "A) (b, a)",
+            "B) (a, b)",
+            "C) (a) only",
+            "D) Column order does not matter"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Place the most selective/filtered column(s) used in WHERE first; (a,b) supports WHERE a AND b and can help ORDER BY b if optimizer can use index ordering."
+        },
+        {
+          "id": "int1_q06",
+          "domain": "Window functions",
+          "difficulty": "Medium",
+          "question_text": "Which window function assigns a unique sequential integer to rows ordered by salary partitioned by department?",
+          "options": [
+            "A) RANK()",
+            "B) DENSE_RANK()",
+            "C) ROW_NUMBER()",
+            "D) NTILE()"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "ROW_NUMBER() assigns a unique sequential integer to each row in the partition according to the ORDER BY clause."
+        },
+        {
+          "id": "int1_q07",
+          "domain": "Window frames",
+          "difficulty": "Medium",
+          "question_text": "Which clause limits the rows considered by an aggregate window function relative to the current row (e.g., SUM over previous 3 rows)?",
+          "options": [
+            "A) PARTITION BY",
+            "B) ROWS BETWEEN ... AND ...",
+            "C) GROUP BY",
+            "D) HAVING"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "ROWS BETWEEN X PRECEDING AND Y FOLLOWING defines the frame for window aggregates relative to the current row."
+        },
+        {
+          "id": "int1_q08",
+          "domain": "CTE",
+          "difficulty": "Medium",
+          "question_text": "Which of the following is true about Common Table Expressions (CTEs)?",
+          "options": [
+            "A) They are always materialized to disk",
+            "B) They can be recursive and used to express hierarchical queries",
+            "C) They replace the need for indexes",
+            "D) They cannot contain joins"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "CTEs can be recursive (WITH RECURSIVE) allowing hierarchical/graph traversal queries; materialization is DBMS-dependent."
+        },
+        {
+          "id": "int1_q09",
+          "domain": "Recursive CTE",
+          "difficulty": "Medium",
+          "question_text": "What must a recursive CTE include to prevent infinite recursion?",
+          "options": [
+            "A) A LIMIT clause in the CTE definition",
+            "B) A terminating condition in the recursive member (e.g., stop when no new rows)",
+            "C) A materialized view",
+            "D) An ORDER BY in the anchor member"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The recursive CTE's recursive member must eventually stop producing new rows; otherwise recursion may be unbounded."
+        },
+        {
+          "id": "int1_q10",
+          "domain": "Transactions",
+          "difficulty": "Medium",
+          "question_text": "Which isolation level can prevent dirty reads but still allow non-repeatable reads and phantom reads?",
+          "options": [
+            "A) READ UNCOMMITTED",
+            "B) READ COMMITTED",
+            "C) REPEATABLE READ",
+            "D) SERIALIZABLE"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "READ COMMITTED prevents dirty reads; REPEATABLE READ and SERIALIZABLE provide stronger guarantees against other anomalies."
+        },
+        {
+          "id": "int1_q11",
+          "domain": "Deadlocks",
+          "difficulty": "Medium",
+          "question_text": "In a multi-transaction environment, which action is commonly taken by the DBMS to resolve a deadlock?",
+          "options": [
+            "A) Pause all transactions indefinitely",
+            "B) Force a checkpoint",
+            "C) Rollback (abort) one of the transactions involved",
+            "D) Convert locks to optimistic locks automatically"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Databases detect deadlocks and typically abort one transaction to break the cycle and allow others to proceed."
+        },
+        {
+          "id": "int1_q12",
+          "domain": "Upsert / Merge",
+          "difficulty": "Medium",
+          "question_text": "Which SQL construct can be used to atomically insert a row or update it if it already exists?",
+          "options": [
+            "A) INSERT ... SELECT only",
+            "B) MERGE or INSERT ... ON CONFLICT/ON DUPLICATE KEY UPDATE",
+            "C) DELETE then INSERT",
+            "D) CASE expression"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "MERGE (ANSI) or dialect-specific upsert (INSERT ... ON CONFLICT in PostgreSQL, ON DUPLICATE KEY UPDATE in MySQL) provide atomic upsert semantics."
+        },
+        {
+          "id": "int1_q13",
+          "domain": "Locking",
+          "difficulty": "Medium",
+          "question_text": "Which lock mode is typically used to allow reading a row but prevent other transactions from modifying it?",
+          "options": [
+            "A) Shared lock (S lock)",
+            "B) Exclusive lock (X lock)",
+            "C) Intent lock",
+            "D) No lock"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Shared locks allow multiple readers but prevent writers; exclusive locks prevent other readers/writers."
+        },
+        {
+          "id": "int1_q14",
+          "domain": "Partitioning",
+          "difficulty": "Medium",
+          "question_text": "What is a main benefit of table partitioning?",
+          "options": [
+            "A) Eliminates need for backups",
+            "B) Improves query performance and maintenance by pruning irrelevant partitions",
+            "C) Automatically normalizes data",
+            "D) Makes transactions instantaneous"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Partitioning can enable partition pruning, improving performance for queries targeting specific partitions and simplifying maintenance (e.g., archiving partitions)."
+        },
+        {
+          "id": "int1_q15",
+          "domain": "Materialized views",
+          "difficulty": "Medium",
+          "question_text": "How do materialized views differ from regular views?",
+          "options": [
+            "A) Materialized views store the query result physically and may need refreshing",
+            "B) Materialized views are always up-to-date without refresh",
+            "C) Materialized views cannot be indexed",
+            "D) There is no practical difference"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Materialized views persist query results; they require refresh strategies to keep data current but can speed repeated complex queries."
+        },
+        {
+          "id": "int1_q16",
+          "domain": "Temporary tables",
+          "difficulty": "Medium",
+          "question_text": "When are temporary tables typically scoped to a session useful?",
+          "options": [
+            "A) To store application configuration permanently",
+            "B) For intermediate results within a session or stored procedure without polluting global schema",
+            "C) To replace indexes",
+            "D) To persist audit logs across restarts"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Temp tables are session-scoped and useful for intermediate processing without affecting global schema or other sessions."
+        },
+        {
+          "id": "int1_q17",
+          "domain": "Full-text search",
+          "difficulty": "Medium",
+          "question_text": "Which of the following is a reason to use full-text indexes over LIKE '%term%' searches?",
+          "options": [
+            "A) Full-text indexes are slower for large text",
+            "B) Full-text indexes provide relevance ranking and are optimized for word/token searches",
+            "C) LIKE is always faster",
+            "D) Full-text cannot handle stemming or stopwords"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Full-text search provides tokenization, ranking, and is optimized for searching natural language over large text fields; LIKE '%term%' is typically slow."
+        },
+        {
+          "id": "int1_q18",
+          "domain": "JSON / Semi-structured",
+          "difficulty": "Medium",
+          "question_text": "Which technique is best when querying frequently on specific JSON fields in a large table?",
+          "options": [
+            "A) Store JSON in TEXT and use LIKE",
+            "B) Extract key fields into columns or create JSON-specific indexes (e.g., expression/index on JSON path)",
+            "C) Avoid indexing and scan table each time",
+            "D) Use full-text index for JSON"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Extract frequently queried JSON keys into columns or create expression/indexes on JSON paths to enable efficient access."
+        },
+        {
+          "id": "int1_q19",
+          "domain": "Explain analyze",
+          "difficulty": "Medium",
+          "question_text": "What additional information does EXPLAIN ANALYZE provide compared to EXPLAIN alone?",
+          "options": [
+            "A) EXPLAIN ANALYZE only validates syntax",
+            "B) EXPLAIN ANALYZE executes the query and reports actual run-time statistics",
+            "C) EXPLAIN ANALYZE modifies the plan to be optimal",
+            "D) There is no difference"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "EXPLAIN ANALYZE runs the query and returns actual timing and row counts, useful for comparing estimates vs real costs."
+        },
+        {
+          "id": "int1_q20",
+          "domain": "Optimizer hints",
+          "difficulty": "Medium",
+          "question_text": "When might you consider using optimizer hints?",
+          "options": [
+            "A) As a first resort before checking statistics",
+            "B) Never — they are always harmful",
+            "C) When the optimizer consistently chooses a suboptimal plan and you've validated statistics and schema",
+            "D) To change data in tables"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Hints can be used as a last resort when the optimizer misestimates and you've exhausted other tuning options; use sparingly as they can mask underlying issues."
+        },
+        {
+          "id": "int1_q21",
+          "domain": "Data integrity",
+          "difficulty": "Medium",
+          "question_text": "What is the effect of adding ON DELETE CASCADE to a foreign key constraint?",
+          "options": [
+            "A) It prevents deletion of parent rows",
+            "B) When a referenced parent row is deleted, child rows are automatically deleted",
+            "C) It automatically backs up child rows before deletion",
+            "D) It converts DELETE into a soft delete"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "ON DELETE CASCADE makes the DBMS delete dependent child rows when the referenced parent is deleted, preserving referential integrity automatically."
+        },
+        {
+          "id": "int1_q22",
+          "domain": "Bulk loading",
+          "difficulty": "Medium",
+          "question_text": "Which practice speeds up large bulk loads into a table?",
+          "options": [
+            "A) Keep all indexes and constraints enabled during load",
+            "B) Drop or disable non-essential indexes and constraints, load data, then rebuild indexes",
+            "C) Insert row-by-row with individual commits",
+            "D) Use many small transactions with autocommit"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Dropping or disabling indexes and constraints during bulk load and rebuilding after can dramatically improve load throughput."
+        },
+        {
+          "id": "int1_q23",
+          "domain": "Schema evolution",
+          "difficulty": "Medium",
+          "question_text": "Which approach minimizes downtime when adding a new NOT NULL column with a default value to a very large table?",
+          "options": [
+            "A) ALTER TABLE ADD COLUMN with NOT NULL immediately (locks table)",
+            "B) Add nullable column, backfill in batches, then add NOT NULL constraint",
+            "C) Drop the table and recreate it",
+            "D) Use TRUNCATE and re-insert data"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Adding a nullable column and performing backfill in controlled batches avoids long locks; after backfill, add NOT NULL constraint."
+        },
+        {
+          "id": "int1_q24",
+          "domain": "Monitoring",
+          "difficulty": "Medium",
+          "question_text": "Which metric is most useful to detect a long-running query causing resource contention?",
+          "options": [
+            "A) Number of columns in the table",
+            "B) Current active sessions and query runtime/CPU usage",
+            "C) Number of indexes",
+            "D) Size of database backups"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Monitoring active sessions and per-query runtime/CPU/IO usage helps identify long-running queries that cause contention."
+        },
+        {
+          "id": "int1_q25",
+          "domain": "Best practices",
+          "difficulty": "Medium",
+          "question_text": "Which is a recommended approach when diagnosing a performance regression after a code deploy?",
+          "options": [
+            "A) Immediately add more indexes without investigation",
+            "B) Compare execution plans (before vs after), check recent schema/statistics changes, and reproduce the query",
+            "C) Restart the database blindly",
+            "D) Increase client-side timeouts only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Diagnosing regressions requires comparing execution plans, checking schema/statistics, and reproducing queries to identify root causes before applying fixes."
+        }
+      ]
+    },
+    {
+      "id": "sql-intermediate-set-2",
+      "name": "SQL Engineering",
+      "title": "Routines, Triggers, Index Strategies & Operational SQL",
+      "focus_area": "Database programmability (procedures, functions, triggers), advanced index patterns (partial / expression / covering nuances), operational maintenance (VACUUM, statistics, backups, replication basics), query-rewriting and parallelism, and practical DBMS-specific features (FDW, temporary/unlogged tables, CDC).",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-code-branch text-indigo-500 hover:scale-105",
+          "topic": "Stored procedures & functions"
+        },
+        {
+          "icon": "fas fa-bolt-lightning text-red-500 hover:scale-105",
+          "topic": "Triggers (row/statement, BEFORE/AFTER)"
+        },
+        {
+          "icon": "fas fa-layer-group text-teal-500 hover:scale-105",
+          "topic": "Partial / Expression / Unlogged / Temp tables"
+        },
+        {
+          "icon": "fas fa-tools text-yellow-500 hover:scale-105",
+          "topic": "Maintenance (VACUUM, stats, autovacuum)"
+        },
+        {
+          "icon": "fas fa-network-wired text-green-500 hover:scale-105",
+          "topic": "Replication, FDW & Backup strategies"
+        }
+      ],
+      "difficulty": "Intermediate",
+      "description": "A 25-question intermediate set aimed at engineers who build database logic and operate production databases. Emphasis on stored routines, triggers, operational maintenance, advanced index usage, replication/backups, and practical SQL-engineer decision-making.",
+      "icon": "fas fa-database text-gray-800",
+      "total_questions": 25,
+      "time_limit": 50,
+      "passing_score": 75,
+      "active": true,
+      "questions": [
+        {
+          "id": "int2_q01",
+          "domain": "LATERAL / Joins",
+          "difficulty": "Medium",
+          "question_text": "What is the primary purpose of a LATERAL (or CROSS APPLY) join in SQL?",
+          "options": [
+            "A) Allow a subquery in the FROM clause to reference columns from preceding tables in the same FROM list",
+            "B) Force the optimizer to use an index on the right-hand table",
+            "C) Replace the need for GROUP BY in correlated aggregations",
+            "D) Automatically parallelize the inner query"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "LATERAL (or CROSS APPLY) lets the subquery reference columns from earlier FROM items, enabling per-row computations that depend on outer-table values."
+        },
+        {
+          "id": "int2_q02",
+          "domain": "Generated columns",
+          "difficulty": "Medium",
+          "question_text": "Which statement correctly distinguishes virtual (computed) generated columns from stored generated columns?",
+          "options": [
+            "A) Virtual columns are computed on read and do not consume storage; stored generated columns are computed on write and occupy storage",
+            "B) Virtual columns are always indexed automatically; stored generated columns cannot be indexed",
+            "C) Virtual columns can only be used in WHERE; stored generated columns can only be used in SELECT",
+            "D) There is no difference between virtual and stored generated columns"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Virtual/generated columns computed on read save storage but may cost CPU at query time; stored/generated columns are materialized at write time and consume storage but speed reads and can be indexed."
+        },
+        {
+          "id": "int2_q03",
+          "domain": "Partial indexes",
+          "difficulty": "Medium",
+          "question_text": "When is a partial index most useful?",
+          "options": [
+            "A) When you need to index every row in a table uniformly",
+            "B) When queries almost always filter on a condition (e.g., WHERE status = 'active') and you want a smaller targeted index",
+            "C) When you need to enforce uniqueness across multiple tables",
+            "D) When the DBMS does not support expression indexes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Partial indexes index only rows that meet a predicate; they reduce index size and improve performance for queries that filter on that predicate."
+        },
+        {
+          "id": "int2_q04",
+          "domain": "Expression indexes",
+          "difficulty": "Medium",
+          "question_text": "Which of the following is a valid reason to create an index on an expression such as LOWER(email)?",
+          "options": [
+            "A) To speed case-insensitive lookups that use LOWER(email) in the WHERE clause",
+            "B) To force the planner to ignore statistics",
+            "C) To prevent NULL values being inserted",
+            "D) To automatically encrypt the column values"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Expression indexes (e.g., on LOWER(email)) support queries that apply the same expression, enabling efficient case-insensitive lookups without functional transformations at runtime."
+        },
+        {
+          "id": "int2_q05",
+          "domain": "Sequences vs Identity",
+          "difficulty": "Medium",
+          "question_text": "Which statement accurately contrasts sequences with identity columns (DB-dependent)?",
+          "options": [
+            "A) Sequences are independent objects that can be used by multiple tables and are explicitly incremented; identity is tied to a column and is managed automatically by INSERTs",
+            "B) Identity columns are always globally unique across databases; sequences are not",
+            "C) Sequences require triggers; identity columns do not",
+            "D) Sequences enforce referential integrity automatically"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Sequences are separate objects providing numeric values and can be shared; identity columns are column-level auto-increment features managed by the DB engine during inserts."
+        },
+        {
+          "id": "int2_q06",
+          "domain": "Triggers",
+          "difficulty": "Medium",
+          "question_text": "Which is typically true about BEFORE triggers vs AFTER triggers?",
+          "options": [
+            "A) BEFORE triggers run before the operation and can modify the row being inserted/updated; AFTER triggers run after the operation and cannot alter the row that was persisted",
+            "B) BEFORE triggers always run in a different transaction than the statement",
+            "C) AFTER triggers prevent the statement from committing",
+            "D) BEFORE triggers are only supported on DELETE operations"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "BEFORE triggers can inspect/modify values before they are written; AFTER triggers observe the finalized row and run after persistence — useful for auditing, cascading actions, or async processing."
+        },
+        {
+          "id": "int2_q07",
+          "domain": "Trigger granularity",
+          "difficulty": "Medium",
+          "question_text": "What is the difference between row-level and statement-level triggers?",
+          "options": [
+            "A) Row-level triggers fire once per affected row; statement-level triggers fire once per SQL statement regardless of affected rows",
+            "B) Statement-level triggers execute before the DBMS parses the SQL",
+            "C) Row-level triggers are faster for bulk updates",
+            "D) Statement-level triggers can access OLD and NEW row values"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Row-level triggers execute per row and can access OLD/NEW; statement-level triggers run once per statement and cannot reference per-row OLD/NEW values."
+        },
+        {
+          "id": "int2_q08",
+          "domain": "Deferrable constraints",
+          "difficulty": "Medium",
+          "question_text": "When would you mark a foreign key constraint as DEFERRABLE INITIALLY DEFERRED?",
+          "options": [
+            "A) When you want the constraint checked only at transaction commit time (useful for multi-step inserts/updates that temporarily violate the constraint)",
+            "B) When you want the DBMS to ignore the constraint permanently",
+            "C) When the constraint must be enforced per row immediately regardless of transactions",
+            "D) When you want to disable auditing"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Deferrable constraints can be deferred to transaction commit, which helps during complex multi-statement operations or circular references that are resolved within the same transaction."
+        },
+        {
+          "id": "int2_q09",
+          "domain": "Function immutability",
+          "difficulty": "Medium",
+          "question_text": "Why would you declare a user-defined function IMMUTABLE (or deterministic) when accurate?",
+          "options": [
+            "A) So the optimizer can perform constant folding and use the function in index expressions safely",
+            "B) So the function runs with elevated OS privileges",
+            "C) To force the function to always access disk",
+            "D) To allow the function to modify table data"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "IMMUTABLE indicates the function always returns the same result for the same inputs; optimizers can cache/inline results and permit indexing on function outputs."
+        },
+        {
+          "id": "int2_q10",
+          "domain": "Parallel query",
+          "difficulty": "Medium",
+          "question_text": "Which scenario typically enables the database to use parallel workers for a query?",
+          "options": [
+            "A) Small lookups via primary key only",
+            "B) Large sequential scans or expensive aggregations above a cost threshold with parallelism enabled",
+            "C) Single-row updates inside a transaction",
+            "D) Queries that use only temporary tables"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Parallelism is most beneficial for large scans/aggregations; small selective lookups usually do not trigger parallel plans."
+        },
+        {
+          "id": "int2_q11",
+          "domain": "Predicate pushdown",
+          "difficulty": "Medium",
+          "question_text": "What is predicate pushdown in query optimization?",
+          "options": [
+            "A) Moving filters closer to data sources (e.g., into subqueries, table scans or FDWs) so less data is processed upstream",
+            "B) Converting WHERE to HAVING automatically",
+            "C) Pushing NULL values to the end of result sets",
+            "D) Rewriting JOINs as CROSS JOINs"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Predicate pushdown reduces data volume early by applying filters at the earliest stage possible, improving performance and reducing I/O."
+        },
+        {
+          "id": "int2_q12",
+          "domain": "Index-only scans",
+          "difficulty": "Medium",
+          "question_text": "Which condition is required for an index-only scan to avoid touching the base table?",
+          "options": [
+            "A) The index must contain all columns required by the query and the DBMS must be able to determine tuple visibility using the index (or visibility map)",
+            "B) The table must be unlogged",
+            "C) The index must be a hash index",
+            "D) The query must use DISTINCT"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Index-only scans need the index to cover requested columns; additionally, the DBMS must confirm row visibility (e.g., via visibility map) to avoid heap access."
+        },
+        {
+          "id": "int2_q13",
+          "domain": "Statistics",
+          "difficulty": "Medium",
+          "question_text": "If your optimizer misestimates cardinality due to skew, which action can help improve plan selection?",
+          "options": [
+            "A) Increase statistics target or collect extended histograms for the column(s)",
+            "B) Disable the optimizer",
+            "C) Drop all indexes",
+            "D) Convert the table to CSV"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Raising the stats target or using extended statistics/histograms helps the optimizer understand data distribution and pick better plans for skewed columns."
+        },
+        {
+          "id": "int2_q14",
+          "domain": "Parameterized queries",
+          "difficulty": "Medium",
+          "question_text": "What is a common trade-off when using parameterized/prepared statements with plan caching?",
+          "options": [
+            "A) They always produce the fastest possible plan for every parameter value",
+            "B) They improve plan reuse but may produce a single generic plan that is suboptimal for certain parameter values",
+            "C) They prevent transactions from committing",
+            "D) They remove the need for indexes entirely"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Prepared statements reduce parsing/compilation overhead by reusing plans; however, a single cached/generic plan may perform poorly for outlier parameter values."
+        },
+        {
+          "id": "int2_q15",
+          "domain": "Temporary vs Unlogged",
+          "difficulty": "Medium",
+          "question_text": "Which is true about temporary tables compared to unlogged tables (DBMS-specific behavior may vary)?",
+          "options": [
+            "A) Temporary tables are typically session-scoped (visible only to the creating session) while unlogged tables persist across sessions but are not WAL-logged",
+            "B) Unlogged tables are always visible to other sessions by default",
+            "C) Temporary tables are faster than unlogged tables for all workloads",
+            "D) There is no difference; both are identical"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Temp tables are session-scoped and dropped at session end; unlogged tables persist but bypass write-ahead logging, making them faster but non-durable on crashes."
+        },
+        {
+          "id": "int2_q16",
+          "domain": "VACUUM / Autovacuum",
+          "difficulty": "Medium",
+          "question_text": "Why is regular VACUUM (or autovacuum) important in an MVCC database like PostgreSQL?",
+          "options": [
+            "A) It reclaims space from dead tuples, prevents transaction ID wraparound, and maintains visibility information for index-only scans",
+            "B) It encrypts the database automatically",
+            "C) It drops unused indexes permanently",
+            "D) It converts all text to lowercase"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "VACUUM removes dead tuples left by updates/deletes, updates visibility maps, and prevents transaction ID wraparound issues in MVCC systems."
+        },
+        {
+          "id": "int2_q17",
+          "domain": "FDW / Remote queries",
+          "difficulty": "Medium",
+          "question_text": "What is a primary benefit of using a Foreign Data Wrapper (FDW) or equivalent remote table mechanism?",
+          "options": [
+            "A) It allows the database to query remote data sources as if they were local tables, enabling data federation",
+            "B) It automatically replicates schema changes to remote systems",
+            "C) It always makes remote queries faster than local ones",
+            "D) It enforces remote constraints locally without configuration"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "FDWs let you access remote/heterogeneous data transparently; performance depends on pushdown capabilities and network latency."
+        },
+        {
+          "id": "int2_q18",
+          "domain": "Replication",
+          "difficulty": "Medium",
+          "question_text": "What is a key difference between physical (binary) replication and logical replication?",
+          "options": [
+            "A) Physical replication copies the exact bytes of the data files (block-level) and is typically used for standbys; logical replication replicates logical changes (like SQL) and allows selective replication of tables",
+            "B) Logical replication copies disk blocks; physical replication sends individual SQL statements",
+            "C) Both are identical in functionality and use cases",
+            "D) Physical replication requires application changes"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Physical replication creates a byte-for-byte replica suitable for failover; logical replication replicates logical changes and can replicate subsets of data or allow different target schemas."
+        },
+        {
+          "id": "int2_q19",
+          "domain": "Backups & PITR",
+          "difficulty": "Medium",
+          "question_text": "Which backup strategy enables point-in-time recovery (PITR)?",
+          "options": [
+            "A) Periodic full backups combined with continuous archival of WAL/transaction logs so you can replay logs to a chosen time",
+            "B) Only taking logical (pg_dump) exports daily",
+            "C) Relying on replication without archiving WAL",
+            "D) Copying datafiles while the DB is offline only"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "PITR requires base backups plus archived WAL (or similar logs) so you can replay changes up to a specific point in time."
+        },
+        {
+          "id": "int2_q20",
+          "domain": "Change Data Capture",
+          "difficulty": "Medium",
+          "question_text": "Which approach to Change Data Capture (CDC) typically provides low-latency, ordered row-level changes with minimal performance overhead?",
+          "options": [
+            "A) Logical decoding / built-in WAL-based CDC (DB-supported streaming changes)",
+            "B) Periodic full table dumps",
+            "C) Polling remote tables with SELECT * frequently",
+            "D) Manual triggers that write to custom audit tables only"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Logical decoding (WAL-based CDC) streams committed changes efficiently and preserves order; polling or dump-based methods are higher-latency and heavier."
+        },
+        {
+          "id": "int2_q21",
+          "domain": "Security / Encryption",
+          "difficulty": "Medium",
+          "question_text": "Which statement best describes encrypting sensitive column data at rest using application-level encryption?",
+          "options": [
+            "A) Application-level encryption stores ciphertext in the DB and keeps keys in the application or separate KMS, protecting data even if DB files are compromised; but it limits DB-side querying on those columns",
+            "B) Application-level encryption allows full-text search on encrypted columns without additional work",
+            "C) Application-side encryption automatically updates indexes transparently",
+            "D) Application-level encryption requires no key management"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Encrypting in the application protects data at rest from DB-level compromise, but it prevents indexing or querying on plaintext without special techniques; key management is required."
+        },
+        {
+          "id": "int2_q22",
+          "domain": "Audit / Temporal",
+          "difficulty": "Medium",
+          "question_text": "Which pattern is commonly used to implement auditing of row changes (who/when) without using triggers?",
+          "options": [
+            "A) Use system-versioned (temporal) tables if the DBMS supports it, or write application-layer audit logs at the time of change",
+            "B) Use a CROSS JOIN to duplicate rows",
+            "C) Use an expression index",
+            "D) Use a materialized view refreshed every minute"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "System-versioned temporal tables or application-level audit logging are common patterns; triggers are another option but were excluded by the question premise."
+        },
+        {
+          "id": "int2_q23",
+          "domain": "Pivot / Crosstab",
+          "difficulty": "Medium",
+          "question_text": "How can you implement a pivot (rows-to-columns) transformation in SQL when the target columns are known in advance?",
+          "options": [
+            "A) Use aggregate functions with CASE expressions or use a built-in crosstab/pivot function provided by the DBMS",
+            "B) Use GROUP_CONCAT on all columns",
+            "C) Use a CROSS JOIN with the same table twice",
+            "D) Use a FULL OUTER JOIN with itself only once"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Pivoting with known columns is usually done via aggregates with CASE WHEN ... THEN ... END for each target column, or DB-specific crosstab/pivot utilities."
+        },
+        {
+          "id": "int2_q24",
+          "domain": "Constraint design",
+          "difficulty": "Medium",
+          "question_text": "Which is a safe approach when you need to add a NOT NULL column with a non-trivial default on a very large live table with minimal locking?",
+          "options": [
+            "A) Add the column as NULLABLE with the default stored in application logic, backfill in controlled batches, then add NOT NULL constraint",
+            "B) ALTER TABLE ... ADD COLUMN ... NOT NULL DEFAULT ... (this always completes instantly)",
+            "C) Drop the table and recreate it with the new column",
+            "D) Use a trigger that sets the column for new rows only and ignore existing rows"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Adding a NULLABLE column and then backfilling in batches avoids long exclusive locks; after backfill you can safely add NOT NULL constraint."
+        },
+        {
+          "id": "int2_q25",
+          "domain": "Operational best practice",
+          "difficulty": "Medium",
+          "question_text": "After a schema or statistic-change deployment, which sequence of steps is recommended to validate that queries are healthy in production?",
+          "options": [
+            "A) Compare historical and current execution plans for critical queries, run EXPLAIN ANALYZE on representative queries, and monitor latency / error rates and resource usage",
+            "B) Immediately add indexes to every column",
+            "C) Disable autovacuum permanently",
+            "D) Reboot the database to apply changes"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Validating changes requires plan comparison, representative testing (EXPLAIN ANALYZE), and monitoring production metrics before and after changes; blanket actions risk regressions."
+        }
+      ]
+    },
+    {
+      "id": "sql-advanced-set-1",
+      "name": "SQL Architect",
+      "title": "Advanced Query Optimization, Storage & Concurrency",
+      "focus_area": "Deep internals: optimizer behavior, advanced indexing strategies, MVCC internals, partitioning and maintenance at scale, advanced windowing/recursive queries, physical database design, and troubleshooting high-concurrency systems.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-brain text-indigo-600 hover:scale-105",
+          "topic": "Query planner & optimizer internals"
+        },
+        {
+          "icon": "fas fa-cubes text-teal-600 hover:scale-105",
+          "topic": "Physical design & partitioning"
+        },
+        {
+          "icon": "fas fa-lock text-red-600 hover:scale-105",
+          "topic": "MVCC, locking & concurrency anomalies"
+        },
+        {
+          "icon": "fas fa-weight-hanging text-yellow-600 hover:scale-105",
+          "topic": "Indexing at scale (partial, expression, Bloom, BRIN)"
+        },
+        {
+          "icon": "fas fa-exchange-alt text-violet-600 hover:scale-105",
+          "topic": "Replication, conflict resolution & PITR strategies"
+        }
+      ],
+      "difficulty": "Advanced",
+      "description": "25 advanced-level questions for senior engineers and architects focusing on internals and large-scale operational SQL: deep optimizer understanding, physical schema design, advanced indexing and partitioning, MVCC and concurrency troubleshooting, and resilient replication/backup strategies.",
+      "icon": "fas fa-chess-queen text-gray-900",
+      "total_questions": 25,
+      "time_limit": 75,
+      "passing_score": 80,
+      "active": true,
+      "questions": [
+        {
+          "id": "adv_q01",
+          "domain": "Optimizer cost model",
+          "difficulty": "Hard",
+          "question_text": "If the optimizer persistently chooses a nested-loop join over a more appropriate hash join for a large join, which action is the most defensible initial step to diagnose the cause?",
+          "options": [
+            "A) Immediately add an index to every join column",
+            "B) Compare estimated vs actual row counts using EXPLAIN ANALYZE and check statistics/histograms for skew",
+            "C) Disable nested-loop join globally",
+            "D) Rewrite both tables as materialized views"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Comparing estimates to actuals (EXPLAIN ANALYZE) and checking statistics helps identify cardinality misestimates which often cause poor join choice; hasty changes like disabling join types or adding indexes can be harmful."
+        },
+        {
+          "id": "adv_q02",
+          "domain": "Histogram & stats",
+          "difficulty": "Hard",
+          "question_text": "Which situation most benefits from collecting extended statistics (multi-column stats) rather than only single-column histograms?",
+          "options": [
+            "A) When columns are independent and uniformly distributed",
+            "B) When two columns are correlated (e.g., zipcode → state) and multi-column predicates are common",
+            "C) When table has only a few rows (<100)",
+            "D) When the DBMS does not support expression indexes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Multi-column statistics capture correlation between columns and help the optimizer estimate selectivity for predicates involving multiple columns."
+        },
+        {
+          "id": "adv_q03",
+          "domain": "BRIN / Big tables",
+          "difficulty": "Hard",
+          "question_text": "Why might a BRIN index be chosen for a very large append-only time-series table over a B-tree index?",
+          "options": [
+            "A) BRIN is ideal for random-access small lookups",
+            "B) BRIN is compact and efficient for naturally clustered data like time, enabling low-overhead range scans",
+            "C) BRIN automatically enforces uniqueness",
+            "D) BRIN requires no maintenance"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "BRIN indexes store block summaries and are excellent for very large, naturally-ordered data (like time series) where range scans can skip many blocks with minimal index size."
+        },
+        {
+          "id": "adv_q04",
+          "domain": "Bloom filters / partition pruning",
+          "difficulty": "Hard",
+          "question_text": "How can Bloom filters reduce I/O in a distributed join of large partitions?",
+          "options": [
+            "A) By exactly matching rows across nodes without false positives",
+            "B) By probabilistically filtering out unmatched rows before network transfer, reducing data shuffled (with possible false positives but no false negatives)",
+            "C) By compressing partitions on disk",
+            "D) By replacing the need for any index"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Bloom filters offer probabilistic membership tests used to pre-filter rows before expensive shuffles; they can produce false positives (extra rows) but not false negatives, reducing network I/O."
+        },
+        {
+          "id": "adv_q05",
+          "domain": "Partition strategy",
+          "difficulty": "Hard",
+          "question_text": "When designing multi-level partitioning for a massive transaction table, which approach best supports efficient purging of old data and fast queries for recent ranges?",
+          "options": [
+            "A) Single global table with no partitions",
+            "B) Range partitioning by date combined with sub-partitioning by region (or hash) to balance partition size and enable DROP/EXCHANGE of old partitions",
+            "C) Partition by primary key only",
+            "D) Use a view per month instead of partitioning"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Range-by-date allows efficient removal of old partitions (drop/exchange), while sub-partitioning (hash/region) balances partition sizes and improves parallelism for recent-range queries."
+        },
+        {
+          "id": "adv_q06",
+          "domain": "Index maintenance",
+          "difficulty": "Hard",
+          "question_text": "A large B-tree index on a frequently updated table becomes bloated and causes slow queries. Which maintenance step is usually appropriate?",
+          "options": [
+            "A) Leave it and add more RAM",
+            "B) Rebuild or reindex the index during low-traffic windows and consider switching to partial/expression indexes where applicable",
+            "C) Convert the index to a full-text index",
+            "D) Drop the index permanently"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Rebuilding or reindexing removes fragmentation; also consider redesigning indexes (partial, expression, or covering) to reduce size and maintenance overhead."
+        },
+        {
+          "id": "adv_q07",
+          "domain": "MVCC internals",
+          "difficulty": "Hard",
+          "question_text": "In an MVCC database, what is the primary reason long-running open transactions cause bloat and prevent cleanup?",
+          "options": [
+            "A) They hold locks preventing any reads",
+            "B) They prevent vacuum/cleanup from reclaiming old row versions because visibility information must be preserved until the transaction could still read them",
+            "C) They consume twice as much disk for new writes",
+            "D) They disable autovacuum globally"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "MVCC requires keeping old row versions available for transactions that might still read them; long-lived transactions delay vacuum's ability to remove dead tuples, causing bloat."
+        },
+        {
+          "id": "adv_q08",
+          "domain": "Serializable vs Snapshot",
+          "difficulty": "Hard",
+          "question_text": "Which anomaly can SERIALIZABLE isolation prevent that snapshot isolation cannot?",
+          "options": [
+            "A) Dirty reads",
+            "B) Phantom reads caused by concurrent transactions that individually pass predicate checks but together violate a constraint (write skew)",
+            "C) Non-repeatable reads in single-row selects",
+            "D) Lost updates due to explicit locking"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "True serializability prevents anomalies such as write skew that snapshot isolation may allow unless additional precautions are taken."
+        },
+        {
+          "id": "adv_q09",
+          "domain": "Deadlock analysis",
+          "difficulty": "Hard",
+          "question_text": "When investigating a recurring deadlock between two critical transactions, which is the best long-term solution?",
+          "options": [
+            "A) Let the DBMS randomly abort either transaction whenever it happens",
+            "B) Analyze locking order and modify applications to acquire locks in a consistent global order or use shorter transactions and lower lock granularity",
+            "C) Increase isolation level to SERIALIZABLE for all transactions globally",
+            "D) Disable deadlock detection"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Consistent lock ordering, reducing transaction length, or redesigning critical sections reduces deadlocks; increasing isolation globally or disabling detection is usually harmful."
+        },
+        {
+          "id": "adv_q10",
+          "domain": "Explain analyze interpretation",
+          "difficulty": "Hard",
+          "question_text": "In EXPLAIN ANALYZE output you see a large discrepancy between 'rows' estimated and 'rows' actual for a nested loop inner scan causing major cost. Which immediate action is usually most effective?",
+          "options": [
+            "A) Add a WHERE TRUE filter to the query",
+            "B) Improve statistics for the involved tables/columns and consider creating a more selective index or rewriting the join order",
+            "C) Replace nested loop with MERGE JOIN via a hint without further investigation",
+            "D) Increase the statement timeout"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Large estimate/actual mismatches point to bad statistics; collecting better stats and evaluating indexes or join order often resolves the suboptimal plan."
+        },
+        {
+          "id": "adv_q11",
+          "domain": "Materialized view strategy",
+          "difficulty": "Hard",
+          "question_text": "For a complex aggregating materialized view used by many OLAP reports and refreshed hourly, which refresh strategy balances freshness and load best?",
+          "options": [
+            "A) Full refresh synchronously on every query",
+            "B) Incremental (fast) refresh / refresh materialized view concurrently or in background and schedule staggered refresh to avoid spikes",
+            "C) Never refresh and accept stale results forever",
+            "D) Refresh only when users manually request it"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Incremental/fast or concurrent background refreshes reduce load and provide reasonable freshness; full synchronous refreshes can cause spikes and long locks."
+        },
+        {
+          "id": "adv_q12",
+          "domain": "Recursive CTE complexity",
+          "difficulty": "Hard",
+          "question_text": "When a recursive CTE performs poorly on a deep graph (thousands of levels), which technique can improve performance?",
+          "options": [
+            "A) Use iterative client-side loop to incrementally fetch and insert frontier rows with appropriate indexing or use specialized graph DB / adjacency lists optimized for deep traversal",
+            "B) Increase recursion depth limit only",
+            "C) Use CROSS JOIN instead",
+            "D) Disable the CTE and rewrite as a view"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "For extremely deep traversals, iterative approaches with carefully indexed frontier tables or using specialized graph technologies are often more efficient than naive recursive CTEs; increasing limits alone won't solve performance."
+        },
+        {
+          "id": "adv_q13",
+          "domain": "Adaptive query planning",
+          "difficulty": "Hard",
+          "question_text": "What is the core benefit of adaptive query planning techniques (runtime re-optimization)?",
+          "options": [
+            "A) They produce static plans that never change",
+            "B) The optimizer can adjust plan choices during execution using observed row counts/costs, improving robustness under misestimates",
+            "C) They remove need for statistics entirely",
+            "D) They always prefer nested-loop joins"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Adaptive planning lets the engine change strategies at runtime when observed data deviates from estimates, reducing worst-case plan regressions."
+        },
+        {
+          "id": "adv_q14",
+          "domain": "Physical replication conflict",
+          "difficulty": "Hard",
+          "question_text": "Which replication approach is least suitable for selectively replicating only a subset of tables to a heterogeneous replica with possible schema differences?",
+          "options": [
+            "A) Logical replication (replicates logical changes per table)",
+            "B) Physical (binary) replication (byte-for-byte), which requires identical clusters and cannot selectively replicate tables",
+            "C) ETL-based selective copy",
+            "D) Middleware CDC into a message bus"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Physical replication replicates entire data files and requires identical schemas and layouts; it cannot selectively replicate a subset of tables to heterogeneous targets."
+        },
+        {
+          "id": "adv_q15",
+          "domain": "Conflict resolution",
+          "difficulty": "Hard",
+          "question_text": "In multi-master replication systems, which technique helps resolve write conflicts deterministically while preserving important semantics?",
+          "options": [
+            "A) Last-writer-wins only",
+            "B) Use explicit conflict resolution policies (application-level tombstones, vector clocks, CRDTs or domain-specific merge functions) to preserve semantics",
+            "C) Randomly drop conflicting writes",
+            "D) Block all concurrent writes globally"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Application/domain-specific resolution (CRDTs, merge functions, vector clocks) preserves semantics better than naive last-writer-wins; random drops or global blocking are undesirable."
+        },
+        {
+          "id": "adv_q16",
+          "domain": "PITR & retention",
+          "difficulty": "Hard",
+          "question_text": "When implementing PITR for compliance with a 30-day retention requirement, which practice is essential?",
+          "options": [
+            "A) Keep only daily logical dumps with no WAL/archive",
+            "B) Maintain base backups plus continuous archiving of WAL/transaction logs (or equivalent) for the retention window and test restore procedures regularly",
+            "C) Rely solely on replica servers without archived logs",
+            "D) Keep backups only for 1 day and hope replication suffices"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "PITR needs base backups and archived transaction logs to replay changes to any point in the retention window; regular restore testing is crucial to validate the process."
+        },
+        {
+          "id": "adv_q17",
+          "domain": "Invisible indexes & plan stability",
+          "difficulty": "Hard",
+          "question_text": "How can 'invisible' or 'disabled' indexes help when testing whether an index influences query plans in production?",
+          "options": [
+            "A) Invisible indexes are always used by the optimizer",
+            "B) Marking an index invisible prevents the optimizer from using it while leaving it available to be re-enabled quickly; useful for controlled A/B tests without dropping the index",
+            "C) Invisible indexes replicate data to other nodes",
+            "D) They improve write throughput automatically"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Invisible indexes let you test optimizer behavior without physically dropping the index, enabling safer experimentation and rollback."
+        },
+        {
+          "id": "adv_q18",
+          "domain": "Plan regression testing",
+          "difficulty": "Hard",
+          "question_text": "Which testing approach helps detect query plan regressions after a change to schema, stats, or engine version?",
+          "options": [
+            "A) Unit tests only on the application layer",
+            "B) Maintain a suite of representative queries with baseline EXPLAIN plans and compare current EXPLAIN ANALYZE output (costs/timings/rowcounts), ideally in a staging environment",
+            "C) Only monitor high-level latency metrics in production",
+            "D) Ignore and hope regression doesn't occur"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Regression testing with representative queries and plan comparisons in staging or via canary runs helps catch issues before production impact."
+        },
+        {
+          "id": "adv_q19",
+          "domain": "Write amplification",
+          "difficulty": "Hard",
+          "question_text": "Which schema/design choice can significantly increase write amplification in an OLTP workload?",
+          "options": [
+            "A) Narrow rows with few indexed columns",
+            "B) Wide rows with many indexed columns, frequent updates to indexed columns, and heavy use of secondary indexes",
+            "C) Using append-only immutable rows",
+            "D) Storing most data in external object storage"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Many indexes and frequent updates to indexed columns cause multiple index writes per update, increasing I/O and write amplification."
+        },
+        {
+          "id": "adv_q20",
+          "domain": "Columnar vs row",
+          "difficulty": "Hard",
+          "question_text": "For analytical aggregation queries over a few columns on very large datasets, why might a columnar storage engine outperform a row-store?",
+          "options": [
+            "A) Columnar engines read entire rows faster",
+            "B) Columnar engines only read the needed columns, enabling better compression and I/O efficiency for wide tables",
+            "C) Row-stores are always better for aggregations",
+            "D) Columnar engines cannot compress data"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Columnar stores reduce I/O by touching only required columns and have higher compression ratios, speeding analytical workloads on wide tables."
+        },
+        {
+          "id": "adv_q21",
+          "domain": "Resource governance",
+          "difficulty": "Hard",
+          "question_text": "Which mechanism most directly prevents a single runaway query from starving other workloads in a shared cluster?",
+          "options": [
+            "A) Increasing disk cache size globally",
+            "B) Resource governance/quotas (CPU/IO limits, statement cost limits or query governor) and query concurrency controls",
+            "C) Disabling autovacuum",
+            "D) Dropping indexes used by the query"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Resource governance (limits, quotas, cgroups, workload managers) prevents a single query from consuming disproportionate resources and protects multi-tenant workloads."
+        },
+        {
+          "id": "adv_q22",
+          "domain": "Hotspots & sharding",
+          "difficulty": "Hard",
+          "question_text": "You observe write hotspots on a single partition/shard due to monotonically-increasing keys. Which design change reduces this hotspot?",
+          "options": [
+            "A) Use a global sequential key always",
+            "B) Introduce key hashing/consisten hashing, use composite keys that include a shard identifier, or use time-based bucketing to distribute writes",
+            "C) Consolidate all writes into a single master node",
+            "D) Remove all indexes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Distributing keys via hashing or sharding schemes spreads writes across partitions; monotonically increasing keys concentrate writes on the last partition causing hotspots."
+        },
+        {
+          "id": "adv_q23",
+          "domain": "Online schema change",
+          "difficulty": "Hard",
+          "question_text": "Which approach enables adding a column with a NOT NULL constraint and default to a large production table with minimal blocking?",
+          "options": [
+            "A) ALTER TABLE ... ADD COLUMN ... NOT NULL DEFAULT ... (some DBMS do this with a table rewrite and long lock)",
+            "B) Use an online schema change tool or techniques: add nullable column, backfill in background, validate, then add NOT NULL constraint; or use DBMS-specific fast paths that avoid table rewrite",
+            "C) Drop the table and recreate it",
+            "D) Lock the entire database for hours"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Safe online schema changes commonly add nullable columns, backfill in batches, and then enforce constraints; some DBMS provide optimized fast-path ALTERs but they must be validated."
+        },
+        {
+          "id": "adv_q24",
+          "domain": "Index selection",
+          "difficulty": "Hard",
+          "question_text": "A query filters on a low-selectivity boolean column and then joins on a highly selective foreign key; which index design is most likely to improve performance?",
+          "options": [
+            "A) Index only on the low-selectivity boolean column",
+            "B) Composite index with the selective join key first and the boolean column second (or use partial index on TRUE boolean rows) to make the index useful and compact",
+            "C) No indexes",
+            "D) Full-text index on the boolean column"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Low-selectivity columns alone are poor index candidates. A composite index ordering selective columns first or a partial index targeting the small subset (e.g., where flag = TRUE) yields better performance."
+        },
+        {
+          "id": "adv_q25",
+          "domain": "Operational runbooks",
+          "difficulty": "Hard",
+          "question_text": "Which step should be in a production runbook for responding to sudden database performance degradation?",
+          "options": [
+            "A) Immediately drop all indexes and hope performance improves",
+            "B) Identify recent deployments/changes, capture current active queries and EXPLAIN ANALYZE for slow queries, check long-running transactions and resource metrics, and, if needed, apply a safe mitigation (e.g., kill runaway query, enable query governor, rollback recent change)",
+            "C) Delete the database logs",
+            "D) Reboot every application server at random"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Runbooks should guide operators to quickly identify root causes (deploys, queries, transactions, resources) and apply safe mitigations; destructive or random actions are dangerous."
+        }
+      ]
+    },
+    {
+      "id": "sql-expert-set-1",
+      "name": "SQL Strategist",
+      "title": "Distributed Systems, Concurrency, Security & Scale",
+      "focus_area": "Designing, debugging, and optimizing SQL for distributed systems and high-concurrency environments; advanced concurrency models, distributed transactions, replication conflict handling, query plan stability, security at scale, and database architecture trade-offs.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-network-wired text-red-500 hover:scale-105",
+          "topic": "Distributed transactions & 2PC"
+        },
+        {
+          "icon": "fas fa-user-shield text-indigo-500 hover:scale-105",
+          "topic": "Security, encryption & least privilege"
+        },
+        {
+          "icon": "fas fa-sync-alt text-teal-500 hover:scale-105",
+          "topic": "Replication, consensus & conflict resolution"
+        },
+        {
+          "icon": "fas fa-project-diagram text-yellow-500 hover:scale-105",
+          "topic": "Sharding & data distribution strategies"
+        },
+        {
+          "icon": "fas fa-tachometer-alt text-green-500 hover:scale-105",
+          "topic": "Plan stability, adaptive/parallel execution"
+        }
+      ],
+      "difficulty": "Expert",
+      "description": "25 expert-level questions for senior architects and DB engineers who operate at scale. Topics include distributed transactions and 2PC, consensus and multi-master conflict resolution, advanced isolation anomalies and mitigations, security best practices for sensitive data, and architecture-level trade-offs for sharding and replication.",
+      "icon": "fas fa-rocket text-purple-700",
+      "total_questions": 25,
+      "time_limit": 90,
+      "passing_score": 85,
+      "active": true,
+      "questions": [
+        {
+          "id": "exp_q01",
+          "domain": "Distributed transactions",
+          "difficulty": "Very Hard",
+          "question_text": "Which statement best describes the main drawback of two-phase commit (2PC) in geo-distributed transactional systems?",
+          "options": [
+            "A) 2PC provides eventual consistency, not atomicity",
+            "B) 2PC introduces high latency and can block resources on coordinator or participant failure unless combined with additional mechanisms",
+            "C) 2PC eliminates the need for backups",
+            "D) 2PC automatically resolves conflicting concurrent updates"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "2PC guarantees atomic commit but adds coordination latency and can leave participants blocked if the coordinator fails unless additional recovery protocols or non-blocking algorithms are used."
+        },
+        {
+          "id": "exp_q02",
+          "domain": "Consensus vs 2PC",
+          "difficulty": "Very Hard",
+          "question_text": "Why might a system prefer a consensus protocol (e.g., Raft/Paxos) for metadata management over using 2PC for commit coordination?",
+          "options": [
+            "A) Consensus protocols never require leader election",
+            "B) Consensus provides consistent replicated state machine semantics with leader-based replication and built-in failure recovery, which is better for cluster metadata than ad-hoc 2PC coordination",
+            "C) 2PC is faster under network partitions",
+            "D) Consensus removes the need for WAL/logging"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Consensus protocols replicate state reliably with leader-based advancement and robust failure handling, making them suitable for cluster metadata and configuration, whereas 2PC is focused on atomic multi-resource commits and can block on failures."
+        },
+        {
+          "id": "exp_q03",
+          "domain": "Isolation anomalies",
+          "difficulty": "Very Hard",
+          "question_text": "Which anomaly is possible under snapshot isolation but prevented under true serializable isolation without additional techniques?",
+          "options": [
+            "A) Dirty read",
+            "B) Write skew (two transactions read overlapping data and write disjointly causing constraint violation)",
+            "C) Lost updates",
+            "D) Immediate phantom reads"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Snapshot isolation can allow write skew where two transactions read a common neighborhood and write different rows, violating invariants; serializable isolation prevents such anomalies."
+        },
+        {
+          "id": "exp_q04",
+          "domain": "Serializable techniques",
+          "difficulty": "Very Hard",
+          "question_text": "Which approach can provide serializable semantics while retaining many benefits of snapshot isolation with reduced aborts?",
+          "options": [
+            "A) Use read-uncommitted everywhere",
+            "B) Implement Serializable Snapshot Isolation (SSI) or predicate locking / certifier approaches that detect dangerous patterns and abort only conflicting transactions",
+            "C) Disable concurrent transactions",
+            "D) Use autocommit for all operations"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "SSI and certifier mechanisms detect anomalies (like dangerous structures) under snapshot isolation and only abort conflicting transactions, providing serializability with fewer aborts than strict locking."
+        },
+        {
+          "id": "exp_q05",
+          "domain": "Conflict resolution",
+          "difficulty": "Very Hard",
+          "question_text": "In an eventually-consistent multi-master setup, which deterministic technique preserves convergence while allowing commutative updates?",
+          "options": [
+            "A) Last-writer-wins with wall-clock timestamp only",
+            "B) Use CRDTs (Conflict-free Replicated Data Types) or commutative replicated data structures that guarantee convergence without coordination",
+            "C) Synchronous single-master failover only",
+            "D) Manual human reconciliation for every conflict"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "CRDTs are designed so that concurrent updates commute and replicas converge deterministically without coordination; naive last-writer-wins based solely on clocks is brittle."
+        },
+        {
+          "id": "exp_q06",
+          "domain": "Sharding",
+          "difficulty": "Very Hard",
+          "question_text": "Which shard key selection principle most directly reduces cross-shard transactions for user-centric workloads?",
+          "options": [
+            "A) Choose a monotonically increasing numeric key",
+            "B) Choose a shard key that colocates data used together frequently (e.g., user_id) to keep most operations single-shard",
+            "C) Hash on a random salt per row",
+            "D) Use a single global table without sharding"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Selecting a shard key that keeps related data together (e.g., by user) reduces the need for distributed transactions and cross-shard joins, improving performance."
+        },
+        {
+          "id": "exp_q07",
+          "domain": "Rebalancing",
+          "difficulty": "Very Hard",
+          "question_text": "During online re-sharding (moving key ranges between nodes), which guarantee is most important to preserve client correctness?",
+          "options": [
+            "A) Allowing duplicate writes without coordination",
+            "B) Ensuring either read-after-write consistency for migrated keys or redirecting requests atomically so clients see a single source of truth during movement",
+            "C) Stopping all writes globally forever",
+            "D) Dropping old indexes immediately"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Re-sharding must ensure that clients observe a consistent source for keys being moved — via atomic redirection, lease / epoch mechanisms, or proxying — so they don't see split-brain or lost updates."
+        },
+        {
+          "id": "exp_q08",
+          "domain": "Security",
+          "difficulty": "Very Hard",
+          "question_text": "Which architecture best reduces risk when storing highly sensitive personally-identifiable data (PII) while preserving queryability for analytics?",
+          "options": [
+            "A) Store all PII in plaintext in the main DB and restrict network access only",
+            "B) Use tokenization or format-preserving encryption in a dedicated secure vault/KMS and store tokens in the analytics DB; keep decryption keys separated and apply strict access controls and audit logging",
+            "C) Store PII as large binary blobs without indexing",
+            "D) Replicate PII freely to all read replicas"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Tokenization or application-level encryption with keys managed separately reduces blast radius; tokens permit analytics while keys remain protected and access/audit controls restrict decryption."
+        },
+        {
+          "id": "exp_q09",
+          "domain": "Column-level encryption",
+          "difficulty": "Very Hard",
+          "question_text": "What is a key limitation of encrypting columns at the application level (deterministic or randomized) when you still need DB-side querying?",
+          "options": [
+            "A) Deterministic encryption supports equality searches but leaks frequency information; randomized encryption is more secure but prevents most DB-side queries and indexing",
+            "B) Application-level encryption always speeds up queries",
+            "C) Deterministic encryption prevents any indexing",
+            "D) There are no trade-offs — it's always ideal"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Deterministic encryption allows equality lookups and indexing but leaks patterns (frequency); randomized encryption hides patterns but prevents most DB-side search/indexing, posing trade-offs."
+        },
+        {
+          "id": "exp_q10",
+          "domain": "Auditability",
+          "difficulty": "Very Hard",
+          "question_text": "Which design most reliably provides tamper-evident audit trails for sensitive DB operations?",
+          "options": [
+            "A) Store audit logs in the same table without safeguards",
+            "B) Append-only, write-once audit log storage with integrity checks (signed entries, cryptographic chaining) and separate access controls and retention policies",
+            "C) Rely solely on autovacuum to retain old rows",
+            "D) Use client-side logs only and no server-side verification"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Append-only logs with cryptographic integrity mechanisms and strict access controls provide tamper evidence and reliable auditability compared to mutable in-table logs or client-only logs."
+        },
+        {
+          "id": "exp_q11",
+          "domain": "Plan stability",
+          "difficulty": "Very Hard",
+          "question_text": "Which practice improves long-term plan stability for critical OLTP queries across DB upgrades and statistic fluctuations?",
+          "options": [
+            "A) Rely exclusively on ad-hoc hints embedded in application SQL",
+            "B) Maintain representative query suite with baseline plans, use plan regression tests, stabilize statistics via regular collection, and consider persisted plan baselines/plan guides where supported",
+            "C) Disable statistics collection entirely",
+            "D) Recreate all indexes every hour"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Plan stability is achieved by proactive testing, baseline comparisons, consistent statistics collection, and using supported mechanisms (plan guides/persisted plans) rather than hacks like embedded hints alone."
+        },
+        {
+          "id": "exp_q12",
+          "domain": "Prepared statement pitfalls",
+          "difficulty": "Very Hard",
+          "question_text": "How can generic plan caching for prepared statements cause severe performance issues for analytical queries?",
+          "options": [
+            "A) Generic plans always outperform custom plans",
+            "B) A single cached generic plan may be chosen that is poor for many parameter values (cardinality variance), causing repeated suboptimal execution; parameter-specific custom plans may be preferable for skewed distributions",
+            "C) Prepared statements remove the need for indexes",
+            "D) Prepared statements force parallelism always"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Plan caching can lead to a generic plan that underperforms for certain parameter ranges; understanding when to force custom plans or use plan hints is important for analytics."
+        },
+        {
+          "id": "exp_q13",
+          "domain": "Memory & temp files",
+          "difficulty": "Very Hard",
+          "question_text": "Which condition typically causes a DBMS to spill to disk and create temporary files during query execution?",
+          "options": [
+            "A) Sufficient memory available for all work_mem/work buffers",
+            "B) Memory-consuming operations (sorts, hash aggregates/joins, window frames) exceeding configured memory limits, causing spill to disk which increases I/O and latency",
+            "C) Small result sets only",
+            "D) Using only indexed lookups"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "When operations exceed available memory (e.g., sort/hash thresholds), the engine spills to disk and uses temp files, degrading performance due to extra I/O."
+        },
+        {
+          "id": "exp_q14",
+          "domain": "Parallel query tuning",
+          "difficulty": "Very Hard",
+          "question_text": "Why might enabling more parallel workers not improve a particular query's performance?",
+          "options": [
+            "A) Parallelism always guarantees linear speedup",
+            "B) Overheads for coordination, data redistribution, skewed data distribution, I/O bottlenecks, or single-threaded bottlenecks (e.g., serially executed portions) can negate benefits",
+            "C) More workers reduce available CPU",
+            "D) Parallel workers bypass the optimizer"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Parallel execution has overheads and requires balanced workload and sufficient I/O/CPU capacity; skew or serial bottlenecks can limit or reverse benefits."
+        },
+        {
+          "id": "exp_q15",
+          "domain": "Function volatility",
+          "difficulty": "Very Hard",
+          "question_text": "Why must the volatility classification (IMMUTABLE / STABLE / VOLATILE) of user-defined functions be correct for optimizer correctness and index usage?",
+          "options": [
+            "A) The optimizer ignores volatility",
+            "B) IMMUTABLE functions can be used in indexes and constant-folded; misclassifying volatile functions as immutable can lead to incorrect query results or unsafe optimizations",
+            "C) VOLATILE functions are automatically inlined",
+            "D) STABLE functions cannot be used in WHERE clauses"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Volatility tells the optimizer if a function's result can change between calls; IMMUTABLE functions are eligible for indexing and folding. Incorrect classification can produce wrong results or broken plans."
+        },
+        {
+          "id": "exp_q16",
+          "domain": "JSON & indexing",
+          "difficulty": "Very Hard",
+          "question_text": "Which indexing strategy is most appropriate when you frequently query a handful of JSON fields in a large table?",
+          "options": [
+            "A) Keep JSON as one text blob and scan with LIKE",
+            "B) Create expression indexes (or generated columns) for those specific JSON paths and consider partial indexes for frequent predicates to enable index seeks",
+            "C) Use a full table clone for every query",
+            "D) Avoid indexing and rely on CPU"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Expression indexes or materialized/generated columns for commonly queried JSON keys let the optimizer use indexes efficiently instead of scanning large JSON blobs."
+        },
+        {
+          "id": "exp_q17",
+          "domain": "GIS / Spatial",
+          "difficulty": "Very Hard",
+          "question_text": "For spatial queries on geographic data, which index type typically accelerates bounding-box and nearest-neighbor queries?",
+          "options": [
+            "A) B-tree index on WKT text",
+            "B) R-tree / GiST / SP-GiST spatial indexes specialized for multi-dimensional spatial queries",
+            "C) Hash index on geometry",
+            "D) No index is useful for spatial data"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Spatial indexes like R-tree variants (GiST, SP-GiST) are designed for spatial queries and nearest-neighbor searches; B-tree is unsuitable for multi-dimensional spatial access patterns."
+        },
+        {
+          "id": "exp_q18",
+          "domain": "Temporal & system-versioned",
+          "difficulty": "Very Hard",
+          "question_text": "What advantage do system-versioned (temporal) tables provide over manual audit tables for implementing time-travel queries?",
+          "options": [
+            "A) They require no storage",
+            "B) They provide DB-level automatic versioning semantics (transaction-time or application-time) enabling simpler time-travel queries and built-in retention/cleanup rather than ad-hoc manual mechanisms",
+            "C) They prevent all deletes forever",
+            "D) They replace backups"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "System-versioned tables automatically retain historical row versions and expose time-travel semantics, simplifying queries and governance compared with custom audit tables and triggers."
+        },
+        {
+          "id": "exp_q19",
+          "domain": "FDW performance",
+          "difficulty": "Very Hard",
+          "question_text": "When querying remote data via an FDW, which capability of the FDW most improves performance?",
+          "options": [
+            "A) The FDW performs no pushdown and always pulls full tables",
+            "B) Predicate and projection pushdown (ability to execute filters/aggregates remotely) so less data is transferred over the network",
+            "C) The FDW uses client-side JOINs only",
+            "D) FDW always rewrites queries to full scans"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Pushdown of filters, projections, and some aggregations to the remote source minimizes network IO and improves performance; otherwise large amounts of data must be transferred."
+        },
+        {
+          "id": "exp_q20",
+          "domain": "Observability",
+          "difficulty": "Very Hard",
+          "question_text": "Which telemetry is most actionable when diagnosing a sudden spike in tail latency for a DB cluster?",
+          "options": [
+            "A) Only the number of tables in the cluster",
+            "B) Time-series of active queries, per-query latency percentiles, IO/CPU utilization, lock waits, long-running transactions and recent deployment/DDL events",
+            "C) The wall-clock time only",
+            "D) The color of the database logo"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A combination of query-level metrics (tail percentiles), resource metrics, lock/transaction waits and recent changes provides the context needed to diagnose tail-latency spikes."
+        },
+        {
+          "id": "exp_q21",
+          "domain": "Backup consistency",
+          "difficulty": "Very Hard",
+          "question_text": "Which property must a backup system provide to reliably restore a consistent distributed snapshot across multiple shards/replicas?",
+          "options": [
+            "A) Independent, uncoordinated backups per shard",
+            "B) A mechanism for capturing a consistent global checkpoint or coordinated snapshot (e.g., using coordinated timestamps/epochs or two-phase checkpoint) to restore a coherent state across shards",
+            "C) Only logical dumps without ordering",
+            "D) Backups that ignore WALs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Restoring across shards requires a coordinated snapshot or consistent checkpoint so that cross-shard relationships and transactions are preserved; uncoordinated backups can lead to inconsistent states."
+        },
+        {
+          "id": "exp_q22",
+          "domain": "Cost-based decisions",
+          "difficulty": "Very Hard",
+          "question_text": "When considering denormalization for performance, which analysis is most appropriate before proceeding?",
+          "options": [
+            "A) Blindly duplicate all columns to speed reads",
+            "B) Profile query patterns and frequency, estimate write amplification and maintenance complexity, and ensure application logic or ETL handles consistency trade-offs",
+            "C) Remove all constraints and hope denormalization fixes everything",
+            "D) Switch to unstructured text storage"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Denormalization should follow careful analysis of read/write patterns, costs of maintaining duplicated data, and operational implications rather than ad-hoc duplication."
+        },
+        {
+          "id": "exp_q23",
+          "domain": "Schema migrations",
+          "difficulty": "Very Hard",
+          "question_text": "Which strategy helps achieve zero-downtime schema migrations for a production OLTP schema change that renames a column used heavily by applications?",
+          "options": [
+            "A) Immediately rename the column and update apps later",
+            "B) Use a backward & forward-compatible migration: add new column, update application to write both columns, backfill reads, then switch reads to new column and drop the old column once safe",
+            "C) Drop the table and recreate with new name",
+            "D) Block traffic for days until migration completes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A two-phase migration (add-copy-write, dual-read/write support, cutover, cleanup) maintains compatibility with old and new application versions and enables zero-downtime migrations."
+        },
+        {
+          "id": "exp_q24",
+          "domain": "Emergencies & mitigation",
+          "difficulty": "Very Hard",
+          "question_text": "If you discover a newly deployed query plan causing massive IO and production instability, which immediate mitigation is safest to reduce impact while you diagnose?",
+          "options": [
+            "A) Drop unrelated production indexes",
+            "B) Apply a targeted mitigation: throttle or cancel the offending queries, enable a query governor or resource limit for that user/role, and rollback or disable the deploy if necessary while collecting traces",
+            "C) Wipe the database and restore from old backup immediately",
+            "D) Increase the maximum connections to soak more load"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Targeted mitigations (cancel queries, limit resources, rollback changes) reduce impact without destructive actions; wiping DB or changing unrelated settings is unsafe."
+        },
+        {
+          "id": "exp_q25",
+          "domain": "Architecture trade-offs",
+          "difficulty": "Very Hard",
+          "question_text": "When designing a globally distributed database for low-latency local reads with strong consistency, which compromise is commonly required?",
+          "options": [
+            "A) Achieve both synchronous low-latency writes and reads everywhere with no trade-offs",
+            "B) Accept increased write latency (synchronous cross-region replication or single-region leader-for-writes) or limit strong consistency to a smaller scope while using asynchronous replication / read replicas for local reads",
+            "C) Disable durability to speed up everything",
+            "D) Use eventual consistency for everything without regard to correctness"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Strong global consistency requires coordination across regions, which increases write latency; common designs accept higher write latency or limit consistency scope while serving low-latency reads from local replicas."
+        }
+      ]
+    },
+    {
+      "id": "sql-professional-set-1",
+      "name": "SQL Operator",
+      "title": "Production Reliability, Automation, Cost & Governance",
+      "focus_area": "Operational excellence for production databases: SRE-style runbooks, automation (CI/CD for schema), cost and capacity planning, compliance & governance, advanced observability, disaster recovery at scale, upgrade/rollback strategies, and hybrid/cloud-native DB operations.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-life-ring text-blue-600 hover:scale-105",
+          "topic": "Runbooks & Incident Response"
+        },
+        {
+          "icon": "fas fa-cogs text-green-600 hover:scale-105",
+          "topic": "Automation (CI/CD for schema & migrations)"
+        },
+        {
+          "icon": "fas fa-dollar-sign text-yellow-600 hover:scale-105",
+          "topic": "Cost optimization & capacity planning"
+        },
+        {
+          "icon": "fas fa-shield-alt text-red-600 hover:scale-105",
+          "topic": "Compliance, auditing & data governance"
+        },
+        {
+          "icon": "fas fa-search text-indigo-600 hover:scale-105",
+          "topic": "Advanced observability & telemetry"
+        }
+      ],
+      "difficulty": "Professional",
+      "description": "25 professional-level questions for senior DB operators and SREs. Emphasis on production reliability, automation, cost & capacity planning, compliance and governance, telemetry-driven diagnostics, DR/backup orchestration, and safe operational practices for cloud and hybrid environments.",
+      "icon": "fas fa-briefcase-medical text-gray-900",
+      "total_questions": 25,
+      "time_limit": 80,
+      "passing_score": 82,
+      "active": true,
+      "questions": [
+        {
+          "id": "prof_q01",
+          "domain": "Runbooks",
+          "difficulty": "Hard",
+          "question_text": "Which element is essential in a production runbook for a database incident?",
+          "options": [
+            "A) A list of every developer's local credentials",
+            "B) Clear diagnostic commands to capture current state (active queries, locks, replication lag), safe mitigation steps, and escalation contacts",
+            "C) A promise to reboot the cluster immediately",
+            "D) No actionable steps — only theory"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Runbooks must provide reproducible diagnostics and safe mitigations plus escalation paths so responders can act quickly without guessing."
+        },
+        {
+          "id": "prof_q02",
+          "domain": "Post-incident",
+          "difficulty": "Hard",
+          "question_text": "What is the most valuable immediate activity after stabilizing a production DB incident?",
+          "options": [
+            "A) Delete logs to save disk",
+            "B) Conduct a short blameless post-incident review to identify root cause, remediation, and preventive actions, and update runbooks",
+            "C) Ignore the incident if service is restored",
+            "D) Permanently disable monitoring to avoid alerts"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A blameless post-incident review captures learnings and drives improvements to prevent recurrence; updating runbooks ensures faster future responses."
+        },
+        {
+          "id": "prof_q03",
+          "domain": "Schema migrations",
+          "difficulty": "Hard",
+          "question_text": "Which practice minimizes risk when deploying schema migrations to a live multi-region cluster?",
+          "options": [
+            "A) Apply schema changes manually on each region during peak traffic",
+            "B) Use automated, versioned migrations with backward/forward compatible changes, run schema migrations in CI, deploy in canary or staged rollout, and provide quick rollback paths",
+            "C) Drop and recreate tables across regions simultaneously",
+            "D) Disable all replicas before migration"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Automated, tested, staged migrations with compatibility and rollback plans reduce human error and enable safer multi-region deployment."
+        },
+        {
+          "id": "prof_q04",
+          "domain": "CI/CD",
+          "difficulty": "Hard",
+          "question_text": "What should database CI/CD pipelines validate before applying a migration to production?",
+          "options": [
+            "A) Only syntax of SQL",
+            "B) Schema compatibility, measure migration runtime on representative data (or a dry-run), verify planned locks and index rebuild impact, and run regression queries",
+            "C) That the migration file has a timestamp only",
+            "D) That migrations are as large as possible"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Pipelines should check semantic compatibility, estimate runtime/locks/index impact, and run representative queries to detect regressions before production apply."
+        },
+        {
+          "id": "prof_q05",
+          "domain": "Automation",
+          "difficulty": "Hard",
+          "question_text": "Which automation is most effective for safely applying online schema changes on large tables with minimal downtime?",
+          "options": [
+            "A) Hand-edit schema directly on prod",
+            "B) Use controlled background backfill tools (gh-ost, pt-online-schema-change, or DBMS-native online alter), with built-in throttling and preflight checks",
+            "C) Run ALTER TABLE during peak hours without tests",
+            "D) Avoid schema changes forever"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Online schema-change tools perform changes with minimal blocking, support throttling, and include safeguards suited for large-production tables."
+        },
+        {
+          "id": "prof_q06",
+          "domain": "Capacity planning",
+          "difficulty": "Hard",
+          "question_text": "Which combination best informs capacity planning for a database cluster?",
+          "options": [
+            "A) Guess based on team size",
+            "B) Historical peak and p95 resource usage (CPU, memory, IO), growth trends, request rate projections, and headroom for burst and failover",
+            "C) Always double current instance size arbitrarily",
+            "D) Only monitor storage and ignore CPU"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Capacity plans should rely on real usage metrics, growth trends, and planned headroom to avoid surprises and ensure reliability under failure scenarios."
+        },
+        {
+          "id": "prof_q07",
+          "domain": "Cost optimization",
+          "difficulty": "Hard",
+          "question_text": "Which cost-optimization action for cloud-hosted databases preserves performance while lowering costs?",
+          "options": [
+            "A) Reduce all instance sizes without profiling",
+            "B) Right-size instances using telemetry, use reserved or committed pricing where predictable, tier cold storage for infrequent data, and optimize queries/indexes to reduce CPU/IO",
+            "C) Disable backups to save storage costs",
+            "D) Turn off monitoring to lower bill"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Cost reduction with controlled risk uses telemetry-driven right-sizing, pricing commitments, tiering cold data, and improving query efficiency rather than blind cuts."
+        },
+        {
+          "id": "prof_q08",
+          "domain": "Backups & DR",
+          "difficulty": "Hard",
+          "question_text": "Which practice ensures disaster recovery (DR) readiness for an RTO/RPO target?",
+          "options": [
+            "A) Assume backups will always work without testing",
+            "B) Define RTO/RPO, implement automated backups and WAL/archive retention aligned to RPO, maintain recovery playbooks, and regularly run restore drills to test RTO",
+            "C) Keep backups only in the same zone as the primary",
+            "D) Disable PITR to simplify recovery"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "DR readiness requires defined objectives, backups aligned to RPO, documented recovery steps, and tested restores to validate the process meets targets."
+        },
+        {
+          "id": "prof_q09",
+          "domain": "Failover",
+          "difficulty": "Hard",
+          "question_text": "During automated failover tests, what client-side behavior should be validated?",
+          "options": [
+            "A) That clients never retry and immediately error out permanently",
+            "B) Connection retry/backoff behavior, idempotency of operations where possible, session affinity handling, and correct handling of transient errors during leader election",
+            "C) That clients ignore DNS changes permanently",
+            "D) That clients maintain stale connections forever"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Clients should gracefully handle transient failures via retries/backoff, ensure idempotency, and adapt to leadership or endpoint changes during failover."
+        },
+        {
+          "id": "prof_q10",
+          "domain": "Monitoring",
+          "difficulty": "Hard",
+          "question_text": "Which set of telemetry is most critical to detect slow query regressions early?",
+          "options": [
+            "A) List of columns only",
+            "B) Per-query latency percentiles (p50/p95/p99), active query counts, plan change alerts, CPU/IO saturation, and recently changed query text or schema",
+            "C) Only total disk usage",
+            "D) Developer commit messages"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "High-resolution percentiles, query activity and plan-change alerts combined with resource metrics help detect regressions before users are affected broadly."
+        },
+        {
+          "id": "prof_q11",
+          "domain": "Alerting",
+          "difficulty": "Hard",
+          "question_text": "Which alerting philosophy reduces alert fatigue while preserving reliability?",
+          "options": [
+            "A) Alert on every minor metric change immediately",
+            "B) Use tiered alerts: symptomatic alerts for user-impacting changes (high severity) and low-noise trend alerts for early detection; tune thresholds and use runbooks",
+            "C) Never alert and only rely on dashboards",
+            "D) Use only email with no escalation"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Tiered, meaningful alerts with runbooks and tuned thresholds reduce noise and focus responders on actionable issues."
+        },
+        {
+          "id": "prof_q12",
+          "domain": "Auditing",
+          "difficulty": "Hard",
+          "question_text": "For compliance purposes, which auditing design preserves forensic value while minimizing performance impact?",
+          "options": [
+            "A) Enable verbose synchronous audit logging on every operation without filtering",
+            "B) Use selective audit policies (log only sensitive tables/actions), write audits to append-only storage with separate retention and index for search, and ensure efficient asynchronous delivery",
+            "C) Store audit logs in the same table as transactional data",
+            "D) Disable auditing in production"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Selective, append-only auditing stored separately with controlled retention balances forensic needs and runtime performance."
+        },
+        {
+          "id": "prof_q13",
+          "domain": "Data governance",
+          "difficulty": "Hard",
+          "question_text": "Which practice enforces least-privilege access for database users at scale?",
+          "options": [
+            "A) Grant all users superuser privileges for simplicity",
+            "B) Implement role-based access control (RBAC), separate duties (DBA vs app), automate role provisioning via IAM/KMS integrations, and audit role changes",
+            "C) Store credentials in application code",
+            "D) Use a single shared account for all services"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "RBAC with automated provisioning and auditing enforces least privilege and manages access consistently across environments."
+        },
+        {
+          "id": "prof_q14",
+          "domain": "Data residency",
+          "difficulty": "Hard",
+          "question_text": "When regulatory requirements mandate data residency by country, which solution is appropriate?",
+          "options": [
+            "A) Keep all data in a single global region regardless of rules",
+            "B) Partition data by residency (per-country databases or per-region partitions), enforce access controls, and apply encryption and locality-aware routing to ensure compliance",
+            "C) Replicate sensitive PII to any region for performance",
+            "D) Ignore residency and rely on obfuscation"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Designing data partitioning and routing by residency with access controls and encryption ensures compliance while allowing performance optimization."
+        },
+        {
+          "id": "prof_q15",
+          "domain": "Encryption & KMS",
+          "difficulty": "Hard",
+          "question_text": "Which key management practice best reduces risk for encrypted database workloads?",
+          "options": [
+            "A) Store encryption keys in the same VM as the database without rotation",
+            "B) Use a centralized KMS with separation of duties, rotate keys periodically, enable envelope encryption (data keys protected by KMS keys), and restrict KMS access via IAM",
+            "C) Hardcode keys in application binaries",
+            "D) Use the same key for all environments permanently"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Centralized KMS, envelope encryption, key rotation, and least-privilege access minimize exposure and meet security best practices."
+        },
+        {
+          "id": "prof_q16",
+          "domain": "Capacity testing",
+          "difficulty": "Hard",
+          "question_text": "Which approach yields the most realistic load test for database capacity validation?",
+          "options": [
+            "A) Synthetic single-threaded queries only",
+            "B) Replay production-like traffic (recorded query traces) with representative concurrency, realistic data distributions, and warm caches to detect contention and bottlenecks",
+            "C) Only test with empty tables",
+            "D) Run queries sequentially on a dev laptop"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Replaying realistic traffic with concurrency, caches, and representative data provides meaningful insights into production behavior under load."
+        },
+        {
+          "id": "prof_q17",
+          "domain": "Multi-tenant",
+          "difficulty": "Hard",
+          "question_text": "Which tenancy model simplifies scaling and isolates noisy neighbors while allowing efficient resource use?",
+          "options": [
+            "A) Single shared database for all tenants without quotas",
+            "B) Hybrid approach: logical multi-tenancy with per-tenant resource controls, or isolated databases for high-value tenants; incorporate resource quotas and cost accounting",
+            "C) Create a new physical cluster for every tenant regardless of size",
+            "D) Use a single schema and no monitoring"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Hybrid tenancy balances isolation and efficiency: shared resources with quotas for small tenants and isolated instances for large or critical tenants."
+        },
+        {
+          "id": "prof_q18",
+          "domain": "Change management",
+          "difficulty": "Hard",
+          "question_text": "Which policy helps prevent accidental destructive actions on production databases?",
+          "options": [
+            "A) Allow direct production SQL changes by any engineer",
+            "B) Enforce gated change control: PR-based schema changes, approvals, automated CI checks, and production-only safeguards (review, timed gates, and RBAC for destructive operations)",
+            "C) Disable all auditing to speed changes",
+            "D) Encourage ad-hoc SQL edits during incidents"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Gated change control with approvals and automation prevents accidental destructive changes and improves traceability."
+        },
+        {
+          "id": "prof_q19",
+          "domain": "Observability",
+          "difficulty": "Hard",
+          "question_text": "Which correlation is most helpful when diagnosing transient tail-latency spikes?",
+          "options": [
+            "A) Correlate query p99 latency spikes with concurrent changes in active plans, CPU/IO saturation, lock wait durations, and recent deploys or schema changes",
+            "B) Correlate latency with number of rows in a small lookup table only",
+            "C) Correlate latency with developer coffee intake",
+            "D) Assume spikes are random and ignore"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Correlating latency with plan changes, resource metrics, locks, and deploys helps pinpoint root causes rapidly."
+        },
+        {
+          "id": "prof_q20",
+          "domain": "Safe upgrades",
+          "difficulty": "Hard",
+          "question_text": "What is a safe strategy for upgrading a DB engine version in production?",
+          "options": [
+            "A) Upgrade all nodes at once during peak traffic",
+            "B) Stage upgrades in canaries (non-critical clusters), run compatibility tests, use rolling upgrades where supported, and validate query plans and telemetry before full rollout",
+            "C) Skip testing and trust release notes",
+            "D) Immediately change client drivers only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Canary and rolling upgrades with focused validation reduce risk of regressions from engine changes."
+        },
+        {
+          "id": "prof_q21",
+          "domain": "Cost & retention",
+          "difficulty": "Hard",
+          "question_text": "Which policy reduces backup storage costs while meeting retention requirements?",
+          "options": [
+            "A) Keep daily full backups forever",
+            "B) Implement tiered retention (frequent short-term backups, less frequent long-term snapshots), deduplication/compression, and lifecycle policies to move old backups to cheaper storage",
+            "C) Disable backups entirely to save costs",
+            "D) Copy backups to all regions redundantly without lifecycle"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Tiered retention and lifecycle policies balance cost and compliance while preserving recovery capability."
+        },
+        {
+          "id": "prof_q22",
+          "domain": "Chaos engineering",
+          "difficulty": "Hard",
+          "question_text": "Which small-scale chaos experiment provides high signal about DB resilience?",
+          "options": [
+            "A) Randomly delete production data",
+            "B) Simulate a short failover and validate that failover completes within RTO and client behavior (retries/idempotency) is correct, while monitoring SLA impact",
+            "C) Turn off monitoring silently",
+            "D) Remove all replicas permanently"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Controlled failover drills test resilience and reveal weaknesses in client/server behavior without causing uncontrolled outages."
+        },
+        {
+          "id": "prof_q23",
+          "domain": "SLA / SLO",
+          "difficulty": "Hard",
+          "question_text": "Which practice ensures SLAs are realistic and enforceable for DB-backed services?",
+          "options": [
+            "A) Publish SLAs without measuring the underlying DB capabilities",
+            "B) Define SLOs based on observable metrics (p99 latency, availability), allocate error budgets, and coordinate on mitigation/rollbacks tied to budget consumption",
+            "C) Guarantee zero errors at all times",
+            "D) Ignore error budgets and always scale up"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "SLOs derived from measurable metrics and managed with error budgets create realistic, actionable SLAs and drive prioritized work when budgets are consumed."
+        },
+        {
+          "id": "prof_q24",
+          "domain": "Hybrid-cloud",
+          "difficulty": "Hard",
+          "question_text": "What is a recommended approach to move large datasets between on-premises and cloud databases with minimal downtime?",
+          "options": [
+            "A) Upload CSVs manually during peak hours",
+            "B) Use controlled streaming replication or bulk transfer tools with initial full sync followed by incremental CDC, then cut over during a maintenance window with validated consistency checks",
+            "C) Recreate the dataset from scratch in cloud with no validation",
+            "D) Disable all access during the transfer for weeks"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Initial full sync plus CDC and validated cutover minimizes downtime and keeps data consistent during migration."
+        },
+        {
+          "id": "prof_q25",
+          "domain": "Operational maturity",
+          "difficulty": "Hard",
+          "question_text": "Which combination best indicates a mature operational posture for production databases?",
+          "options": [
+            "A) No automated tests, manual backups, and ad-hoc incident handling",
+            "B) Automated migrations and tests, robust monitoring and alerting, runbooks and post-incident reviews, cost & capacity planning, regular DR drills, and governance/audit controls",
+            "C) Only reactive firefighting with no documentation",
+            "D) Developers directly change prod schema without review"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Maturity combines automation, monitoring, processes, and governance enabling predictable, reliable, and auditable operations."
+        }
+      ]
+    },
+    {
+      "id": "sql-mastery-set-1",
+      "name": "SQL Grandmaster",
+      "title": "Database Internals, Extensibility & Architectural Mastery",
+      "focus_area": "Foundational theory and cutting-edge practice for designing, extending, and operating database systems: optimizer internals and custom planning, storage engine design, formal consistency models, advanced distributed protocols, extensibility (UDFs, custom index types), and architecting resilient, high-performance data platforms.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-code-branch text-violet-600 hover:scale-105",
+          "topic": "Extensibility: UDFs, custom index & access methods"
+        },
+        {
+          "icon": "fas fa-cogs text-indigo-600 hover:scale-105",
+          "topic": "Storage engine & WAL design"
+        },
+        {
+          "icon": "fas fa-project-diagram text-teal-600 hover:scale-105",
+          "topic": "Distributed consensus, replication & reconfiguration"
+        },
+        {
+          "icon": "fas fa-balance-scale text-yellow-600 hover:scale-105",
+          "topic": "Formal consistency models & serializability proofs"
+        },
+        {
+          "icon": "fas fa-microscope text-green-600 hover:scale-105",
+          "topic": "Query optimizer internals & rewrite correctness"
+        }
+      ],
+      "difficulty": "Mastery",
+      "description": "25 mastery-level questions for principal engineers and DB researchers. Emphasis on designing and extending DBMS internals, formal correctness, building custom access/storage layers, advanced distributed protocols, and making architecture tradeoffs for extreme scale and correctness.",
+      "icon": "fas fa-crown text-gold-500",
+      "total_questions": 25,
+      "time_limit": 120,
+      "passing_score": 88,
+      "active": true,
+      "questions": [
+        {
+          "id": "mastery_q01",
+          "domain": "Extensibility",
+          "difficulty": "Very Hard",
+          "question_text": "When implementing a user-defined function (UDF) sandbox that allows third-party code to run inside the DB process, which of the following is the most critical safety control?",
+          "options": [
+            "A) Allow unlimited native CPU and memory access because performance matters most",
+            "B) Strong isolation (process/container boundaries), strict limits on CPU/memory/syscalls, and capability-based restrictions so a compromised UDF cannot affect DB integrity or data confidentiality",
+            "C) Only rely on role-based SQL permissions and no runtime limits",
+            "D) Trust all third-party code and audit later"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Sandboxing requires isolation and resource limits (cgroups, seccomp, separate processes/containers) plus capability restrictions; permissions alone are insufficient to contain unsafe code."
+        },
+        {
+          "id": "mastery_q02",
+          "domain": "Custom indexes",
+          "difficulty": "Very Hard",
+          "question_text": "Which property must hold for a custom index access method to be safely usable by the optimizer for correctness-preserving rewrites?",
+          "options": [
+            "A) The index returns results faster empirically for some queries",
+            "B) The index access method must expose and document its semantics (ordering, uniqueness, lossiness) so the optimizer can verify equivalence or conservatively avoid unsafe rewrites",
+            "C) The index can only be used for full-table scans",
+            "D) The index must be created on every column"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Optimizers need metadata about index semantics (e.g., whether it is lossy, supports ordering, enforces uniqueness) to decide valid transformations safely."
+        },
+        {
+          "id": "mastery_q03",
+          "domain": "Storage engine",
+          "difficulty": "Very Hard",
+          "question_text": "Which WAL (write-ahead log) property is essential to guarantee durability after a COMMIT is acknowledged to the client?",
+          "options": [
+            "A) WAL entries can be written asynchronously without flush",
+            "B) WAL records for the transaction must be persistently flushed to stable storage before acknowledging commit (or a stronger equivalent), and recovery must be able to replay them",
+            "C) WAL should only be kept in memory for speed",
+            "D) WAL must be encrypted but not flushed"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Durability requires that the effects of committed transactions are durable on stable storage (or replicated durably) before reporting success; otherwise crashes can lose acknowledged commits."
+        },
+        {
+          "id": "mastery_q04",
+          "domain": "Index concurrency",
+          "difficulty": "Very Hard",
+          "question_text": "To allow concurrent index builds and writes in a high-throughput system, which design helps avoid blocking while keeping the index correct?",
+          "options": [
+            "A) Block all writes during index build",
+            "B) Use a concurrent/index build algorithm that scans the table while tracking ongoing writes (e.g., build + backfill + catch-up phase) and uses lightweight synchronization to replay missed changes",
+            "C) Create an empty index and hope queries adapt",
+            "D) Drop the table then rebuild offline"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Concurrent index build algorithms perform an initial build and then capture or replay concurrent changes (or use lock-free techniques) to produce a correct index without long write blocking."
+        },
+        {
+          "id": "mastery_q05",
+          "domain": "Optimizer correctness",
+          "difficulty": "Very Hard",
+          "question_text": "When adding a new algebraic rewrite rule to an optimizer, what is the minimal verification step to avoid introducing incorrect query results?",
+          "options": [
+            "A) Deploy it to production and roll back if users complain",
+            "B) Prove semantic equivalence for the rewrite under the optimizer's required invariants (null semantics, collation, volatility) and add regression tests, including corner cases with NULLs and edge distributions",
+            "C) Assume the rule is correct because it improves performance on benchmarks",
+            "D) Only test with a single representative query"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Optimizers must ensure rewrites preserve semantics under SQL edge cases (NULL, types, collation, volatility). Formal reasoning and exhaustive regression tests prevent subtle correctness regressions."
+        },
+        {
+          "id": "mastery_q06",
+          "domain": "Formal models",
+          "difficulty": "Very Hard",
+          "question_text": "Which formal proof target most directly demonstrates that a concurrency control algorithm implements serializability?",
+          "options": [
+            "A) Show that every transaction acquires a single global lock",
+            "B) Prove that for any concurrent schedule, there exists an equivalent serial schedule (or show absence of cycles in the serialization graph) under the algorithm's rules",
+            "C) Prove that there are no deadlocks ever",
+            "D) Show that all transactions block on writes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Serializability requires showing that concurrent executions are equivalent to some serial order; this is typically shown by proving acyclic serialization graphs or constructing a serial schedule."
+        },
+        {
+          "id": "mastery_q07",
+          "domain": "Distributed protocols",
+          "difficulty": "Very Hard",
+          "question_text": "In a geo-distributed system aiming for low-latency local reads and consistent writes, which hybrid approach is commonly used to balance latency and consistency?",
+          "options": [
+            "A) Make all nodes synchronous and accept infinite latency",
+            "B) Use region-local reads from asynchronously-replicated replicas while routing writes to a single leader or using lease-based leaders for per-shard strong consistency, and optionally use bounded staleness for some reads",
+            "C) Use fully synchronous two-phase commit between all regions for every read",
+            "D) Disallow reads in remote regions entirely"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Practical systems often use local replicas for reads and direct writes to a leader/lease-holder for strong consistency; bounded staleness/read routing balances latency and consistency requirements."
+        },
+        {
+          "id": "mastery_q08",
+          "domain": "Consensus",
+          "difficulty": "Very Hard",
+          "question_text": "Which property of a consensus protocol (Raft/Paxos) ensures safety of replicated state despite network partitions?",
+          "options": [
+            "A) Any node can commit any command without agreement",
+            "B) Quorum-majority voting ensures only one leader (or non-conflicting leaders) can commit entries; safety is preserved as long as a majority of nodes can form a quorum",
+            "C) Protocol requires all nodes to be online to commit",
+            "D) Consensus ignores message order"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Consensus protocols use majority quorums to prevent split-brain and ensure that committed decisions are durable and not contradicted even under partitions."
+        },
+        {
+          "id": "mastery_q09",
+          "domain": "Recovery & invariants",
+          "difficulty": "Very Hard",
+          "question_text": "When designing crash recovery for a database that supports foreign keys and triggers, what must a recovery procedure ensure to restore a consistent state?",
+          "options": [
+            "A) Ignore referential constraints during recovery and fix later",
+            "B) Apply WAL/redo in order and ensure that constraint checks or deferred-constraint semantics are respected (e.g., replay in the same transactional grouping or re-evaluate deferred constraints after recovery) so invariants hold",
+            "C) Only restore datafiles without replaying logs",
+            "D) Drop all foreign keys permanently"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Recovery must respect transactional boundaries and the semantics of constraints/triggers (including deferred constraints) so that database invariants are re-established correctly after replay."
+        },
+        {
+          "id": "mastery_q10",
+          "domain": "Pluggable storage",
+          "difficulty": "Very Hard",
+          "question_text": "What is a primary interoperability concern when adding a pluggable storage engine to an existing DBMS?",
+          "options": [
+            "A) All storage engines automatically support identical indexing strategies",
+            "B) The storage engine must implement required interfaces (transactional guarantees, visibility checks, MVCC behavior, crash-consistency guarantees), and the engine's differences must be surfaced or adapted so other subsystems (optimizer, backup, replication) can operate correctly",
+            "C) Storage engines do not need to respect WAL",
+            "D) Pluggable engines should bypass authentication"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Pluggable engines must meet the DBMS contract (consistency, MVCC, transaction semantics) or the DBMS must adapt higher layers; otherwise invariants break or features won't work consistently."
+        },
+        {
+          "id": "mastery_q11",
+          "domain": "Schema & typing",
+          "difficulty": "Very Hard",
+          "question_text": "Which typing/semantic issue is most likely to cause subtle optimizer-induced correctness bugs across heterogeneous clients?",
+          "options": [
+            "A) Using only integers everywhere",
+            "B) Imprecise handling of collation, character encodings, or type coercion rules (e.g., implicit casts, locale-dependent comparisons) that lead to different ordering or equality semantics than assumed by rewrites",
+            "C) Choosing variable names poorly",
+            "D) Using too many indexes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Collation and type coercion affect equality and ordering; optimizer rewrites and index usage must respect these semantics to avoid returning incorrect results under locale/type variations."
+        },
+        {
+          "id": "mastery_q12",
+          "domain": "Performance modeling",
+          "difficulty": "Very Hard",
+          "question_text": "When building a capacity model for an OLTP storage subsystem, which cost component is often underestimated without careful measurement?",
+          "options": [
+            "A) Per-request CPU only",
+            "B) Write amplification due to secondary index and compaction overheads, and background maintenance costs (compaction/VACUUM/reindex) that increase IO and CPU beyond application write volume",
+            "C) Latency of local memory access only",
+            "D) The size of client SDKs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Write amplification from indexes, replication, and background compaction/vacuum can significantly increase resource usage beyond raw application writes; models must include background costs."
+        },
+        {
+          "id": "mastery_q13",
+          "domain": "Hybrid transactional/analytical",
+          "difficulty": "Very Hard",
+          "question_text": "What architectural pattern enables low-latency transactional processing while supporting efficient analytical queries without compromising OLTP performance?",
+          "options": [
+            "A) Run heavy OLAP queries directly on primary OLTP tables",
+            "B) Use a HTAP approach with storage/engine separation (e.g., row-oriented for OLTP + columnar or materialized projections for analytics) or change-data-capture into an analytical store to offload heavy aggregation",
+            "C) Denormalize everything into giant tables only",
+            "D) Disable transactions for analytics"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "HTAP designs or CDC into analytical stores separate OLAP workloads from OLTP hot paths; materialized projections or columnar replicas enable analytics without hurting transactional latency."
+        },
+        {
+          "id": "mastery_q14",
+          "domain": "Deterministic replay",
+          "difficulty": "Very Hard",
+          "question_text": "For deterministic replay testing of a DB cluster, which input must be captured precisely to reproduce observed behavior?",
+          "options": [
+            "A) Only the final query results",
+            "B) The exact sequence and timing of external inputs (client statements), initial state snapshot, and nondeterministic sources (random seeds, timestamps) or mechanisms to control them so replay yields comparable execution and timing specifics",
+            "C) Only the schema DDL",
+            "D) Only logs of successful transactions"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Replaying requires the same input order/timing, initial state, and control over nondeterminism (timestamps, RNG) to reproduce concurrency effects and diagnose bugs."
+        },
+        {
+          "id": "mastery_q15",
+          "domain": "Adaptive indexing",
+          "difficulty": "Very Hard",
+          "question_text": "What is a risk of automatic or adaptive index creation based purely on observed queries?",
+          "options": [
+            "A) It always reduces write cost",
+            "B) Creating indexes for short-lived or highly-specific query patterns can increase write amplification and storage without long-term benefit; the system must weigh cost vs expected future utility and provide safe eviction policies",
+            "C) Adaptive indexes never help reads",
+            "D) It eliminates need for DBAs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Adaptive indexers must consider longevity and write cost; naive creation can worsen overall performance if indexes are ephemeral or rarely used later."
+        },
+        {
+          "id": "mastery_q16",
+          "domain": "Testing & fuzzing",
+          "difficulty": "Very Hard",
+          "question_text": "Which testing technique is particularly effective at uncovering subtle correctness bugs in query engines and optimizers?",
+          "options": [
+            "A) Manual reading of documentation only",
+            "B) Differential testing (generate random queries and compare results between optimized and unoptimized execution or between two engines) and fuzzing edge-case inputs, combined with oracle checks for invariants",
+            "C) Only unit tests for simple cases",
+            "D) Only benchmark performance"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Differential testing and fuzzing reveal correctness bugs across a wide input space by comparing multiple execution paths or engines and checking invariants."
+        },
+        {
+          "id": "mastery_q17",
+          "domain": "Schema evolution",
+          "difficulty": "Very Hard",
+          "question_text": "Which metadata practice simplifies complex, long-lived schema evolution in large organizations?",
+          "options": [
+            "A) Allow arbitrary, undocumented ad-hoc schema changes",
+            "B) Maintain explicit schema versioning, column/capability feature flags, and a compatibility contract for readers/writers so that changes can be rolled forward/backward safely across services",
+            "C) Never change the schema once created",
+            "D) Keep schema only in application code comments"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Explicit versioning and feature flags enable safe gradual rollouts and backward/forward compatibility required for decoupled services."
+        },
+        {
+          "id": "mastery_q18",
+          "domain": "Cost of correctness",
+          "difficulty": "Very Hard",
+          "question_text": "If a system must guarantee strict serializability across geo-replicated partitions, what is the usual unavoidable cost?",
+          "options": [
+            "A) No additional cost — latency remains local",
+            "B) Increased write latency due to cross-region coordination (consensus or synchronous replication) or reduced availability under partitions, per the CAP trade-offs",
+            "C) Infinite storage costs only",
+            "D) Unlimited throughput with no coordination"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Strong global consistency requires coordination across regions, which increases write latency or reduces availability during partitions; designers must accept these trade-offs."
+        },
+        {
+          "id": "mastery_q19",
+          "domain": "Observability for internals",
+          "difficulty": "Very Hard",
+          "question_text": "Which low-level instrumentation is most valuable when diagnosing subtle optimizer regressions introduced by version bumps?",
+          "options": [
+            "A) Only high-level client metrics",
+            "B) Traces of optimizer rule application, plan-tree diffs, planner cost estimates vs actual runtime, and feature-flag-controlled tracing that can be enabled in staging for problematic queries",
+            "C) The icon used in monitoring dashboards",
+            "D) Only database restart logs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Detailed instrumentation of planner decisions, cost estimates, and actual execution allows pinpointing which rewrite or cost-change caused regressions."
+        },
+        {
+          "id": "mastery_q20",
+          "domain": "Adaptive execution",
+          "difficulty": "Very Hard",
+          "question_text": "Which safety check should an adaptive execution engine perform before switching to an alternate plan mid-flight?",
+          "options": [
+            "A) Always switch plans immediately without consideration",
+            "B) Verify compatibility of intermediate state (e.g., hash table contents), ensure correctness of partial results, and that the alternative strategy can consume/produce data in the expected format without violating transactional semantics",
+            "C) Discard current results and restart the entire workload randomly",
+            "D) Ignore transactional boundaries"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Switching plans at runtime requires ensuring intermediate structures and semantics align with the new plan to avoid incorrect results or violating transaction properties."
+        },
+        {
+          "id": "mastery_q21",
+          "domain": "Data lineage",
+          "difficulty": "Very Hard",
+          "question_text": "Why is fine-grained data lineage critical for large-scale analytic governance and debugging?",
+          "options": [
+            "A) It slows down the system with no benefit",
+            "B) It allows tracing a derived datum back through transformations, facilitating reproducibility, debugging of incorrect aggregates, and compliance reporting about data provenance",
+            "C) It replaces backups",
+            "D) It obviates the need for tests"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Lineage enables operators and analysts to understand how values were derived, reproduce results, and meet audit/compliance requirements."
+        },
+        {
+          "id": "mastery_q22",
+          "domain": "Multi-model",
+          "difficulty": "Very Hard",
+          "question_text": "When a single DB engine supports multiple models (relational, document, time-series, graph), what is a primary engineering challenge?",
+          "options": [
+            "A) Ensuring uniform backup UI only",
+            "B) Designing storage and indexing layers that efficiently support divergent access patterns while preserving consistent transactional and durability guarantees, and exposing clear semantics per model",
+            "C) Supporting only one query language across all models without adaptation",
+            "D) Preventing any optimizations"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Multi-model engines must reconcile different access/indexing needs while providing coherent transactional semantics and predictable performance."
+        },
+        {
+          "id": "mastery_q23",
+          "domain": "Ethics & privacy",
+          "difficulty": "Very Hard",
+          "question_text": "Which operational policy best reduces privacy risk when enabling analytics on sensitive user data?",
+          "options": [
+            "A) Provide unrestricted access to all analysts",
+            "B) Apply data minimization, use anonymization/tokenization where possible, implement strict access controls, logging, and purpose-bound processing, and review analyses for re-identification risk before granting access",
+            "C) Disable all analytics forever",
+            "D) Store raw PII in public datasets"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Privacy-preserving analytics combine minimization/anonymization with governance, controls, and review to limit re-identification and misuse."
+        },
+        {
+          "id": "mastery_q24",
+          "domain": "Emerging tech",
+          "difficulty": "Very Hard",
+          "question_text": "Which potential benefit do hardware accelerators (FPGA/SmartNIC/DPUs) bring to DB systems when applied correctly?",
+          "options": [
+            "A) They make software engineering unnecessary",
+            "B) Offloading network processing, filtering, or specialized compute (e.g., compression, encryption, or predicate evaluation) to accelerators can reduce CPU load and latency, but requires careful co-design and fallbacks for portability",
+            "C) They always reduce development cost",
+            "D) They eliminate the need for indexes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Hardware offload can improve throughput/latency for certain workloads but demands co-design and portability considerations; benefits are workload-dependent."
+        },
+        {
+          "id": "mastery_q25",
+          "domain": "Leadership & strategy",
+          "difficulty": "Very Hard",
+          "question_text": "At the organization level, which decision most effectively aligns a database platform roadmap with long-term business resilience?",
+          "options": [
+            "A) Prioritize only short-term feature requests without technical investment",
+            "B) Balance feature delivery with investments in observability, testing/regression frameworks, automated migrations, and operational runbooks — prioritize technical debt reduction that materially reduces outage risk and supports scalable growth",
+            "C) Ignore platform needs and outsource everything without oversight",
+            "D) Avoid documentation and institutional knowledge transfer"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Sustainable platform roadmaps require balancing new features with investments in reliability, observability, and automation to reduce systemic risk and enable scale."
+        }
+      ]
+    }
+  ]
+}

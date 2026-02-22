@@ -1,0 +1,28 @@
+{
+  "technologies": [
+    {
+      "id": "tech-aws",
+      "name": ["AWS"],
+      "icon": ["fab fa-aws text-orange-500"],
+      "datafile": "aws.json",
+      "description": "Amazon's cloud computing platform offering scalable infrastructure and services for application deployment.",
+      "active": true
+    },
+    {
+      "id": "tech-java",
+      "name": ["Java (Spring Boot)"],
+      "datafile": "java.json",
+      "icon": ["fas fa-mug-hot text-orange-600"],
+      "description": "Widely-used language with robust frameworks for building large-scale, enterprise-grade backend systems.",
+      "active": true
+    },
+    {
+      "id": "tech-react",
+      "name": ["React"],
+      "datafile": "react.json",
+      "icon": ["fab fa-react text-blue-500"],
+      "description": "A declarative, component-based JavaScript library for building modern user interfaces efficiently.",
+      "active": true
+    }
+}
+

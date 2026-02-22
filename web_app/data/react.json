@@ -1,0 +1,2608 @@
+{
+  "id": "tech-react",
+  "name": "React UI Mastery",
+  "icon": "fab fa-react text-sky-500",
+  "description": "Develop high-performing and scalable UIs with React. Covers hooks, state management,</br> advanced component patterns, performance tuning, and UI ecosystem integration.",
+  "exam_sets": [
+    {
+      "id": "tech-react-set1",
+      "name": "React Fundamentals & Component Design",
+      "title": "React Fundamentals — Components, JSX & State",
+      "focus_on": "Core React concepts, component design, JSX, props, state, basic hooks and rendering behavior",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-code text-indigo-500",
+          "topic": "JSX syntax & expressions"
+        },
+        {
+          "icon": "fas fa-puzzle-piece text-purple-500",
+          "topic": "Functional & class components"
+        },
+        {
+          "icon": "fas fa-exchange-alt text-teal-500",
+          "topic": "Props: passing & immutability"
+        },
+        {
+          "icon": "fas fa-database text-green-500",
+          "topic": "State management (useState / setState)"
+        },
+        {
+          "icon": "fas fa-mouse-pointer text-yellow-500",
+          "topic": "Event handling and forms"
+        },
+        {
+          "icon": "fas fa-list-ul text-pink-500",
+          "topic": "Lists, keys & rendering patterns"
+        },
+        {
+          "icon": "fas fa-sync-alt text-rose-500",
+          "topic": "Basic hooks (useState, useEffect)"
+        },
+        {
+          "icon": "fas fa-adjust text-gray-700",
+          "topic": "Conditional rendering & fragments"
+        },
+        {
+          "icon": "fas fa-layer-group text-blue-600",
+          "topic": "Component composition & children patterns"
+        }
+      ],
+      "icon": "fab fa-react text-blue-500",
+      "difficulty": "Beginner",
+      "description": "30 practical questions to validate knowledge of React fundamentals and component design best practices for UI developers.",
+      "total_questions": "30",
+      "time_limit": "45",
+      "passing_score": "75",
+      "active": true,
+      "questions": [
+        {
+          "id": "rfund_q001",
+          "domain": "React Fundamentals",
+          "difficulty": "Easy",
+          "question_text": "Which file extension is commonly used for React components that include JSX?",
+          "options": [
+            "A) .js",
+            "B) .jsx",
+            "C) .ts",
+            "D) .html"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "JSX code is commonly placed in files with .jsx or .js; .jsx explicitly indicates JSX usage."
+        },
+        {
+          "id": "rfund_q002",
+          "domain": "React Fundamentals",
+          "difficulty": "Easy",
+          "question_text": "In React, what does 'props' stand for and how are they used?",
+          "options": [
+            "A) Internal component state only",
+            "B) Read-only inputs passed from parent to child components",
+            "C) Methods for fetching data",
+            "D) Global variables"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Props are read-only values passed from parents to children for configuration and rendering."
+        },
+        {
+          "id": "rfund_q003",
+          "domain": "React Fundamentals",
+          "difficulty": "Easy",
+          "question_text": "Which hook lets you add state to functional components?",
+          "options": [
+            "A) useEffect",
+            "B) useMemo",
+            "C) useState",
+            "D) useRef"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "useState initializes and updates state in functional components."
+        },
+        {
+          "id": "rfund_q004",
+          "domain": "JSX & Rendering",
+          "difficulty": "Easy",
+          "question_text": "What's the correct way to render a list in JSX?",
+          "options": [
+            "A) Using map() and returning elements with a unique key",
+            "B) Using forEach directly inside JSX",
+            "C) Returning a comma-separated string",
+            "D) Using document.createElement for each item"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "map() is used to return an array of elements; each should have a unique key prop."
+        },
+        {
+          "id": "rfund_q005",
+          "domain": "React Fundamentals",
+          "difficulty": "Medium",
+          "question_text": "Which of these is a correct reason to use keys when rendering lists?",
+          "options": [
+            "A) To identify items for React's reconciliation algorithm",
+            "B) To style list items automatically",
+            "C) To prevent re-rendering entirely",
+            "D) To access DOM nodes directly"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Keys help React match items between renders for efficient updates."
+        },
+        {
+          "id": "rfund_q006",
+          "domain": "Event Handling",
+          "difficulty": "Easy",
+          "question_text": "How do you prevent the default form submission in a React onSubmit handler?",
+          "options": [
+            "A) return false",
+            "B) event.preventDefault()",
+            "C) e.stopPropagation()",
+            "D) event.default()"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Call event.preventDefault() inside the handler to stop the browser's default submission."
+        },
+        {
+          "id": "rfund_q007",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "What happens when you call setState in a React class component?",
+          "options": [
+            "A) The state mutates immediately and synchronously",
+            "B) React schedules a re-render and merges the new state shallowly",
+            "C) The component is unmounted then remounted",
+            "D) DOM updates happen before state changes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "setState merges state changes and schedules an update; updates may be batched."
+        },
+        {
+          "id": "rfund_q008",
+          "domain": "Hooks",
+          "difficulty": "Medium",
+          "question_text": "Which of these rules is required when using React hooks?",
+          "options": [
+            "A) Call hooks only inside loops",
+            "B) Call hooks only at the top level of React functions",
+            "C) Call hooks only inside conditional statements",
+            "D) Call hooks only in nested functions"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Hooks must be called at the top level of React function components (not inside loops/conditions)."
+        },
+        {
+          "id": "rfund_q009",
+          "domain": "Lifecycle & Effects",
+          "difficulty": "Medium",
+          "question_text": "Which hook is appropriate for running an effect when a component mounts and when a dependency changes?",
+          "options": [
+            "A) useEffect with a dependency array",
+            "B) useState with a callback",
+            "C) useRef to store values",
+            "D) useMemo to memoize the effect"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "useEffect runs after render; include dependencies in the array to re-run when they change."
+        },
+        {
+          "id": "rfund_q010",
+          "domain": "Forms",
+          "difficulty": "Medium",
+          "question_text": "What is a controlled component in React forms?",
+          "options": [
+            "A) A component that fetches form data via API",
+            "B) A form input whose value is managed by React state",
+            "C) A component that uses uncontrolled DOM methods",
+            "D) A component that prevents all user input"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Controlled inputs derive their value from state and use onChange to update it."
+        },
+        {
+          "id": "rfund_q011",
+          "domain": "JSX & Rendering",
+          "difficulty": "Easy",
+          "question_text": "How do you include a JavaScript expression inside JSX?",
+          "options": [
+            "A) Using double quotes \"expression\"",
+            "B) Using curly braces {expression}",
+            "C) Using parentheses (expression)",
+            "D) Using angle brackets <expression>"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Curly braces evaluate JavaScript expressions inside JSX."
+        },
+        {
+          "id": "rfund_q012",
+          "domain": "Props & Composition",
+          "difficulty": "Medium",
+          "question_text": "Which pattern is best to pass render logic into a component from a parent?",
+          "options": [
+            "A) Prop drilling",
+            "B) Render props or children-as-function",
+            "C) useRef forwarding",
+            "D) Global variables"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Render props or function-as-children let parents supply rendering logic to children."
+        },
+        {
+          "id": "rfund_q013",
+          "domain": "Components",
+          "difficulty": "Easy",
+          "question_text": "What is a Fragment used for in React?",
+          "options": [
+            "A) To wrap multiple elements without adding extra DOM nodes",
+            "B) To fetch remote data",
+            "C) To style components",
+            "D) To create portals"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Fragments let you return multiple elements from a component without an extra wrapper DOM node."
+        },
+        {
+          "id": "rfund_q014",
+          "domain": "Refs",
+          "difficulty": "Medium",
+          "question_text": "Which hook would you use to create a mutable ref to a DOM element?",
+          "options": [
+            "A) useMemo",
+            "B) useState",
+            "C) useRef",
+            "D) useEffect"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "useRef returns a persistent ref object usable to store DOM nodes or mutable values."
+        },
+        {
+          "id": "rfund_q015",
+          "domain": "Conditional Rendering",
+          "difficulty": "Easy",
+          "question_text": "Which is the common way to conditionally render JSX when a value is truthy?",
+          "options": [
+            "A) value && <Component />",
+            "B) value ? : <Component />",
+            "C) if (value) return <Component />",
+            "D) switch(value) { case true: ... }"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Using logical AND (&&) is a common concise pattern to render when truthy."
+        },
+        {
+          "id": "rfund_q016",
+          "domain": "React Fundamentals",
+          "difficulty": "Medium",
+          "question_text": "Which lifecycle method is equivalent to componentDidMount when using hooks?",
+          "options": [
+            "A) useEffect(()=>{}, [])",
+            "B) useMemo(()=>{}, [])",
+            "C) useRef(()=>{}, [])",
+            "D) useLayoutEffect(()=>{}, [deps])"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "useEffect with an empty dependency array runs after mount, similar to componentDidMount."
+        },
+        {
+          "id": "rfund_q017",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "What does React.memo do for a functional component?",
+          "options": [
+            "A) Forces component to re-render every time",
+            "B) Prevents re-rendering if props are shallowly equal",
+            "C) Converts component into a class",
+            "D) Memoizes internal state only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "React.memo is a HOC that memoizes the rendered output for pure components based on props."
+        },
+        {
+          "id": "rfund_q018",
+          "domain": "Error Handling",
+          "difficulty": "Hard",
+          "question_text": "What mechanism handles rendering errors in a subtree for class components?",
+          "options": [
+            "A) Error boundaries using componentDidCatch and static getDerivedStateFromError",
+            "B) try/catch inside render()",
+            "C) useEffect with error handler",
+            "D) PropTypes validation"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Error boundaries (class components) catch render errors in descendants via componentDidCatch."
+        },
+        {
+          "id": "rfund_q019",
+          "domain": "Forms",
+          "difficulty": "Medium",
+          "question_text": "Which attribute on an input makes it uncontrolled?",
+          "options": [
+            "A) value with onChange",
+            "B) defaultValue",
+            "C) checked with onChange",
+            "D) controlled=true"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "defaultValue creates an uncontrolled input whose value is managed by the DOM."
+        },
+        {
+          "id": "rfund_q020",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "Which library is recommended for testing React components focusing on user behavior?",
+          "options": [
+            "A) Enzyme",
+            "B) React Testing Library",
+            "C) jQuery",
+            "D) Cypress only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "React Testing Library encourages testing through user-visible behavior rather than implementation details."
+        },
+        {
+          "id": "rfund_q021",
+          "domain": "JSX & Syntax",
+          "difficulty": "Easy",
+          "question_text": "Which attribute name is used for class assignment in JSX?",
+          "options": [
+            "A) class",
+            "B) className",
+            "C) class-name",
+            "D) classname"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "JSX uses className because class is a reserved word in JavaScript."
+        },
+        {
+          "id": "rfund_q022",
+          "domain": "Props",
+          "difficulty": "Medium",
+          "question_text": "What technique reduces prop drilling for deeply nested components?",
+          "options": [
+            "A) CSS variables",
+            "B) React Context API",
+            "C) Local component state",
+            "D) Inline styles"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Context provides a way to pass data through the component tree without manually passing props at every level."
+        },
+        {
+          "id": "rfund_q023",
+          "domain": "Accessibility",
+          "difficulty": "Medium",
+          "question_text": "Which attribute should you add to a non-semantic div acting as a button for accessibility?",
+          "options": [
+            "A) role=\"button\" and keyboard handlers",
+            "B) aria-hidden",
+            "C) data-button",
+            "D) tabindex=\"-1\""
+          ],
+          "correct_answer_index": 0,
+          "explanation": "role and keyboard support (e.g., onKeyDown handling) improve accessibility for interactive elements."
+        },
+        {
+          "id": "rfund_q024",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "Why might you use useCallback when passing callbacks to child components?",
+          "options": [
+            "A) To memoize returned JSX",
+            "B) To avoid function identity changes that cause child re-renders",
+            "C) To prevent state updates",
+            "D) To change props deeply"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useCallback returns a stable function identity to avoid unnecessary re-renders in memoized children."
+        },
+        {
+          "id": "rfund_q025",
+          "domain": "Component Patterns",
+          "difficulty": "Hard",
+          "question_text": "What is a Higher-Order Component (HOC)?",
+          "options": [
+            "A) A component that returns plain HTML",
+            "B) A function that takes a component and returns a new component",
+            "C) A hook library",
+            "D) A built-in React API for routing"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "HOCs wrap components to enhance or inject props/behavior (component -> enhanced component)."
+        },
+        {
+          "id": "rfund_q026",
+          "domain": "JSX & Rendering",
+          "difficulty": "Medium",
+          "question_text": "Which expression correctly prevents rendering null child nodes in JSX?",
+          "options": [
+            "A) {items.length && <List />}",
+            "B) {items && items.length ? <List /> : null}",
+            "C) {if(items.length) <List/>}",
+            "D) {items || <List />}"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Using a conditional (ternary) ensures correct rendering; relying only on length can render 0."
+        },
+        {
+          "id": "rfund_q027",
+          "domain": "Refs",
+          "difficulty": "Hard",
+          "question_text": "Which pattern should you use to forward refs to DOM nodes inside functional components?",
+          "options": [
+            "A) forwardRef API",
+            "B) useImperativeHandle alone",
+            "C) React.memo",
+            "D) setState with ref"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "forwardRef allows functional components to accept refs from parents and pass them to child DOM elements."
+        },
+        {
+          "id": "rfund_q028",
+          "domain": "State",
+          "difficulty": "Hard",
+          "question_text": "Why is state updates batching important in React?",
+          "options": [
+            "A) It prevents updates",
+            "B) It groups multiple setState calls into fewer renders for performance",
+            "C) It increases memory usage",
+            "D) It guarantees synchronous updates"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Batching reduces number of renders by grouping state updates, improving performance."
+        },
+        {
+          "id": "rfund_q029",
+          "domain": "Architecture",
+          "difficulty": "Medium",
+          "question_text": "What is 'prop drilling' and why can it be a problem?",
+          "options": [
+            "A) Passing props through many levels causing coupling and maintenance issues",
+            "B) Storing props in localStorage",
+            "C) Using too many hooks",
+            "D) Overusing CSS modules"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Prop drilling is when intermediate components pass props only to reach deeper children; it increases coupling."
+        },
+        {
+          "id": "rfund_q030",
+          "domain": "React Fundamentals",
+          "difficulty": "Medium",
+          "question_text": "Which of these is an appropriate use case for useEffect cleanup function?",
+          "options": [
+            "A) Fetching data after every render",
+            "B) Cleaning timers, subscriptions, or event listeners on unmount",
+            "C) Setting state during render",
+            "D) Changing props directly"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Cleanup in useEffect is used to remove side-effects (timers/subscriptions) to prevent leaks."
+        }
+      ]
+    },
+    {
+      "id": "tech-react-set2",
+      "name": "Advanced React Patterns & Architecture",
+      "title": "Advanced Patterns — Composition, State Architecture & Testing",
+      "focus_on": "Architectural patterns, advanced hooks, composition APIs, testing strategies, state containers and best practices",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-wrench text-rose-600",
+          "topic": "Custom hooks & logic reuse"
+        },
+        {
+          "icon": "fas fa-sitemap text-indigo-600",
+          "topic": "Context patterns & avoiding prop drilling"
+        },
+        {
+          "icon": "fas fa-cogs text-yellow-600",
+          "topic": "useReducer & state machines"
+        },
+        {
+          "icon": "fas fa-layer-group text-purple-600",
+          "topic": "Higher-Order Components & render-props"
+        },
+        {
+          "icon": "fas fa-file-code text-sky-600",
+          "topic": "TypeScript typings for React"
+        },
+        {
+          "icon": "fas fa-vials text-red-500",
+          "topic": "Testing strategies (RTL, mocks, MSW)"
+        },
+        {
+          "icon": "fas fa-server text-gray-600",
+          "topic": "SSR / hydration considerations"
+        },
+        {
+          "icon": "fas fa-universal-access text-emerald-600",
+          "topic": "Accessibility & semantic patterns"
+        }
+      ],
+      "icon": "fas fa-cogs text-purple-600",
+      "difficulty": "Advanced",
+      "description": "30 deeper questions that test architectural decisions, advanced patterns, testing and TypeScript integration for React UI engineers.",
+      "total_questions": "30",
+      "time_limit": "60",
+      "passing_score": "78",
+      "active": true,
+      "questions": [
+        {
+          "id": "radv_q001",
+          "domain": "Advanced Patterns",
+          "difficulty": "Medium",
+          "question_text": "What is the primary benefit of extracting logic into a custom hook?",
+          "options": [
+            "A) To render JSX faster",
+            "B) To reuse stateful logic across components",
+            "C) To replace Redux",
+            "D) To access the DOM directly"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Custom hooks encapsulate and reuse stateful logic across multiple components."
+        },
+        {
+          "id": "radv_q002",
+          "domain": "Context & State",
+          "difficulty": "Medium",
+          "question_text": "When should you avoid storing frequently changing high-frequency state (e.g., animation frame values) in Context?",
+          "options": [
+            "A) When the state is global and read-only",
+            "B) When frequent updates cause unnecessary re-renders of many consumers",
+            "C) When using CSS animations",
+            "D) When using HTTP requests"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Context updates cause all consumers to re-render; avoid putting high-frequency changing values there."
+        },
+        {
+          "id": "radv_q003",
+          "domain": "State Management",
+          "difficulty": "Hard",
+          "question_text": "Which pattern is best to manage complex state transitions within a component?",
+          "options": [
+            "A) Multiple useState calls",
+            "B) useReducer with clearly defined actions",
+            "C) Inline object mutations",
+            "D) Storing everything in refs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useReducer organizes complex state transitions with predictable action-based updates."
+        },
+        {
+          "id": "radv_q004",
+          "domain": "Testing",
+          "difficulty": "Hard",
+          "question_text": "Which test gives the best assurance that a component works with user flows rather than implementation details?",
+          "options": [
+            "A) Unit tests that inspect internal state",
+            "B) Integration/behavior tests with React Testing Library simulating user events",
+            "C) Snapshot tests for markup only",
+            "D) End-to-end tests that bypass the UI"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Testing via user interactions focuses on behavior and prevents brittle tests tied to implementation."
+        },
+        {
+          "id": "radv_q005",
+          "domain": "TypeScript",
+          "difficulty": "Medium",
+          "question_text": "How do you type React component props in TypeScript for a functional component?",
+          "options": [
+            "A) interface Props {} and function Component(props: Props) {}",
+            "B) var props: any",
+            "C) props = PropTypes",
+            "D) Using JSDoc only"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Defining an interface and typing the function parameter ensures compile-time prop checks."
+        },
+        {
+          "id": "radv_q006",
+          "domain": "Patterns",
+          "difficulty": "Medium",
+          "question_text": "What is the render-props pattern used for?",
+          "options": [
+            "A) Styling components",
+            "B) Passing a function as a child to control rendering behavior",
+            "C) Creating portals",
+            "D) Avoiding hooks"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Render props let parent components provide a function to determine what and how children render."
+        },
+        {
+          "id": "radv_q007",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "Which approach helps avoid re-rendering a large subtree when ancestor state changes?",
+          "options": [
+            "A) Move subtree into separate component and memoize it with React.memo",
+            "B) Use inline functions for handlers",
+            "C) Always store state in Context",
+            "D) Use expensive computations in render"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Separating and memoizing components isolates them from ancestor re-renders."
+        },
+        {
+          "id": "radv_q008",
+          "domain": "SSR & Hydration",
+          "difficulty": "Hard",
+          "question_text": "What issue can occur during hydration when server-rendered HTML doesn't match client render?",
+          "options": [
+            "A) React will silently ignore the mismatch",
+            "B) Hydration warnings and potential DOM replacement causing UI flicker",
+            "C) The server will re-render automatically",
+            "D) The app will not load"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Hydration mismatches produce warnings and React may replace DOM nodes, causing flicker or state loss."
+        },
+        {
+          "id": "radv_q009",
+          "domain": "Architecture",
+          "difficulty": "Medium",
+          "question_text": "Which is an advantage of colocating state with the components that use it?",
+          "options": [
+            "A) Increased global coupling",
+            "B) Easier reasoning and less unnecessary re-renders",
+            "C) Harder to unit test",
+            "D) Forces use of Redux"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Localizing state keeps it close to its consumers, simplifying logic and reducing wide re-renders."
+        },
+        {
+          "id": "radv_q010",
+          "domain": "Accessibility",
+          "difficulty": "Medium",
+          "question_text": "Which ARIA attribute should a combobox-like input include for accessibility?",
+          "options": [
+            "A) aria-hidden",
+            "B) role=\"combobox\" and aria-expanded",
+            "C) tabindex=\"-1\" only",
+            "D) data-combobox"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Proper ARIA roles and states (e.g., aria-expanded) improve screen reader support for widgets."
+        },
+        {
+          "id": "radv_q011",
+          "domain": "Patterns",
+          "difficulty": "Hard",
+          "question_text": "When migrating a legacy app to React, which incremental approach is recommended?",
+          "options": [
+            "A) Rewrite entire app at once",
+            "B) Use adapter/wrapper components and integrate progressively",
+            "C) Replace only CSS",
+            "D) Remove routing first"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Incremental migration with wrappers allows gradual adoption and less disruption."
+        },
+        {
+          "id": "radv_q012",
+          "domain": "Testing",
+          "difficulty": "Hard",
+          "question_text": "Which technique helps isolate component tests from network dependencies?",
+          "options": [
+            "A) Rely on real network calls",
+            "B) Mock fetch/XHR and injection points or use MSW (mock service worker)",
+            "C) Skip tests",
+            "D) Use console logs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Mocking network calls (or using MSW) keeps tests deterministic and fast."
+        },
+        {
+          "id": "radv_q013",
+          "domain": "TypeScript",
+          "difficulty": "Medium",
+          "question_text": "How do you type a functional component that accepts children in TypeScript?",
+          "options": [
+            "A) interface Props { children?: React.ReactNode }",
+            "B) interface Props { children: any } only",
+            "C) No typing needed",
+            "D) Use PropTypes"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "React.ReactNode is the recommended type for children in TypeScript interfaces."
+        },
+        {
+          "id": "radv_q014",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "What's a good reason to prefer reducer-based state (useReducer) over multiple useState calls?",
+          "options": [
+            "A) When state transitions depend on previous state in complex ways",
+            "B) When state is only boolean flags",
+            "C) When state is never updated",
+            "D) When using class components"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "useReducer centralizes transition logic and is clearer for complex state changes."
+        },
+        {
+          "id": "radv_q015",
+          "domain": "Patterns",
+          "difficulty": "Hard",
+          "question_text": "Which is a trade-off when using HOCs instead of hooks?",
+          "options": [
+            "A) HOCs are always faster than hooks",
+            "B) HOCs can lead to wrapper hell and obfuscate component trees",
+            "C) HOCs make component testing easier always",
+            "D) HOCs remove need for props"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "HOCs can wrap components repeatedly, making debugging and DevTools trees more complex."
+        },
+        {
+          "id": "radv_q016",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "Which tool helps find unnecessary renders in a React app?",
+          "options": [
+            "A) React DevTools Profiler and why-did-you-render",
+            "B) console.log only",
+            "C) HTML validator",
+            "D) CSS lint"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The Profiler and dev tools (and libraries like why-did-you-render) help surface render issues."
+        },
+        {
+          "id": "radv_q017",
+          "domain": "SSR & Hydration",
+          "difficulty": "Medium",
+          "question_text": "Which Next.js feature helps pre-render a page at build time?",
+          "options": [
+            "A) getServerSideProps",
+            "B) getStaticProps",
+            "C) useEffect",
+            "D) getInitialProps only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "getStaticProps runs at build time to pre-render pages with static data."
+        },
+        {
+          "id": "radv_q018",
+          "domain": "Accessibility",
+          "difficulty": "Medium",
+          "question_text": "What's an important keyboard consideration for a custom modal dialog?",
+          "options": [
+            "A) Disable focus trapping",
+            "B) Trap focus inside the modal and return focus on close",
+            "C) Remove tabindex from interactive elements",
+            "D) Allow background clicks only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A modal should trap focus and restore it when closed for accessibility and keyboard users."
+        },
+        {
+          "id": "radv_q019",
+          "domain": "Patterns",
+          "difficulty": "Medium",
+          "question_text": "What is 'compound component' pattern used for?",
+          "options": [
+            "A) To group related components sharing implicit state",
+            "B) To create singletons",
+            "C) To avoid props entirely",
+            "D) To manage DOM nodes manually"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Compound components allow components to communicate via implicit shared state provided by a parent."
+        },
+        {
+          "id": "radv_q020",
+          "domain": "TypeScript",
+          "difficulty": "Hard",
+          "question_text": "How do you type forwardRef in TypeScript for a component that forwards to an input element?",
+          "options": [
+            "A) React.forwardRef<HTMLInputElement, Props>((props, ref) => ...)",
+            "B) forwardRef<any>((props, ref) => ...)",
+            "C) Use any for everything",
+            "D) No typing needed"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Generic typing of forwardRef ensures the forwarded ref has the correct DOM element type."
+        },
+        {
+          "id": "radv_q021",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "Which method improves test readability by focusing on accessibility?",
+          "options": [
+            "A) Querying by test-id attributes primarily",
+            "B) Querying by role/text/label using React Testing Library",
+            "C) Querying internals via component instance",
+            "D) Using snapshot tests only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Testing by accessible roles/labels aligns tests with how users interact with the UI."
+        },
+        {
+          "id": "radv_q022",
+          "domain": "Architecture",
+          "difficulty": "Hard",
+          "question_text": "Which is a sign your app could benefit from splitting into micro-frontends?",
+          "options": [
+            "A) Single small UI",
+            "B) Large monolith with independently deployable teams and divergent tech needs",
+            "C) A static marketing site",
+            "D) A minimal admin dashboard"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Micro-frontends are useful when parts of the app need independent deployment or tech stacks."
+        },
+        {
+          "id": "radv_q023",
+          "domain": "Patterns",
+          "difficulty": "Medium",
+          "question_text": "Which technique helps when you need to share imperative API from child to parent?",
+          "options": [
+            "A) useLayoutEffect only",
+            "B) useImperativeHandle with forwardRef",
+            "C) Passing callbacks via props only",
+            "D) Using Context without refs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useImperativeHandle customizes the instance value exposed to parent refs when forwarding refs."
+        },
+        {
+          "id": "radv_q024",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "Which technique helps deliver initial UI quickly for large component trees?",
+          "options": [
+            "A) Render entire app synchronously",
+            "B) Code-splitting with React.lazy and Suspense or route-based splitting",
+            "C) Inline all JS in HTML",
+            "D) Use large images"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Code-splitting reduces initial bundle size and speeds up first render by loading only required code."
+        },
+        {
+          "id": "radv_q025",
+          "domain": "Data Fetching",
+          "difficulty": "Medium",
+          "question_text": "Which library focuses on caching server state and background fetching in React?",
+          "options": [
+            "A) Redux",
+            "B) React Query (TanStack Query)",
+            "C) PropTypes",
+            "D) Styled-components"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "React Query simplifies server-state management, caching, and background updates in React apps."
+        },
+        {
+          "id": "radv_q026",
+          "domain": "Testing",
+          "difficulty": "Hard",
+          "question_text": "Which assertion style is recommended to avoid flakiness when testing async UI updates?",
+          "options": [
+            "A) Immediately assert after triggering an event",
+            "B) Use waitFor or findBy queries to wait for the expected UI",
+            "C) Use setTimeout with fixed delays",
+            "D) Rely on snapshots"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Waiting patterns like waitFor or findBy handle asynchronous UI changes reliably."
+        },
+        {
+          "id": "radv_q027",
+          "domain": "Accessibility",
+          "difficulty": "Hard",
+          "question_text": "Which HTML element is best to use for application navigation to convey semantics?",
+          "options": [
+            "A) div",
+            "B) nav",
+            "C) span",
+            "D) section only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The semantic <nav> element indicates navigation links to assistive technologies."
+        },
+        {
+          "id": "radv_q028",
+          "domain": "Architecture",
+          "difficulty": "Medium",
+          "question_text": "Why might you choose server components (React Server Components) for parts of UI?",
+          "options": [
+            "A) To access DOM APIs on server",
+            "B) To render heavy data dependencies on server and reduce client bundle",
+            "C) To avoid hydration",
+            "D) To run client-only hooks on server"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Server components can reduce client work by server-rendering components that don't need client interactivity."
+        },
+        {
+          "id": "radv_q029",
+          "domain": "Patterns",
+          "difficulty": "Medium",
+          "question_text": "Which design reduces coupling when multiple sibling components need shared behavior?",
+          "options": [
+            "A) Lift state up to nearest common ancestor",
+            "B) Storing everything in localStorage",
+            "C) Using global window variables",
+            "D) Repeating logic in each component"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Lifting state to a common ancestor centralizes shared data and reduces duplication."
+        },
+        {
+          "id": "radv_q030",
+          "domain": "Advanced Patterns",
+          "difficulty": "Hard",
+          "question_text": "What is one downside of overusing context for many separate concerns?",
+          "options": [
+            "A) Nothing; context is always best",
+            "B) Large contexts can cause frequent re-renders and make reasoning harder",
+            "C) It prevents code splitting",
+            "D) It disables hooks"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Overusing context can lead to performance issues and tightly coupled components; prefer local state when appropriate."
+        }
+      ]
+    },
+    {
+      "id": "tech-react-set3",
+      "name": "React Performance & Optimization",
+      "title": "Performance — Rendering, Memoization & Profiling",
+      "focus_on": "Rendering performance, memoization strategies, profiling, virtualization, code-splitting, and browser rendering considerations",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-tachometer-alt text-indigo-600",
+          "topic": "React Profiler & performance diagnosis"
+        },
+        {
+          "icon": "fas fa-memory text-purple-600",
+          "topic": "Memoization (React.memo, useMemo, useCallback)"
+        },
+        {
+          "icon": "fas fa-code-branch text-yellow-600",
+          "topic": "Code-splitting & lazy loading (React.lazy / Suspense)"
+        },
+        {
+          "icon": "fas fa-stream text-teal-600",
+          "topic": "List virtualization / windowing"
+        },
+        {
+          "icon": "fas fa-paint-roller text-pink-600",
+          "topic": "Browser paint/layout costs & CSS optimizations"
+        },
+        {
+          "icon": "fas fa-network-wired text-green-600",
+          "topic": "Network caching / prefetching strategies"
+        },
+        {
+          "icon": "fas fa-clock text-amber-600",
+          "topic": "Concurrent features (useTransition, deferred updates)"
+        },
+        {
+          "icon": "fas fa-key text-blue-600",
+          "topic": "Reconciliation & key usage best practices"
+        }
+      ],
+      "icon": "fas fa-tachometer-alt text-indigo-600",
+      "difficulty": "Advanced",
+      "description": "30 targeted questions to validate deep knowledge of optimizing React UIs and diagnosing performance bottlenecks.",
+      "total_questions": "30",
+      "time_limit": "50",
+      "passing_score": "80",
+      "active": true,
+      "questions": [
+        {
+          "id": "rperf_q001",
+          "domain": "Rendering",
+          "difficulty": "Medium",
+          "question_text": "Which of the following reduces layout thrashing when measuring elements frequently?",
+          "options": [
+            "A) Read and write DOM alternately in many steps",
+            "B) Batch reads first, then batch writes to the DOM",
+            "C) Use inline styles only",
+            "D) Use synchronous XHR"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Batching reads and writes avoids forced synchronous layout and improves performance."
+        },
+        {
+          "id": "rperf_q002",
+          "domain": "Memoization",
+          "difficulty": "Medium",
+          "question_text": "When should you use useMemo?",
+          "options": [
+            "A) To memoize event handlers only",
+            "B) For expensive calculations to avoid recomputation when dependencies don't change",
+            "C) To persist refs",
+            "D) To prevent hooks rules violations"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useMemo caches expensive computations and recomputes only when dependencies change."
+        },
+        {
+          "id": "rperf_q003",
+          "domain": "React.memo",
+          "difficulty": "Medium",
+          "question_text": "Why might React.memo not prevent a child re-render?",
+          "options": [
+            "A) Because memo only works for class components",
+            "B) Because parent passes new prop object references each render",
+            "C) Because React.memo is deprecated",
+            "D) Because it only works with refs"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "If props change by identity (new objects/functions), memoization won't help; use stable references."
+        },
+        {
+          "id": "rperf_q004",
+          "domain": "Profiling",
+          "difficulty": "Hard",
+          "question_text": "What metric in the React Profiler indicates how long a component took to render?",
+          "options": [
+            "A) Committed time (actual render time) or render duration",
+            "B) Network latency",
+            "C) Memory usage",
+            "D) LCP only"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Profiler shows render durations and committed times to identify slow components."
+        },
+        {
+          "id": "rperf_q005",
+          "domain": "Code-splitting",
+          "difficulty": "Medium",
+          "question_text": "Which pattern is recommended to lazily load route-level code in React?",
+          "options": [
+            "A) Import everything at top-level",
+            "B) React.lazy combined with Suspense for route components",
+            "C) Inline large modules",
+            "D) Use setTimeout for imports"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "React.lazy + Suspense lets you split code and show fallback UI during loading."
+        },
+        {
+          "id": "rperf_q006",
+          "domain": "Virtualization",
+          "difficulty": "Medium",
+          "question_text": "What's the benefit of list virtualization (windowing) for very large lists?",
+          "options": [
+            "A) Shows all items at once",
+            "B) Renders only visible items to reduce DOM nodes and improve performance",
+            "C) Decreases network bandwidth",
+            "D) Eliminates need for keys"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Virtualization renders a subset of items in view, lowering memory and paint costs."
+        },
+        {
+          "id": "rperf_q007",
+          "domain": "Browser Rendering",
+          "difficulty": "Hard",
+          "question_text": "Which CSS property change is most expensive for the browser and should be avoided in animations?",
+          "options": [
+            "A) transform",
+            "B) opacity",
+            "C) top/left/width/height (layout-affecting properties)",
+            "D) filter"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Layout-affecting properties force reflow and are costly; prefer transform/opacity for animations."
+        },
+        {
+          "id": "rperf_q008",
+          "domain": "Network & Caching",
+          "difficulty": "Medium",
+          "question_text": "Which strategy reduces network calls for repeat data requests in React apps?",
+          "options": [
+            "A) Never cache",
+            "B) Use a caching layer (e.g., React Query) and stale-while-revalidate strategies",
+            "C) Use synchronous fetch every time",
+            "D) Inline JSON into every component"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Caching libraries and strategies avoid redundant network requests and offer freshness controls."
+        },
+        {
+          "id": "rperf_q009",
+          "domain": "Reconciliation",
+          "difficulty": "Hard",
+          "question_text": "How does React use keys to optimize reconciliation for lists?",
+          "options": [
+            "A) Keys let React identify which items changed, moved, or were removed instead of re-rendering all",
+            "B) Keys style list items automatically",
+            "C) Keys prevent events from firing",
+            "D) Keys increase bundle size"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Keys provide stable identity for list items so React can minimize DOM updates."
+        },
+        {
+          "id": "rperf_q010",
+          "domain": "useEffect",
+          "difficulty": "Medium",
+          "question_text": "Which hook should run synchronously after DOM mutations for measurements before paint?",
+          "options": [
+            "A) useEffect",
+            "B) useLayoutEffect",
+            "C) useMemo",
+            "D) useDeferredValue"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useLayoutEffect runs after DOM mutations but before the browser paints, useful for measurements."
+        },
+        {
+          "id": "rperf_q011",
+          "domain": "Memoization",
+          "difficulty": "Hard",
+          "question_text": "What is a potential downside of overusing useMemo for micro-optimizations?",
+          "options": [
+            "A) Increased memory overhead and added complexity without measurable win",
+            "B) It always improves performance",
+            "C) It breaks hooks rules",
+            "D) It prevents SSR"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Unnecessary memoization increases memory and cognitive load; use where cost outweighs cache overhead."
+        },
+        {
+          "id": "rperf_q012",
+          "domain": "Code-splitting",
+          "difficulty": "Medium",
+          "question_text": "Which problem can chunk splitting introduce and how to mitigate it?",
+          "options": [
+            "A) Increased initial bundle size; mitigate by splitting bigger",
+            "B) Too many network requests causing waterfall delays; mitigate by prefetching critical chunks",
+            "C) Prevents caching; mitigate by disabling cache",
+            "D) Breaks JSX syntax"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Too many small chunks can cause many requests; prefetching or grouping critical chunks helps."
+        },
+        {
+          "id": "rperf_q013",
+          "domain": "Profiling",
+          "difficulty": "Hard",
+          "question_text": "Which metric is useful to measure rendering impact perceived by users?",
+          "options": [
+            "A) Component render time only",
+            "B) Time to interactive (TTI) and Largest Contentful Paint (LCP)",
+            "C) CSS lint warnings",
+            "D) Number of lines of code"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Real-user metrics like TTI and LCP reflect perceived performance beyond component render times."
+        },
+        {
+          "id": "rperf_q014",
+          "domain": "Virtualization",
+          "difficulty": "Medium",
+          "question_text": "Which library is commonly used for list virtualization in React?",
+          "options": [
+            "A) lodash",
+            "B) react-window or react-virtualized",
+            "C) prop-types",
+            "D) styled-components"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "react-window and react-virtualized implement efficient windowing for large lists."
+        },
+        {
+          "id": "rperf_q015",
+          "domain": "Rendering",
+          "difficulty": "Medium",
+          "question_text": "What is the benefit of using progressive hydration (or streaming SSR)?",
+          "options": [
+            "A) It makes hydration synchronous",
+            "B) It enables faster time-to-interactive by hydrating important parts first",
+            "C) It disables client JS",
+            "D) It increases bundle size"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Progressive hydration prioritizes interactive parts to improve perceived performance."
+        },
+        {
+          "id": "rperf_q016",
+          "domain": "useTransition",
+          "difficulty": "Hard",
+          "question_text": "What problem does useTransition help solve in React concurrent UI?",
+          "options": [
+            "A) Synchronous blocking renders for expensive updates; it allows marking updates as low-priority",
+            "B) Replaces useEffect",
+            "C) Disables suspense",
+            "D) Forces immediate updates always"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "useTransition marks updates as non-urgent so React can keep UI responsive during heavy updates."
+        },
+        {
+          "id": "rperf_q017",
+          "domain": "Network",
+          "difficulty": "Medium",
+          "question_text": "Which header or policy helps reduce redundant network requests for static assets?",
+          "options": [
+            "A) Disable caching",
+            "B) Use Cache-Control and long max-age with proper cache invalidation",
+            "C) Always inline assets",
+            "D) Use random query strings"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Cache-control headers let browsers cache static assets and reduce repeated downloads; use versioning to invalidate."
+        },
+        {
+          "id": "rperf_q018",
+          "domain": "Reconciliation",
+          "difficulty": "Hard",
+          "question_text": "Why is it bad to use array index as key when list order may change?",
+          "options": [
+            "A) It is actually recommended",
+            "B) It can cause incorrect DOM reuse, leading to bugs and mismatched state",
+            "C) It improves performance always",
+            "D) It makes keys shorter"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Index keys can produce incorrect component identity when items are reordered or removed."
+        },
+        {
+          "id": "rperf_q019",
+          "domain": "Rendering",
+          "difficulty": "Medium",
+          "question_text": "What's the cost of unnecessary DOM nodes from deeply nested wrappers?",
+          "options": [
+            "A) No cost",
+            "B) Increased memory, paint cost, and slower queries; prefer fragments",
+            "C) Better SEO",
+            "D) It speeds up rendering"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Excess DOM nodes increase memory and rendering workload; fragments can avoid extra wrappers."
+        },
+        {
+          "id": "rperf_q020",
+          "domain": "useEffect",
+          "difficulty": "Medium",
+          "question_text": "Why should you declare dependencies properly in useEffect hooks?",
+          "options": [
+            "A) To ensure the effect runs at correct times and avoid stale closures",
+            "B) To avoid any re-runs by leaving list empty always",
+            "C) It doesn't matter",
+            "D) To execute effects multiple times unnecessarily"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Proper dependencies ensure effects reflect latest values and prevent bugs from stale references."
+        },
+        {
+          "id": "rperf_q021",
+          "domain": "Profiling",
+          "difficulty": "Hard",
+          "question_text": "Which technique helps reduce time spent in reconciliation for many components?",
+          "options": [
+            "A) Remove keys",
+            "B) Memoize components and avoid passing new function/object props unnecessarily",
+            "C) Increase bundle size",
+            "D) Use class components only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Avoiding new prop identities and memoizing components reduces work during reconciliation."
+        },
+        {
+          "id": "rperf_q022",
+          "domain": "Rendering",
+          "difficulty": "Medium",
+          "question_text": "Which approach minimizes layout cost when animating position?",
+          "options": [
+            "A) Animate top/left properties",
+            "B) Use transform: translateX/Y for GPU-accelerated animations",
+            "C) Recompute layout in JS each frame",
+            "D) Block rendering during animation"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Transforms are GPU-friendly and avoid reflow, resulting in smoother animations."
+        },
+        {
+          "id": "rperf_q023",
+          "domain": "Code-splitting",
+          "difficulty": "Medium",
+          "question_text": "When bundling, what helps reduce overall JS for initial page load?",
+          "options": [
+            "A) Tree shaking, code-splitting and removing unused dependencies",
+            "B) Inlining all dependencies",
+            "C) Duplicating code",
+            "D) Adding polyfills unnecessarily"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Tree-shaking and splitting remove unused code and delay loading non-critical modules."
+        },
+        {
+          "id": "rperf_q024",
+          "domain": "Virtualization",
+          "difficulty": "Hard",
+          "question_text": "Which challenge must virtualization handle for variable-height list items?",
+          "options": [
+            "A) Fixed-height assumption only",
+            "B) Measuring item sizes and managing scroll offsets accurately",
+            "C) Removing keys",
+            "D) Always using index keys"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Variable heights require measurement and dynamic offset calculations to correctly virtualize."
+        },
+        {
+          "id": "rperf_q025",
+          "domain": "useDeferredValue",
+          "difficulty": "Hard",
+          "question_text": "What does useDeferredValue help with in large UIs?",
+          "options": [
+            "A) Make updates immediate",
+            "B) De-prioritize expensive value updates to keep UI responsive",
+            "C) Replace useState",
+            "D) Force synchronous rendering"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useDeferredValue defers an update so React can prioritize urgent renders for responsiveness."
+        },
+        {
+          "id": "rperf_q026",
+          "domain": "Network",
+          "difficulty": "Medium",
+          "question_text": "Which pattern helps speed up navigation to a route the user is likely to click next?",
+          "options": [
+            "A) Prefetching route chunks or data on hover/anticipation",
+            "B) Disabling route transitions",
+            "C) Loading everything at once during initial load",
+            "D) Only using static pages"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Prefetching resources reduces perceived latency for anticipated navigations."
+        },
+        {
+          "id": "rperf_q027",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "Which type of caching is most effective for client-side computed data that rarely changes?",
+          "options": [
+            "A) No caching",
+            "B) Memoization with expiration or persistent caching (localStorage) with invalidation",
+            "C) Server-only caching",
+            "D) Inline HTML caching"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Client-side memoization or persisted cache reduces recomputation for stable data."
+        },
+        {
+          "id": "rperf_q028",
+          "domain": "Rendering",
+          "difficulty": "Hard",
+          "question_text": "Why should you avoid anonymous functions in props when passing to many memoized children?",
+          "options": [
+            "A) They are required for memoization",
+            "B) They create new function identities each render causing re-renders",
+            "C) They reduce bundle size",
+            "D) They improve readability"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Anonymous functions are new on each render; use useCallback or stable handlers to avoid re-renders."
+        },
+        {
+          "id": "rperf_q029",
+          "domain": "Profiling",
+          "difficulty": "Medium",
+          "question_text": "Which action is best after identifying a slow component in Profiler?",
+          "options": [
+            "A) Immediately remove the component",
+            "B) Investigate cause, consider memoization, reducing props, or splitting component",
+            "C) Ignore it",
+            "D) Add more state"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Diagnose root cause and apply targeted optimizations rather than blanket removal."
+        },
+        {
+          "id": "rperf_q030",
+          "domain": "Rendering",
+          "difficulty": "Hard",
+          "question_text": "Which combination yields the most predictable UI responsiveness under heavy updates?",
+          "options": [
+            "A) No memoization, many direct DOM mutations",
+            "B) Use of concurrent features (transitions), memoization, and splitting large updates",
+            "C) Large synchronous loops in render",
+            "D) Increasing setTimeout delays"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Concurrent updates, prioritized transitions, and component isolation improve responsiveness."
+        }
+      ]
+    },
+    {
+      "id": "tech-react-set4",
+      "name": "React UI Ecosystem & Styling",
+      "title": "UI Development — Styling, Theming, Component Libraries & Accessibility",
+      "focus_on": "CSS-in-JS, component libraries (Material/Tailwind), design systems, accessibility, theming, icons, responsive patterns and integration with React",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-paint-brush text-purple-600",
+          "topic": "CSS-in-JS and styled-components"
+        },
+        {
+          "icon": "fab fa-css3-alt text-sky-500",
+          "topic": "Utility-first styling (Tailwind) integration"
+        },
+        {
+          "icon": "fas fa-swatches text-indigo-600",
+          "topic": "Design tokens & theming (CSS variables)"
+        },
+        {
+          "icon": "fas fa-universal-access text-emerald-600",
+          "topic": "ARIA, landmarks & accessible components"
+        },
+        {
+          "icon": "fas fa-mobile-alt text-pink-500",
+          "topic": "Responsive design & container queries"
+        },
+        {
+          "icon": "fas fa-icons text-yellow-500",
+          "topic": "SVG icons, sprites & accessibility"
+        },
+        {
+          "icon": "fas fa-camera-retro text-red-500",
+          "topic": "Visual regression & style testing"
+        },
+        {
+          "icon": "fas fa-puzzle-piece text-gray-700",
+          "topic": "Integrating component libraries (MUI, Chakra) safely"
+        }
+      ],
+      "icon": "fas fa-paint-brush text-pink-500",
+      "difficulty": "Mixed",
+      "description": "30 questions covering practical UI topics React developers face: styling patterns, theming, accessibility, responsive UI, and library integration.",
+      "total_questions": "30",
+      "time_limit": "45",
+      "passing_score": "77",
+      "active": true,
+      "questions": [
+        {
+          "id": "ruix_q001",
+          "domain": "Styling",
+          "difficulty": "Easy",
+          "question_text": "Which library enables writing CSS inside JavaScript components using tagged template literals?",
+          "options": [
+            "A) Tailwind",
+            "B) styled-components",
+            "C) Bootstrap",
+            "D) Sass only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "styled-components uses tagged template literals to author component-scoped styles in JS."
+        },
+        {
+          "id": "ruix_q002",
+          "domain": "Tailwind",
+          "difficulty": "Easy",
+          "question_text": "How does Tailwind encourage styling in React components?",
+          "options": [
+            "A) Writing global CSS only",
+            "B) Using utility class names directly on JSX elements",
+            "C) Using inline styles only",
+            "D) Using CSS modules exclusively"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Tailwind provides utility classes that are applied directly in the className attribute."
+        },
+        {
+          "id": "ruix_q003",
+          "domain": "Theming",
+          "difficulty": "Medium",
+          "question_text": "What is a recommended approach to implement theming across a React app?",
+          "options": [
+            "A) Hard code colors everywhere",
+            "B) Use a theme provider (Context) with tokens and CSS variables",
+            "C) Use inline styles only",
+            "D) Duplicate components for each theme"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Using a theme provider and CSS variables centralizes tokens for consistent theming."
+        },
+        {
+          "id": "ruix_q004",
+          "domain": "Accessibility",
+          "difficulty": "Medium",
+          "question_text": "Which attribute ensures screen readers announce the label for an input?",
+          "options": [
+            "A) aria-labelledby or proper <label> for attribute",
+            "B) data-label",
+            "C) title only",
+            "D) className"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Use <label for> or aria-labelledby to associate labels with inputs for screen readers."
+        },
+        {
+          "id": "ruix_q005",
+          "domain": "Responsive Design",
+          "difficulty": "Medium",
+          "question_text": "Which approach is best for responsive React components?",
+          "options": [
+            "A) Hardcode pixel sizes for all screens",
+            "B) Combine CSS media queries, relative units, and container queries where supported",
+            "C) Use only JavaScript to resize elements",
+            "D) Use fixed width containers"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Responsive UIs use CSS media queries, flexible units and container queries for adaptability."
+        },
+        {
+          "id": "ruix_q006",
+          "domain": "Component Libraries",
+          "difficulty": "Medium",
+          "question_text": "Why might you prefer a headless component library (e.g., Headless UI) over a full UI kit?",
+          "options": [
+            "A) Provides semantics and behavior while allowing custom styling",
+            "B) Comes with fixed styles only",
+            "C) Prevents accessibility",
+            "D) This is never preferred"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Headless libraries supply behavior and accessibility but allow custom visual design."
+        },
+        {
+          "id": "ruix_q007",
+          "domain": "SVG & Icons",
+          "difficulty": "Medium",
+          "question_text": "What is an advantage of inline SVG icons over icon fonts?",
+          "options": [
+            "A) Fewer styling options",
+            "B) Better control over color, accessibility, and scalable paths",
+            "C) Icons cannot be animated",
+            "D) Larger file sizes always"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Inline SVGs provide precise control over visuals, accessibility attributes and animation."
+        },
+        {
+          "id": "ruix_q008",
+          "domain": "CSS-in-JS",
+          "difficulty": "Hard",
+          "question_text": "What is a common runtime cost of CSS-in-JS libraries you should consider?",
+          "options": [
+            "A) No runtime cost",
+            "B) Generating styles at runtime which can add JS work and runtime style injection",
+            "C) Prevents code-splitting",
+            "D) Requires server-side rendering only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Some CSS-in-JS libraries evaluate and inject styles at runtime, adding work to the JS thread."
+        },
+        {
+          "id": "ruix_q009",
+          "domain": "Design Systems",
+          "difficulty": "Hard",
+          "question_text": "What advantage do design tokens provide in a design system?",
+          "options": [
+            "A) They lock the UI to one theme only",
+            "B) They provide centralized variables for spacing, colors, typography across platforms",
+            "C) They replace the need for components",
+            "D) They are only used in PSD files"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Design tokens standardize visual values for consistent implementation across apps and platforms."
+        },
+        {
+          "id": "ruix_q010",
+          "domain": "Styling",
+          "difficulty": "Medium",
+          "question_text": "Which pattern helps avoid style collisions in a large component library?",
+          "options": [
+            "A) Using global classes only",
+            "B) CSS modules, scoped class names, or CSS-in-JS scoping",
+            "C) Inline styles with random IDs",
+            "D) No styles"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Scoping strategies like CSS Modules or CSS-in-JS prevent class name collisions."
+        },
+        {
+          "id": "ruix_q011",
+          "domain": "Accessibility",
+          "difficulty": "Medium",
+          "question_text": "Which element should be used for an icon-only button to be accessible?",
+          "options": [
+            "A) div with onClick",
+            "B) button with aria-label describing its action",
+            "C) span only",
+            "D) img without alt"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Use semantic <button> and provide aria-label so assistive tech can describe the action."
+        },
+        {
+          "id": "ruix_q012",
+          "domain": "Testing Visuals",
+          "difficulty": "Medium",
+          "question_text": "Which approach helps detect unintended visual changes in UI components?",
+          "options": [
+            "A) Manual inspection only",
+            "B) Visual regression testing tools (e.g., Percy, Chromatic) or snapshot with care",
+            "C) Unit tests of internal functions",
+            "D) Linting CSS only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Visual regression tools capture screenshots and detect pixel differences between versions."
+        },
+        {
+          "id": "ruix_q013",
+          "domain": "Theming",
+          "difficulty": "Hard",
+          "question_text": "How can CSS variables improve theming compared to hard-coded values?",
+          "options": [
+            "A) They cannot be changed at runtime",
+            "B) CSS variables allow runtime theme switching and inheritance with low cost",
+            "C) They increase bundle size significantly",
+            "D) They are not supported in modern browsers"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "CSS vars can be updated at runtime (e.g., on root) enabling efficient theme changes."
+        },
+        {
+          "id": "ruix_q014",
+          "domain": "Integration",
+          "difficulty": "Medium",
+          "question_text": "When integrating Material UI (MUI) into a project, how should you approach overriding default styles?",
+          "options": [
+            "A) Modify library source files",
+            "B) Use theme customization and sx/overrides rather than editing internals",
+            "C) Use !important in random places",
+            "D) Avoid theming"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "MUI provides theming APIs and override points to customize styles safely."
+        },
+        {
+          "id": "ruix_q015",
+          "domain": "Responsive Design",
+          "difficulty": "Medium",
+          "question_text": "What is mobile-first design in CSS?",
+          "options": [
+            "A) Writing styles for desktop first then overriding for mobile",
+            "B) Writing base styles for small screens and adding media queries for larger screens",
+            "C) Only using inline styles",
+            "D) Using fixed pixel widths for mobile"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Mobile-first defines base styles for small screens and progressively enhances for larger viewports."
+        },
+        {
+          "id": "ruix_q016",
+          "domain": "Icons",
+          "difficulty": "Medium",
+          "question_text": "Which technique reduces SVG icon bundle size when using many icons?",
+          "options": [
+            "A) Inline every icon in each component",
+            "B) Use an SVG sprite, icon font, or optimized tree-shaken component library",
+            "C) Use high-resolution PNGs",
+            "D) Duplicate SVGs across files"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Sprites or optimized libraries reduce duplication and allow caching to lower bundle impact."
+        },
+        {
+          "id": "ruix_q017",
+          "domain": "Styling",
+          "difficulty": "Hard",
+          "question_text": "Which security consideration matters when injecting styles from user-provided content?",
+          "options": [
+            "A) There are no security issues",
+            "B) Danger of CSS-based data exfiltration and ensure no untrusted style injection",
+            "C) Only JavaScript is dangerous",
+            "D) Use inline styles always"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Be careful with user-injected styles which can leak data or manipulate UI; sanitize or sandbox."
+        },
+        {
+          "id": "ruix_q018",
+          "domain": "Design Systems",
+          "difficulty": "Medium",
+          "question_text": "What is a token in the context of design systems?",
+          "options": [
+            "A) A secret key",
+            "B) A named variable representing a design value (color, spacing, size)",
+            "C) A type of CSS rule",
+            "D) An NPM package"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Tokens are atomic design values used across components to ensure consistency."
+        },
+        {
+          "id": "ruix_q019",
+          "domain": "Accessibility",
+          "difficulty": "Hard",
+          "question_text": "Which pattern ensures accessible keyboard navigation for a custom dropdown widget?",
+          "options": [
+            "A) No keyboard support needed",
+            "B) Use role='listbox', manage focus with arrow keys, and update aria-activedescendant",
+            "C) Only respond to mouse clicks",
+            "D) Use tabindex='-1' only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Accessible widgets must handle keyboard interactions and ARIA states appropriately."
+        },
+        {
+          "id": "ruix_q020",
+          "domain": "Styling",
+          "difficulty": "Medium",
+          "question_text": "What benefit do utility-first frameworks (like Tailwind) give UI teams?",
+          "options": [
+            "A) They remove need for design tokens",
+            "B) They accelerate building consistent UIs with composable utility classes",
+            "C) They enforce inline JS styles",
+            "D) They prevent responsiveness"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Utility frameworks provide composable classes enabling fast, consistent layouts and reduced CSS bloat."
+        },
+        {
+          "id": "ruix_q021",
+          "domain": "Visual Testing",
+          "difficulty": "Hard",
+          "question_text": "How can you make visual regression tests less brittle?",
+          "options": [
+            "A) Compare pixel-perfect images only",
+            "B) Use tolerant thresholds, ignore dynamic regions, and baseline stable states",
+            "C) Always update baselines without review",
+            "D) Avoid snapshots"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Configuring tolerances and masking dynamic regions reduces false positives in visual tests."
+        },
+        {
+          "id": "ruix_q022",
+          "domain": "Integration",
+          "difficulty": "Medium",
+          "question_text": "Which approach helps integrate third-party CSS frameworks without global style conflicts?",
+          "options": [
+            "A) Import everything globally un-scoped",
+            "B) Scope third-party CSS using CSS modules or isolate via iframe/sandbox when necessary",
+            "C) Duplicate classes across files",
+            "D) Use inline CSS always"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Scoping or isolating third-party styles prevents collisions with existing styles."
+        },
+        {
+          "id": "ruix_q023",
+          "domain": "Styling",
+          "difficulty": "Medium",
+          "question_text": "What role do 'tokens' play in implementing dark mode reliably?",
+          "options": [
+            "A) Tokens can't help with dark mode",
+            "B) Tokens let you swap color variables at root to switch themes consistently",
+            "C) Tokens slow down rendering",
+            "D) Tokens only for font sizes"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Changing token values (CSS vars) at the root toggles themes consistently across components."
+        },
+        {
+          "id": "ruix_q024",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "What styling tactic reduces layout shift when loading web fonts?",
+          "options": [
+            "A) Not specifying font-display",
+            "B) Use font-display: swap and reserve layout space via fallback fonts or CSS",
+            "C) Inline base64 fonts always",
+            "D) Load fonts synchronously on every route"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "font-display: swap and thoughtful fallback sizing minimize layout shifts during font load."
+        },
+        {
+          "id": "ruix_q025",
+          "domain": "Icons",
+          "difficulty": "Medium",
+          "question_text": "Which accessibility attribute should you include on purely decorative SVG icons?",
+          "options": [
+            "A) role='img' with aria-label",
+            "B) aria-hidden='true' so screen readers ignore them",
+            "C) title only",
+            "D) tabindex='0'"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Mark decorative icons aria-hidden to prevent screen readers from reading irrelevant content."
+        },
+        {
+          "id": "ruix_q026",
+          "domain": "Design Systems",
+          "difficulty": "Hard",
+          "question_text": "How should you version design tokens to manage breaking visual changes safely?",
+          "options": [
+            "A) Never version tokens",
+            "B) Use semantic versioning and deprecation strategy, allowing gradual migrations",
+            "C) Change tokens in place without communication",
+            "D) Store tokens only in CSS files"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Versioning with clear deprecation paths enables controlled adoption of visual changes."
+        },
+        {
+          "id": "ruix_q027",
+          "domain": "Accessibility",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of using landmark roles (e.g., role='main', role='navigation')?",
+          "options": [
+            "A) For styling only",
+            "B) To help assistive tech navigate page structure quickly",
+            "C) To break semantics",
+            "D) To disable keyboard navigation"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Landmark roles provide meaningful regions for screen reader users to jump between sections."
+        },
+        {
+          "id": "ruix_q028",
+          "domain": "Integration",
+          "difficulty": "Hard",
+          "question_text": "When using server-side rendering and client-side styling, what must you ensure to avoid style flicker?",
+          "options": [
+            "A) Do nothing special",
+            "B) Hydrate with same CSS order and critical CSS included in the server HTML",
+            "C) Load client CSS only after hydration",
+            "D) Use inline styles only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Ensure server and client CSS match and include critical CSS to avoid flash of unstyled or mismatched content."
+        },
+        {
+          "id": "ruix_q029",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "Which tool helps analyze CSS coverage and unused rules to reduce CSS bloat?",
+          "options": [
+            "A) React DevTools",
+            "B) Coverage tab in Chrome DevTools or PurgeCSS with build-time analysis",
+            "C) console.log",
+            "D) npm audit"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Coverage tools and build-time purging identify unused CSS and reduce payload size."
+        },
+        {
+          "id": "ruix_q030",
+          "domain": "UI Development",
+          "difficulty": "Hard",
+          "question_text": "What's a sound strategy to build accessible, themeable, and performant UI components for libraries?",
+          "options": [
+            "A) Hardcode styles, ignore ARIA and performance",
+            "B) Use semantic HTML, expose theme tokens, keep DOM minimal, and include accessibility features by default",
+            "C) Require consumers to add accessibility",
+            "D) Bundle all styles inline only"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Design libraries should combine semantics, theming tokens, minimal DOM, and sensible accessibility defaults."
+        }
+      ]
+    },
+    {
+      "id": "tech-react-set5",
+      "name": "React Core & Hooks Proficiency Exam",
+      "title": "Mastery of React Fundamentals and Modern Hooks",
+      "focus_on": "Core React principles, JSX, component lifecycle, and the standard useState, useEffect, useReducer, and useContext hooks.",
+      "key_skills_tested": [
+        {
+          "icon": "⚛️",
+          "topic": "Component Lifecycle"
+        },
+        {
+          "icon": "📌",
+          "topic": "useState Hook"
+        },
+        {
+          "icon": "🔁",
+          "topic": "useEffect Hook"
+        },
+        {
+          "icon": "🔄",
+          "topic": "useReducer Hook"
+        },
+        {
+          "icon": "🌐",
+          "topic": "useContext Hook"
+        },
+        {
+          "icon": "🧠",
+          "topic": "Mental Model & Data Flow"
+        }
+      ],
+      "icon": "fas fa-leaf",
+      "difficulty": "Easy to Medium",
+      "description": "This exam tests the foundational knowledge of building React components using functional components and hooks. It assesses the understanding of state management, side effects, context API, and the unidirectional data flow.",
+      "total_questions": "40",
+      "time_limit": "45",
+      "passing_score": "75",
+      "active": true,
+      "questions": [
+        {
+          "id": "r1_q001",
+          "domain": "React Hooks",
+          "difficulty": "Easy",
+          "question_text": "What is the correct way to initialize a state variable 'count' with a value of 0 using the useState hook?",
+          "options": [
+            "A) const [count] = useState(0);",
+            "B) const count = useState(0);",
+            "C) const [count, setCount] = useState(0);",
+            "D) const { count, setCount } = useState(0);"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The useState hook returns an array with two elements: the current state value and a function to update it. Using array destructuring, like `const [count, setCount] = useState(0);`, is the correct syntax to access both."
+        },
+        {
+          "id": "r1_q002",
+          "domain": "React Hooks",
+          "difficulty": "Medium",
+          "question_text": "You have a useEffect hook that sets up an event listener. How do you ensure the event listener is removed when the component unmounts?",
+          "options": [
+            "A) Return a cleanup function from the useEffect callback.",
+            "B) Call the removeEventListener method inside another useEffect with an empty dependency array.",
+            "C) Use the useCleanup hook before the component unmounts.",
+            "D) It is automatically cleaned up by React; no extra code is needed."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "To perform cleanup actions like removing event listeners or canceling API calls, you return a function from the useEffect callback. This returned function is executed by React when the component unmounts or before the effect re-runs."
+        },
+        {
+          "id": "r1_q003",
+          "domain": "Component Design",
+          "difficulty": "Medium",
+          "question_text": "When would you choose useReducer over useState for state management?",
+          "options": [
+            "A) Always; useReducer is newer and preferred.",
+            "B) When you have complex state logic that involves multiple sub-values or when the next state depends on the previous one.",
+            "C) Only when you need to manage global application state.",
+            "D) When you need to improve component performance."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useReducer is preferable to useState when you have complex state transitions, similar to how Redux works. It's great for state that is an object or array, or when updates are conditional based on previous state, making the logic more predictable."
+        },
+        {
+          "id": "r1_q004",
+          "domain": "Context API",
+          "difficulty": "Medium",
+          "question_text": "What is a potential performance drawback of using Context API for state that updates frequently?",
+          "options": [
+            "A) Context can only be used in class components.",
+            "B) Every component that consumes the context will re-render, even if it only uses a part of the state that didn't change.",
+            "C) Context values are not accessible in custom hooks.",
+            "D) There are no performance drawbacks."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Context is designed for low-frequency updates (like theme or user authentication). When a context value changes, every component that calls `useContext` for that context will re-render, which can be inefficient for frequent updates if the component tree is large. Solutions include memoization or splitting contexts."
+        },
+        {
+          "id": "r1_q005",
+          "domain": "JSX & Rendering",
+          "difficulty": "Easy",
+          "question_text": "Why do you need to use `key` when rendering a list of elements?",
+          "options": [
+            "A) It's required for CSS styling of list items.",
+            "B) It helps React identify which items have changed, are added, or are removed, ensuring efficient re-rendering.",
+            "C) It automatically sorts the list items.",
+            "D) It's only needed for accessibility and has no functional impact."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Keys give elements in a list a stable identity. This allows React to efficiently update the UI by tracking items accurately. Using a unique and stable key (like an ID) prevents bugs when list items are re-ordered, added, or removed."
+        },
+        {
+          "id": "r1_q006",
+          "domain": "React Hooks",
+          "difficulty": "Hard",
+          "question_text": "What will happen if you call a state setter function (e.g., `setCount`) with the same value as the current state?",
+          "options": [
+            "A) The component will always re-render.",
+            "B) The component will re-render only if the state value is an object.",
+            "C) The component will not re-render, as React bails out of the update.",
+            "D) It will cause an infinite loop."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "React uses Object.is comparison to determine if the state has changed. If the new value is the same as the current state, React will skip re-rendering the component and its children. This is a performance optimization."
+        },
+        {
+          "id": "r1_q007",
+          "domain": "Component Lifecycle",
+          "difficulty": "Medium",
+          "question_text": "In a functional component, what is the equivalent of the class component's `componentDidMount` and `componentWillUnmount` lifecycle methods combined?",
+          "options": [
+            "A) The useMemo hook.",
+            "B) A useEffect hook with an empty dependency array and a cleanup function.",
+            "C) The useCallback hook.",
+            "D) The useState hook."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`useEffect(fn, [])` runs the effect `fn` only after the initial render (like `componentDidMount`). If `fn` returns a function, that returned function is executed on unmount (like `componentWillUnmount`)."
+        },
+        {
+          "id": "r1_q008",
+          "domain": "Hooks Rules",
+          "difficulty": "Easy",
+          "question_text": "What is the primary rule of Hooks that ESLint plugins enforce?",
+          "options": [
+            "A) Hooks can only be called from event handlers.",
+            "B) Hooks must be called in the exact same order every time a component renders.",
+            "C) Hooks can only be used in components that use JSX.",
+            "D) Hooks must be named with a 'use' prefix."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Hooks must be called at the top level of React functions. You cannot call them inside loops, conditions, or nested functions. This rule ensures that React can correctly preserve the state of Hooks between multiple useState and useEffect calls across renders."
+        },
+        {
+          "id": "r1_q009",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "How do you correctly update a state variable that is an object, based on its previous state?",
+          "options": [
+            "A) `setUser({ ...user, name: 'Alice' });`",
+            "B) `user.name = 'Alice'; setUser(user);`",
+            "C) `setUser({ name: 'Alice' });`",
+            "D) Both A and B are correct."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "State in React is immutable. You should never mutate the existing state object directly (as in option B). Instead, create a new object that copies the old properties and overwrites the ones you need to change, using the spread operator `...`."
+        },
+        {
+          "id": "r1_q010",
+          "domain": "Custom Hooks",
+          "difficulty": "Hard",
+          "question_text": "What is the main purpose of creating a custom Hook?",
+          "options": [
+            "A) To create a new React component type.",
+            "B) To extract component logic into reusable functions, allowing stateful logic to be shared between components.",
+            "C) To improve the performance of a single component.",
+            "D) To replace the Context API for global state."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Custom Hooks are JavaScript functions whose names start with 'use' and that can call other Hooks. They allow you to abstract stateful logic out of a component, making it reusable and testable without changing your component hierarchy."
+        }
+      ]
+    },
+    {
+      "id": "tech-react-set6",
+      "name": "React Performance & Patterns Expert Exam",
+      "title": "Optimization, Reusability, and Advanced Techniques",
+      "focus_on": "Component optimization (memo, useMemo, useCallback), advanced hooks (useRef, useLayoutEffect), code splitting, and patterns like HOCs and Render Props.",
+      "key_skills_tested": [
+        {
+          "icon": "🚀",
+          "topic": "Performance Optimization"
+        },
+        {
+          "icon": "📦",
+          "topic": "React.memo"
+        },
+        {
+          "icon": "🧮",
+          "topic": "useMemo & useCallback"
+        },
+        {
+          "icon": "🔍",
+          "topic": "useRef & useLayoutEffect"
+        },
+        {
+          "icon": "🧩",
+          "topic": "Composition Patterns"
+        },
+        {
+          "icon": "✂️",
+          "topic": "Code Splitting"
+        }
+      ],
+      "icon": "fas fa-fire",
+      "difficulty": "Medium to Hard",
+      "description": "This exam dives deep into techniques for building high-performance React applications. It tests knowledge of preventing unnecessary re-renders, optimizing expensive calculations, manipulating the DOM imperatively, and applying advanced design patterns for reusable code.",
+      "total_questions": "40",
+      "time_limit": "45",
+      "passing_score": "75",
+      "active": true,
+      "questions": [
+        {
+          "id": "r2_q011",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "When should you use React.memo?",
+          "options": [
+            "A) On every component to improve overall app performance.",
+            "B) On a component that renders often with the same props.",
+            "C) Only on large components that are at the top of the component tree.",
+            "D) It is deprecated and should be replaced with useMemo."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "React.memo is a higher-order component for memoizing functional components. It's most effective when used on components that re-render often with the same exact props, preventing those unnecessary re-renders. Overusing it can actually harm performance due to the cost of props comparison."
+        },
+        {
+          "id": "r2_q012",
+          "domain": "Hooks",
+          "difficulty": "Hard",
+          "question_text": "What is the key difference between useMemo and useCallback?",
+          "options": [
+            "A) useMemo memoizes values, useCallback memoizes functions.",
+            "B) useMemo is for class components, useCallback is for functional components.",
+            "C) useMemo memoizes functions, useCallback memoizes values.",
+            "D) They are identical and can be used interchangeably."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`useMemo(() => computeExpensiveValue(a, b), [a, b])` will memoize the result of a function. `useCallback(() => { doSomething(a, b) }, [a, b])` will memoize the function instance itself. Both are used to optimize performance and avoid expensive recalculations on every render."
+        },
+        {
+          "id": "r2_q013",
+          "domain": "Hooks",
+          "difficulty": "Medium",
+          "question_text": "Which hook is most appropriate to directly access a DOM element and imperatively modify it (e.g., focus an input)?",
+          "options": [
+            "A) useState",
+            "B) useContext",
+            "C) useRef",
+            "D) useEffect"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The useRef hook creates a mutable object whose `.current` property can be assigned to a DOM element via the `ref` attribute. This allows you to imperatively interact with that element without causing re-renders."
+        },
+        {
+          "id": "r2_q014",
+          "domain": "Hooks",
+          "difficulty": "Hard",
+          "question_text": "When would you choose useLayoutEffect over useEffect?",
+          "options": [
+            "A) Always, because it runs synchronously and is faster.",
+            "B) When you need to read layout from the DOM and synchronously re-render before the browser paints.",
+            "C) When making API calls.",
+            "D) When you need to log something to the console for debugging."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "useLayoutEffect fires after all DOM mutations but before the browser has painted the screen. This is useful for reading layout and then performing a synchronous re-render, preventing a visual flicker. For most side effects (data fetching, subscriptions), useEffect is the correct choice."
+        },
+        {
+          "id": "r2_q015",
+          "domain": "Patterns",
+          "difficulty": "Medium",
+          "question_text": "What is a primary advantage of the Render Props pattern?",
+          "options": [
+            "A) It makes components render faster.",
+            "B) It reduces bundle size by eliminating the need for hooks.",
+            "C) It shares code between components using a prop whose value is a function that returns JSX.",
+            "D) It automatically handles error boundaries."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The Render Prop pattern is a technique for sharing code between components by using a prop (often called `render`) that is a function. The component calls this function, passing it internal state or logic, and the function returns JSX to be rendered. It's a powerful composition pattern."
+        },
+        {
+          "id": "r2_q016",
+          "domain": "Performance",
+          "difficulty": "Medium",
+          "question_text": "What does the `React.lazy` function enable?",
+          "options": [
+            "A) Lazy initialization of state variables.",
+            "B) Code-splitting through dynamic import() for lazy-loading components.",
+            "C) Lazy evaluation of prop values.",
+            "D) A slower, more deliberate rendering process."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`React.lazy` allows you to render a dynamic import as a regular component. This enables code-splitting, where the bundle for the lazy component is only loaded when the component is about to be rendered, improving the initial load time of the app."
+        },
+        {
+          "id": "r2_q017",
+          "domain": "Patterns",
+          "difficulty": "Hard",
+          "question_text": "What is a key downside of using Higher-Order Components (HOCs) that can be solved by using custom hooks?",
+          "options": [
+            "A) HOCs cannot add state to a component.",
+            "B) HOCs can create a deeply nested 'wrapper hell' in the React DevTools, making code harder to follow.",
+            "C) HOCs are slower than custom hooks.",
+            "D) HOCs cannot be used with functional components."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "While powerful, HOCs wrap components, creating new components. This can lead to deep nesting (e.g., `WithAuth(WithTheme(WithRouter(MyComponent)))`), which is visible in DevTools. Custom Hooks allow you to extract stateful logic without adding a layer to the component hierarchy, avoiding this issue."
+        },
+        {
+          "id": "r2_q018",
+          "domain": "Error Handling",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of an Error Boundary in React?",
+          "options": [
+            "A) To catch JavaScript errors anywhere in their child component tree and display a fallback UI instead of the crashed tree.",
+            "B) To validate form inputs and show error messages.",
+            "C) To catch errors during the build process.",
+            "D) To handle promise rejections from API calls."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Error Boundaries are class components that define `static getDerivedStateFromError()` or `componentDidCatch()`. They catch JavaScript errors in their children, log those errors, and display a fallback UI, preventing the entire app from crashing due to a single component error."
+        },
+        {
+          "id": "r2_q019",
+          "domain": "Hooks",
+          "difficulty": "Hard",
+          "question_text": "How can you implement a forceUpdate-like behavior in a functional component?",
+          "options": [
+            "A) You cannot; functional components cannot force a re-render.",
+            "B) By using a state value that you toggle in a useEffect hook.",
+            "C) By using useReducer and always returning a new state object from the reducer, even if the state hasn't changed.",
+            "D) By calling `this.forceUpdate()` from a custom hook."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Since `forceUpdate` doesn't exist in functional components, a common pattern is to use useReducer and have the reducer always return a new object (e.g., an empty object or a number you increment). Calling the dispatch function will always force a re-render, even if the state is the same."
+        },
+        {
+          "id": "r2_q020",
+          "domain": "Optimization",
+          "difficulty": "Medium",
+          "question_text": "Why might passing an inline object or function as a prop cause performance issues?",
+          "options": [
+            "A) It will always cause a memory leak.",
+            "B) It breaks the rules of hooks.",
+            "C) It creates a new reference on every render, causing unnecessary re-renders in child components that are optimized with React.memo.",
+            "D) It is not valid JSX syntax."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "`<Child prop={{ key: 'value' }} />` or `<Child onClick={() => { ... }} />` creates a new object/function on every parent render. Since React.memo uses shallow reference equality to check props, the child will see a new prop every time and re-render even if the actual value is the same. useCallback and useMemo solve this."
+        }
+      ]
+    },
+    {
+      "id": "tech-react-set7",
+      "name": "React Ecosystem: Routing & State Exam",
+      "title": "Mastering Application-Wide State and Navigation",
+      "focus_on": "Client-side routing (React Router), global state management (Context API, Redux Toolkit), and data fetching patterns (useEffect, RTK Query, React Query).",
+      "key_skills_tested": [
+        {
+          "icon": "🧭",
+          "topic": "React Router"
+        },
+        {
+          "icon": "🛒",
+          "topic": "Redux Toolkit"
+        },
+        {
+          "icon": "📡",
+          "topic": "Data Fetching"
+        },
+        {
+          "icon": "🔄",
+          "topic": "Async Actions"
+        },
+        {
+          "icon": "🌐",
+          "topic": "Context for State"
+        },
+        {
+          "icon": "⏳",
+          "topic": "Loading & Error States"
+        }
+      ],
+      "icon": "fas fa-star",
+      "difficulty": "Medium",
+      "description": "This exam evaluates the skills needed to build full-fledged React applications. It covers navigation between views, managing complex application state predictably, and efficiently fetching, caching, and synchronizing data from APIs.",
+      "total_questions": "40",
+      "time_limit": "45",
+      "passing_score": "75",
+      "active": true,
+      "questions": [
+        {
+          "id": "r3_q021",
+          "domain": "Routing",
+          "difficulty": "Easy",
+          "question_text": "In React Router v6, which component is used to declaratively define a route?",
+          "options": [
+            "A) <Switch>",
+            "B) <Route>",
+            "C) <Router>",
+            "D) <Link>"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "In React Router v6, the <Route> component is used inside a <Routes> component to define a specific path and the element (component) to render when the URL matches that path. The syntax is `<Route path='/about' element={<About />} />`."
+        },
+        {
+          "id": "r3_q022",
+          "domain": "Routing",
+          "difficulty": "Medium",
+          "question_text": "How do you access URL parameters (e.g., :id) in a component rendered by React Router?",
+          "options": [
+            "A) this.props.match.params.id",
+            "B) props.router.params.id",
+            "C) use the useParams hook",
+            "D) It is not possible in functional components."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "React Router v6 provides a `useParams` hook that returns an object of key/value pairs of the dynamic parameters from the current URL. For a route like `/users/:id`, you would use `const { id } = useParams();` inside your component."
+        },
+        {
+          "id": "r3_q023",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "What is the primary benefit of using Redux Toolkit over plain Redux?",
+          "options": [
+            "A) It removes the need for reducers.",
+            "B) It is designed to simplify common Redux use cases, reducing boilerplate code with utilities like createSlice.",
+            "C) It automatically integrates with React Router.",
+            "D) It replaces the need for React Context."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Redux Toolkit (RTK) is the official, opinionated toolset for efficient Redux development. It includes functions like `createSlice` which automatically generates action creators and action types, and uses Immer under the hood to allow simpler immutable updates, drastically reducing boilerplate."
+        },
+        {
+          "id": "r3_q024",
+          "domain": "Data Fetching",
+          "difficulty": "Medium",
+          "question_text": "What is a significant advantage of using a library like React Query or RTK Query over useEffect for data fetching?",
+          "options": [
+            "A) They are built into React itself.",
+            "B) They provide built-in caching, background refetching, and deduping of requests.",
+            "C) They eliminate the need for a global state management library.",
+            "D) They can only be used with class components."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "While useEffect can fetch data, it's a primitive. Libraries like React Query handle caching, so identical requests aren't made repeatedly. They also manage loading states, pagination, background synchronization, and cache invalidation, which would require significant custom code with just useEffect."
+        },
+        {
+          "id": "r3_q025",
+          "domain": "State Management",
+          "difficulty": "Hard",
+          "question_text": "In Redux Toolkit, what is the purpose of the `extraReducers` builder in createSlice?",
+          "options": [
+            "A) To define reducers for actions that were not generated by the current slice.",
+            "B) To add extra properties to the state object.",
+            "C) To create additional action creators for the same slice.",
+            "D) To handle side effects like API calls directly."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `extraReducers` builder allows a slice to respond to action types that were defined elsewhere. This is crucial for handling async thunk actions (e.g., `fetchUser.pending`, `fetchUser.fulfilled`) that are defined outside of the `createSlice.reducers` field."
+        },
+        {
+          "id": "r3_q026",
+          "domain": "Data Fetching",
+          "difficulty": "Medium",
+          "question_text": "When fetching data inside a useEffect hook, why is it important to include a cleanup function?",
+          "options": [
+            "A) To clear the previous data from the state before new data arrives.",
+            "B) To cancel the ongoing HTTP request if the component unmounts before it completes, preventing a state update on an unmounted component.",
+            "C) To reset the loading state to false.",
+            "D) To parse the JSON response from the API."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "An asynchronous operation (like a fetch) might complete after a component has unmounted. Trying to update the state of an unmounted component will cause a React warning. A cleanup function can be used to ignore the result or cancel the request (e.g., using AbortController)."
+        },
+        {
+          "id": "r3_q027",
+          "domain": "Routing",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the <Outlet /> component in React Router v6?",
+          "options": [
+            "A) It provides a link to an external website.",
+            "B) It renders the content for a child route within a parent route layout.",
+            "C) It is used to create a 404 error page.",
+            "D) It handles form submissions that navigate to a new page."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The <Outlet /> is a placeholder component used in parent route elements. It renders the matched child route element, enabling nested UI and nested routes. This is essential for creating layouts that have persistent elements (like navbars) while the main content area changes."
+        },
+        {
+          "id": "r3_q028",
+          "domain": "State Management",
+          "difficulty": "Easy",
+          "question_text": "In the Redux data flow, what is the role of a 'reducer'?",
+          "options": [
+            "A) It listens for user events and dispatches actions.",
+            "B) It is a function that specifies how the application's state changes in response to an action.",
+            "C) It is a middleware that handles API calls.",
+            "D) It connects the React component to the Redux store."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A reducer is a pure function that takes the previous state and an action, and returns the next state. It describes how the state transitions in response to the action: `(state, action) => newState`. It must be pure and not mutate the existing state."
+        },
+        {
+          "id": "r3_q029",
+          "domain": "Patterns",
+          "difficulty": "Hard",
+          "question_text": "What is the 'prop drilling' problem and what are two common solutions?",
+          "options": [
+            "A) Components rendering too slowly; solve with React.memo and useMemo.",
+            "B) Passing props down through multiple layers of components; solve with Composition or Context API.",
+            "C) Props having incorrect types; solve with PropTypes or TypeScript.",
+            "D) Props being too large; solve by splitting them into smaller objects."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Prop drilling occurs when you need to pass data through many intermediate components that don't need the data themselves, just to get it to a deep child component. Solutions include: 1) Composition: passing the child component down directly, and 2) Context API: creating a context to 'teleport' the data to where it's needed."
+        },
+        {
+          "id": "r3_q030",
+          "domain": "Async Logic",
+          "difficulty": "Medium",
+          "question_text": "What is the correct way to handle asynchronous logic (like data fetching) in Redux?",
+          "options": [
+            "A) Perform the fetch directly inside a reducer.",
+            "B) Use middleware like Redux Thunk or Redux Saga, which allows action creators to return functions instead of objects.",
+            "C) Use the useEffect hook inside the Redux store.",
+            "D) It is not possible; all state updates must be synchronous."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Redux reducers must be pure and synchronous. To handle async operations, you use middleware. Redux Thunk is the most common; it lets you write action creators that return a function (a 'thunk') which can perform async operations and dispatch regular actions later."
+        }
+      ]
+    },
+    {
+      "id": "tech-react-set8",
+      "name": "React Testing & Tooling Professional Exam",
+      "title": "Testing Strategies, Build Processes, and Deployment",
+      "focus_on": "Testing components and logic (Jest, React Testing Library), build tools (Webpack, Vite), deployment strategies, and TypeScript integration.",
+      "key_skills_tested": [
+        {
+          "icon": "🧪",
+          "topic": "Jest & Testing Library"
+        },
+        {
+          "icon": "🔨",
+          "topic": "Build Tools (Vite, CRA)"
+        },
+        {
+          "icon": "🚀",
+          "topic": "Deployment"
+        },
+        {
+          "icon": "⌨️",
+          "topic": "TypeScript with React"
+        },
+        {
+          "icon": "📝",
+          "topic": "Controlled Components"
+        }
+      ],
+      "icon": "fas fa-star",
+      "difficulty": "Medium",
+      "description": "This exam focuses on the professional practices surrounding React development. It tests the ability to write meaningful tests, configure build tools for optimal performance, understand deployment concerns, and leverage TypeScript for building robust, type-safe applications.",
+      "total_questions": "40",
+      "time_limit": "45",
+      "passing_score": "75",
+      "active": true,
+      "questions": [
+        {
+          "id": "r4_q031",
+          "domain": "Testing",
+          "difficulty": "Easy",
+          "question_text": "What is the core philosophy behind React Testing Library?",
+          "options": [
+            "A) Tests should focus on testing the internal implementation details of components.",
+            "B) Tests should focus on testing how users interact with the component, avoiding reliance on internal state or props.",
+            "C) Tests should be written before the component code is written (TDD).",
+            "D) Tests should only be written for utility functions, not components."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "React Testing Library encourages testing components from the user's perspective. Instead of testing internal state or methods, you query the DOM, interact with elements (clicks, input), and assert on the output. This makes tests more resilient to refactoring that doesn't change user behavior."
+        },
+        {
+          "id": "r4_q032",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "Which query method from React Testing Library is preferred for finding elements by their accessible role?",
+          "options": [
+            "A) getByTestId",
+            "B) getByRole",
+            "C) getByClassName",
+            "D) getById"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `getByRole` query is the primary recommended method as it most closely mirrors how users experience your app (e.g., through screen readers). Using roles also encourages good accessibility practices. `getByTestId` should be a last resort as it's not user-visible."
+        },
+        {
+          "id": "r4_q033",
+          "domain": "Tooling",
+          "difficulty": "Medium",
+          "question_text": "What is a key advantage of using Vite over Create React App (CRA) for a new project?",
+          "options": [
+            "A) Vite includes a built-in state management solution.",
+            "B) Vite offers a faster development server and Hot Module Replacement (HMR) due to its use of ES modules.",
+            "C) Vite does not require any configuration, while CRA does.",
+            "D) Vite is officially maintained by Facebook."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Vite leverages native ES modules for serving source code, which allows the dev server to start instantly and provides incredibly fast HMR. CRA uses a Webpack-based bundling process for development, which can be slower on larger projects. Vite also offers more flexible configuration."
+        },
+        {
+          "id": "r4_q034",
+          "domain": "Deployment",
+          "difficulty": "Easy",
+          "question_text": "After running `npm run build` in a Create React App project, what is generated?",
+          "options": [
+            "A) A development server is started.",
+            "B) A `build` folder containing optimized production-ready files (minified JS, CSS, HTML).",
+            "C) A downloadable deployment package is sent to a cloud provider.",
+            "D) The component tests are executed."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `npm run build` script creates a `build` directory with a production build of your app. It correctly bundles React in production mode and optimizes the build for the best performance (minification, hashed filenames). This folder can be deployed to any static hosting service."
+        },
+        {
+          "id": "r4_q035",
+          "domain": "TypeScript",
+          "difficulty": "Medium",
+          "question_text": "How do you define the type of props for a functional component in TypeScript?",
+          "options": [
+            "A) By using the PropTypes library.",
+            "B) By defining an interface or type and applying it to the function's argument: `const MyComp: React.FC<MyProps> = ({ prop1 }) => { ... }`",
+            "C) By adding a comment above the component.",
+            "D) TypeScript automatically infers all prop types."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The standard practice is to define an interface (or type) for your props and then use the `React.FC` (Function Component) generic type to type the component itself. Alternatively, you can type the props parameter directly: `({ prop1 }: MyProps)`."
+        },
+        {
+          "id": "r4_q036",
+          "domain": "Forms",
+          "difficulty": "Medium",
+          "question_text": "What is a 'Controlled Component' in React?",
+          "options": [
+            "A) A component that uses React state to manage the value of a form element, making React the 'single source of truth'.",
+            "B) A component that is wrapped by a higher-order component.",
+            "C) A component that uses useRef to manage its input values.",
+            "D) A component that cannot be re-rendered."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "In a controlled component, the form data is handled by the React component's state. The input's value is set to a state variable, and changes are handled via an onChange handler that updates the state. This gives React full control over the input's value and is the recommended approach."
+        },
+        {
+          "id": "r4_q037",
+          "domain": "Tooling",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the 'key' prop when rendering a list of components, and how does it relate to React's reconciliation algorithm?",
+          "options": [
+            "A) It's for accessibility and doesn't affect rendering.",
+            "B) It helps React identify which items have changed, are added, or are removed, allowing it to efficiently update and re-use DOM elements instead of recreating them.",
+            "C) It is used to sort the list alphabetically.",
+            "D) It prevents the list from being re-rendered if the parent component updates."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `key` prop gives React a stable identity for each element in a list. During reconciliation, React uses these keys to compare the new list with the previous one. If a key matches, the corresponding component and DOM element are re-used, leading to significant performance gains and correct state preservation for list items."
+        },
+        {
+          "id": "r4_q038",
+          "domain": "TypeScript",
+          "difficulty": "Hard",
+          "question_text": "How would you type the useState hook for a state variable that can be null OR a specific type (e.g., a User object)?",
+          "options": [
+            "A) const [user, setUser] = useState<User>(null);",
+            "B) const [user, setUser] = useState<User | null>(null);",
+            "C) const [user, setUser] = useState(null as User);",
+            "D) const [user, setUser] = useState<null>(User);"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "TypeScript needs to know the full possible type of the state. If the initial state is `null` but the eventual state is a `User` object, you must explicitly define the union type: `useState<User | null>(null)`. This tells TypeScript that `user` can be either type."
+        },
+        {
+          "id": "r4_q039",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "What does the `user-event` library provide on top of React Testing Library?",
+          "options": [
+            "A) A way to mock the entire browser environment.",
+            "B) It is a deprecated version of React Testing Library.",
+            "C) Simulates more advanced user interactions (like typing, clicking, uploading files) in a way that closer resembles real browser events.",
+            "D) A way to visually screenshot components."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "While React Testing Library's `fireEvent` provides synthetic events, `user-event` is a companion library that simulates the full sequence of events a real user would perform. For example, `userEvent.type()` triggers keyDown, keyPress, and keyUp events for each character, which is more realistic."
+        },
+        {
+          "id": "r4_q040",
+          "domain": "Deployment",
+          "difficulty": "Easy",
+          "question_text": "What is a common challenge when deploying a Single Page Application (SPA) like a React app to a static host, and how is it typically solved?",
+          "options": [
+            "A) The app cannot make API calls; solved by using a serverless function.",
+            "B) Direct navigation to a route (or refreshing the page) results in a 404 error; solved by configuring the server to return the `index.html` for all unknown paths.",
+            "C) The CSS does not load; solved by inlining all styles.",
+            "D) The build folder is too large; solved by deleting it before deployment."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "In a SPA, routing is handled client-side by JavaScript. If a user bookmarks `/about` or refreshes the page, the static file server looks for an `/about.html` file, which doesn't exist. The solution is to configure the server (e.g., via a `_redirects` file or server config) to fall back to `index.html` for all HTML requests, letting React Router handle the routing."
+        }
+      ]
+    }
+  ]
+}

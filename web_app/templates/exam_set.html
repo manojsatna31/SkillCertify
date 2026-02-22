@@ -1,0 +1,142 @@
+{#
+    exam_set.html
+    -------------
+    This template displays a grid of exam sets for a selected technology (e.g., Java).
+    Each card shows details about an exam set: difficulty, name, description, time limit,
+    total questions, and status (active or coming soon). If the set is active, users can
+    start the challenge via an HTMX-enabled button. The template uses Tailwind CSS and
+    FontAwesome for styling and icons, and supports dark mode.
+#}
+{% set difficulty_styles = {
+    "Beginner": {
+        "bg": "bg-green-100 dark:bg-green-900/30",
+        "text": "text-green-800 dark:text-green-300"
+    },
+    "Associate":{
+        "bg": "bg-green-100 dark:bg-green-900/30",
+        "text": "text-green-800 dark:text-green-300"
+    },
+    "Intermediate": {
+        "bg": "bg-yellow-100 dark:bg-yellow-900/30",
+        "text": "text-yellow-800 dark:text-yellow-300"
+    },
+    "Advanced": {
+        "bg": "bg-red-100 dark:bg-red-900/30",
+        "text": "text-red-800 dark:text-red-300"
+    },
+    "Expert": {
+        "bg": "bg-purple-100 dark:bg-purple-900/30",
+        "text": "text-purple-800 dark:text-purple-300"
+    },
+    "Professional": {
+        "bg": "bg-blue-100 dark:bg-blue-900/30",
+        "text": "text-blue-800 dark:text-blue-300"
+    },
+    "Mastery": {
+        "bg": "bg-pink-100 dark:bg-pink-900/30",
+        "text": "text-pink-800 dark:text-pink-300"
+    },
+    "Mixed": {
+          "bg": "bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-pink-900/20",
+          "text": "text-indigo-800 dark:text-pink-300"
+        },
+"Medium": {
+      "bg": "bg-yellow-100 dark:bg-yellow-900/30",
+      "text": "text-yellow-800 dark:text-yellow-300"
+    },
+    "Medium to Hard": {
+      "bg": "bg-orange-100 dark:bg-orange-900/30",
+      "text": "text-orange-800 dark:text-orange-300"
+    },
+    "Easy to Medium": {
+      "bg": "bg-blue-100 dark:bg-blue-900/30",
+      "text": "text-blue-800 dark:text-blue-300"
+    }
+} %}
+<section id="exam-set">
+    <div class="w-full max-w-none px-4 py-2 bg-slate-50 dark:bg-slate-900 rounded-lg  p-6">
+        <div class="text-center mb-4">
+            <!--
+                Page Title and Subtitle
+                - Welcomes the user and describes the purpose of the page.
+            -->
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                <i class="{{ exam_catalog.icon }} text-4xl hover:text-blue-500"></i>  {{ exam_catalog.name }}
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300">{{ exam_catalog.description | safe}}</p>
+        </div>
+        <!--
+            Exam Set Grid:
+            - Displays all available exam sets in a responsive grid.
+            - Each set is shown as a card with details and a button to start the challenge.
+        -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {#
+                Loop through each topic in the 'sets' list passed from Flask.
+                For each topic, render a card with its details.
+            #}
+            {% for topic in exam_catalog.exam_sets %}
+                {#
+                    Get the style for the current topic's difficulty.
+                    If not found, use default gray styles.
+                #}
+                {% set style = difficulty_styles.get(topic.difficulty, {'bg':'bg-gray-100', 'text':'text-gray-800'}) %}
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg flex flex-col h-full transition-transform duration-300 hover:-translate-y-4 hover:shadow-2xl">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                {# Difficulty badge with dynamic styling #}
+                                <span class="text-sm font-semibold px-3 py-1 rounded-full mb-3 {{ style.bg }} {{ style.text }}">
+                                    {{ topic.difficulty }}
+                                </span>
+                                {# Topic name #}
+                                <h3 class="text-xl font-bold text-gray-800 dark:text-white mt-3">{{ topic.name }}</h3>
+                            </div>
+                            <div class="{{ style.bg }} {{ style.text }} w-12 h-12 rounded-lg flex items-center justify-center">
+                                {# Topic icon (FontAwesome or similar) #}
+                                <i class="{{ topic.icon }} text-xl"></i>
+                            </div>
+                        </div>
+                        {# Topic description #}
+                        {# comment as of now #}
+                         <p class="ext-gray-600 dark:text-gray-300 mt-3">{{ topic.description }}</p>
+                    </div>
+                    <div class="p-6 bg-white dark:bg-gray-800">
+                        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <div class="flex items-center gap-2">
+                                {# Time limit for the set #}
+                                <i class="fas fa-clock"></i> {{ topic.time_limit }} min
+                            </div>
+                            <div class="flex items-center gap-2">
+                                {# Total questions in the set #}
+                                <i class="fas fa-list"></i> {{ topic.total_questions }} questions
+                            </div>
+                            <div class="flex items-center gap-2">
+                                {# Active status indicator: shows color and label based on topic.active #}
+                                <span class="h-2 w-2 rounded-full mr-2 bg-green-500"></span>
+                                <span class="text-xs {{ 'text-green-400' if topic.active else 'text-yellow-400' }}">
+                                    {{ 'Active' if topic.active else 'Coming Soon' }}
+                                </span>
+                            </div>
+                        </div>
+                        {#
+                            Start Challenge button:
+                            - Enabled and interactive if the set is active (uses HTMX to load confirmation).
+                            - Disabled and styled differently if not active.
+                            - The topic name is URL-encoded for safe use in the URL.
+                        #}
+                        <button class="w-full mt-4 {{ 'bg-blue-500 hover:bg-blue-600' if topic.active else 'bg-indigo-600 hover:bg-indigo-700' }} text-white font-medium py-3 rounded-lg transition-colors"
+                                {% if topic.active %}
+                                hx-get="/exam-confirm/{{ tech_id }}/{{ topic.id }}/{{ topic.name | urlencode }}"
+                                hx-target="#content-area"
+                                hx-push-url="true"
+                                hx-swap="innerHTML"
+                                {% else %} disabled {% endif %}>
+                            {{ 'Start Challenge' if topic.active else 'Coming Soon' }}
+                        </button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

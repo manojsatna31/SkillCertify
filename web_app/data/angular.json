@@ -1,0 +1,2279 @@
+{
+  "id": "tech-angular",
+  "name": "Master Angular Development",
+  "icon": "fab fa-angular text-red-600",
+  "description": "Strengthen your expertise in building dynamic front-end applications with Angular.</br> Covers component-driven architecture, RxJS patterns, routing, forms, and scalable enterprise solutions.",
+  "exam_sets": [
+    {
+      "id": "angular-beginner-set",
+      "name": "Angular Fundamentals Quiz",
+      "title": "Getting Started with Angular Basics",
+      "focus_area": "Core Angular Concepts and Syntax",
+      "key_skills_tested": [
+        "Components and Modules",
+        "Data Binding",
+        "Directives (ngIf, ngFor)",
+        "Services and Dependency Injection Basics",
+        "Routing Fundamentals"
+      ],
+      "difficulty": "Beginner",
+      "description": "This set is designed for newcomers to Angular, covering foundational concepts such as component creation, basic data binding, structural directives, and the very basics of services and routing. Ideal for those just starting their Angular journey.",
+      "icon": "fas fa-seedling",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "30",
+      "passing_score": "80",
+      "questions": [
+        {
+          "id": "ang_beg_001",
+          "question_text": "Which command is used to create a new Angular project?",
+          "options": [
+            "A) `ng build`",
+            "B) `ng generate project`",
+            "C) `ng new`",
+            "D) `ng serve`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `ng new` command initializes a new Angular workspace and an initial application project."
+        },
+        {
+          "id": "ang_beg_002",
+          "question_text": "What is the primary purpose of an Angular component?",
+          "options": [
+            "A) To manage application-wide state.",
+            "B) To define a reusable UI block with its own logic and view.",
+            "C) To handle HTTP requests to a backend.",
+            "D) To provide data to other components."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Components are the fundamental building blocks of Angular applications, combining a template (HTML), styles (CSS), and logic (TypeScript) to create a specific part of the UI."
+        },
+        {
+          "id": "ang_beg_003",
+          "question_text": "Which decorator identifies a class as an Angular component?",
+          "options": [
+            "A) `@Injectable()`",
+            "B) `@NgModule()`",
+            "C) `@Component()`",
+            "D) `@Directive()`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `@Component()` decorator is used to mark a class as an Angular component and provide configuration metadata."
+        },
+        {
+          "id": "ang_beg_004",
+          "question_text": "How do you display a component's property value in its template using one-way data binding?",
+          "options": [
+            "A) `[(property)]`",
+            "B) `{{ property }}`",
+            "C) `(property)`",
+            "D) `[property]`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Interpolation, using double curly braces `{{ }}`, is used for one-way data binding to display a component's property value in the template."
+        },
+        {
+          "id": "ang_beg_005",
+          "question_text": "Which file is the main application module in a typical Angular project?",
+          "options": [
+            "A) `main.ts`",
+            "B) `app.component.ts`",
+            "C) `app.module.ts`",
+            "D) `index.html`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`app.module.ts` typically defines the root module (`AppModule`) of an Angular application, declaring components, services, and other modules."
+        },
+        {
+          "id": "ang_beg_006",
+          "question_text": "What is the purpose of `ng serve`?",
+          "options": [
+            "A) To compile the application for production.",
+            "B) To run unit tests.",
+            "C) To compile the application and launch a development server.",
+            "D) To generate new Angular artifacts."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`ng serve` builds the application, watches for changes, and serves it on a local development server, typically at `http://localhost:4200/`."
+        },
+        {
+          "id": "ang_beg_007",
+          "question_text": "What is `ngIf` primarily used for?",
+          "options": [
+            "A) Iterating over a list of items.",
+            "B) Conditionally adding or removing elements from the DOM.",
+            "C) Changing the style of an element.",
+            "D) Handling user events."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `*ngIf` structural directive is used to conditionally add or remove elements from the DOM based on a boolean expression."
+        },
+        {
+          "id": "ang_beg_008",
+          "question_text": "Which property decorator is used to pass data from a parent component to a child component?",
+          "options": [
+            "A) `@Output()`",
+            "B) `@Input()`",
+            "C) `@HostBinding()`",
+            "D) `@ViewChild()`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `@Input()` decorator marks a property as an input property, allowing data to flow from a parent component to a child component."
+        },
+        {
+          "id": "ang_beg_009",
+          "question_text": "What does `ngFor` do?",
+          "options": [
+            "A) Conditionally renders an element.",
+            "B) Handles form submissions.",
+            "C) Repeats a block of HTML for each item in a collection.",
+            "D) Adds CSS classes dynamically."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `*ngFor` structural directive iterates over a collection (array) and renders a template for each item in the collection."
+        },
+        {
+          "id": "ang_beg_010",
+          "question_text": "What is the role of `app.component.html`?",
+          "options": [
+            "A) It contains the root component's logic.",
+            "B) It's the main entry point for the application.",
+            "C) It's the template (view) for the root component.",
+            "D) It defines the application's routing."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`app.component.html` is the HTML template associated with the `AppComponent`, defining its view structure."
+        },
+        {
+          "id": "ang_beg_011",
+          "question_text": "How do you handle user events (e.g., clicks) in an Angular template?",
+          "options": [
+            "A) `[click]=\"myFunction()\"`",
+            "B) `{{ click }}`",
+            "C) `(click)=\"myFunction()\"`",
+            "D) `*ngClick=\"myFunction()\"`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Event binding, using parentheses `(event)`, is used to listen for events on elements and execute a component method."
+        },
+        {
+          "id": "ang_beg_012",
+          "question_text": "Which service is commonly used for making HTTP requests in Angular?",
+          "options": [
+            "A) `Router`",
+            "B) `HttpClient`",
+            "C) `ActivatedRoute`",
+            "D) `FormsModule`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `HttpClient` module and its `HttpClient` service are used for making HTTP requests to communicate with backend services."
+        },
+        {
+          "id": "ang_beg_013",
+          "question_text": "What is Dependency Injection in Angular?",
+          "options": [
+            "A) A way to directly import classes into components.",
+            "B) A design pattern where a class receives its dependencies from external sources rather than creating them itself.",
+            "C) A method for compiling TypeScript to JavaScript.",
+            "D) A technique for styling components dynamically."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Dependency Injection (DI) is a core concept in Angular, where services and other dependencies are provided to components and other classes rather than being hardcoded within them."
+        },
+        {
+          "id": "ang_beg_014",
+          "question_text": "What is the purpose of `RouterModule`?",
+          "options": [
+            "A) To manage HTTP requests.",
+            "B) To define and manage navigation between different views (components) in an application.",
+            "C) To create reactive forms.",
+            "D) To handle global application events."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `RouterModule` provides the necessary services and directives for enabling routing within an Angular application."
+        },
+        {
+          "id": "ang_beg_015",
+          "question_text": "Which of the following is NOT a fundamental building block of an Angular application?",
+          "options": [
+            "A) Components",
+            "B) Modules",
+            "C) Databases",
+            "D) Services"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "While Angular applications often interact with databases, databases themselves are not fundamental building blocks *of the Angular framework*."
+        },
+        {
+          "id": "ang_beg_016",
+          "question_text": "How can you apply a CSS class conditionally in an Angular template?",
+          "options": [
+            "A) `class=\"{{ condition ? 'classA' : 'classB' }}\"`",
+            "B) `[class.classA]=\"condition\"`",
+            "C) `(class.classA)=\"condition\"`",
+            "D) Both A and B"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Both interpolation with the `class` attribute and `[class.className]` property binding can be used for conditional class application."
+        },
+        {
+          "id": "ang_beg_017",
+          "question_text": "What is a 'service' in Angular used for?",
+          "options": [
+            "A) To define the visual structure of a component.",
+            "B) To encapsulate reusable logic, data fetching, or other functionalities that can be shared across components.",
+            "C) To manage the lifecycle of a component.",
+            "D) To provide direct access to the DOM."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Services are singletons that provide specific functionality (like data retrieval, logging, or business logic) to multiple components through dependency injection."
+        },
+        {
+          "id": "ang_beg_018",
+          "question_text": "Which file specifies the main entry point for the Angular application that bootstraps the `AppModule`?",
+          "options": [
+            "A) `index.html`",
+            "B) `main.ts`",
+            "C) `polyfills.ts`",
+            "D) `app.component.ts`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`main.ts` is the entry point that bootstraps the root `AppModule` to start the Angular application."
+        },
+        {
+          "id": "ang_beg_019",
+          "question_text": "What is the purpose of `package.json` in an Angular project?",
+          "options": [
+            "A) Defines the application's routes.",
+            "B) Specifies project configurations for the Angular CLI.",
+            "C) Manages project dependencies and scripts.",
+            "D) Contains the main HTML template."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`package.json` is a standard Node.js file that lists project metadata, scripts, and all npm dependencies (both dev and production)."
+        },
+        {
+          "id": "ang_beg_020",
+          "question_text": "How do you navigate programmatically to a different route in Angular?",
+          "options": [
+            "A) Using `window.location.href = '/path'`",
+            "B) Using the `Router` service's `navigate()` method.",
+            "C) By directly manipulating the DOM.",
+            "D) With a simple `<a>` tag."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `Router` service, injected into a component, provides methods like `navigate()` for programmatic navigation."
+        },
+        {
+          "id": "ang_beg_021",
+          "question_text": "What is the purpose of `ngClass`?",
+          "options": [
+            "A) To conditionally apply multiple CSS classes to an element.",
+            "B) To apply inline styles dynamically.",
+            "C) To create new CSS classes.",
+            "D) To change an element's HTML content."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`[ngClass]` is a directive used to dynamically add or remove multiple CSS classes from an element based on a component's property or an expression."
+        },
+        {
+          "id": "ang_beg_022",
+          "question_text": "Which of the following is an example of two-way data binding?",
+          "options": [
+            "A) `{{ property }}`",
+            "B) `[property]`",
+            "C) `(event)`",
+            "D) `[(ngModel)]`"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Two-way data binding, often achieved with `[(ngModel)]` for form inputs, synchronizes data between the component's property and the input element's value."
+        },
+        {
+          "id": "ang_beg_023",
+          "question_text": "In `app.component.ts`, what does the `selector` property of the `@Component` decorator define?",
+          "options": [
+            "A) The name of the TypeScript class.",
+            "B) The CSS selector that identifies the host element for this component.",
+            "C) The path to the component's template file.",
+            "D) The list of services the component uses."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `selector` property defines how Angular finds and instantiates the component in an HTML template (e.g., `<app-root></app-root>`)."
+        },
+        {
+          "id": "ang_beg_024",
+          "question_text": "What is the default port for an Angular development server launched by `ng serve`?",
+          "options": [
+            "A) 3000",
+            "B) 8080",
+            "C) 4200",
+            "D) 5000"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "By default, `ng serve` starts the development server on port 4200. This can be changed using the `--port` flag."
+        },
+        {
+          "id": "ang_beg_025",
+          "question_text": "Which command would you use to generate a new component named 'dashboard'?",
+          "options": [
+            "A) `ng add component dashboard`",
+            "B) `ng build dashboard`",
+            "C) `ng generate component dashboard`",
+            "D) `ng new component dashboard`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `ng generate component` (or `ng g c`) command is used to scaffold a new component, along with its associated files (HTML, CSS, TS, spec.ts)."
+        }
+      ]
+    },
+    {
+      "id": "tech-angular-set1",
+      "name": "Angular Components & Templates Core Exam",
+      "title": "Mastery of Components, Templates, and Data Binding",
+      "focus_on": "Component creation, lifecycle hooks, template syntax (interpolation, property & event binding), view encapsulation, and content projection.",
+      "key_skills_tested": [
+        {
+          "icon": "🧩",
+          "topic": "Component Lifecycle Hooks"
+        },
+        {
+          "icon": "📝",
+          "topic": "Template Syntax"
+        },
+        {
+          "icon": "🔄",
+          "topic": "Data Binding"
+        },
+        {
+          "icon": "📦",
+          "topic": "View Encapsulation"
+        },
+        {
+          "icon": "🔌",
+          "topic": "Content Projection"
+        },
+        {
+          "icon": "👁️",
+          "topic": "ViewChild & ViewChildren"
+        }
+      ],
+      "icon": "fas fa-rocket",
+      "difficulty": "Intermediate",
+      "description": "This exam tests the foundational knowledge of building Angular components. It assesses the understanding of the component lifecycle, how to use templates to display data and handle user events, and techniques for component composition and DOM interaction.",
+      "total_questions": "40",
+      "time_limit": "45",
+      "passing_score": "75",
+      "active": true,
+      "questions": [
+        {
+          "id": "a1_q001",
+          "domain": "Component Basics",
+          "difficulty": "Easy",
+          "question_text": "Which Angular CLI command is used to generate a new component named 'user-profile'?",
+          "options": [
+            "A) ng generate component user-profile",
+            "B) ng new component user-profile",
+            "C) ng create component user-profile",
+            "D) ng add component user-profile"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The correct Angular CLI command to generate a new component is `ng generate component <name>` or its shorthand `ng g c <name>`. This command creates the component files (.ts, .html, .css, .spec.ts) and updates the module declarations."
+        },
+        {
+          "id": "a1_q002",
+          "domain": "Lifecycle Hooks",
+          "difficulty": "Medium",
+          "question_text": "Which lifecycle hook is the best place to perform initialization logic that requires the component's view and child views to be fully initialized?",
+          "options": [
+            "A) ngOnInit",
+            "B) ngAfterViewInit",
+            "C) ngOnChanges",
+            "D) ngDoCheck"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngAfterViewInit` is called once after Angular has fully initialized the component's view and its child views. This is the ideal place for logic that needs to query the DOM (e.g., using `ViewChild`) or interact with child components, as they are guaranteed to be available."
+        },
+        {
+          "id": "a1_q003",
+          "domain": "Data Binding",
+          "difficulty": "Easy",
+          "question_text": "What is the correct syntax for one-way property binding to set an HTML element's 'title' attribute to a component property named 'imageTitle'?",
+          "options": [
+            "A) <img title=\"imageTitle\">",
+            "B) <img [title]=\"imageTitle\">",
+            "C) <img bind-title=\"imageTitle\">",
+            "D) <img {{title}}=\"imageTitle\">"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "One-way property binding in Angular uses square brackets around the target property: `[property]=\"expression\"`. This evaluates the expression (in this case, the component's `imageTitle` property) and passes the data to the target property."
+        },
+        {
+          "id": "a1_q004",
+          "domain": "Templates",
+          "difficulty": "Medium",
+          "question_text": "How do you handle the selected event from an <app-user-dropdown> component in your template?",
+          "options": [
+            "A) <app-user-dropdown [selected]=\"onUserSelected($event)\">",
+            "B) <app-user-dropdown (selected)=\"onUserSelected($event)\">",
+            "C) <app-user-dropdown bind-on-selected=\"onUserSelected\">",
+            "D) <app-user-dropdown {{selected}}=\"onUserSelected\">"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Event binding in Angular uses parentheses around the target event: `(event)=\"handler($event)\"`. This listens for the custom `selected` event emitted by the <app-user-dropdown> component and calls the `onUserSelected` method in the parent component, passing the emitted data via `$event`."
+        },
+        {
+          "id": "a1_q005",
+          "domain": "Content Projection",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the <ng-content> tag in a component's template?",
+          "options": [
+            "A) To dynamically load content from an external API.",
+            "B) To inject HTML content placed between the component's tags in the parent template (content projection).",
+            "C) To conditionally show or hide a block of HTML.",
+            "D) To define the content of a modal dialog."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `<ng-content>` element is a placeholder that Angular uses to project (insert) the content that is supplied between the opening and closing tags of the host component in the parent template. It is the primary mechanism for component composition in Angular."
+        },
+        {
+          "id": "a1_q006",
+          "domain": "View Encapsulation",
+          "difficulty": "Hard",
+          "question_text": "What does `encapsulation: ViewEncapsulation.None` do in a component's metadata?",
+          "options": [
+            "A) It prevents the component from being used by other modules.",
+            "B) It makes the component's CSS styles global, meaning they are not scoped to the component and can affect other parts of the application.",
+            "C) It hides the component's logic from the rest of the application.",
+            "D) It enables Shadow DOM for the component."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "By default, Angular emulates Shadow DOM behavior, scoping CSS styles to the component. Setting `ViewEncapsulation.None` disables this encapsulation. The component's styles become global and are not contained within the component's view, which can lead to style conflicts if not managed carefully."
+        },
+        {
+          "id": "a1_q007",
+          "domain": "DOM Queries",
+          "difficulty": "Medium",
+          "question_text": "You have a template reference variable `#fileInput` on an `<input>` element. How do you get a reference to this native DOM element in the component's TypeScript class?",
+          "options": [
+            "A) Use `@Input() fileInput;`",
+            "B) Use `@ViewChild('fileInput') fileInputRef: ElementRef;` and access `this.fileInputRef.nativeElement`",
+            "C) Use `@Output() fileInput;`",
+            "D) It is automatically available as `this.fileInput`."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `@ViewChild` decorator is used to get a reference to a DOM element or directive from the component's view. You pass the template reference variable name as a string. It returns an `ElementRef`, whose `nativeElement` property provides direct access to the underlying DOM object."
+        },
+        {
+          "id": "a1_q008",
+          "domain": "Lifecycle Hooks",
+          "difficulty": "Hard",
+          "question_text": "When does the `ngOnChanges` lifecycle hook get called?",
+          "options": [
+            "A) Once, immediately after `ngOnInit`.",
+            "B) Every time change detection runs.",
+            "C) Every time one or more input properties of the component change.",
+            "D) Right before the component is destroyed."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `ngOnChanges` hook is called whenever one or more data-bound input properties of the component change. It receives a `SimpleChanges` object containing the current and previous values of the changed inputs. It is called before `ngOnInit` on the first run and whenever inputs change afterwards."
+        },
+        {
+          "id": "a1_q009",
+          "domain": "Templates",
+          "difficulty": "Easy",
+          "question_text": "What is the correct syntax for two-way data binding on a form input element to a component property named 'userName'?",
+          "options": [
+            "A) <input [value]=\"userName\" (input)=\"userName = $event.target.value\">",
+            "B) <input bind-value=\"userName\">",
+            "C) <input [(ngModel)]=\"userName\">",
+            "D) <input model=\"userName\">"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Two-way data binding in Angular combines property binding and event binding into a single syntax using the 'banana-in-a-box' `[()]` notation. `[(ngModel)]=\"userName\"` is the built-in directive for this, which requires the `FormsModule` to be imported. It keeps the template input and the component property in sync."
+        },
+        {
+          "id": "a1_q010",
+          "domain": "Component Interaction",
+          "difficulty": "Medium",
+          "question_text": "How does a parent component pass data down to a child component?",
+          "options": [
+            "A) By using the `@Output` decorator and an EventEmitter in the child component.",
+            "B) By using the `@Input` decorator on a property in the child component and property binding in the parent's template.",
+            "C) By injecting the parent component's instance into the child component's constructor.",
+            "D) By using a shared service."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The primary method for parent-to-child communication is through `@Input` properties. The child component declares a property with the `@Input()` decorator. The parent component then binds to that property in its template using `[propertyName]=\"parentData\"` syntax."
+        },
+        {
+          "id": "a2_q011",
+          "domain": "Dependency Injection",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `providedIn: 'root'` metadata in an Angular service?",
+          "options": [
+            "A) It makes the service available only in the root component.",
+            "B) It registers the service as a singleton at the root application level, making it available throughout the entire app.",
+            "C) It prevents the service from being provided in any other module.",
+            "D) It allows the service to be used without being added to a module's providers array."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`providedIn: 'root'` tells Angular to provide the service in the root injector. This means the service is a singleton and is available for dependency injection into any class in the application. It is the preferred way to provide services since Angular v6, as it enables tree-shaking if the service is unused."
+        },
+        {
+          "id": "a2_q012",
+          "domain": "RxJS",
+          "difficulty": "Medium",
+          "question_text": "What is the key difference between the `switchMap` and `mergeMap` RxJS operators?",
+          "options": [
+            "A) `switchMap` is for synchronous operations, `mergeMap` is for asynchronous ones.",
+            "B) `switchMap` cancels previous inner observables when a new source value arrives, while `mergeMap` runs all inner observables concurrently.",
+            "C) `switchMap` merges all values into a single array, `mergeMap` does not.",
+            "D) There is no difference; they are aliases for the same operator."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`switchMap` is ideal for scenarios like typeahead searches or GET requests where you only care about the results from the latest request. It automatically unsubscribes (cancels) the previous inner observable. `mergeMap` (formerly `flatMap`) is for when you want to handle all emissions concurrently without canceling previous ones."
+        },
+        {
+          "id": "a2_q013",
+          "domain": "HttpClient",
+          "difficulty": "Easy",
+          "question_text": "What does the `HttpClient.get()` method return?",
+          "options": [
+            "A) A Promise of the response data.",
+            "B) An RxJS Observable that emits the response data once the HTTP request is successful.",
+            "C) The raw JSON response immediately.",
+            "D) A boolean indicating the success of the request."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "All `HttpClient` methods (get, post, put, delete) return cold Observables. This means the HTTP request is only made when someone subscribes to the Observable. The Observable will emit a single value (the response body by default) and then complete, or emit an error if the request fails."
+        },
+        {
+          "id": "a2_q014",
+          "domain": "Async Pipe",
+          "difficulty": "Medium",
+          "question_text": "What is the primary advantage of using the `async` pipe in a template over manually subscribing in the component class?",
+          "options": [
+            "A) The `async` pipe makes HTTP requests faster.",
+            "B) The `async` pipe automatically handles subscription and unsubscription, preventing memory leaks.",
+            "C) The `async` pipe allows you to use promises instead of observables.",
+            "D) The `async` pipe transforms data before displaying it."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `async` pipe subscribes to an Observable or Promise and returns the latest value it has emitted. When the component is destroyed, the `async` pipe automatically unsubscribes, eliminating a common source of memory leaks. It also marks the component for check, integrating seamlessly with change detection."
+        },
+        {
+          "id": "a2_q015",
+          "domain": "DI Hierarchy",
+          "difficulty": "Hard",
+          "question_text": "If you provide the same service in both a module and a component, what happens when that component requests the service?",
+          "options": [
+            "A) It causes a runtime error due to provider conflict.",
+            "B) The component gets the instance from the module's provider.",
+            "C) The component gets its own local instance of the service, scoped to that component and its children.",
+            "D) The service becomes a singleton shared across the entire application."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Angular's DI system is hierarchical. Providers at the component level create a new instance of the service that is scoped to that component and its child components. This component injector inherits from parent injectors (e.g., module, root), but the local provider 'shadows' the parent provider for that token, providing a separate instance."
+        },
+        {
+          "id": "a2_q016",
+          "domain": "RxJS",
+          "difficulty": "Hard",
+          "question_text": "How would you handle an error in an Observable stream from an HTTP request to show a user-friendly message without breaking the stream for future emissions?",
+          "options": [
+            "A) Use the `catch` operator to return a new Observable, e.g., `of({error: 'Failed'})`.",
+            "B) Use a `try/catch` block around the `subscribe` method.",
+            "C) Errors always break the Observable stream; this is not possible.",
+            "D) Use the `retry` operator to ignore the error."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `catchError` operator (often imported as `catch`) allows you to catch errors on the Observable stream. Inside it, you can handle the error (e.g., log it) and return a new Observable (e.g., `of(defaultValue)`) that will be emitted instead of the error, allowing the stream to continue or complete normally."
+        },
+        {
+          "id": "a2_q017",
+          "domain": "Services",
+          "difficulty": "Easy",
+          "question_text": "What is the main responsibility of an Angular Service?",
+          "options": [
+            "A) To define the structure and layout of the application UI.",
+            "B) To encapsulate and share business logic, data, or functionality across components.",
+            "C) To handle routing and navigation.",
+            "D) To validate form inputs."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Services in Angular are singleton objects that get instantiated only once during the lifetime of an application. Their primary purpose is to organize and share logic, data, or functions across multiple components, promoting reusability and separation of concerns (e.g., data access, logging, calculations)."
+        },
+        {
+          "id": "a2_q018",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "In a service, what is a common pattern for allowing components to react to state changes?",
+          "options": [
+            "A) Exposing public properties and having components poll them using `setInterval`.",
+            "B) Using an RxJS `BehaviorSubject` to hold the state and exposing an `Observable` for components to subscribe to.",
+            "C) Using `@Input` and `@Output` properties on the service.",
+            "D) Using the `ngOnChanges` lifecycle hook in the service."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `BehaviorSubject` pattern is a common and effective way to manage simple reactive state in a service. The service holds the state in a private `BehaviorSubject` (which requires an initial value and emits the current value to new subscribers). It exposes a public `Observable` (read-only) for components to subscribe to, and a method to update the state (which calls `next()` on the subject)."
+        },
+        {
+          "id": "a2_q019",
+          "domain": "HttpClient",
+          "difficulty": "Medium",
+          "question_text": "How do you add query parameters to an HTTP GET request using `HttpClient`?",
+          "options": [
+            "A) Concatenate them directly to the URL string: `this.http.get('/api/items?param=value')`",
+            "B) Use the `params` option in the request object: `this.http.get('/api/items', { params: new HttpParams().set('param', 'value') })`",
+            "C) Use the `query` option: `this.http.get('/api/items', { query: { param: 'value' } })`",
+            "D) Use the `headers` option to set a special 'Query-Params' header."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The recommended way to add query parameters is by using the `HttpParams` object with the `params` key in the options object. `HttpParams` is immutable, so each `.set()` returns a new instance. This approach ensures proper URL encoding and is more maintainable than string concatenation."
+        },
+        {
+          "id": "a2_q020",
+          "domain": "RxJS",
+          "difficulty": "Easy",
+          "question_text": "What must you do to actually execute an Observable returned by `HttpClient.get()`?",
+          "options": [
+            "A) Nothing, it executes automatically.",
+            "B) Call its `execute()` method.",
+            "C) Subscribe to it.",
+            "D) Apply the `async` pipe to it in the template."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Observables are lazy. Declaring an Observable (e.g., `const data$ = this.http.get(...)`) does nothing by itself. The HTTP request is only sent when the `subscribe` method is called, either explicitly in the component (`.subscribe()`) or implicitly by the `async` pipe in the template."
+        },
+        {
+          "id": "a3_q021",
+          "domain": "Modules",
+          "difficulty": "Easy",
+          "question_text": "What is the purpose of the `imports` array in an NgModule decorator?",
+          "options": [
+            "A) To declare which components, directives, and pipes belong to this module.",
+            "B) To export specific declarations for use in other modules' templates.",
+            "C) To import other NgModules, making their exported declarations available in this module.",
+            "D) To specify services provided at the module level."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `imports` array is used to import other modules. This is how you bring in functionality from the Angular framework (like `BrowserModule`, `RouterModule`) and from your own feature or shared modules. The exported declarations (components, directives, pipes) of those imported modules become available in the current module's templates."
+        },
+        {
+          "id": "a3_q022",
+          "domain": "Routing",
+          "difficulty": "Medium",
+          "question_text": "How do you configure a route to lazy-load a feature module?",
+          "options": [
+            "A) `{ path: 'admin', component: AdminModule }`",
+            "B) `{ path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }`",
+            "C) `{ path: 'admin', module: AdminModule }`",
+            "D) `{ path: 'admin', providers: [AdminModule] }`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Lazy loading uses the `loadChildren` property in the route configuration. Its value is a function that uses the dynamic `import()` syntax to point to the module's file path. This function returns a promise that resolves to the module. The Angular router will only load this module when the route is navigated to, improving initial load performance."
+        },
+        {
+          "id": "a3_q023",
+          "domain": "Forms",
+          "difficulty": "Medium",
+          "question_text": "What is a key advantage of Reactive Forms over Template-Driven Forms?",
+          "options": [
+            "A) Reactive Forms are easier to write and require less code.",
+            "B) Reactive Forms are immutable and synchronous, making them easier to test and validate with complex logic.",
+            "C) Reactive Forms do not require importing a special module.",
+            "D) Reactive Forms are the only way to implement two-way data binding."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Reactive Forms (model-driven forms) are more explicit and robust. The form model is created programmatically in the component class, providing immutability and synchronous access. This makes them predictable, easier to unit test, and better suited for complex validation scenarios or dynamic form controls."
+        },
+        {
+          "id": "a3_q024",
+          "domain": "Route Guards",
+          "difficulty": "Medium",
+          "question_text": "Which route guard interface would you use to prevent unauthorized users from navigating to a route?",
+          "options": [
+            "A) `CanActivate`",
+            "B) `CanDeactivate`",
+            "C) `CanLoad`",
+            "D) `Resolve`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `CanActivate` guard is used to control whether a user can navigate *to* a route. It is typically used for authentication and authorization checks. The guard returns `true` to allow navigation or `false` to prevent it, potentially redirecting the user to a login page."
+        },
+        {
+          "id": "a3_q025",
+          "domain": "Reactive Forms",
+          "difficulty": "Hard",
+          "question_text": "In Reactive Forms, how do you add a new FormControl to a FormGroup dynamically at runtime?",
+          "options": [
+            "A) `this.myForm.group.addControl('newControl', new FormControl(''));`",
+            "B) `this.myForm.addControl('newControl', new FormControl(''));`",
+            "C) `this.myForm.controls['newControl'] = new FormControl('');`",
+            "D) `this.myForm.setValue({ ...this.myForm.value, newControl: '' });`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `FormGroup` class has an `addControl` method specifically for adding a new control dynamically. You provide the name of the control and the `FormControl` instance. This automatically updates the form's value and validity. Option C is incorrect because it directly manipulates the `controls` object, which can break the form's internal state."
+        },
+        {
+          "id": "a3_q026",
+          "domain": "Routing",
+          "difficulty": "Easy",
+          "question_text": "Which directive is used in a template to create a link for navigation, rather than a full page reload?",
+          "options": [
+            "A) `<a href=\"/users\">Users</a>`",
+            "B) `<a routerLink=\"/users\">Users</a>`",
+            "C) `<a navigateTo=\"/users\">Users</a>`",
+            "D) `<a [link]=\"/users\">Users</a>`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `routerLink` directive is the Angular way to create navigation links. It tells the Angular router to handle the click event and navigate to the specified route without reloading the entire page, providing a smooth Single Page Application (SPA) experience."
+        },
+        {
+          "id": "a3_q027",
+          "domain": "Forms",
+          "difficulty": "Medium",
+          "question_text": "How do you access the FormControl instance for an input named 'email' in a Reactive Form from the component class?",
+          "options": [
+            "A) `this.myForm.controls.email`",
+            "B) `this.myForm.get('email')`",
+            "C) `this.myForm.value.email`",
+            "D) Both A and B are correct."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Both syntaxes are valid ways to access a control within a FormGroup. `this.myForm.controls['email']` or `this.myForm.controls.email` provides direct access to the control object. `this.myForm.get('email')` is a more robust method as it can also traverse nested form groups using a dot notation path (e.g., `get('user.email')`)."
+        },
+        {
+          "id": "a3_q028",
+          "domain": "Route Guards",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the `CanLoad` guard, and how does it differ from `CanActivate`?",
+          "options": [
+            "A) They are identical and can be used interchangeably.",
+            "B) `CanLoad` runs after `CanActivate` to double-check permissions.",
+            "C) `CanLoad` prevents the lazy-loaded module from being fetched in the first place if the user is unauthorized, while `CanActivate` prevents navigation to an already-loaded module.",
+            "D) `CanLoad` is for protecting child routes, `CanActivate` is for parent routes."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `CanLoad` guard is specifically designed for lazy-loaded modules. It runs *before* the module chunk is downloaded from the server. This is a performance and security feature: it prevents unauthorized users from even downloading the code for a feature they shouldn't access. `CanActivate` runs after the module is already loaded."
+        },
+        {
+          "id": "a3_q029",
+          "domain": "Modules",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `exports` array in an NgModule?",
+          "options": [
+            "A) To declare which components are private to this module.",
+            "B) To make specific declarations (components, directives, pipes) available to other modules that import this module.",
+            "C) To list the services that this module provides to the root injector.",
+            "D) To define the routes for this module."
+          ],
+          "correct_index": 1,
+          "explanation": "The `exports` array defines the public API of a module. Only the components, directives, and pipes listed in `exports` can be used in the templates of components that belong to *other* modules which import this module. It controls the visibility and reusability of a module's functionality."
+        },
+        {
+          "id": "a3_q030",
+          "domain": "Router",
+          "difficulty": "Medium",
+          "question_text": "How can a component access the parameters from the current route (e.g., `:id`)?",
+          "options": [
+            "A) By injecting `ActivatedRoute` and subscribing to its `paramMap` Observable.",
+            "B) By using the `@Input() id;` decorator.",
+            "C) By inspecting the `window.location` object.",
+            "D) By injecting the `Router` service and reading its `params` property."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `ActivatedRoute` service contains information about the route associated with the loaded component. Its `paramMap` property is an Observable that emits a map of the route parameters (e.g., `id`) each time they change. Subscribing to this Observable is the standard way to react to parameter changes."
+        },
+        {
+          "id": "a4_q031",
+          "domain": "Change Detection",
+          "difficulty": "Hard",
+          "question_text": "What is the effect of setting `changeDetection: ChangeDetectionStrategy.OnPush` on a component?",
+          "options": [
+            "A) It completely disables Angular's change detection for that component.",
+            "B) It makes the component's change detector run only when its input references change or an event originates from the component itself.",
+            "C) It forces the change detector to run on every tick, ensuring the view is always up-to-date.",
+            "D) It enables automatic change detection for all child components."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `OnPush` strategy is a major performance optimization. It tells Angular that a component only depends on its `@Input` properties (and should only be checked if they change) and that it should be checked when it handles an event (e.g., a click) or an Observable linked via the async pipe emits. It prevents the component from being checked in every change detection cycle."
+        },
+        {
+          "id": "a4_q032",
+          "domain": "Directives",
+          "difficulty": "Medium",
+          "question_text": "What is the key difference between a Component and a Directive in Angular?",
+          "options": [
+            "A) There is no difference; a Component is a type of Directive.",
+            "B) A Directive has a template, while a Component does not.",
+            "C) A Component is a Directive with a template. Components are the most common type of directive, but structural and attribute directives define behavior without a template.",
+            "D) Directives are used for services, Components are for UI."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Technically, a Component is a directive. However, in Angular's terminology, 'Directive' usually refers to Attribute and Structural directives. The key distinction is that a Component always has its own view (template), while other directive types do not; they instead attach behavior to existing DOM elements or components."
+        },
+        {
+          "id": "a4_q033",
+          "domain": "Pipes",
+          "difficulty": "Easy",
+          "question_text": "What is the purpose of a Pipe in Angular?",
+          "options": [
+            "A) To connect components to services.",
+            "B) To transform displayed values within a template expression.",
+            "C) To handle routing between components.",
+            "D) To validate form inputs."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Pipes are simple functions you can use in template expressions to accept an input value and return a transformed value. They are intended for pure transformations, such as formatting dates (`date`), currencies (`currency`), or text case (`uppercase`). You can also create custom pipes for application-specific transformations."
+        },
+        {
+          "id": "a4_q034",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "What is the primary purpose of the `TestBed` utility in Angular unit tests?",
+          "options": [
+            "A) To run end-to-end (e2e) tests in a real browser.",
+            "B) To configure and create an Angular testing module that can compile components and provide dependencies, simulating the Angular runtime environment.",
+            "C) To measure the performance of components.",
+            "D) To generate test coverage reports."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`TestBed` is the main unit testing utility for Angular. It allows you to configure a testing module (similar to an NgModule) where you can declare components to test, provide mocked dependencies, and compile them. `TestBed.createComponent()` is used to create a component fixture for testing."
+        },
+        {
+          "id": "a4_q035",
+          "domain": "Dynamic Components",
+          "difficulty": "Hard",
+          "question_text": "What is the role of a `ViewContainerRef` in dynamically loading a component?",
+          "options": [
+            "A) It defines the HTML template for the dynamic component.",
+            "B) It represents a container where one or more views (like components) can be attached. Its `createComponent()` method is used to instantiate and insert a component.",
+            "C) It is a service that registers dynamic components at runtime.",
+            "D) It is used to style the dynamic component."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A `ViewContainerRef` is a reference to a container in the DOM that can host sibling views. To load a component dynamically, you inject a `ViewContainerRef` (often via `@ViewChild`) into the parent component. Then, you use its `createComponent()` method, passing a `ComponentFactory`, to instantiate the component and insert it into the DOM at that location."
+        },
+        {
+          "id": "a4_q036",
+          "domain": "Internationalization",
+          "difficulty": "Medium",
+          "question_text": "How does Angular's i18n process work for translating text in templates?",
+          "options": [
+            "A) Translations are fetched at runtime from a server based on the user's language.",
+            "B) You use the `i18n` attribute on HTML elements. The Angular CLI extracts these strings into a translation source file (XLIFF or XMB), which is translated, and then the app is built for each supported locale.",
+            "C) You write a custom pipe for each language that maps text IDs to translations.",
+            "D) You conditionally show and hide different versions of the template using `*ngIf`."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Angular's built-in i18n is a compile-time process. You mark text for translation using the `i18n` attribute. The CLI (`xi18n` command) extracts these strings into a standard translation file. Translators fill this file out. Finally, you build the application multiple times, once for each locale, using the `--localize` flag, producing separate, optimized application bundles for each language."
+        },
+        {
+          "id": "a4_q037",
+          "domain": "Directives",
+          "difficulty": "Hard",
+          "question_text": "How does a Structural Directive (like *ngIf) work under the hood?",
+          "options": [
+            "A) It directly manipulates the DOM using JavaScript.",
+            "B) It uses the `<ng-template>` element and the ViewContainerRef to conditionally create or destroy embedded views.",
+            "C) It adds or removes CSS classes to hide and show elements.",
+            "D) It is a syntax sugar for a component with an input property."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The asterisk (*) syntax is syntactic sugar. `*ngIf=\"condition\"` gets transformed by Angular into an `<ng-template>` element wrapping the host element, with the directive applied to it: `<ng-template [ngIf]=\"condition\">...`. The `NgIf` directive then uses the `ViewContainerRef` to create (if true) or clear (if false) the embedded view based on the condition."
+        },
+        {
+          "id": "a4_q038",
+          "domain": "Build & Deployment",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `angular.json` file?",
+          "options": [
+            "A) It defines the root component of the application.",
+            "B) It is the workspace configuration file that contains project-specific defaults and CLI builder targets for commands like build, serve, and test.",
+            "C) It lists all the dependencies of the project.",
+            "D) It configures the TypeScript compiler options."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `angular.json` file is the heart of the Angular CLI workspace configuration. It defines the projects in the workspace, their root directories, the build and serve targets (which specify builder functions, file paths, and configurations like production vs. development), and other CLI-specific settings."
+        },
+        {
+          "id": "a4_q039",
+          "domain": "Performance",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the `trackBy` function with `*ngFor`?",
+          "options": [
+            "A) To sort the list of items automatically.",
+            "B) To filter the list of items based on a condition.",
+            "C) To provide a unique identifier for each item, allowing Angular to track list items efficiently and avoid re-rendering the entire DOM when items are added, removed, or reordered.",
+            "D) To style every other item in the list differently."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "By default, `*ngFor` tracks items by object identity. If you get a new array of objects (even with the same data) from a server, Angular will tear down and rebuild all the DOM nodes because it can't map the old items to the new ones. A `trackBy` function lets you provide a stable unique key (e.g., an `id`), so Angular can re-use existing DOM elements when the data changes, significantly improving performance for large lists."
+        },
+        {
+          "id": "a4_q040",
+          "domain": "Testing",
+          "difficulty": "Medium",
+          "question_text": "What is a `MockService` and why is it used in unit tests?",
+          "options": [
+            "A) It is a real service running in a test environment.",
+            "B) It is a fake version of a service that provides canned responses, used to isolate the component under test from its dependencies.",
+            "C) It is a service that records all method calls for verification.",
+            "D) It is a deprecated testing pattern."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Unit tests should test a unit of code (like a component) in isolation. If the component depends on a service that makes HTTP calls or has complex logic, you don't want to use the real service. A mock service (or spy) is a controlled fake that returns predefined data, allowing you to test the component's behavior in response to different service states without the complexity of the real dependency."
+        }
+      ]
+    },
+    {
+      "id": "angular-intermediate-set",
+      "name": "Angular Intermediate Challenges",
+      "title": "Deep Dive into Advanced Angular Patterns",
+      "focus_area": "Reactive Forms, Component Interaction, and Advanced Directives",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-sync-alt text-blue-300 hover:text-blue-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Reactive Forms & Validation"
+        },
+        {
+          "icon": "fas fa-exchange-alt text-green-300 hover:text-green-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Advanced Component Communication (@Output, ViewChild, Services)"
+        },
+        {
+          "icon": "fas fa-cloud text-purple-300 hover:text-purple-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Component Lifecycle Hooks"
+        },
+        {
+          "icon": "fas fa-code-branch text-red-300 hover:text-red-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Custom Directives & Pipes"
+        },
+        {
+          "icon": "fas fa-route text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Routing with Route Parameters & Guards"
+        }
+      ],
+      "difficulty": "Intermediate",
+      "description": "This set explores core intermediate Angular features, including reactive forms for robust user input, sophisticated component interaction patterns, leveraging lifecycle hooks, and building custom structural and attribute directives. It also covers more intricate routing scenarios.",
+      "icon": "fas fa-cogs",
+      "total_questions": "25",
+      "time_limit": "20",
+      "passing_score": "80",
+      "active": true,
+      "questions": [
+        {
+          "id": "ang_int_001",
+          "question_text": "Which Angular module do you import to work with Reactive Forms?",
+          "options": [
+            "A) `FormsModule`",
+            "B) `ReactiveFormsModule`",
+            "C) `BrowserModule`",
+            "D) `HttpClientModule`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ReactiveFormsModule` is essential for building reactive forms in Angular, providing access to `FormGroup`, `FormControl`, and other reactive form primitives."
+        },
+        {
+          "id": "ang_int_002",
+          "question_text": "What is the correct way to initialize a `FormControl` with a default value and a validator?",
+          "options": [
+            "A) `new FormControl('', Validators.required)`",
+            "B) `new FormControl(Validators.required, '')`",
+            "C) `new FormControl({ value: '', validators: Validators.required })`",
+            "D) `new FormControl().setValue('', Validators.required)`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `FormControl` constructor accepts the initial value as the first argument and an array or single validator as the second argument."
+        },
+        {
+          "id": "ang_int_003",
+          "question_text": "Which lifecycle hook is called once, after Angular has initialized all data-bound properties of a directive or component?",
+          "options": [
+            "A) `ngOnChanges`",
+            "B) `ngOnInit`",
+            "C) `ngAfterViewInit`",
+            "D) `ngDoCheck`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngOnInit` is a key lifecycle hook called once after Angular has initialized all data-bound properties and sets up the directive or component."
+        },
+        {
+          "id": "ang_int_004",
+          "question_text": "How can a child component emit an event to its parent component?",
+          "options": [
+            "A) Using `@Input()`",
+            "B) Using a `Subject` and `subscribe()`",
+            "C) Using `@Output()` with `EventEmitter`",
+            "D) Directly calling a parent method"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `@Output()` decorator, combined with `EventEmitter`, allows a child component to emit custom events that a parent can listen to."
+        },
+        {
+          "id": "ang_int_005",
+          "question_text": "What is the purpose of `ngOnChanges`?",
+          "options": [
+            "A) To detect changes in template variables.",
+            "B) To respond to changes in input properties.",
+            "C) To perform custom change detection.",
+            "D) To clean up resources before destruction."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngOnChanges` is called when Angular detects changes to data-bound input properties. It receives a `SimpleChanges` object with current and previous values."
+        },
+        {
+          "id": "ang_int_006",
+          "question_text": "Which of the following is a built-in validator in Angular Reactive Forms?",
+          "options": [
+            "A) `Validators.alpha`",
+            "B) `Validators.numeric`",
+            "C) `Validators.email`",
+            "D) `Validators.uppercase`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`Validators.email` is a standard validator provided by Angular to check if a form control's value is a valid email format."
+        },
+        {
+          "id": "ang_int_007",
+          "question_text": "How do you access a child component or directive instance from a parent component's class?",
+          "options": [
+            "A) Using `@Input()`",
+            "B) Using `@Output()`",
+            "C) Using `@ViewChild()`",
+            "D) Using `ng-content`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `@ViewChild()` decorator allows a parent component to obtain a reference to a child component, directive, or DOM element in its view."
+        },
+        {
+          "id": "ang_int_008",
+          "question_text": "What is the primary difference between `ngOnDestroy` and `ngOnChanges`?",
+          "options": [
+            "A) `ngOnDestroy` is for cleanup, `ngOnChanges` for initialization.",
+            "B) `ngOnDestroy` is for input changes, `ngOnChanges` for component destruction.",
+            "C) `ngOnDestroy` is called once before destruction, `ngOnChanges` for input property changes.",
+            "D) Both are called on every change detection cycle."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`ngOnDestroy` is a cleanup hook invoked just before Angular destroys a component/directive. `ngOnChanges` responds to changes in input properties."
+        },
+        {
+          "id": "ang_int_009",
+          "question_text": "When creating a custom attribute directive, which decorator is used?",
+          "options": [
+            "A) `@Component()`",
+            "B) `@Pipe()`",
+            "C) `@Injectable()`",
+            "D) `@Directive()`"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "The `@Directive()` decorator marks a class as an Angular directive, which can be an attribute or structural directive."
+        },
+        {
+          "id": "ang_int_010",
+          "question_text": "How do you define a route with a parameter in Angular?",
+          "options": [
+            "A) `{ path: 'users/:id', component: UserDetailComponent }`",
+            "B) `{ path: 'users/id', component: UserDetailComponent }`",
+            "C) `{ path: 'users?id=', component: UserDetailComponent }`",
+            "D) `{ path: 'users/{id}', component: UserDetailComponent }`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Route parameters are denoted by a colon (`:`) followed by the parameter name in the path configuration."
+        },
+        {
+          "id": "ang_int_011",
+          "question_text": "Which Angular service is used to access route parameters within a component?",
+          "options": [
+            "A) `Router`",
+            "B) `Location`",
+            "C) `ActivatedRoute`",
+            "D) `RouteParams`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `ActivatedRoute` service provides access to information about a route associated with a component that is loaded in an outlet."
+        },
+        {
+          "id": "ang_int_012",
+          "question_text": "What is the purpose of a `FormBuilder`?",
+          "options": [
+            "A) To create custom HTML forms.",
+            "B) To provide a convenient way to generate `FormGroup` and `FormControl` instances programmatically.",
+            "C) To validate form inputs automatically.",
+            "D) To connect forms to a backend API."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`FormBuilder` is a helper class in `ReactiveFormsModule` that simplifies the creation of complex form controls and groups."
+        },
+        {
+          "id": "ang_int_013",
+          "question_text": "When would you use `ngDoCheck`?",
+          "options": [
+            "A) To respond to specific input property changes only.",
+            "B) For custom change detection logic when Angular's default change detection is insufficient.",
+            "C) To perform cleanup when a component is destroyed.",
+            "D) To initialize data after the first change detection cycle."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngDoCheck` allows you to implement your own custom change detection logic beyond what `ngOnChanges` or `ngOnInit` provide, and it's called on every change detection cycle."
+        },
+        {
+          "id": "ang_int_014",
+          "question_text": "What does `ViewEncapsulation.None` do in a component's decorator?",
+          "options": [
+            "A) Prevents any styles from being applied to the component.",
+            "B) Makes the component's styles global, affecting the entire application.",
+            "C) Encapsulates styles within the component, preventing them from leaking out.",
+            "D) Uses the Shadow DOM for style encapsulation."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ViewEncapsulation.None` means that the component's styles are added to the global style sheet, effectively making them global and not scoped to the component."
+        },
+        {
+          "id": "ang_int_015",
+          "question_text": "Which type of guard is used to prevent navigation to a route?",
+          "options": [
+            "A) `CanLoad`",
+            "B) `CanActivate`",
+            "C) `CanDeactivate`",
+            "D) `Resolve`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `CanActivate` guard determines if a user can access (activate) a specific route."
+        },
+        {
+          "id": "ang_int_016",
+          "question_text": "How can you get query parameters from a URL in Angular?",
+          "options": [
+            "A) `this.router.queryParams`",
+            "B) `this.activatedRoute.snapshot.queryParams` or `this.activatedRoute.queryParams` (Observable)",
+            "C) `window.location.search`",
+            "D) `this.router.url.split('?')[1]`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ActivatedRoute` provides access to route information, including `queryParams` as both a snapshot and an observable."
+        },
+        {
+          "id": "ang_int_017",
+          "question_text": "What is the purpose of `Renderer2`?",
+          "options": [
+            "A) To render Angular templates on the server-side.",
+            "B) To interact with the DOM in a platform-independent and safe way.",
+            "C) To optimize change detection performance.",
+            "D) To create custom animations."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`Renderer2` is an abstraction layer that allows you to manipulate the DOM without directly touching the browser's DOM API, making it safer and platform-agnostic."
+        },
+        {
+          "id": "ang_int_018",
+          "question_text": "Which lifecycle hook is ideal for fetching initial data for a component?",
+          "options": [
+            "A) `constructor`",
+            "B) `ngOnChanges`",
+            "C) `ngOnInit`",
+            "D) `ngAfterContentInit`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`ngOnInit` is the most suitable lifecycle hook for fetching data because it's called after the component's inputs are initialized, ensuring data is ready."
+        },
+        {
+          "id": "ang_int_019",
+          "question_text": "What is `Content Projection` (or `ng-content`) used for?",
+          "options": [
+            "A) To project data into a database.",
+            "B) To conditionally render elements.",
+            "C) To insert content from a parent component's template into a child component's template.",
+            "D) To dynamically load modules."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`ng-content` allows you to create flexible and reusable components by defining placeholders in a component's template where content passed from its parent can be projected."
+        },
+        {
+          "id": "ang_int_020",
+          "question_text": "When building a custom pipe, which interface should your pipe class implement?",
+          "options": [
+            "A) `OnInit`",
+            "B) `OnChanges`",
+            "C) `PipeTransform`",
+            "D) `DoCheck`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Custom pipes must implement the `PipeTransform` interface, which requires a `transform` method to perform the data transformation."
+        },
+        {
+          "id": "ang_int_021",
+          "question_text": "What is the purpose of the `RouterModule.forChild()` method?",
+          "options": [
+            "A) To configure the root application routes.",
+            "B) To configure routes for a feature module, typically lazy-loaded.",
+            "C) To define child routes within a single component.",
+            "D) To handle global route events."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`RouterModule.forChild()` is used in feature modules to configure their specific routes, registering them without creating a new router instance, which is crucial for lazy loading."
+        },
+        {
+          "id": "ang_int_022",
+          "question_text": "How do you subscribe to changes in a `FormControl`'s value?",
+          "options": [
+            "A) `myControl.onChanges()`",
+            "B) `myControl.valueChanges.subscribe()`",
+            "C) `myControl.subscribeToValue()`",
+            "D) `myControl.listenForChanges()`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Each `FormControl` (and `FormGroup`, `FormArray`) has a `valueChanges` Observable that emits the new value whenever it changes, which you can subscribe to."
+        },
+        {
+          "id": "ang_int_023",
+          "question_text": "What is a `HostListener` used for in a directive?",
+          "options": [
+            "A) To listen for events on child elements.",
+            "B) To listen for events on the host element of the directive.",
+            "C) To listen for global browser events.",
+            "D) To listen for custom events emitted by services."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `@HostListener()` decorator allows a directive (or component) to listen for events on its host DOM element."
+        },
+        {
+          "id": "ang_int_024",
+          "question_text": "Which of the following is true about `ng-template`?",
+          "options": [
+            "A) It is rendered directly into the DOM.",
+            "B) It's a template element that Angular uses to render structural directives (like *ngIf, *ngFor) without adding a redundant element to the DOM.",
+            "C) It defines a reusable component.",
+            "D) It is used to apply styles to an element."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`<ng-template>` is a template element that Angular uses internally for structural directives. It is never directly rendered in the DOM; its content is only rendered when explicitly instantiated by a directive."
+        },
+        {
+          "id": "ang_int_025",
+          "question_text": "What is the purpose of `ChangeDetectionStrategy.OnPush`?",
+          "options": [
+            "A) To ensure change detection runs on every single event.",
+            "B) To tell Angular to run change detection only when input properties change or an event originates from the component.",
+            "C) To completely disable change detection for a component.",
+            "D) To manually trigger change detection for a component."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`OnPush` change detection strategy optimizes performance by telling Angular to run change detection for a component only when its input properties change (by reference), an event originates from it, or an observable it subscribes to emits a new value."
+        }
+      ]
+    },
+    {
+      "id": "angular-advanced-set",
+      "name": "Angular Advanced Concepts Deep Dive",
+      "title": "Mastering Performance, State, and Asynchronous Operations",
+      "focus_area": "RxJS, State Management, Performance Optimization, and Advanced Architecture",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-stream text-orange-300 hover:text-orange-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "RxJS Operators & Observables"
+        },
+        {
+          "icon": "fas fa-bolt text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Performance Optimization (TrackBy, OnPush)"
+        },
+        {
+          "icon": "fas fa-puzzle-piece text-indigo-300 hover:text-indigo-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Advanced Dependency Injection (Providers, UseFactory)"
+        },
+        {
+          "icon": "fas fa-sitemap text-red-300 hover:text-red-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "State Management Patterns (Services, NgRx Basics)"
+        },
+        {
+          "icon": "fas fa-code text-cyan-300 hover:text-cyan-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Custom Validators & Async Validators"
+        }
+      ],
+      "difficulty": "Advanced",
+      "description": "This set challenges developers with advanced Angular topics, including in-depth RxJS usage, strategies for optimizing application performance, complex dependency injection scenarios, introduction to state management patterns, and building sophisticated custom validators.",
+      "icon": "fas fa-fire-alt",
+      "passing_score": "80",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "45",
+      "questions": [
+        {
+          "id": "ang_adv_001",
+          "question_text": "Which RxJS operator is used to transform each value emitted by an observable into another observable and then flatten all of those observables into a single observable?",
+          "options": [
+            "A) `map`",
+            "B) `filter`",
+            "C) `mergeMap` (or `flatMap`)",
+            "D) `tap`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`mergeMap` (also known as `flatMap`) is used to flatten higher-order observables, merging the values from all inner observables into a single output observable."
+        },
+        {
+          "id": "ang_adv_002",
+          "question_text": "What is the purpose of `trackBy` function with `*ngFor`?",
+          "options": [
+            "A) To track user interactions with the iterated elements.",
+            "B) To improve performance by helping Angular identify which items have changed, been added, or removed, minimizing DOM manipulation.",
+            "C) To sort the items in the collection.",
+            "D) To add unique IDs to each iterated element."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `trackBy` function provides a hint to Angular's change detection, allowing it to re-render only the DOM elements corresponding to items that have actually changed, rather than recreating the entire list."
+        },
+        {
+          "id": "ang_adv_003",
+          "question_text": "Which RxJS operator can be used to debounce user input, waiting for a pause in emissions before processing?",
+          "options": [
+            "A) `throttleTime`",
+            "B) `debounceTime`",
+            "C) `auditTime`",
+            "D) `delay`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`debounceTime` emits a value from the source Observable only after a particular time span has passed without another source emission, making it ideal for search inputs."
+        },
+        {
+          "id": "ang_adv_004",
+          "question_text": "When implementing `OnPush` change detection strategy, under which circumstances will a component re-render?",
+          "options": [
+            "A) On every single browser event.",
+            "B) Only when an input property's value *reference* changes, an event originates from the component, or an Observable the component subscribes to emits.",
+            "C) Never, unless manually triggered.",
+            "D) Only when its template variables change."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "With `OnPush`, change detection is more restrictive: it's triggered by input reference changes, events within the component, or when an observable it explicitly subscribes to emits."
+        },
+        {
+          "id": "ang_adv_005",
+          "question_text": "What is the primary benefit of lazy loading modules in Angular?",
+          "options": [
+            "A) To reduce the number of components in the main bundle.",
+            "B) To improve initial application load time by loading modules only when they are needed.",
+            "C) To enhance security by separating features.",
+            "D) To allow for easier debugging of features."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Lazy loading delays the loading of certain modules until the user navigates to a route associated with them, significantly reducing the initial bundle size and speeding up application startup."
+        },
+        {
+          "id": "ang_adv_006",
+          "question_text": "Which RxJS operator is best suited for scenarios where you only care about the latest value from a previous observable if a new one arrives (e.g., typeahead with API calls)?",
+          "options": [
+            "A) `mergeMap`",
+            "B) `concatMap`",
+            "C) `switchMap`",
+            "D) `exhaustMap`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`switchMap` unsubscribes from the previous inner observable and subscribes to the new one whenever the source observable emits, effectively taking only the latest emitted value."
+        },
+        {
+          "id": "ang_adv_007",
+          "question_text": "How do you provide a service at the component level, making it available only to that component and its children?",
+          "options": [
+            "A) Add it to the `providers` array in `AppModule`.",
+            "B) Add it to the `providers` array in the component's `@Component` decorator.",
+            "C) Add `providedIn: 'root'` to the service's `@Injectable` decorator.",
+            "D) Import it directly into the component's class."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Adding a service to the `providers` array of a component's `@Component` decorator makes it a new instance for that component and its descendants."
+        },
+        {
+          "id": "ang_adv_008",
+          "question_text": "What is an `async` pipe primarily used for in Angular templates?",
+          "options": [
+            "A) To make HTTP requests asynchronously.",
+            "B) To automatically subscribe to an `Observable` or `Promise` and unwrap their emitted values, handling subscription/unsubscription.",
+            "C) To run JavaScript code asynchronously in the background.",
+            "D) To apply asynchronous validation to forms."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `async` pipe is a powerful feature that automatically subscribes to Observables or Promises and unwraps their latest value, greatly simplifying asynchronous data handling in templates."
+        },
+        {
+          "id": "ang_adv_009",
+          "question_text": "Which RxJS Subject variant maintains the last emitted value and emits it to new subscribers immediately?",
+          "options": [
+            "A) `Subject`",
+            "B) `ReplaySubject`",
+            "C) `BehaviorSubject`",
+            "D) `AsyncSubject`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`BehaviorSubject` always has a current value, which is emitted to new subscribers immediately upon subscription. It requires an initial value."
+        },
+        {
+          "id": "ang_adv_010",
+          "question_text": "What is the purpose of `ViewContainerRef`?",
+          "options": [
+            "A) To get a reference to the host element of a component.",
+            "B) To manage and create dynamic components or views programmatically.",
+            "C) To access the raw DOM element.",
+            "D) To define the component's styles."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ViewContainerRef` represents a container where one or more views can be attached. It's crucial for dynamically adding/removing components or templates in the DOM."
+        },
+        {
+          "id": "ang_adv_011",
+          "question_text": "How can you implement an asynchronous validator in a Reactive Form?",
+          "options": [
+            "A) By returning a `Promise` or `Observable` that resolves to a validation error object or `null`.",
+            "B) By using a regular validator function and `setTimeout`.",
+            "C) Async validators are not supported in Angular.",
+            "D) By using `Validators.async`."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Asynchronous validators return a `Promise` or an `Observable` that eventually emits a `ValidationErrors` object (if invalid) or `null` (if valid)."
+        },
+        {
+          "id": "ang_adv_012",
+          "question_text": "Which RxJS operator is used to combine the latest values from multiple observables, emitting a new array when any of the source observables emit?",
+          "options": [
+            "A) `merge`",
+            "B) `concat`",
+            "C) `zip`",
+            "D) `combineLatest`"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "`combineLatest` takes multiple observables and returns an observable that emits an array of the latest values from each input observable whenever any of them emit."
+        },
+        {
+          "id": "ang_adv_013",
+          "question_text": "What is the function of `APP_INITIALIZER` token?",
+          "options": [
+            "A) To define global application constants.",
+            "B) To execute code before the main application component (`AppComponent`) is bootstrapped.",
+            "C) To initialize forms across the application.",
+            "D) To configure routing globally."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`APP_INITIALIZER` is a DI token used to provide a function that runs during application startup, before any components are rendered. It's useful for loading configuration or performing initialization tasks."
+        },
+        {
+          "id": "ang_adv_014",
+          "question_text": "When should you use `ChangeDetectionStrategy.Default` vs. `ChangeDetectionStrategy.OnPush`?",
+          "options": [
+            "A) `Default` for large applications, `OnPush` for small ones.",
+            "B) `Default` for maximum performance, `OnPush` for simplicity.",
+            "C) `Default` when you don't care about explicit optimizations (checks every change), `OnPush` for performance-critical components that rely on immutable inputs or explicit observable subscriptions.",
+            "D) `Default` for components with no inputs, `OnPush` for components with many inputs."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`Default` is less optimized, checking on most events. `OnPush` requires more careful data flow management but offers significant performance benefits for stable components."
+        },
+        {
+          "id": "ang_adv_015",
+          "question_text": "What does `forkJoin` do in RxJS?",
+          "options": [
+            "A) Emits values from multiple observables as soon as they arrive.",
+            "B) Combines the latest values from multiple observables.",
+            "C) Takes a list of Observables and runs them in parallel, emitting an array of their last values only when all of them complete.",
+            "D) Concatenates multiple observables sequentially."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`forkJoin` is used when you have multiple Observables that run in parallel and you need all of them to complete before you can do something with their final emitted values."
+        },
+        {
+          "id": "ang_adv_016",
+          "question_text": "How can you provide different implementations of a service based on the environment (e.g., development vs. production)?",
+          "options": [
+            "A) Using `ngIf` in the component.",
+            "B) By modifying the `providers` array in `environment.ts`.",
+            "C) Using the `provide` and `useClass` (or `useValue`, `useFactory`) properties in the `providers` array of an `NgModule`.",
+            "D) Angular does not support environment-specific service implementations."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Angular's DI system allows you to define different providers (e.g., using `useClass`, `useFactory`, `useValue`) for the same token, which can be conditionally chosen based on the environment build."
+        },
+        {
+          "id": "ang_adv_017",
+          "question_text": "What is the purpose of `NgZone`?",
+          "options": [
+            "A) To manage internationalization and localization.",
+            "B) To provide a context for executing callbacks that Angular is interested in, triggering change detection.",
+            "C) To handle client-side routing.",
+            "D) To create web workers."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`NgZone` allows Angular to detect and respond to asynchronous operations (like HTTP requests, timers, DOM events). You can run code `outside` of Angular's zone to prevent unnecessary change detection runs for performance optimization."
+        },
+        {
+          "id": "ang_adv_018",
+          "question_text": "Which RxJS operator can be used to retry an observable sequence a specified number of times if it errors?",
+          "options": [
+            "A) `catchError`",
+            "B) `finalize`",
+            "C) `retry`",
+            "D) `onError`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `retry` operator resubscribes to the source observable, attempting to re-execute the sequence a set number of times if an error occurs."
+        },
+        {
+          "id": "ang_adv_019",
+          "question_text": "What is the difference between `RouterLink` and programmatic navigation using `Router.navigate()`?",
+          "options": [
+            "A) `RouterLink` is for external URLs, `Router.navigate()` for internal.",
+            "B) `RouterLink` is declarative (in template), `Router.navigate()` is imperative (in component code).",
+            "C) `RouterLink` only supports simple paths, `Router.navigate()` supports complex ones.",
+            "D) There is no functional difference; it's a matter of preference."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`RouterLink` is a directive used in templates for declarative navigation. `Router.navigate()` is a method on the `Router` service for programmatic, imperative navigation from component code."
+        },
+        {
+          "id": "ang_adv_020",
+          "question_text": "What is a `HostBinding` used for?",
+          "options": [
+            "A) To bind data from the component to the template.",
+            "B) To bind properties of the host element (e.g., `class`, `style`) to values from the directive/component.",
+            "C) To listen for events on the host element.",
+            "D) To dynamically create elements in the DOM."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`@HostBinding()` allows you to bind a property of the directive/component to a property of its host element. For example, `(@HostBinding('class.active') isActive: boolean)`."
+        },
+        {
+          "id": "ang_adv_021",
+          "question_text": "Which RxJS operator is used to perform side effects (like logging) without altering the emitted values of an observable?",
+          "options": [
+            "A) `map`",
+            "B) `filter`",
+            "C) `tap` (or `do`)",
+            "D) `catchError`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`tap` (or its deprecated alias `do`) allows you to perform side effects for notifications from the source observable, such as logging, without affecting the observable's stream."
+        },
+        {
+          "id": "ang_adv_022",
+          "question_text": "What is a `RendererFactory2` used for?",
+          "options": [
+            "A) To generate CSS styles for components.",
+            "B) To create platform-specific `Renderer2` instances, crucial for server-side rendering or web workers.",
+            "C) To create new components dynamically.",
+            "D) To manage global event listeners."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`RendererFactory2` is an abstract class for creating `Renderer2` instances. Different platforms (browser, server, web worker) provide their own `RendererFactory2` implementations."
+        },
+        {
+          "id": "ang_adv_023",
+          "question_text": "How do you define a custom global error handler in Angular?",
+          "options": [
+            "A) By implementing the `ErrorHandler` interface and providing it in `AppModule`.",
+            "B) By using a `try-catch` block around the entire application.",
+            "C) By subscribing to `router.events`.",
+            "D) By overriding `console.error`."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "You can create a custom error handler by implementing Angular's `ErrorHandler` interface and providing it globally in `AppModule`, allowing centralized error logging or reporting."
+        },
+        {
+          "id": "ang_adv_024",
+          "question_text": "What is the purpose of `InjectionToken`?",
+          "options": [
+            "A) To define a unique identifier for a route.",
+            "B) To create a JavaScript class that can be injected.",
+            "C) To create a unique and strong token for providers, especially for non-class dependencies like strings, objects, or functions.",
+            "D) To manage authentication tokens."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`InjectionToken` is used to create a DI token that you can associate with a provider. It's particularly useful when the dependency is not a class, preventing naming collisions."
+        },
+        {
+          "id": "ang_adv_025",
+          "question_text": "Which RxJS operator would you use to wait for a specific condition or event on an observable before allowing further emissions?",
+          "options": [
+            "A) `filter`",
+            "B) `takeUntil`",
+            "C) `first`",
+            "D) `skipWhile`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`takeUntil` allows an observable to emit values until a second notifier observable emits, at which point the original observable completes. This is common for managing subscriptions."
+        }
+      ]
+    },
+    {
+      "id": "angular-expert-set",
+      "name": "Angular Expert Architectures & Optimizations",
+      "title": "Mastering Advanced Architecture, State, and Enterprise Patterns",
+      "focus_area": "Advanced State Management (NgRx, NGRX Component Store), Micro-frontends, Build Optimizations, and Performance Tuning",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-brain text-blue-300 hover:text-blue-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "NgRx State Management"
+        },
+        {
+          "icon": "fas fa-cubes text-green-300 hover:text-green-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "NGRX Component Store"
+        },
+        {
+          "icon": "fas fa-cogs text-purple-300 hover:text-purple-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Micro-frontend Architectures"
+        },
+        {
+          "icon": "fas fa-rocket text-red-300 hover:text-red-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Build Optimizations & Performance Tuning"
+        },
+        {
+          "icon": "fas fa-layer-group text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Advanced Change Detection & Zone.js Management"
+        }
+      ],
+      "difficulty": "Expert",
+      "description": "This set targets expert-level Angular developers, focusing on enterprise-grade architecture, sophisticated state management with NgRx and Component Store, strategies for building scalable micro-frontends, deep dives into build process optimization, and fine-tuning change detection with Zone.js manipulation.",
+      "icon": "fas fa-user-tie",
+      "passing_score": "85",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "60",
+      "questions": [
+        {
+          "id": "ang_exp_001",
+          "question_text": "In NgRx, what is the purpose of an 'Effect'?",
+          "options": [
+            "A) To directly modify the state in the Redux store.",
+            "B) To handle side effects like API calls, asynchronous operations, and dispatch new actions based on their results.",
+            "C) To define the initial state of the application.",
+            "D) To select slices of state from the store."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "NgRx Effects are responsible for isolating side effects, such as interacting with APIs, managing websockets, or handling other asynchronous operations, keeping reducers pure."
+        },
+        {
+          "id": "ang_exp_002",
+          "question_text": "What is the key advantage of using `ngrx/component-store` over the full `ngrx/store` for local component state?",
+          "options": [
+            "A) It completely replaces `ngrx/store` for global state.",
+            "B) It is simpler, lighter, and optimized for local component or feature state management, avoiding global boilerplate.",
+            "C) It automatically syncs state with the backend.",
+            "D) It supports only synchronous state updates."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngrx/component-store` provides a lightweight, reactive state management solution scoped to a component or feature, reducing the boilerplate associated with global `ngrx/store` when only local state is needed."
+        },
+        {
+          "id": "ang_exp_003",
+          "question_text": "Which module in NgRx is used to define the root reducer for the application?",
+          "options": [
+            "A) `StoreModule.forRoot()`",
+            "B) `EffectsModule.forRoot()`",
+            "C) `StoreDevtoolsModule.instrument()`",
+            "D) `RouterStoreModule.forRoot()`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`StoreModule.forRoot()` registers the root reducer and sets up the NgRx store for the entire application."
+        },
+        {
+          "id": "ang_exp_004",
+          "question_text": "What is the primary motivation for adopting a Micro-frontend architecture with Angular?",
+          "options": [
+            "A) To enforce a single, monolithic build process.",
+            "B) To allow independent development, deployment, and scaling of distinct application features or domains.",
+            "C) To eliminate the need for routing.",
+            "D) To reduce the number of Angular projects in an organization."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Micro-frontends break down a large frontend application into smaller, independently deployable units, enabling teams to work autonomously and scale parts of the application separately."
+        },
+        {
+          "id": "ang_exp_005",
+          "question_text": "In NgRx, what is a 'Selector' used for?",
+          "options": [
+            "A) To dispatch actions to the store.",
+            "B) To modify the state in an immutable way.",
+            "C) To query and compose slices of state from the store, providing memoized values for performance.",
+            "D) To handle side effects in response to actions."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "NgRx Selectors are pure functions used to select, transform, and compose pieces of state from the store. They are memoized by default, which means they only re-evaluate when their input state changes."
+        },
+        {
+          "id": "ang_exp_006",
+          "question_text": "Which Angular CLI command is used to analyze the bundle size and identify areas for optimization?",
+          "options": [
+            "A) `ng build --prod`",
+            "B) `ng build --stats-json` and then use a tool like Webpack Bundle Analyzer.",
+            "C) `ng analyze`",
+            "D) `ng serve --profile`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Running `ng build --stats-json` generates a JSON file with build statistics, which can then be fed into tools like Webpack Bundle Analyzer to visualize and analyze the bundle composition."
+        },
+        {
+          "id": "ang_exp_007",
+          "question_text": "What is the concept of 'Zone-less' Angular application development?",
+          "options": [
+            "A) Running the application without any components.",
+            "B) Running Angular applications where Zone.js is explicitly disabled, requiring manual change detection triggering.",
+            "C) Running Angular in a serverless environment.",
+            "D) Running Angular without any third-party libraries."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "'Zone-less' development involves disabling Zone.js (`ngZone: 'noop'`) in the bootstrap process, which means Angular's automatic change detection is turned off. Developers must then manually trigger change detection (e.g., using `ChangeDetectorRef.detectChanges()`) when necessary."
+        },
+        {
+          "id": "ang_exp_008",
+          "question_text": "In NgRx, what is an 'Action'?",
+          "options": [
+            "A) A function that returns a new state.",
+            "B) A plain JavaScript object that describes a unique event that has occurred in the application.",
+            "C) A method for selecting data from the store.",
+            "D) A service for making API calls."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Actions are the only way to initiate a change in the NgRx store. They are dispatched by components or effects to signal events."
+        },
+        {
+          "id": "ang_exp_009",
+          "question_text": "Which RxJS operator is often paired with NgRx Effects to ensure that only the most recent request is processed, canceling previous ongoing requests?",
+          "options": [
+            "A) `mergeMap`",
+            "B) `concatMap`",
+            "C) `switchMap`",
+            "D) `exhaustMap`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`switchMap` is commonly used in NgRx Effects for scenarios like search auto-completion, where only the result of the latest request matters, and previous, slower requests should be canceled."
+        },
+        {
+          "id": "ang_exp_010",
+          "question_text": "What is the primary benefit of using `ngrx/entity`?",
+          "options": [
+            "A) It provides a complete state management solution for all application state.",
+            "B) It offers a standardized, performant, and flexible way to manage collections of data (entities) in the NgRx store, along with common CRUD operations.",
+            "C) It automatically generates API services for entities.",
+            "D) It is an alternative to NgRx for global state management."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngrx/entity` simplifies the management of normalized collections of data, providing pre-built adapters and selectors for common operations like adding, updating, and removing entities efficiently."
+        },
+        {
+          "id": "ang_exp_011",
+          "question_text": "What is the 'Module Federation' feature in Webpack primarily used for in the context of Angular?",
+          "options": [
+            "A) To split a single Angular application into multiple lazy-loaded modules.",
+            "B) To enable sharing code and entire applications or components between different independent applications (often for Micro-frontends).",
+            "C) To manage npm dependencies for an Angular project.",
+            "D) To deploy Angular applications to multiple servers simultaneously."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Webpack 5's Module Federation allows multiple independent builds to form a single application. This is a game-changer for Micro-frontend architectures, enabling runtime sharing of code and components."
+        },
+        {
+          "id": "ang_exp_012",
+          "question_text": "How can you debug NgRx state changes effectively in the browser?",
+          "options": [
+            "A) By logging every action and state change to the console manually.",
+            "B) By using `StoreDevtoolsModule` and the Redux DevTools browser extension.",
+            "C) By inspecting component inputs and outputs in the Angular DevTools.",
+            "D) NgRx state changes cannot be easily debugged in the browser."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`StoreDevtoolsModule` integrates with the Redux DevTools extension, providing a powerful interface to inspect, replay, and time-travel through NgRx state changes."
+        },
+        {
+          "id": "ang_exp_013",
+          "question_text": "In `ngrx/component-store`, what is a `updater` function responsible for?",
+          "options": [
+            "A) Dispatching global NgRx actions.",
+            "B) Performing side effects like API calls.",
+            "C) Receiving a value and returning a new, immutable state for the component store.",
+            "D) Selecting data from the component store."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "An `updater` in `ngrx/component-store` is a function that takes an optional payload and the current state, and returns a new (immutable) state object."
+        },
+        {
+          "id": "ang_exp_014",
+          "question_text": "Which technique helps to reduce the initial bundle size of an Angular application by splitting code into smaller chunks that are loaded only when needed?",
+          "options": [
+            "A) Ahead-of-Time (AOT) compilation.",
+            "B) Just-in-Time (JIT) compilation.",
+            "C) Lazy loading modules.",
+            "D) Tree shaking all dependencies."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Lazy loading modules ensures that the code for specific features is only downloaded and parsed when a user navigates to those parts of the application, significantly improving initial load times."
+        },
+        {
+          "id": "ang_exp_015",
+          "question_text": "What is the purpose of `PLATFORM_INITIALIZER` token?",
+          "options": [
+            "A) To run code before any application on a platform is initialized.",
+            "B) To initialize an individual Angular application.",
+            "C) To configure the Angular compiler.",
+            "D) To bootstrap components."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`PLATFORM_INITIALIZER` is a token for functions that run after the platform (`BrowserModule`, `ServerModule`, etc.) has been initialized but before any individual Angular application is bootstrapped."
+        },
+        {
+          "id": "ang_exp_016",
+          "question_text": "How can you programmatically trigger change detection for a specific component and its descendants in `OnPush` strategy?",
+          "options": [
+            "A) Call `this.cdRef.markForCheck()` and then rely on the next change detection cycle.",
+            "B) Call `this.cdRef.detectChanges()` directly.",
+            "C) Call `this.appRef.tick()`.",
+            "D) Both A and B"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "`markForCheck()` marks the component and its ancestors for checking in the next change detection cycle. `detectChanges()` immediately runs change detection on the component and its children."
+        },
+        {
+          "id": "ang_exp_017",
+          "question_text": "What does 'tree shaking' refer to in the context of an Angular build?",
+          "options": [
+            "A) Removing unnecessary comments from code.",
+            "B) Eliminating unused code from your final JavaScript bundle during the build process.",
+            "C) Optimizing the rendering of component trees.",
+            "D) Reducing the number of external dependencies."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Tree shaking is a dead code elimination technique. It removes unused exports from modules, resulting in smaller, more efficient JavaScript bundles."
+        },
+        {
+          "id": "ang_exp_018",
+          "question_text": "Which of the following is NOT a core principle of NgRx?",
+          "options": [
+            "A) Single source of truth (the Store).",
+            "B) State is read-only (mutated only by pure functions).",
+            "C) Changes are made with actions and reducers.",
+            "D) Direct DOM manipulation by components."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "NgRx promotes a reactive, immutable state management pattern, strongly discouraging direct DOM manipulation as it can lead to unpredictable state. Components interact with state through actions and selectors."
+        },
+        {
+          "id": "ang_exp_019",
+          "question_text": "What is the primary role of `createAction` in NgRx?",
+          "options": [
+            "A) To create an Effect.",
+            "B) To define a unique action type and an action creator function.",
+            "C) To create a selector.",
+            "D) To define an immutable state slice."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`createAction` is a helper function that generates an action creator, ensuring type safety and providing a consistent way to define actions with their type string and optional payload."
+        },
+        {
+          "id": "ang_exp_020",
+          "question_text": "What is `HttpClientInterceptor` primarily used for?",
+          "options": [
+            "A) To intercept and modify router navigation events.",
+            "B) To intercept outgoing HTTP requests and incoming HTTP responses globally across the application.",
+            "C) To intercept component lifecycle hooks.",
+            "D) To prevent users from accessing certain routes."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "HTTP Interceptors provide a powerful mechanism to globally transform HTTP requests and responses, allowing for tasks like adding authentication headers, logging, or error handling."
+        },
+        {
+          "id": "ang_exp_021",
+          "question_text": "When building Micro-frontends with Angular, what is a common challenge regarding shared libraries or dependencies?",
+          "options": [
+            "A) Ensuring each micro-frontend uses completely different versions of Angular.",
+            "B) Duplicating shared libraries across multiple micro-frontends, leading to larger bundle sizes.",
+            "C) Completely isolating styling between micro-frontends.",
+            "D) Preventing any communication between micro-frontends."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A common challenge is managing shared dependencies (like Angular itself, RxJS, or a UI library). Without careful configuration (e.g., with Module Federation), these can be duplicated, increasing total application size."
+        },
+        {
+          "id": "ang_exp_022",
+          "question_text": "What is a 'meta-reducer' in NgRx?",
+          "options": [
+            "A) A reducer that operates on a single slice of state.",
+            "B) A higher-order reducer that takes a reducer function and returns a new reducer function, often used for cross-cutting concerns like logging or hydration.",
+            "C) A reducer specifically for effects.",
+            "D) A reducer that only handles routing actions."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Meta-reducers wrap other reducers, allowing you to intercept and modify actions or state before they reach the main reducers, useful for features like state persistence, logging, or undo/redo functionality."
+        },
+        {
+          "id": "ang_exp_023",
+          "question_text": "How can you run specific code outside of Angular's `NgZone` to prevent it from triggering change detection?",
+          "options": [
+            "A) By using `setTimeout(() => {...}, 0)`.",
+            "B) By injecting `NgZone` and calling `this.ngZone.runOutsideAngular(() => { ... })`.",
+            "C) By disabling `ChangeDetectionStrategy.OnPush`.",
+            "D) It's not possible to run code outside `NgZone`."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `runOutsideAngular` method on the `NgZone` service allows you to execute code in a context where Angular's change detection is not automatically triggered, which can be useful for performance-intensive, frequent events."
+        },
+        {
+          "id": "ang_exp_024",
+          "question_text": "Which attribute of `tsconfig.json` is crucial for `tree-shaking` to work effectively?",
+          "options": [
+            "A) `target: 'es5'`",
+            "B) `module: 'commonjs'`",
+            "C) `module: 'esnext'` (or `es2015`/`es2020` for modern browsers)",
+            "D) `lib: ['dom']`"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "For effective tree shaking, the TypeScript compiler needs to output ES modules (`esnext`, `es2015`, etc.) because tree shaking relies on static analysis of ES module import/export statements."
+        },
+        {
+          "id": "ang_exp_025",
+          "question_text": "When designing a large Angular application, what is a common architectural pattern to manage complex feature dependencies and promote maintainability?",
+          "options": [
+            "A) A single, large `AppModule` with all components and services.",
+            "B) Feature modules, Core module, Shared module architecture.",
+            "C) Only using lazy-loaded modules for everything.",
+            "D) Avoiding modules entirely and using standalone components only."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The Feature, Core, Shared module pattern is a well-established way to organize large Angular applications. Feature modules contain specific features, Core module for singletons/providers, and Shared module for reusable components/pipes/directives."
+        }
+      ]
+    },
+    {
+      "id": "angular-professional-set",
+      "name": "Angular Professional Development & Best Practices",
+      "title": "Implementing Robust Solutions with Advanced Techniques",
+      "focus_area": "Advanced Routing, Server-Side Rendering (SSR), Web Workers, PWA, and Enterprise Best Practices",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-code-branch text-blue-300 hover:text-blue-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Advanced Routing Strategies (Auxiliary Routes, Router State)"
+        },
+        {
+          "icon": "fas fa-server text-green-300 hover:text-green-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Server-Side Rendering (Angular Universal)"
+        },
+        {
+          "icon": "fas fa-sync-alt text-purple-300 hover:text-purple-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Progressive Web Apps (PWA) & Service Workers"
+        },
+        {
+          "icon": "fas fa-wrench text-red-300 hover:text-red-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Web Workers for Performance"
+        },
+        {
+          "icon": "fas fa-shield-alt text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Security Best Practices (XSS, CSRF)"
+        }
+      ],
+      "difficulty": "Professional",
+      "description": "This set is for professional Angular developers, covering advanced routing scenarios, implementing Server-Side Rendering with Angular Universal, building Progressive Web Apps, leveraging Web Workers for heavy computations, and adhering to critical security best practices in Angular applications.",
+      "icon": "fas fa-briefcase",
+      "passing_score": "88",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "75",
+      "questions": [
+        {
+          "id": "ang_prof_001",
+          "question_text": "What is the primary benefit of using Server-Side Rendering (SSR) with Angular Universal?",
+          "options": [
+            "A) To reduce the application's bundle size.",
+            "B) To improve SEO and initial page load performance by rendering the application on the server and sending static HTML to the client.",
+            "C) To enable offline capabilities for the application.",
+            "D) To simplify client-side routing."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Angular Universal renders the application on the server, generating static HTML that can be served to the client. This improves SEO (search engines can crawl content) and provides a faster 'first paint' for users."
+        },
+        {
+          "id": "ang_prof_002",
+          "question_text": "How do you configure an auxiliary route in Angular?",
+          "options": [
+            "A) By defining a route with `outlet: 'aux'` in the `RouterModule.forRoot()`.",
+            "B) By using `routerLink` with a `secondary` outlet.",
+            "C) By defining a route with an `outlet` property in the route configuration and rendering it in a named `<router-outlet>`.",
+            "D) Auxiliary routes are not supported in Angular."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Auxiliary routes allow you to display multiple routes independently in different `<router-outlet>`s on the same page. You define them with an `outlet` property in the route configuration and a named `<router-outlet>` in the template."
+        },
+        {
+          "id": "ang_prof_003",
+          "question_text": "What is the role of a Service Worker in a Progressive Web App (PWA)?",
+          "options": [
+            "A) To handle all HTTP requests to the backend.",
+            "B) To enable offline capabilities, push notifications, and background synchronization by acting as a programmable network proxy.",
+            "C) To manage client-side routing.",
+            "D) To compile Angular code in the browser."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Service Workers are JavaScript files that run in the background, separate from the main browser thread. They intercept network requests, cache resources, and enable PWA features like offline access and push notifications."
+        },
+        {
+          "id": "ang_prof_004",
+          "question_text": "When should you consider using Web Workers in an Angular application?",
+          "options": [
+            "A) For all HTTP requests to improve performance.",
+            "B) For simple UI updates to keep the main thread free.",
+            "C) For CPU-intensive computations or long-running tasks that would otherwise block the main UI thread.",
+            "D) Web Workers are deprecated in modern Angular."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Web Workers run scripts in a background thread, separate from the main UI thread. This is ideal for heavy calculations, image processing, or large data manipulations to prevent the UI from freezing."
+        },
+        {
+          "id": "ang_prof_005",
+          "question_text": "Which Angular CLI command is used to add PWA capabilities to an existing Angular project?",
+          "options": [
+            "A) `ng add @angular/pwa`",
+            "B) `ng generate pwa`",
+            "C) `ng install service-worker`",
+            "D) `ng build --pwa`"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `ng add @angular/pwa` command automatically sets up the necessary files (like `ngsw-config.json`, `manifest.webmanifest`) and registers the service worker for PWA functionality."
+        },
+        {
+          "id": "ang_prof_006",
+          "question_text": "What is 'Hydration' in the context of Angular Universal?",
+          "options": [
+            "A) The process of re-fetching data on the client-side after SSR.",
+            "B) The process where the client-side Angular application takes over the static HTML rendered by the server, attaching event listeners and making it interactive.",
+            "C) The process of pre-rendering all routes at build time.",
+            "D) The process of caching assets for offline use."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Hydration is the process where the client-side JavaScript 'rehydrates' the static HTML generated by SSR, making it fully interactive without re-rendering the entire application."
+        },
+        {
+          "id": "ang_prof_007",
+          "question_text": "How can you protect an Angular application from Cross-Site Scripting (XSS) attacks?",
+          "options": [
+            "A) By always using `innerHTML` to display user-provided content.",
+            "B) By sanitizing untrusted values using Angular's built-in `DomSanitizer` and avoiding direct DOM manipulation with untrusted data.",
+            "C) By disabling JavaScript in the browser.",
+            "D) XSS is not a concern for Angular applications."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Angular automatically sanitizes values when binding to HTML, but for cases where you need to bypass this (e.g., injecting dynamic HTML), `DomSanitizer` should be used to explicitly mark content as safe after careful review."
+        },
+        {
+          "id": "ang_prof_008",
+          "question_text": "What is the purpose of `TransferState` in Angular Universal?",
+          "options": [
+            "A) To transfer data between components on the client-side.",
+            "B) To transfer application state from the server to the client during SSR, avoiding re-fetching data on the client.",
+            "C) To manage state in NgRx.",
+            "D) To transfer data between Web Workers."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`TransferState` allows you to transfer data that was fetched on the server during SSR to the client, so the client-side application doesn't have to re-fetch the same data, improving performance."
+        },
+        {
+          "id": "ang_prof_009",
+          "question_text": "Which Angular feature allows you to pre-fetch data for a route before the component is activated, improving user experience?",
+          "options": [
+            "A) `CanActivate` guard",
+            "B) `CanLoad` guard",
+            "C) `Resolve` guard",
+            "D) `CanDeactivate` guard"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "A `Resolve` guard allows you to fetch data asynchronously before a route is activated. The route will not activate until the resolver's observable or promise completes, ensuring data is available when the component loads."
+        },
+        {
+          "id": "ang_prof_010",
+          "question_text": "How do you communicate between the main thread and a Web Worker in Angular?",
+          "options": [
+            "A) Directly call functions between them.",
+            "B) Using `postMessage()` and listening for `message` events.",
+            "C) Through shared global variables.",
+            "D) Web Workers cannot communicate with the main thread."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Communication between the main thread and a Web Worker is done via message passing using `postMessage()` to send data and listening for `message` events to receive data."
+        },
+        {
+          "id": "ang_prof_011",
+          "question_text": "What is the `manifest.webmanifest` file used for in a PWA?",
+          "options": [
+            "A) To define the application's routing configuration.",
+            "B) To describe the application's metadata (name, icons, start URL, display mode) for installation on a user's device.",
+            "C) To configure the service worker's caching strategy.",
+            "D) To list all external dependencies of the PWA."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The Web App Manifest is a JSON file that provides information about an application (like its name, author, icon, and description) to the browser, enabling it to be 'installed' on a user's home screen."
+        },
+        {
+          "id": "ang_prof_012",
+          "question_text": "What is the purpose of `APP_BASE_HREF`?",
+          "options": [
+            "A) To define the base URL for API requests.",
+            "B) To specify the base path for all relative URLs in the application, especially when deploying to a sub-path.",
+            "C) To set the base font size for the application.",
+            "D) To define the root component's selector."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`APP_BASE_HREF` is an `InjectionToken` used to provide the base URL for the application, which is crucial when the application is deployed to a sub-directory on a server."
+        },
+        {
+          "id": "ang_prof_013",
+          "question_text": "How can you prevent Cross-Site Request Forgery (CSRF) attacks in an Angular application interacting with a backend API?",
+          "options": [
+            "A) By only using GET requests.",
+            "B) By ensuring the backend uses CSRF tokens (e.g., synchronizer token pattern) and the Angular app sends them with state-changing requests.",
+            "C) By disabling JavaScript in the browser.",
+            "D) CSRF is handled automatically by modern browsers."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "CSRF protection typically involves the backend generating a unique, unpredictable token that the client-side application includes in state-changing requests (POST, PUT, DELETE). Angular's `HttpClient` can be configured to send these tokens."
+        },
+        {
+          "id": "ang_prof_014",
+          "question_text": "What is the `platformBrowserDynamic().bootstrapModule(AppModule)` function responsible for?",
+          "options": [
+            "A) Compiling the application for production.",
+            "B) Bootstrapping the root `AppModule` in a browser environment, typically for JIT compilation.",
+            "C) Running the application on the server.",
+            "D) Generating new components."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "This function is the entry point for bootstrapping an Angular application in the browser, specifically for Just-in-Time (JIT) compilation, where the compiler runs in the browser."
+        },
+        {
+          "id": "ang_prof_015",
+          "question_text": "Which Angular module is required to enable Server-Side Rendering?",
+          "options": [
+            "A) `BrowserModule`",
+            "B) `ServerModule`",
+            "C) `HttpClientModule`",
+            "D) `RouterModule`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `ServerModule` from `@angular/platform-server` provides the necessary services and directives for running an Angular application on the server."
+        },
+        {
+          "id": "ang_prof_016",
+          "question_text": "What is the purpose of `APP_ID` token in Angular?",
+          "options": [
+            "A) To uniquely identify the application in a multi-app scenario, especially for SSR and hydration.",
+            "B) To define the application's version number.",
+            "C) To provide a unique ID for each component.",
+            "D) To identify the current user."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`APP_ID` is an `InjectionToken` used to provide a unique ID for an application. This is particularly important in SSR and hydration to ensure the server-rendered and client-side applications match."
+        },
+        {
+          "id": "ang_prof_017",
+          "question_text": "How can you implement internationalization (i18n) in an Angular application?",
+          "options": [
+            "A) By manually translating all strings in the code.",
+            "B) By using Angular's built-in i18n tools (e.g., `i18n` attribute, `ng xi18n` command) to extract and manage translations.",
+            "C) By relying solely on browser language settings.",
+            "D) i18n is not supported natively in Angular."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Angular provides robust i18n support, allowing you to mark text for translation using the `i18n` attribute, extract messages with `ng xi18n`, and then merge translated files for different locales."
+        },
+        {
+          "id": "ang_prof_018",
+          "question_text": "What is the primary use case for `Router.events` Observable?",
+          "options": [
+            "A) To listen for HTTP request events.",
+            "B) To listen for and react to various navigation lifecycle events (e.g., `NavigationStart`, `NavigationEnd`, `RoutesRecognized`).",
+            "C) To listen for component lifecycle events.",
+            "D) To listen for user input events."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `Router.events` Observable emits a stream of events during the navigation lifecycle, allowing you to implement global logic like showing/hiding loading indicators, logging, or analytics."
+        },
+        {
+          "id": "ang_prof_019",
+          "question_text": "What is the purpose of `ngsw-config.json` in an Angular PWA?",
+          "options": [
+            "A) To configure the Angular CLI build process.",
+            "B) To define the caching strategies and assets that the Angular Service Worker should manage.",
+            "C) To configure the application's routing.",
+            "D) To list all components in the application."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`ngsw-config.json` is the configuration file for the Angular Service Worker, specifying which files to cache, how to cache them, and other service worker behaviors."
+        },
+        {
+          "id": "ang_prof_020",
+          "question_text": "When using Web Workers, what kind of data can be passed between the main thread and the worker?",
+          "options": [
+            "A) Any JavaScript object, including functions and DOM elements.",
+            "B) Only primitive types (strings, numbers, booleans).",
+            "C) Only structured data that can be serialized (e.g., JSON-serializable objects, `ArrayBuffer`, `Blob`).",
+            "D) Only Observables."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Data passed between the main thread and a Web Worker is copied, not shared. This means it must be serializable using the structured clone algorithm. Functions and DOM elements cannot be passed directly."
+        },
+        {
+          "id": "ang_prof_021",
+          "question_text": "What is the `APP_BOOTSTRAP_LISTENER` token used for?",
+          "options": [
+            "A) To listen for HTTP requests.",
+            "B) To execute a callback function after each component is bootstrapped.",
+            "C) To listen for when the root component of an application has been bootstrapped.",
+            "D) To listen for router events."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`APP_BOOTSTRAP_LISTENER` is an `InjectionToken` that allows you to register callbacks that will be invoked after the root component of an Angular application has been successfully bootstrapped."
+        },
+        {
+          "id": "ang_prof_022",
+          "question_text": "What is the purpose of `platformBrowser().bootstrapModule(AppModule)`?",
+          "options": [
+            "A) To bootstrap the application for AOT compilation.",
+            "B) To bootstrap the application in a browser environment, specifically for AOT (Ahead-of-Time) compiled applications.",
+            "C) To run the application in a Node.js environment.",
+            "D) To compile templates at runtime."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`platformBrowser().bootstrapModule(AppModule)` is used to bootstrap an Angular application that has been Ahead-of-Time (AOT) compiled, meaning the compilation step happens during the build process, not in the browser."
+        },
+        {
+          "id": "ang_prof_023",
+          "question_text": "How can you implement a custom preloading strategy for lazy-loaded modules in Angular?",
+          "options": [
+            "A) By setting `preloadingStrategy: PreloadAllModules` in the router config.",
+            "B) By creating a service that implements the `PreloadingStrategy` interface and providing it in the router configuration.",
+            "C) Preloading strategies are not customizable.",
+            "D) By manually importing all lazy modules at startup."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "You can create a custom preloading strategy by implementing the `PreloadingStrategy` interface, which allows you to define custom logic for when and how lazy-loaded modules should be preloaded."
+        },
+        {
+          "id": "ang_prof_024",
+          "question_text": "What is the primary security concern when using `DomSanitizer.bypassSecurityTrustHtml()`?",
+          "options": [
+            "A) It can lead to performance issues.",
+            "B) It bypasses Angular's built-in security sanitization, potentially exposing the application to XSS vulnerabilities if the content is not trusted.",
+            "C) It only works with static HTML.",
+            "D) It prevents the application from being a PWA."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Bypassing security sanitization should only be done with extreme caution and only when you are absolutely certain that the content being injected is safe and comes from a trusted source, as it opens the door to XSS attacks."
+        },
+        {
+          "id": "ang_prof_025",
+          "question_text": "What is the purpose of `APP_BASE_HREF` when deploying an Angular application to a sub-path (e.g., `example.com/my-app/`)?",
+          "options": [
+            "A) It tells the browser to redirect to the root of the domain.",
+            "B) It informs the Angular router about the base URL segment, ensuring correct routing and asset loading relative to that sub-path.",
+            "C) It is only used for server-side rendering.",
+            "D) It defines the API endpoint for the application."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "When an Angular application is deployed to a sub-path, `APP_BASE_HREF` must be configured to match that sub-path. This ensures that the router correctly resolves URLs and that relative asset paths are resolved correctly."
+        }
+      ]
+    }
+  ]
+}

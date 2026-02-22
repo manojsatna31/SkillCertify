@@ -1,0 +1,1540 @@
+{
+  "id": "tech-html5",
+  "name": "Web Development Mastery Series",
+  "icon": "fas fa-code text-blue-500",
+  "description": "A comprehensive collection of exams covering the full web development stack.",
+  "exam_sets": [
+    {
+      "id": "tech-html-set1",
+      "name": "HTML5 & Web Fundamentals",
+      "title": "Mastering the Building Blocks of the Web",
+      "focus_on": "This exam set focuses on the foundational structure of the web. It covers in-depth knowledge of HTML5 semantic elements, modern form controls and validation, accessibility (A11Y) best practices, embedding multimedia content, and understanding the core principles of the Document Object Model (DOM).",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-sitemap text-green-300 hover:text-green-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "HTML5 Semantic Elements (<article>, <section>, <nav>)"
+        },
+        {
+          "icon": "fab fa-wpforms text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Web Forms and Input Validation"
+        },
+        {
+          "icon": "fas fa-universal-access text-blue-300 hover:text-blue-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Web Accessibility (A11Y) Principles"
+        },
+        {
+          "icon": "fas fa-photo-video text-purple-300 hover:text-purple-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Multimedia Integration (<video>, <audio>, <img>)"
+        }
+      ],
+      "difficulty": "Beginner",
+      "description": "Evaluates a developer's core competency in writing clean, semantic, and accessible HTML5 markup, which is the essential foundation for any web application.",
+      "icon": "fab fa-html5",
+      "passing_score": "70",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "30",
+      "questions": [
+        {
+          "id": "q001_html_s1",
+          "domain": "HTML Semantics",
+          "difficulty": "Easy",
+          "question_text": "Which HTML5 element is most appropriate for a self-contained piece of content like a blog post, forum post, or news article?",
+          "options": [
+            "A) <section>",
+            "B) <div>",
+            "C) <article>",
+            "D) <main>"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The <article> element is specifically designed for complete, self-contained compositions that are independently distributable or reusable, such as a news story or blog post."
+        },
+        {
+          "id": "q002_html_s1",
+          "domain": "Web Forms",
+          "difficulty": "Easy",
+          "question_text": "To make an input field mandatory in an HTML form, which attribute should be used?",
+          "options": [
+            "A) mandatory=\"true\"",
+            "B) required",
+            "C) validate=\"required\"",
+            "D) important"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The 'required' attribute is a boolean attribute that, when present, specifies that an input field must be filled out before submitting the form."
+        },
+        {
+          "id": "q003_html_s1",
+          "domain": "Accessibility",
+          "difficulty": "Medium",
+          "question_text": "What is the primary purpose of the 'alt' attribute on an <img> tag?",
+          "options": [
+            "A) To provide a tooltip that appears on hover.",
+            "B) To provide alternative text for screen readers and when the image fails to load.",
+            "C) To define the image's title for SEO purposes.",
+            "D) To specify the image source URL."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The 'alt' attribute provides essential alternative text for an image, which is used by screen readers for visually impaired users and is displayed if the image cannot be loaded, ensuring content accessibility."
+        },
+        {
+          "id": "q004_html_s1",
+          "domain": "Document Structure",
+          "difficulty": "Easy",
+          "question_text": "What does the `<!DOCTYPE html>` declaration do?",
+          "options": [
+            "A) It is an HTML tag for creating a comment.",
+            "B) It informs the browser that the document is an HTML5 document.",
+            "C) It links to an external CSS stylesheet.",
+            "D) It embeds JavaScript code within the HTML."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The DOCTYPE declaration is not an HTML tag; it is an instruction to the web browser about what version of HTML the page is written in. `<!DOCTYPE html>` specifically triggers standards mode for HTML5."
+        },
+        {
+          "id": "q005_html_s1",
+          "domain": "HTML Semantics",
+          "difficulty": "Medium",
+          "question_text": "When should you use the `<section>` element instead of an `<article>` element?",
+          "options": [
+            "A) When the content is a standalone, distributable piece.",
+            "B) For any block-level grouping of content.",
+            "C) When grouping together thematically related content.",
+            "D) Only for the main content area of a page."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "A <section> is used to group related content together, typically with a heading. Unlike <article>, a <section> is not necessarily self-contained. For example, a homepage could have sections for 'Introduction', 'News', and 'Contact Information'."
+        },
+        {
+          "id": "q006_html_s1",
+          "domain": "Multimedia",
+          "difficulty": "Easy",
+          "question_text": "Which attribute of the `<video>` tag displays controls like play, pause, and volume?",
+          "options": [
+            "A) controls",
+            "B) show-controls",
+            "C) player",
+            "D) ui"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The 'controls' attribute is a boolean attribute that, when specified, adds video controls, allowing the user to play, pause, seek, and adjust the volume of the video."
+        },
+        {
+          "id": "q007_html_s1",
+          "domain": "Web Forms",
+          "difficulty": "Medium",
+          "question_text": "Which input `type` provides a user interface element for selecting a value from a range?",
+          "options": [
+            "A) type=\"number\"",
+            "B) type=\"slider\"",
+            "C) type=\"range\"",
+            "D) type=\"select\""
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `input type=\"range\"` is used for input fields that should contain a value from a range of numbers, typically displayed as a slider control."
+        },
+        {
+          "id": "q008_html_s1",
+          "domain": "Attributes",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of `data-*` attributes in HTML?",
+          "options": [
+            "A) To store sensitive user data that is not sent to the server.",
+            "B) To define metadata that is used by search engines only.",
+            "C) To store custom data private to the page or application, often used by JavaScript.",
+            "D) To specify data that is part of the official HTML specification."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`data-*` attributes are used to store custom data that is not tied to any standard HTML attribute. They are designed to be a safe way to add extra information to elements for use by scripts."
+        },
+        {
+          "id": "q009_html_s1",
+          "domain": "Links",
+          "difficulty": "Easy",
+          "question_text": "How do you create a hyperlink that opens in a new browser tab?",
+          "options": [
+            "A) <a href=\"...\" target=\"_blank\">",
+            "B) <a href=\"...\" target=\"_new\">",
+            "C) <a href=\"...\" window=\"new\">",
+            "D) <a href=\"...\" open=\"new_tab\">"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `target=\"_blank\"` attribute on an anchor (`<a>`) tag instructs the browser to open the linked document in a new window or tab."
+        },
+        {
+          "id": "q010_html_s1",
+          "domain": "HTML Semantics",
+          "difficulty": "Easy",
+          "question_text": "Which element represents the main content of the `<body>` of a document?",
+          "options": [
+            "A) <content>",
+            "B) <main>",
+            "C) <body-content>",
+            "D) <primary>"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `<main>` element specifies the dominant content of the document. There should be only one `<main>` element in a document, and it should not be a descendant of an `<article>`, `<aside>`, `<footer>`, `<header>`, or `<nav>` element."
+        },
+        {
+          "id": "q011_html_s1",
+          "domain": "Tables",
+          "difficulty": "Medium",
+          "question_text": "In an HTML table, which tag is used to define a header cell?",
+          "options": [
+            "A) <td>",
+            "B) <th>",
+            "C) <head>",
+            "D) <col>"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `<th>` (table header) element defines a cell as a header for a group of table cells. Browsers typically render the text in `<th>` as bold and centered."
+        },
+        {
+          "id": "q012_html_s1",
+          "domain": "Accessibility",
+          "difficulty": "Hard",
+          "question_text": "What is the role of the `aria-label` attribute?",
+          "options": [
+            "A) To provide a visible label for a form element.",
+            "B) To define a keyboard shortcut for an element.",
+            "C) To provide a string value that labels an interactive element for assistive technologies when no visible label is present.",
+            "D) To create a relationship between two elements on the page."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`aria-label` is used to define an accessible name for an element that is read by screen readers. It is useful for elements like icon buttons that have no visible text label."
+        },
+        {
+          "id": "q013_html_s1",
+          "domain": "Web Forms",
+          "difficulty": "Medium",
+          "question_text": "Which element is used to group related elements in a form, often with a caption?",
+          "options": [
+            "A) <formgroup> and <caption>",
+            "B) <fieldset> and <legend>",
+            "C) <group> and <label>",
+            "D) <section> and <h1>"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `<fieldset>` element is used to group several controls as well as labels within a web form. The `<legend>` element defines a caption for the `<fieldset>` element."
+        },
+        {
+          "id": "q014_html_s1",
+          "domain": "Multimedia",
+          "difficulty": "Medium",
+          "question_text": "To provide multiple source files for a `<video>` or `<audio>` element for browser compatibility, which tag should be used inside them?",
+          "options": [
+            "A) <source>",
+            "B) <track>",
+            "C) <alternative>",
+            "D) <option>"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `<source>` tag is used to specify multiple media resources for media elements. The browser will choose the first source it supports, allowing for fallbacks (e.g., WebM, MP4)."
+        },
+        {
+          "id": "q015_html_s1",
+          "domain": "Document Structure",
+          "difficulty": "Easy",
+          "question_text": "Where in an HTML document should metadata, such as the title and character set, be placed?",
+          "options": [
+            "A) Inside the <body> tag",
+            "B) After the </html> tag",
+            "C) Inside the <head> tag",
+            "D) Directly inside the <html> tag"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `<head>` element is a container for metadata (data about data) and is placed between the `<html>` tag and the `<body>` tag. It includes the `<title>`, `<style>`, `<meta>`, `<link>`, `<script>`, and `<base>` tags."
+        },
+        {
+          "id": "q016_html_s1",
+          "domain": "HTML Semantics",
+          "difficulty": "Easy",
+          "question_text": "Which element is used to define a footer for a document or a section?",
+          "options": [
+            "A) <bottom>",
+            "B) <section type=\"footer\">",
+            "C) <footer>",
+            "D) <end>"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `<footer>` element defines a footer for a document or section. A footer typically contains information about the author, copyright information, or links to related documents."
+        },
+        {
+          "id": "q017_html_s1",
+          "domain": "Web Forms",
+          "difficulty": "Hard",
+          "question_text": "What does the `formnovalidate` attribute do when applied to a submit button?",
+          "options": [
+            "A) It validates the form but does not show error messages.",
+            "B) It removes all validation rules from the form inputs.",
+            "C) It submits the form without performing browser-level constraint validation.",
+            "D) It forces the form to be validated by the server instead of the browser."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `formnovalidate` attribute on a `<button type=\"submit\">` or `<input type=\"submit\">` overrides the form's default validation behavior, allowing the form to be submitted even if inputs with `required` or `pattern` attributes are invalid."
+        },
+        {
+          "id": "q018_html_s1",
+          "domain": "Attributes",
+          "difficulty": "Easy",
+          "question_text": "Which two attributes are most commonly used by CSS and JavaScript to select and style a specific element?",
+          "options": [
+            "A) name and type",
+            "B) href and src",
+            "C) id and class",
+            "D) rel and target"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`id` is used to specify a unique identifier for an element, while `class` is used to specify one or more class names for an element. Both are fundamental selectors used by CSS and JavaScript."
+        },
+        {
+          "id": "q019_html_s1",
+          "domain": "Lists",
+          "difficulty": "Easy",
+          "question_text": "What is the correct way to create a definition list in HTML?",
+          "options": [
+            "A) <ol>, <li>",
+            "B) <ul>, <li>",
+            "C) <dl>, <dt>, <dd>",
+            "D) <list>, <item>, <definition>"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "A definition list is created using the `<dl>` (definition list) tag. Inside it, `<dt>` (definition term) defines the term, and `<dd>` (definition description) describes each term."
+        },
+        {
+          "id": "q020_html_s1",
+          "domain": "HTML Semantics",
+          "difficulty": "Medium",
+          "question_text": "Which HTML element is intended for content that is tangentially related to the content around it, often represented as a sidebar?",
+          "options": [
+            "A) <section>",
+            "B) <details>",
+            "C) <sidebar>",
+            "D) <aside>"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "The `<aside>` element represents a portion of a document whose content is only indirectly related to the document's main content. It is frequently used for sidebars, call-out boxes, or advertising."
+        },
+        {
+          "id": "q021_html_s1",
+          "domain": "Multimedia",
+          "difficulty": "Hard",
+          "question_text": "When using a responsive `<img>` with the `srcset` attribute, what does the 'w' descriptor signify?",
+          "options": [
+            "A) The minimum width of the viewport.",
+            "B) The pixel density of the screen (e.g., 2x for Retina).",
+            "C) The intrinsic width of the image file in pixels.",
+            "D) The percentage width the image should occupy."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The 'w' descriptor in `srcset` represents the actual width of the image source file in pixels. The browser uses this information, along with the `sizes` attribute, to determine which image is most appropriate to load for the current viewport and layout."
+        },
+        {
+          "id": "q022_html_s1",
+          "domain": "Tables",
+          "difficulty": "Hard",
+          "question_text": "To make a table more accessible for screen reader users, which attributes can be used to associate data cells with their corresponding header cells?",
+          "options": [
+            "A) headers and id",
+            "B) role and aria-labelledby",
+            "C) data-for and name",
+            "D) scope and id"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "For complex tables, the `scope` attribute on a `<th>` (with values `col` or `row`) tells assistive technologies that the cell is a header for a specific column or row. For very complex tables, `id` on headers and `headers` on data cells can create explicit associations."
+        },
+        {
+          "id": "q023_html_s1",
+          "domain": "Web Forms",
+          "difficulty": "Easy",
+          "question_text": "Which HTML element is used to create a dropdown list?",
+          "options": [
+            "A) <input type=\"dropdown\">",
+            "B) <list>",
+            "C) <select>",
+            "D) <menu>"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `<select>` element is used to create a drop-down list. The `<option>` tags inside the `<select>` element define the available options in the list."
+        },
+        {
+          "id": "q024_html_s1",
+          "domain": "HTML Semantics",
+          "difficulty": "Medium",
+          "question_text": "What is the semantic difference between `<em>` and `<strong>`?",
+          "options": [
+            "A) Both are identical and just make text bold.",
+            "B) <em> adds stress emphasis, while <strong> indicates importance, seriousness, or urgency.",
+            "C) <em> is for italics, and <strong> is for bold text.",
+            "D) <strong> is a newer version of <em>."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Semantically, `<em>` (emphasis) is used to change the meaning of a sentence (e.g., 'I _love_ carrots' vs. 'I love _carrots_'). `<strong>` is used to give strong importance to a piece of text, often rendered as bold."
+        },
+        {
+          "id": "q025_html_s1",
+          "domain": "Document Structure",
+          "difficulty": "Easy",
+          "question_text": "Which `<meta>` tag is crucial for ensuring a website is responsive and displays correctly on mobile devices?",
+          "options": [
+            "A) <meta name=\"author\" content=\"...\">",
+            "B) <meta charset=\"UTF-8\">",
+            "C) <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "D) <meta name=\"description\" content=\"...\">"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The viewport meta tag controls the layout on mobile browsers. `width=device-width` sets the width of the page to follow the screen-width of the device, and `initial-scale=1.0` sets the initial zoom level when the page is first loaded."
+        }
+      ]
+    },
+    {
+      "id": "tech-css-set1",
+      "name": "CSS3 & Modern Layouts",
+      "title": "Styling and Structuring Modern Web Pages",
+      "focus_on": "This exam set dives deep into Cascading Style Sheets (CSS), covering fundamental concepts like the box model, specificity, and selectors. It places a strong emphasis on modern layout techniques including Flexbox and Grid, responsive design with media queries, and creating dynamic user interfaces with transitions and animations.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-th-large text-green-300 hover:text-green-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Flexbox & Grid Layouts"
+        },
+        {
+          "icon": "fas fa-crosshairs text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Selectors & Specificity"
+        },
+        {
+          "icon": "fas fa-mobile-alt text-blue-300 hover:text-blue-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Responsive Design & Media Queries"
+        },
+        {
+          "icon": "fas fa-magic text-purple-300 hover:text-purple-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Transitions & Animations"
+        }
+      ],
+      "difficulty": "Intermediate",
+      "description": "Assesses a developer's proficiency in modern CSS, from core concepts like the box model to advanced layout systems and responsive principles essential for building adaptive and visually appealing web applications.",
+      "icon": "fab fa-css3-alt",
+      "passing_score": "70",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "35",
+      "questions": [
+        {
+          "id": "q026_css_s1",
+          "domain": "Selectors",
+          "difficulty": "Easy",
+          "question_text": "In CSS, what does the universal selector `*` select?",
+          "options": [
+            "A) The first element on the page.",
+            "B) All elements within the <body>.",
+            "C) All elements on the page.",
+            "D) Only elements with a `*` attribute."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The universal selector `*` targets every single element within the document, regardless of its type or location."
+        },
+        {
+          "id": "q027_css_s1",
+          "domain": "Box Model",
+          "difficulty": "Easy",
+          "question_text": "Which of the following are all parts of the standard CSS box model?",
+          "options": [
+            "A) Margin, Border, Padding, Content",
+            "B) Width, Height, Spacing, Content",
+            "C) Margin, Outline, Padding, Display",
+            "D) Position, Border, Padding, Content"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The standard CSS box model is composed of four concentric boxes: the content box, padding box, border box, and margin box. 'Outline' is visually similar to border but does not take up space."
+        },
+        {
+          "id": "q028_css_s1",
+          "domain": "Specificity",
+          "difficulty": "Medium",
+          "question_text": "Which of the following CSS selectors has the highest specificity?",
+          "options": [
+            "A) .main-content p",
+            "B) #sidebar a",
+            "C) div.user-panel",
+            "D) header nav ul li"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Specificity is calculated based on the types of selectors used. ID selectors (`#sidebar`) have a much higher specificity value than class selectors (`.main-content`), attribute selectors, or type selectors (`p`). Therefore, `#sidebar a` is the most specific."
+        },
+        {
+          "id": "q029_css_s1",
+          "domain": "Flexbox",
+          "difficulty": "Easy",
+          "question_text": "Which CSS property and value are used to make an element a flex container?",
+          "options": [
+            "A) layout: flex;",
+            "B) flexbox: true;",
+            "C) display: flex;",
+            "D) container: flex;"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "To initiate a flex formatting context, you set the `display` property of a container element to `flex` or `inline-flex`."
+        },
+        {
+          "id": "q030_css_s1",
+          "domain": "Responsive Design",
+          "difficulty": "Easy",
+          "question_text": "What is the primary purpose of a CSS media query?",
+          "options": [
+            "A) To load different media files like images or videos.",
+            "B) To apply CSS styles only when certain conditions, such as screen size, are met.",
+            "C) To query the DOM for media elements.",
+            "D) To improve the performance of media loading on a web page."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Media queries are a core feature of responsive web design, allowing you to apply specific CSS rules based on the characteristics of the device, most commonly the viewport width."
+        },
+        {
+          "id": "q031_css_s1",
+          "domain": "Box Model",
+          "difficulty": "Medium",
+          "question_text": "What is the effect of `box-sizing: border-box;` on an element?",
+          "options": [
+            "A) It removes the border and padding from the element's total width calculation.",
+            "B) It includes the padding and border in the element's total width and height, not in addition to them.",
+            "C) It forces the margin to be calculated inside the element's border.",
+            "D) It makes the element's border a flexible container."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "By default (`box-sizing: content-box`), an element's width and height apply only to its content. `border-box` changes this so that the specified width and height apply to the element including its padding and border, which makes sizing elements more intuitive."
+        },
+        {
+          "id": "q032_css_s1",
+          "domain": "Flexbox",
+          "difficulty": "Medium",
+          "question_text": "In a flex container, what is the difference between `justify-content` and `align-items`?",
+          "options": [
+            "A) Both control horizontal alignment, but `justify-content` has more options.",
+            "B) `justify-content` aligns items along the main axis, while `align-items` aligns them along the cross axis.",
+            "C) `justify-content` aligns items along the cross axis, while `align-items` aligns them along the main axis.",
+            "D) `justify-content` is for horizontal spacing, and `align-items` is for vertical spacing."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`justify-content` controls the alignment of flex items along the main axis (which is horizontal by default). `align-items` controls the alignment of flex items along the cross axis (vertical by default)."
+        },
+        {
+          "id": "q033_css_s1",
+          "domain": "Selectors",
+          "difficulty": "Medium",
+          "question_text": "What is the difference between the `div > p` and `div p` selectors?",
+          "options": [
+            "A) `div > p` selects any `<p>` inside a `<div>`, while `div p` selects only direct children.",
+            "B) There is no difference; they are functionally identical.",
+            "C) `div > p` selects only `<p>` elements that are direct children of a `<div>`, while `div p` selects any `<p>` that is a descendant.",
+            "D) `div > p` is for block-level elements, while `div p` is for inline elements."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `>` is the child combinator, which selects only direct children. The space is the descendant combinator, which selects any matching element nested at any level inside the first element."
+        },
+        {
+          "id": "q034_css_s1",
+          "domain": "Pseudo-classes",
+          "difficulty": "Easy",
+          "question_text": "Which pseudo-class is used to apply styles to an element when a user's mouse pointer is over it?",
+          "options": [
+            "A) :focus",
+            "B) :active",
+            "C) :select",
+            "D) :hover"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "The `:hover` pseudo-class is used to select and style elements when the user mouses over them. It is commonly used for buttons, links, and other interactive elements."
+        },
+        {
+          "id": "q035_css_s1",
+          "domain": "Grid",
+          "difficulty": "Easy",
+          "question_text": "Which CSS property value turns an element into a grid container?",
+          "options": [
+            "A) display: grid;",
+            "B) layout: grid;",
+            "C) position: grid;",
+            "D) grid: true;"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "Similar to Flexbox, CSS Grid is initiated by setting an element's `display` property to `grid` or `inline-grid`."
+        },
+        {
+          "id": "q036_css_s1",
+          "domain": "Positioning",
+          "difficulty": "Medium",
+          "question_text": "An element with `position: absolute;` is positioned relative to what?",
+          "options": [
+            "A) The `<body>` element.",
+            "B) The top-left corner of the viewport.",
+            "C) Its nearest positioned (non-static) ancestor.",
+            "D) Its direct parent element, regardless of the parent's position property."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "An absolutely positioned element is removed from the normal document flow and is positioned relative to its closest ancestor that has a `position` value other than `static`. If no such ancestor exists, it is positioned relative to the initial containing block (usually the `<html>` element)."
+        },
+        {
+          "id": "q037_css_s1",
+          "domain": "Flexbox",
+          "difficulty": "Medium",
+          "question_text": "Which flexbox property is used to change the direction of the main axis from horizontal to vertical?",
+          "options": [
+            "A) flex-direction: vertical;",
+            "B) flex-direction: column;",
+            "C) main-axis: vertical;",
+            "D) align-items: column;"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `flex-direction` property defines the direction of the main axis. The default is `row` (horizontal). Setting it to `column` makes the main axis vertical."
+        },
+        {
+          "id": "q038_css_s1",
+          "domain": "Responsive Design",
+          "difficulty": "Medium",
+          "question_text": "Which of the following is the correct syntax for a media query that applies styles when the browser viewport is 600 pixels wide or less?",
+          "options": [
+            "A) @media screen (max-width: 600px) { ... }",
+            "B) @media (width <= 600px) { ... }",
+            "C) @media query (max-width: 600px) { ... }",
+            "D) @media screen and (max-width: 600px) { ... }"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "The correct syntax for a media query starts with `@media`, followed by an optional media type (`screen`), the keyword `and`, and then the media feature in parentheses, like `(max-width: 600px)`."
+        },
+        {
+          "id": "q039_css_s1",
+          "domain": "Grid",
+          "difficulty": "Medium",
+          "question_text": "In CSS Grid, which property is used to define the number and size of columns?",
+          "options": [
+            "A) grid-columns",
+            "B) grid-template-columns",
+            "C) grid-column-template",
+            "D) grid-define-columns"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`grid-template-columns` is used to define the columns of the grid. You can specify sizes in pixels, percentages, or flexible units like `fr` (e.g., `grid-template-columns: 1fr 2fr;`)."
+        },
+        {
+          "id": "q040_css_s1",
+          "domain": "Pseudo-elements",
+          "difficulty": "Hard",
+          "question_text": "To make the `::before` and `::after` pseudo-elements visible on the page, which CSS property is required?",
+          "options": [
+            "A) display: block;",
+            "B) position: absolute;",
+            "C) content: \"\";",
+            "D) visibility: visible;"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `::before` and `::after` pseudo-elements will not be rendered unless their `content` property is set, even if it's an empty string. This property is what actually generates the pseudo-element's box in the layout."
+        },
+        {
+          "id": "q041_css_s1",
+          "domain": "Selectors",
+          "difficulty": "Hard",
+          "question_text": "How would you select every `<li>` element that is NOT the last child within a `<ul>`?",
+          "options": [
+            "A) ul li:not(:last-child)",
+            "B) ul li:except(:last-child)",
+            "C) ul li:first-child",
+            "D) ul li:not-last"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `:not()` pseudo-class takes a selector as an argument and matches elements that are NOT matched by that selector. So, `:not(:last-child)` selects all elements that are not the last child of their parent."
+        },
+        {
+          "id": "q042_css_s1",
+          "domain": "Transitions",
+          "difficulty": "Medium",
+          "question_text": "What is the primary purpose of the CSS `transition` property?",
+          "options": [
+            "A) To create complex, multi-step animations.",
+            "B) To define how an element moves between pages.",
+            "C) To enable smooth, gradual changes in CSS property values over a given duration.",
+            "D) To change a CSS property value only on page load."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `transition` property allows you to control the speed and easing of the change when a CSS property value is altered, for example, on hover. It creates a smooth animation between the initial and final states."
+        },
+        {
+          "id": "q043_css_s1",
+          "domain": "Variables",
+          "difficulty": "Easy",
+          "question_text": "How are CSS custom properties (variables) defined?",
+          "options": [
+            "A) $primary-color: #333;",
+            "B) var primary-color = #333;",
+            "C) @primary-color: #333;",
+            "D) --primary-color: #333;"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "CSS custom properties are defined with a double-hyphen prefix (e.g., `--main-bg-color`) and are typically declared within a `:root` selector to be globally available."
+        },
+        {
+          "id": "q044_css_s1",
+          "domain": "Flexbox",
+          "difficulty": "Hard",
+          "question_text": "In Flexbox, what does the `flex-grow` property do?",
+          "options": [
+            "A) It sets the initial size of a flex item.",
+            "B) It dictates how much a flex item will shrink relative to other items if there isn't enough space.",
+            "C) It specifies the factor by which a flex item will grow to fill any remaining space in the flex container.",
+            "D) It defines the maximum width a flex item can have."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`flex-grow` is a unitless value that determines how much of the available free space in a flex container an item should take up. If all items have `flex-grow: 1`, they share the space equally."
+        },
+        {
+          "id": "q045_css_s1",
+          "domain": "CSS Fundamentals",
+          "difficulty": "Easy",
+          "question_text": "Which method of applying CSS is generally considered the best practice for a large website?",
+          "options": [
+            "A) Inline styles (using the `style` attribute on HTML elements).",
+            "B) Internal stylesheet (using a `<style>` tag in the document `<head>`).",
+            "C) External stylesheet (using a `<link>` tag to an external .css file).",
+            "D) Using JavaScript to apply styles to each element."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "External stylesheets are the best practice because they allow for the separation of content (HTML) and presentation (CSS). This makes the code more maintainable, reusable, and allows the browser to cache the CSS file, improving performance."
+        },
+        {
+          "id": "q046_css_s1",
+          "domain": "Grid",
+          "difficulty": "Hard",
+          "question_text": "How can you make a grid item span across three columns starting from the first column line?",
+          "options": [
+            "A) grid-column: 1 / 3;",
+            "B) grid-column: 1 / span 3;",
+            "C) column-span: 3;",
+            "D) grid-template-columns: span(3);"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `grid-column` property is a shorthand for `grid-column-start` and `grid-column-end`. The value `1 / span 3` tells the item to start at column line 1 and span across 3 grid tracks."
+        },
+        {
+          "id": "q047_css_s1",
+          "domain": "Positioning",
+          "difficulty": "Hard",
+          "question_text": "The `z-index` property affects the stacking order of elements. It only works on elements that have which type of `position` value?",
+          "options": [
+            "A) static",
+            "B) Any position value except static.",
+            "C) only `absolute` and `fixed`",
+            "D) only `relative`"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`z-index` has no effect on elements with the default `position: static`. It is used to control the vertical stacking order of positioned elements, which includes those with `position` set to `relative`, `absolute`, `fixed`, or `sticky`."
+        },
+        {
+          "id": "q048_css_s1",
+          "domain": "Animations",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `@keyframes` at-rule in CSS?",
+          "options": [
+            "A) To set the duration and timing of a transition.",
+            "B) To define the stages and styles of a CSS animation sequence.",
+            "C) To specify key-based navigation for a web page.",
+            "D) To load different font files for an animation."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`@keyframes` are used to define the behavior of a CSS animation. Inside a `@keyframes` rule, you can specify the styles for an element at various points during the animation's sequence using percentages (from `0%` to `100%`) or keywords (`from` and `to`)."
+        },
+        {
+          "id": "q049_css_s1",
+          "domain": "Grid",
+          "difficulty": "Medium",
+          "question_text": "In CSS Grid, what does the `fr` unit represent?",
+          "options": [
+            "A) A fixed unit equivalent to 16 pixels.",
+            "B) The final rendered width of a column.",
+            "C) A fractional unit of the available space in the grid container.",
+            "D) A unit relative to the font size of the root element."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `fr` (fractional) unit is a flexible unit that represents a fraction of the leftover, available space in the grid container. It allows you to create flexible layouts that distribute space proportionally."
+        },
+        {
+          "id": "q050_css_s1",
+          "domain": "CSS Fundamentals",
+          "difficulty": "Easy",
+          "question_text": "What is the correct syntax for a single-line comment in CSS?",
+          "options": [
+            "A) // This is a comment",
+            "B) <!-- This is a comment -->",
+            "C) /* This is a comment */",
+            "D) # This is a comment"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "CSS comments, whether single-line or multi-line, are enclosed in `/*` and `*/`. Other syntaxes like `//` (JavaScript) or `<!-- -->` (HTML) are not valid for CSS."
+        }
+      ]
+    },
+    {
+      "id": "tech-js-set1",
+      "name": "JavaScript Core Concepts & DOM",
+      "title": "Programming the Interactive Web",
+      "focus_on": "This exam covers fundamental JavaScript concepts such as variables, data types, control flow, and functions. It heavily emphasizes modern ES6+ syntax including arrow functions, destructuring, and promises. A significant portion is dedicated to DOM manipulation: selecting elements, handling events, and dynamically modifying page content to create interactive user experiences.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-mouse-pointer text-green-300 hover:text-green-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "DOM Manipulation & Event Handling"
+        },
+        {
+          "icon": "fas fa-rocket text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "ES6+ Syntax (Arrow Functions, Promises, async/await)"
+        },
+        {
+          "icon": "fas fa-cogs text-blue-300 hover:text-blue-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Core Language Fundamentals (Variables, Types, Scope)"
+        },
+        {
+          "icon": "fas fa-list-ol text-purple-300 hover:text-purple-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Array & Object Manipulation"
+        }
+      ],
+      "difficulty": "Intermediate",
+      "description": "Evaluates a developer's understanding of core JavaScript principles, ES6+ features, and the ability to interact with the Document Object Model (DOM) to create dynamic and responsive user experiences.",
+      "icon": "fab fa-js-square",
+      "passing_score": "75",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "40",
+      "questions": [
+        {
+          "id": "q051_js_s1",
+          "domain": "Variables & Scope",
+          "difficulty": "Easy",
+          "question_text": "What is the primary difference between `let` and `const` when declaring a variable in JavaScript?",
+          "options": [
+            "A) `let` is function-scoped, while `const` is block-scoped.",
+            "B) Variables declared with `let` can be reassigned, while `const` variables cannot.",
+            "C) `const` can only be used for primitive types like numbers and strings.",
+            "D) `let` variables are hoisted, but `const` variables are not."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Both `let` and `const` are block-scoped. The key difference is that a variable declared with `let` can have its value reassigned, whereas a variable declared with `const` must be assigned a value when declared and cannot be reassigned."
+        },
+        {
+          "id": "q052_js_s1",
+          "domain": "DOM Manipulation",
+          "difficulty": "Easy",
+          "question_text": "Which method is used to select an HTML element by its unique ID?",
+          "options": [
+            "A) document.querySelector('#elementId')",
+            "B) document.getElementById('elementId')",
+            "C) Both A and B are correct.",
+            "D) document.getElement('elementId')"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Both `document.getElementById('elementId')` and `document.querySelector('#elementId')` can select an element by its ID. `getElementById` is older and often slightly faster, while `querySelector` is more versatile as it can use any valid CSS selector."
+        },
+        {
+          "id": "q053_js_s1",
+          "domain": "Operators",
+          "difficulty": "Medium",
+          "question_text": "What is the result of `'5' == 5` and `'5' === 5` in JavaScript?",
+          "options": [
+            "A) true, true",
+            "B) true, false",
+            "C) false, true",
+            "D) false, false"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `==` (loose equality) operator performs type coercion, converting the string '5' to the number 5 before comparison, resulting in `true`. The `===` (strict equality) operator does not perform type coercion, so it returns `false` because a string is not the same type as a number."
+        },
+        {
+          "id": "q054_js_s1",
+          "domain": "Event Handling",
+          "difficulty": "Easy",
+          "question_text": "Which is the modern and recommended way to add an event listener to a DOM element?",
+          "options": [
+            "A) element.onclick = functionName;",
+            "B) <button onclick=\"functionName()\">",
+            "C) element.addEventListener('click', functionName);",
+            "D) element.attachEvent('onclick', functionName);"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`addEventListener` is the standard and most flexible method. It allows adding multiple listeners for the same event, has more control over the event propagation phase (capturing vs. bubbling), and separates JavaScript from the HTML markup."
+        },
+        {
+          "id": "q055_js_s1",
+          "domain": "ES6+ Features",
+          "difficulty": "Easy",
+          "question_text": "What is the primary benefit of using Arrow Functions (`=>`)?",
+          "options": [
+            "A) They can be used as constructors for creating objects.",
+            "B) They have their own `arguments` object.",
+            "C) They offer a shorter syntax and do not have their own `this` context.",
+            "D) They always run asynchronously."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Arrow functions provide a more concise syntax for writing functions. Crucially, they do not bind their own `this` value; instead, `this` is lexically scoped from the enclosing context, which helps avoid common `this`-related bugs."
+        },
+        {
+          "id": "q056_js_s1",
+          "domain": "Array Methods",
+          "difficulty": "Medium",
+          "question_text": "Which array method creates a new array with all elements that pass the test implemented by the provided function?",
+          "options": [
+            "A) .map()",
+            "B) .forEach()",
+            "C) .filter()",
+            "D) .reduce()"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `.filter()` method iterates over an array and returns a new array containing only the elements for which the callback function returns a truthy value."
+        },
+        {
+          "id": "q057_js_s1",
+          "domain": "Asynchronous JS",
+          "difficulty": "Medium",
+          "question_text": "In modern JavaScript, what is the purpose of the `async` keyword before a function declaration?",
+          "options": [
+            "A) It makes the function execute immediately on a separate thread.",
+            "B) It automatically adds `try...catch` blocks to the function.",
+            "C) It ensures the function returns a Promise and allows the use of `await` within it.",
+            "D) It converts the function's return value into a JSON string."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "An `async` function implicitly returns a Promise. The value returned by the function will be the resolved value of the Promise. The `async` keyword also enables the use of the `await` keyword inside the function to pause execution until a Promise settles."
+        },
+        {
+          "id": "q058_js_s1",
+          "domain": "DOM Manipulation",
+          "difficulty": "Medium",
+          "question_text": "How do you prevent the default action of an event, such as a form submission or a link click, in an event listener?",
+          "options": [
+            "A) event.stop()",
+            "B) event.preventDefault()",
+            "C) event.cancel()",
+            "D) return false;"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `event.preventDefault()` method is called on the event object within a listener to stop the browser's default behavior associated with that event. `return false;` can also work in some contexts but `preventDefault()` is more explicit and reliable."
+        },
+        {
+          "id": "q059_js_s1",
+          "domain": "ES6+ Features",
+          "difficulty": "Easy",
+          "question_text": "What are template literals in JavaScript?",
+          "options": [
+            "A) HTML templates stored in JavaScript variables.",
+            "B) A way to create functions that act as templates.",
+            "C) Strings enclosed in backticks (``) that allow for embedded expressions and multi-line strings.",
+            "D) A special type of comment for documenting code."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Template literals, denoted by backticks (``), provide an enhanced way to work with strings. They support multi-line strings directly and allow embedding expressions using the `${expression}` syntax."
+        },
+        {
+          "id": "q060_js_s1",
+          "domain": "Data Types",
+          "difficulty": "Medium",
+          "question_text": "What will `typeof null` return in JavaScript?",
+          "options": [
+            "A) 'null'",
+            "B) 'undefined'",
+            "C) 'object'",
+            "D) 'none'"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "This is a long-standing quirk in JavaScript. The `typeof` operator returns 'object' for `null`. This is considered a mistake in the original language design, but it has been kept for backward compatibility."
+        },
+        {
+          "id": "q061_js_s1",
+          "domain": "DOM Manipulation",
+          "difficulty": "Medium",
+          "question_text": "Which two methods are used to create a new HTML element and add it to the DOM?",
+          "options": [
+            "A) document.new('p') and element.add()",
+            "B) document.createElement('p') and element.appendChild()",
+            "C) document.makeElement('p') and element.insert()",
+            "D) document.build('p') and element.attach()"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`document.createElement()` is used to create a new element node in memory. `element.appendChild()` is then used to attach that newly created node as a child of an existing element in the DOM."
+        },
+        {
+          "id": "q062_js_s1",
+          "domain": "ES6+ Features",
+          "difficulty": "Medium",
+          "question_text": "What is object destructuring in ES6?",
+          "options": [
+            "A) A way to delete properties from an object.",
+            "B) A syntax for unpacking properties from an object into distinct variables.",
+            "C) A method for converting an object into a JSON string.",
+            "D) The process of garbage collecting unused objects."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Destructuring assignment allows you to extract data from arrays or objects into separate variables. For objects, the syntax `{ prop1, prop2 } = myObject;` creates variables `prop1` and `prop2` with the corresponding values from `myObject`."
+        },
+        {
+          "id": "q063_js_s1",
+          "domain": "Asynchronous JS",
+          "difficulty": "Hard",
+          "question_text": "What is the main difference between `Promise.all()` and `Promise.race()`?",
+          "options": [
+            "A) `Promise.all()` resolves when all promises resolve, while `Promise.race()` resolves or rejects as soon as the first promise resolves or rejects.",
+            "B) `Promise.race()` is a faster version of `Promise.all()`.",
+            "C) `Promise.all()` accepts an array of promises, while `Promise.race()` accepts only two.",
+            "D) `Promise.all()` rejects if any promise rejects, while `Promise.race()` waits for all promises to finish regardless of their state."
+          ],
+          "correct_answer_index": 0,
+          "explanation": "`Promise.all()` waits for all input promises to resolve and returns an array of their results. If any promise rejects, it immediately rejects. `Promise.race()` settles (resolves or rejects) as soon as the first promise in the iterable settles."
+        },
+        {
+          "id": "q064_js_s1",
+          "domain": "Array Methods",
+          "difficulty": "Hard",
+          "question_text": "What is the purpose of the `reduce` method on an array?",
+          "options": [
+            "A) To reduce the number of elements in an array based on a condition.",
+            "B) To execute a reducer function on each element of the array, resulting in a single output value.",
+            "C) To create a new array with the results of calling a provided function on every element.",
+            "D) To sort the elements of an array in place."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The `.reduce()` method applies a function (the 'reducer') against an accumulator and each element in the array (from left to right) to reduce it to a single value. It's commonly used for summing numbers or flattening an array of arrays."
+        },
+        {
+          "id": "q065_js_s1",
+          "domain": "Functions",
+          "difficulty": "Hard",
+          "question_text": "What is a closure in JavaScript?",
+          "options": [
+            "A) A function that has no access to variables outside its scope.",
+            "B) The combination of a function and the lexical environment within which that function was declared.",
+            "C) A built-in function that closes the browser window.",
+            "D) A syntax error that occurs when a function is not properly closed with a curly brace."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A closure gives a function access to all the variables from its enclosing scope, even after that outer scope has closed. This allows for powerful patterns like creating private variables and stateful functions."
+        },
+        {
+          "id": "q066_js_s1",
+          "domain": "ES6+ Features",
+          "difficulty": "Medium",
+          "question_text": "What does the spread operator (`...`) do when used with an array?",
+          "options": [
+            "A) It filters the array to only include elements that are objects.",
+            "B) It expands the array's elements into a list of individual elements.",
+            "C) It gathers all remaining function arguments into an array.",
+            "D) It creates a new empty array with the same length."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The spread syntax (`...`) allows an iterable such as an array to be expanded in places where zero or more arguments or elements are expected. For example, it's used to make shallow copies of arrays or to combine multiple arrays: `[...arr1, ...arr2]`."
+        },
+        {
+          "id": "q067_js_s1",
+          "domain": "JSON",
+          "difficulty": "Easy",
+          "question_text": "Which method is used to convert a JavaScript object into a JSON string?",
+          "options": [
+            "A) JSON.parse()",
+            "B) JSON.stringify()",
+            "C) JSON.convert()",
+            "D) JSON.toText()"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`JSON.stringify()` takes a JavaScript object or value and converts it into a JSON string, which is useful for sending data to a web server or storing it in local storage."
+        },
+        {
+          "id": "q068_js_s1",
+          "domain": "Fundamentals",
+          "difficulty": "Medium",
+          "question_text": "Which of the following values is NOT considered 'falsy' in JavaScript?",
+          "options": [
+            "A) 0",
+            "B) \"\"",
+            "C) null",
+            "D) '0'"
+          ],
+          "correct_answer_index": 3,
+          "explanation": "In JavaScript, a 'falsy' value is one that is considered false in a boolean context. The main falsy values are `false`, `0`, `\"\"` (empty string), `null`, `undefined`, and `NaN`. The string `'0'` is not empty, so it is 'truthy'."
+        },
+        {
+          "id": "q069_js_s1",
+          "domain": "Web APIs",
+          "difficulty": "Easy",
+          "question_text": "What is the difference between `localStorage` and `sessionStorage`?",
+          "options": [
+            "A) `localStorage` is faster than `sessionStorage`.",
+            "B) `localStorage` data persists until manually cleared, while `sessionStorage` data is cleared when the page session ends (e.g., tab is closed).",
+            "C) `localStorage` can store more data than `sessionStorage`.",
+            "D) `localStorage` is secure, while `sessionStorage` is not."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Both `localStorage` and `sessionStorage` are web storage APIs. The key difference is their persistence. `localStorage` data has no expiration time, whereas `sessionStorage` data gets cleared when the browser tab or window is closed."
+        },
+        {
+          "id": "q070_js_s1",
+          "domain": "Functions",
+          "difficulty": "Medium",
+          "question_text": "What is 'hoisting' in JavaScript?",
+          "options": [
+            "A) The process of moving all script tags to the top of the HTML document.",
+            "B) A security feature that prevents access to the global scope.",
+            "C) JavaScript's default behavior of moving declarations to the top of the current scope before code execution.",
+            "D) An animation effect that lifts an element off the page."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Hoisting is a mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase. This means you can use a function before you declare it. Note that `let` and `const` are hoisted but are not initialized, creating a 'temporal dead zone'."
+        },
+        {
+          "id": "q071_js_s1",
+          "domain": "Asynchronous JS",
+          "difficulty": "Easy",
+          "question_text": "Which Web API is commonly used to make HTTP requests to a server from a web browser?",
+          "options": [
+            "A) DOM API",
+            "B) Geolocation API",
+            "C) Fetch API",
+            "D) Web Storage API"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The Fetch API provides a modern, promise-based interface for making network requests. It has largely replaced the older XMLHttpRequest (XHR) object for its cleaner and more powerful syntax."
+        },
+        {
+          "id": "q072_js_s1",
+          "domain": "DOM Manipulation",
+          "difficulty": "Easy",
+          "question_text": "How do you change the text content of an HTML element with the ID `title`?",
+          "options": [
+            "A) document.getElementById('title').textContent = 'New Title';",
+            "B) document.getElementById('title').html = 'New Title';",
+            "C) document.getElementById('title').value = 'New Title';",
+            "D) document.getElementById('title').write('New Title');"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The `textContent` property is used to get or set the text content of a node and its descendants. It's generally preferred over `innerText` for performance and predictability."
+        },
+        {
+          "id": "q073_js_s1",
+          "domain": "Operators",
+          "difficulty": "Easy",
+          "question_text": "What is the shorthand for `x = x + 1` in JavaScript?",
+          "options": [
+            "A) x+",
+            "B) x++",
+            "C) x =+ 1",
+            "D) x+1"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The increment operator `++` is a common shorthand for adding one to a variable's value. `x++` (postfix) returns the value before incrementing, while `++x` (prefix) returns the value after incrementing."
+        },
+        {
+          "id": "q074_js_s1",
+          "domain": "Error Handling",
+          "difficulty": "Medium",
+          "question_text": "Which statement is used to handle exceptions and errors in JavaScript code gracefully?",
+          "options": [
+            "A) if...else",
+            "B) switch...case",
+            "C) try...catch...finally",
+            "D) on...error"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The `try...catch` statement marks a block of code to be tried (`try` block) and specifies a response (`catch` block) should an exception be thrown. The optional `finally` block executes after `try` and `catch`, regardless of the outcome."
+        },
+        {
+          "id": "q075_js_s1",
+          "domain": "The `this` keyword",
+          "difficulty": "Hard",
+          "question_text": "In the context of an event listener, what does the `this` keyword typically refer to?",
+          "options": [
+            "A) The global `window` object.",
+            "B) The event object itself.",
+            "C) The HTML element that the event listener was attached to.",
+            "D) It is always `undefined` in event listeners."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "When using a traditional function declaration (`function() { ... }`) as an event listener, the `this` keyword is bound to the element that dispatched the event. However, if you use an arrow function, `this` will retain its value from the enclosing lexical context."
+        }
+      ]
+    },
+    {
+      "id": "tech-adv-frontend-set1",
+      "name": "Advanced Frontend Concepts",
+      "title": "Building Modern, Component-Based Applications",
+      "focus_on": "This exam tests the foundational concepts behind modern frontend frameworks. It covers component-based architecture, state management principles (local vs. global), the role of the Virtual DOM, asynchronous data fetching from APIs, and the modern JavaScript module system and build tools.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-puzzle-piece text-green-300 hover:text-green-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "Component-Based Architecture"
+        },
+        {
+          "icon": "fas fa-sync-alt text-yellow-300 hover:text-yellow-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "State Management (Props vs. State)"
+        },
+        {
+          "icon": "fas fa-network-wired text-blue-300 hover:text-blue-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "API Interaction (REST, Fetch)"
+        },
+        {
+          "icon": "fas fa-cogs text-purple-300 hover:text-purple-500 transition-colors duration-200 transform group-hover:scale-110",
+          "topic": "ES Modules & Build Tools"
+        }
+      ],
+      "difficulty": "Advanced",
+      "description": "Assesses a developer's readiness for modern frontend frameworks by evaluating their understanding of core architectural patterns, state management, and the surrounding tooling ecosystem.",
+      "icon": "fab fa-react",
+      "passing_score": "80",
+      "active": true,
+      "total_questions": "25",
+      "time_limit": "45",
+      "questions": [
+        {
+          "id": "q076_adv_s1",
+          "domain": "Component Architecture",
+          "difficulty": "Easy",
+          "question_text": "In component-based architecture, what is the primary purpose of a 'component'?",
+          "options": [
+            "A) A single, large file that contains all the application's HTML and JavaScript.",
+            "B) A reusable, self-contained piece of the user interface with its own logic and state.",
+            "C) A CSS class that defines the styling for a specific part of the page.",
+            "D) A configuration file for a JavaScript framework."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A component is a modular, reusable building block for a user interface. It encapsulates its own HTML structure, styling, and JavaScript logic, making UIs easier to build, manage, and scale."
+        },
+        {
+          "id": "q077_adv_s1",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "What is the fundamental difference between 'props' and 'state' in a component?",
+          "options": [
+            "A) Props are used for styling, while state is used for logic.",
+            "B) Props are passed down from a parent component and are immutable, while state is managed internally by the component and can change.",
+            "C) Props are managed internally and can change, while state is passed down from a parent and is immutable.",
+            "D) There is no difference; they are two names for the same concept."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Props (properties) are how components receive data from their parents, and they should be treated as read-only. State is data that a component owns and can modify itself over time, typically in response to user events."
+        },
+        {
+          "id": "q078_adv_s1",
+          "domain": "Virtual DOM",
+          "difficulty": "Medium",
+          "question_text": "What is the primary benefit of using a Virtual DOM in modern frontend frameworks?",
+          "options": [
+            "A) It allows writing HTML directly inside JavaScript without any tools.",
+            "B) It eliminates the need for CSS by handling all styling.",
+            "C) It provides a secure sandbox for running untrusted code.",
+            "D) It minimizes slow, direct manipulations of the real DOM by batching updates efficiently."
+          ],
+          "correct_answer_index": 3,
+          "explanation": "Directly manipulating the browser's DOM is computationally expensive. The Virtual DOM is a lightweight in-memory representation. Frameworks update this virtual copy first, then use a 'diffing' algorithm to compute the minimal set of changes needed for the real DOM, improving performance."
+        },
+        {
+          "id": "q079_adv_s1",
+          "domain": "ES Modules",
+          "difficulty": "Easy",
+          "question_text": "What is the correct syntax to import a default export named `myFunction` from a file named `utils.js`?",
+          "options": [
+            "A) import myFunction from './utils.js';",
+            "B) import { myFunction } from './utils.js';",
+            "C) require(myFunction from './utils.js');",
+            "D) include myFunction from './utils.js';"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "For a default export (`export default ...`), the import syntax does not use curly braces. The name `myFunction` can be any name you choose for the imported value. Named exports, in contrast, require curly braces."
+        },
+        {
+          "id": "q080_adv_s1",
+          "domain": "API Interaction",
+          "difficulty": "Easy",
+          "question_text": "In the context of a REST API, which HTTP method is typically used to retrieve data from a server?",
+          "options": [
+            "A) POST",
+            "B) GET",
+            "C) DELETE",
+            "D) PUT"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The GET method is used to request data from a specified resource. It is considered a safe and idempotent method, meaning it should not have any side effects on the server's state."
+        },
+        {
+          "id": "q081_adv_s1",
+          "domain": "Build Tools",
+          "difficulty": "Medium",
+          "question_text": "What is the primary role of a module bundler like Webpack or Vite?",
+          "options": [
+            "A) To check JavaScript code for syntax errors.",
+            "B) To run automated tests on the codebase.",
+            "C) To process and combine many JavaScript modules and other assets into a few optimized files for the browser.",
+            "D) To directly manage the application's database."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Module bundlers take your source code (many separate files using ES Modules), resolve their dependencies, and bundle them into a smaller number of static assets that are optimized for browser performance."
+        },
+        {
+          "id": "q082_adv_s1",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "What is meant by 'one-way data flow' in frameworks like React and Vue?",
+          "options": [
+            "A) Data can only be sent from the server to the client, not the other way around.",
+            "B) Data flows in a single direction, typically from parent components down to child components via props.",
+            "C) A component can only have one piece of state.",
+            "D) CSS styles can only be applied in one direction."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "One-way data flow is a principle where state flows downwards. Parent components pass data to child components through props. To change the parent's state, the child emits an event or calls a function passed down as a prop. This makes the application's logic more predictable and easier to debug."
+        },
+        {
+          "id": "q083_adv_s1",
+          "domain": "API Interaction",
+          "difficulty": "Medium",
+          "question_text": "When using the Fetch API, what does the `fetch()` function immediately return?",
+          "options": [
+            "A) The JSON data from the server.",
+            "B) A boolean indicating if the request was successful.",
+            "C) A Promise that resolves to the Response object.",
+            "D) An error object if the network request fails."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "`fetch()` is asynchronous. It immediately returns a Promise. This Promise will resolve into a `Response` object once the server has responded with headers. You then need to use another method, like `.json()`, to parse the body of the response."
+        },
+        {
+          "id": "q084_adv_s1",
+          "domain": "Component Architecture",
+          "difficulty": "Medium",
+          "question_text": "What is the difference between a 'stateful' component and a 'stateless' component (or presentational component)?",
+          "options": [
+            "A) Stateful components are written in TypeScript, while stateless components are written in JavaScript.",
+            "B) Stateful components have internal state that they manage, while stateless components primarily receive data via props and do not manage their own state.",
+            "C) Stateful components are always class-based, while stateless components are always function-based.",
+            "D) Stateful components are used for pages, and stateless components are used for small UI elements like buttons."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Stateful (or container) components are concerned with how things work (e.g., fetching data, managing state). Stateless (or presentational) components are concerned with how things look; they receive data and functions via props and render UI accordingly, making them highly reusable."
+        },
+        {
+          "id": "q085_adv_s1",
+          "domain": "Build Tools",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of a transpiler like Babel?",
+          "options": [
+            "A) To bundle multiple CSS files into one.",
+            "B) To convert modern JavaScript (ES6+) syntax into older, more widely supported JavaScript (ES5) that can run in all browsers.",
+            "C) To minify HTML files to reduce their size.",
+            "D) To manage server-side dependencies for a Node.js application."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "A transpiler is a source-to-source compiler. Babel's primary role in the frontend ecosystem is to take modern JavaScript code with features like arrow functions, classes, and async/await, and transform it into an equivalent older version (like ES5) that has better browser compatibility."
+        },
+        {
+          "id": "q086_adv_s1",
+          "domain": "State Management",
+          "difficulty": "Hard",
+          "question_text": "In the context of state management, what is 'prop drilling'?",
+          "options": [
+            "A) The process of optimizing props for better performance.",
+            "B) A security vulnerability where props can be intercepted.",
+            "C) The practice of passing data from a parent component down through multiple layers of nested child components that do not need the data themselves.",
+            "D) A debugging technique to inspect the props of every component."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "'Prop drilling' occurs when you need to pass a prop to a deeply nested component, forcing you to pass it through every intermediate component in the tree. This can make code harder to maintain. Global state management libraries (like Redux or Context API) are common solutions to this problem."
+        },
+        {
+          "id": "q087_adv_s1",
+          "domain": "Virtual DOM",
+          "difficulty": "Hard",
+          "question_text": "When a component's state changes, what is the 'diffing' algorithm's responsibility?",
+          "options": [
+            "A) To determine which CSS styles need to be applied to the component.",
+            "B) To compare the new Virtual DOM tree with the previous one to find the minimal set of changes.",
+            "C) To send the state changes directly to the server for validation.",
+            "D) To automatically create new components based on the state change."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "The 'diffing' (or reconciliation) algorithm is the core of how Virtual DOMs optimize updates. By comparing the old and new VDOM trees, it identifies exactly which nodes have changed, been added, or been removed, and then translates this into the most efficient batch of updates for the real DOM."
+        },
+        {
+          "id": "q088_adv_s1",
+          "domain": "API Interaction",
+          "difficulty": "Hard",
+          "question_text": "A web application running on `domain-a.com` tries to fetch data from an API on `domain-b.com`, but the request fails. What is the most likely browser security mechanism causing this?",
+          "options": [
+            "A) Content Security Policy (CSP)",
+            "B) Cross-Site Scripting (XSS) Prevention",
+            "C) Cross-Origin Resource Sharing (CORS) Policy",
+            "D) The Same-Origin Policy (SOP)"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The Same-Origin Policy (SOP) is a fundamental security rule that prevents a script on one origin from accessing data on another. To allow this, the server at `domain-b.com` must implement a CORS policy (e.g., via the `Access-Control-Allow-Origin` header) to explicitly permit requests from `domain-a.com`."
+        },
+        {
+          "id": "q089_adv_s1",
+          "domain": "ES Modules",
+          "difficulty": "Medium",
+          "question_text": "What is the difference between a default export and a named export?",
+          "options": [
+            "A) A file can have multiple default exports but only one named export.",
+            "B) Default exports are for functions, and named exports are for variables.",
+            "C) A file can have only one default export, but it can have multiple named exports. Named exports must be imported using the exact same name.",
+            "D) Named exports are automatically imported, while default exports must be imported manually."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "A module can have any number of named exports (`export const myVar = ...`) but only one default export (`export default ...`). When importing a named export, you must use its name inside curly braces: `import { myVar } from ...`. A default export can be imported with any name: `import anyName from ...`."
+        },
+        {
+          "id": "q090_adv_s1",
+          "domain": "Component Architecture",
+          "difficulty": "Medium",
+          "question_text": "What does the concept of a component 'lifecycle' refer to?",
+          "options": [
+            "A) The total time a component is visible on the screen.",
+            "B) The process of updating a component's styling.",
+            "C) A series of phases a component goes through, such as mounting (being added to the DOM), updating, and unmounting (being removed).",
+            "D) The version history of a component in a source control system like Git."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "The component lifecycle consists of distinct phases. Frameworks provide lifecycle methods or hooks (e.g., `componentDidMount`, `useEffect`) that allow developers to run code at specific points, such as right after the component is first rendered to the DOM or just before it is destroyed."
+        },
+        {
+          "id": "q091_adv_s1",
+          "domain": "State Management",
+          "difficulty": "Hard",
+          "question_text": "Why is the concept of 'immutability' important in state management?",
+          "options": [
+            "A) It makes the application's state read-only, preventing any updates.",
+            "B) It ensures that state can only be changed by the user, not by the program.",
+            "C) It simplifies change detection; frameworks can quickly check if an object has changed by comparing its reference instead of deep-checking its properties.",
+            "D) It allows the state to be stored directly in a database without conversion."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "By treating state as immutable, you don't modify state objects directly. Instead, you create new objects with the updated values. This makes tracking changes trivial and efficient (a simple `oldState === newState` reference check), which is crucial for performance optimizations in rendering."
+        },
+        {
+          "id": "q092_adv_s1",
+          "domain": "Build Tools",
+          "difficulty": "Hard",
+          "question_text": "In the context of a module bundler, what is 'tree shaking'?",
+          "options": [
+            "A) A process for reformatting code to follow a consistent style.",
+            "B) The process of eliminating unused code (dead-code elimination) from the final bundle.",
+            "C) A debugging tool for visualizing the component tree.",
+            "D) A method for randomly testing different parts of an application."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Tree shaking is a dead-code elimination process. By statically analyzing `import` and `export` statements, bundlers can determine which code from your dependencies is actually being used and exclude the unused parts, resulting in a smaller, faster application."
+        },
+        {
+          "id": "q093_adv_s1",
+          "domain": "Package Management",
+          "difficulty": "Easy",
+          "question_text": "What is the primary purpose of `npm` (Node Package Manager) in frontend development?",
+          "options": [
+            "A) To run the application on a Node.js server.",
+            "B) To manage and install third-party libraries and project dependencies.",
+            "C) To create and style HTML elements.",
+            "D) To directly edit the browser's source code."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "`npm` (or alternatives like `yarn` or `pnpm`) is a package manager that allows developers to easily install, update, and manage the external libraries (e.g., React, Lodash, date-fns) that their project depends on. It reads dependencies from the `package.json` file."
+        },
+        {
+          "id": "q094_adv_s1",
+          "domain": "API Interaction",
+          "difficulty": "Hard",
+          "question_text": "How do you properly handle errors with the Fetch API, given that it only rejects on network failure, not on HTTP error statuses like 404 or 500?",
+          "options": [
+            "A) Wrap the `fetch` call in a `try...catch` block; it will catch all 4xx/5xx errors.",
+            "B) The `.catch()` block of the promise will automatically handle HTTP error statuses.",
+            "C) Check the `ok` property (`response.ok`) of the response object and manually throw an error if it's false.",
+            "D) You don't need to handle them; the browser displays a default error page."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "A common pitfall with `fetch` is that it considers HTTP errors (like 404 Not Found) as successful requests because a response was received. The promise only rejects if there's a network error. The correct pattern is to check `if (!response.ok)` and then throw an error to be caught by the `.catch()` block or a `try...catch`."
+        },
+        {
+          "id": "q095_adv_s1",
+          "domain": "State Management",
+          "difficulty": "Medium",
+          "question_text": "What problem do global state management libraries like Redux, Vuex, or the Context API aim to solve?",
+          "options": [
+            "A) The difficulty of styling components consistently.",
+            "B) Making API requests to a server.",
+            "C) The complexity of sharing state between components that are not directly related in the component tree.",
+            "D) Converting JavaScript to be compatible with older browsers."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "As applications grow, sharing state between distant components becomes difficult, often leading to 'prop drilling'. Global state management solutions provide a centralized store for application state that any component can access (or subscribe to) without needing props passed through intermediate components."
+        },
+        {
+          "id": "q096_adv_s1",
+          "domain": "Component Architecture",
+          "difficulty": "Hard",
+          "question_text": "What is 'component composition'?",
+          "options": [
+            "A) Combining all components into a single large file for production.",
+            "B) A design pattern where complex components are built by combining smaller, more specialized components.",
+            "C) The process of converting a class component into a functional component.",
+            "D) A CSS technique for scoping styles to a single component."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Composition is a core principle of component-based architecture. Instead of inheriting behavior, you build complex UI by nesting and combining smaller, focused components. For example, a `UserProfile` component might be composed of an `Avatar` component and a `UserInfo` component."
+        },
+        {
+          "id": "q097_adv_s1",
+          "domain": "Web Performance",
+          "difficulty": "Medium",
+          "question_text": "What is 'code splitting' in the context of a modern frontend application?",
+          "options": [
+            "A) Writing code in multiple programming languages.",
+            "B) Splitting your bundler's output into smaller chunks that can be loaded on demand, rather than one large file.",
+            "C) Dividing the development work among multiple team members.",
+            "D) Using comments to separate different sections of a single code file."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Code splitting is a technique supported by bundlers like Webpack that allows you to create smaller, on-demand bundles. This improves initial page load time because the user only downloads the JavaScript needed for the initial route, with other chunks loaded as the user navigates to new pages or features."
+        },
+        {
+          "id": "q098_adv_s1",
+          "domain": "Web APIs",
+          "difficulty": "Medium",
+          "question_text": "What is the primary difference between Declarative and Imperative programming, as it applies to UI development?",
+          "options": [
+            "A) Declarative code is always shorter than imperative code.",
+            "B) Declarative programming describes *what* the UI should look like for a given state, while imperative programming describes *how* to change the UI step-by-step.",
+            "C) Imperative programming is used by modern frameworks, while declarative is an older paradigm.",
+            "D) Declarative code runs on the server, while imperative code runs on the client."
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Modern frameworks (React, Vue) encourage a declarative approach. You declare what the UI should render based on the current state, and the framework figures out the imperative steps to update the DOM. Vanilla JS DOM manipulation (`createElement`, `appendChild`, etc.) is imperative—you explicitly define each step."
+        },
+        {
+          "id": "q099_adv_s1",
+          "domain": "API Interaction",
+          "difficulty": "Easy",
+          "question_text": "Which HTTP status code indicates a successful request?",
+          "options": [
+            "A) 200 OK",
+            "B) 404 Not Found",
+            "C) 500 Internal Server Error",
+            "D) 301 Moved Permanently"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "HTTP status codes in the 2xx range indicate success. `200 OK` is the standard response for successful HTTP requests. 4xx codes indicate client errors, and 5xx codes indicate server errors."
+        },
+        {
+          "id": "q100_adv_s1",
+          "domain": "Package Management",
+          "difficulty": "Medium",
+          "question_text": "What is the purpose of the `package-lock.json` file in an npm project?",
+          "options": [
+            "A) It is a human-readable list of all project dependencies.",
+            "B) It locks the project to a specific version of Node.js.",
+            "C) It records the exact version of every installed dependency, ensuring consistent installations across different machines.",
+            "D) It contains the security keys for publishing the package to the npm registry."
+          ],
+          "correct_answer_index": 2,
+          "explanation": "While `package.json` might specify a version range (e.g., `^1.2.3`), `package-lock.json` records the precise version of each package and its sub-dependencies that were installed. This guarantees that every developer on a team, and the production environment, will have the exact same set of dependencies, preventing 'works on my machine' issues."
+        }
+      ]
+    }
+  ]
+}

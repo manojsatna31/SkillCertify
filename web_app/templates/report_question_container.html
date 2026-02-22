@@ -1,0 +1,99 @@
+<section id="report_question_container">
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+            {% for q in questions %}
+<!--            <details class="group mb-4 rounded-lg bg-white shadow-md border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg">-->
+                <details class="group mb-2 border rounded-2xl bg-gray-50 dark:bg-gray-700 overflow-hidden">
+<!--                <summary class="flex items-center justify-between p-4 cursor-pointer bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 transition-all duration-300 list-none relative">-->
+                    <summary class="flex items-center justify-between p-4 cursor-pointer bg-gray-200 dark:bg-gray-700 list-none relative">
+                    <div class="flex items-center">
+                        {% if q.is_correct %}
+                            <span class="custom-checkmark"></span>
+                        {% else %}
+                        <span class="custom-crossmark"></span>
+                        {% endif %}
+                        <h2 class="text-lg font-semibold text-black dark:text-white">Q{{ q.absolute_index }}. {{ q.question_text }}</h2>
+                    </div>
+                    <svg class="accordion-icon w-5 h-5 text-black dark:text-white flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </summary>
+                <div class="accordion-content px-4 pb-4">
+            <!-- Question {{ loop.index }} -->
+            <div id="question-{{ q.absolute_index }}" class="question-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+<!--                <h2 class="text-lg font-semibold mb-4">Q{{ q.absolute_index }}. {{ q.question_text }}</h2>-->
+
+                <div class="space-y-3">
+                    {% for option in q.options %}
+                    {% set is_correct_option = option.value == q.correct_answer %}
+                    {% set is_user_choice = option.label == q.user_answer_label[0:1] %}
+
+                    <div class="flex items-center p-3 rounded-lg option-border
+                    {% if is_correct_option %}
+                        border-green-500 bg-green-50 dark:bg-green-900
+                    {% elif is_user_choice and not q.is_correct %}
+                        border-red-500 bg-red-50 dark:bg-red-900
+                    {% else %}
+                        border-gray-300 dark:border-gray-700
+                    {% endif %}">
+
+                        {% if is_correct_option %}
+                        <span class="text-green-600 mr-2">✔️</span>
+                        {% elif is_user_choice and not q.is_correct %}
+                        <span class="text-red-600 mr-2">❌</span>
+                        {% else %}
+                        <span class="text-gray-400 mr-2">⭕</span>
+                        {% endif %}
+
+                        <span class="font-medium">{{ option.label }}) {{ option.text }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-4">
+                    <p class="text-sm">
+                        <strong>Your Answer:</strong>
+                        <span class="{% if q.is_correct %} text-green-600 {% else %} text-red-600 {% endif %}">
+                        {{ q.user_answer_label }}
+                    </span>
+                    </p>
+                    <p class="text-sm">
+                        <strong>Correct Answer:</strong>
+                        <span class="text-green-600">{{ q.correct_answer_label }}</span>
+                    </p>
+                </div>
+
+                <div class="mt-4 p-3 border-l-4 border-indigo-500 bg-indigo-50 dark:bg-gray-700">
+                    <p class="text-sm"><strong>Explanation:</strong> {{ q.explanation }}</p>
+                </div>
+            </div>
+                    </div>
+            </details>
+            {% endfor %}
+        </div>
+        <!-- Pagination -->
+        <div class="mt-8 flex justify-center">
+            {% if pagination.current_page > 1 %}
+            <a href="#"
+               hx-get="/exam-report/page/{{ pagination.current_page - 1 }}"
+               hx-target="#questions-container"
+               hx-swap="innerHTML"
+               class="px-4 py-2 bg-blue-500 text-white rounded-l-lg">
+                <i class="fas fa-chevron-left"></i>Previous
+            </a>
+            {% endif %}
+
+            <span class="px-4 py-2 bg-white dark:bg-gray-700">
+                 Questions {{ pagination.start_index }} to {{ pagination.start_index + questions|length - 1 }} of {{ pagination.total_questions }}
+        </span>
+
+            {% if pagination.current_page < pagination.total_pages %}
+            <a href="/exam-report/page/{{ pagination.current_page + 1 }}"
+               hx-get="/exam-report/page/{{ pagination.current_page + 1 }}"
+               hx-target="#questions-container"
+               hx-swap="innerHTML"
+               class="px-4 py-2 bg-blue-500 text-white rounded-r-lg">
+                Next<i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            {% endif %}
+        </div>
+</section>

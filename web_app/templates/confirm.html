@@ -1,0 +1,205 @@
+<section id="exam-confirmation">
+    <div
+        class="flex flex-col min-h-screen w-full max-w-none bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+<!--            class="w-full max-w-none bg-slate-50 dark:bg-slate-900 rounded-lg p-6">-->
+
+        <!-- Header -->
+<!--        <div class="flex items-center justify-between mt-4 mb-4">-->
+            <div class="mt-4 mb-4">
+            <button
+                    href="{{ url_for('exam_sets', tech_id=tech_id) }}"
+                    hx-get="{{ url_for('exam_sets', tech_id=tech_id) }}"
+                    hx-target="#content-area"
+                    hx-push-url="true"
+                    hx-swap="innerHTML"
+                    class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-95 flex items-center">
+                <i class="fas fa-caret-left mr-2 text-lg"></i> Back to Exam Set
+            </button>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-gray-800 dark:text-white flex items-center justify-center">
+                <i class="fas fa-clipboard-check text-green-500 mr-3"></i> Exam Start Confirmation
+            </h2>
+            <div class="w-40"></div>
+        </div>
+        <!-- Intro Text -->
+        <div class="p-4 mb-2 ">
+            <p class="text-center text-semibold text-xl mb-2 ext-gray-600 dark:text-gray-300">
+                You are about to begin <span
+                    class="text-2xl font-bold text-blue-600 dark:text-blue-400">{{data.name}}</span>
+                a timed assessment designed to test your expertise in core concepts and advanced topics.
+                <br>Make sure you are fully prepared before proceeding.</br>
+
+            </p>
+        </div>
+
+        <!-- Accordion Item::What You'll Gain -->
+        <details class="group mb-4 border rounded-2xl bg-gray-50 dark:bg-gray-700 overflow-hidden">
+            <summary
+                    class="flex items-center justify-between p-2 cursor-pointer shadow-inner transition-colors bg-gray-200 dark:bg-gray-700 list-none relative">
+
+                <h2 class="text-2xl font-bold ext-gray-600 dark:text-gray-300 mb-2 ">
+                    <i class="fas fa-trophy text-blue-500 text-xl"></i>
+                    What You'll Gain
+                </h2>
+                <svg class="accordion-icon w-5 h-5 text-black dark:text-white flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </summary>
+            <div class="accordion-content px-4 pb-4 bg-white dark:bg-gray-800">
+                <p class="text-lg font-semibold text-gray-800 dark:text-gray-200">{{ data.focus_on }}</p>
+            </div>
+        </details>
+        <!-- Accordion Item::Key Skills Tested -->
+        <details class="group mb-4 border rounded-2xl bg-gray-50 dark:bg-gray-700 overflow-hidden">
+            <summary
+                    class="flex items-center justify-between p-2 cursor-pointer bg-gray-200 dark:bg-gray-700 list-none relative">
+                <h2 class="text-2xl font-bold ext-gray-600 dark:text-gray-300 mb-2">
+                    <i class="fas fa-check-circle text-green-500"></i>
+                    Key Skills Tested
+                </h2>
+                <svg class="accordion-icon w-5 h-5 text-black dark:text-white flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </summary>
+
+            <div class="accordion-content px-4 pb-4 bg-white dark:bg-gray-800">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+                    {% for skill in data.key_skills_tested %}
+                    <div class="flex items-start items-center gap-3 p-4 bg-gray-100 dark:bg-gray-900 rounded-xl
+                    border border-gray-600 dark:border-gray-900">
+                        <i class="{{ skill.icon }} text-xl"></i>
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">{{ skill.topic }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </details>
+        <!-- Accordion Item::Important Instructions -->
+        <details class="group mb-4 border rounded-2xl bg-gray-50 dark:bg-gray-700 overflow-hidden">
+            <summary
+                    class="flex items-center justify-between p-2 cursor-pointer bg-gray-200 dark:bg-gray-700 list-none relative">
+                <h2 class="text-2xl font-bold ext-gray-600 dark:text-gray-300 mb-2">
+                    <i class="fas fa-exclamation-circle text-yellow-500"></i> Important Instructions
+                </h2>
+                <svg class="accordion-icon w-5 h-5 text-black dark:text-white flex-shrink-0" fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </summary>
+            <div class="accordion-content mt-4 mb-4  px-4 pb-4">
+                {% set instructions = [
+                {"transition_colors":"hover:bg-blue-100 dark:hover:bg-blue-700/30",
+                "icon": "fa-hourglass-half", "icon_bg": "bg-blue-100 dark:bg-blue-900", "icon_color": "text-blue-500",
+                "title": "Time-bound Exam", "desc": "The test is strictly timed and cannot be paused once started."},
+
+                {"transition_colors":"hover:bg-red-100 dark:hover:bg-red-700/30",
+                "icon": "fa-ban", "icon_bg": "bg-red-100 dark:bg-red-900", "icon_color": "text-red-500",
+                "title": "No Refresh / Exit", "desc": "Avoid refreshing or closing the browser during the exam
+                session."},
+
+                {"transition_colors":"hover:bg-green-100 dark:hover:bg-green-700/30",
+                "icon": "fa-network-wired", "icon_bg": "bg-green-100 dark:bg-green-900", "icon_color":
+                "text-green-500",
+                "title": "Stable Internet", "desc": "Ensure a reliable internet connection to prevent disruptions."},
+
+                {"transition_colors":"hover:bg-purple-100 dark:hover:bg-purple-700/30",
+                "icon": "fa-laptop", "icon_bg": "bg-purple-100 dark:bg-purple-900", "icon_color": "text-purple-500",
+                "title": "Best Device", "desc": "Use a desktop or laptop for the best experience instead of mobile."},
+
+                {"transition_colors":"hover:bg-yellow-100 dark:hover:bg-yellow-700/30",
+                "icon": "fa-clipboard-check", "icon_bg": "bg-yellow-100 dark:bg-yellow-900", "icon_color":
+                "text-yellow-500",
+                "title": "Review Answers", "desc": "Double-check your answers before final submission."},
+
+                {"transition_colors":"hover:bg-pink-100 dark:hover:bg-pink-700/30",
+                "icon": "fa-headphones", "icon_bg": "bg-pink-100 dark:bg-pink-900", "icon_color": "text-pink-500",
+                "title": "Distraction-Free Zone", "desc": "Choose a quiet environment to stay fully focused."},
+
+                {"transition_colors":"hover:bg-orange-100 dark:hover:bg-orange-700/30",
+                "icon": "fa-exclamation-triangle", "icon_bg": "bg-orange-100 dark:bg-orange-900", "icon_color":
+                "text-orange-500",
+                "title": "Report Issues", "desc": "Any technical problems should be reported immediately to support."}
+                ] %}
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+                    {% for item in instructions %}
+                    <!--                    <div class="flex items-center gap-3 p-4 bg-gray-300 dark:bg-gray-800 rounded-lg transition duration-300 hover:bg-red-100 dark:hover:bg-red-700/30">-->
+                    <div class="flex items-center gap-3 p-4 bg-gray-100 dark:bg-gray-900  border border-gray-600 dark:border-gray-900 rounded-lg transition {{ item.transition_colors}}">
+                        <!-- Icon container -->
+                        <div class="{{ item.icon_bg }} p-3 rounded-full mr-4 mt-1 shadow">
+                            <i class="fas {{ item.icon }} {{ item.icon_color }} text-lg"></i>
+                        </div>
+                        <!-- Text content -->
+                        <div>
+                            <h4 class="font-bold text-gray-800 dark:text-gray-200 mb-1">{{ item.title }}</h4>
+                            <p class="text-lg text-gray-700 dark:text-gray-200">{{ item.desc }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </details>
+        <!-- Exam Details Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4 p-4 items-center">
+            <div class="bg-gray-200 dark:bg-gray-700 p-4 rounded-xl text-center flex flex-col  items-center">
+                <p class="font-semibold text-base text-gray-500 dark:text-gray-300 justify-center">
+                    <i class="fas fa-question-circle text-2xl text-blue-500 items-align-center"></i>
+                    <span class="font-bold text-2xl">
+                        Total Questions :
+                    </span>
+                    <span class="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                        {{ data.total_questions }}
+                    </span>
+                </p>
+            </div>
+            <div class="bg-gray-200 dark:bg-gray-700 p-4 rounded-xl text-center flex flex-col items-center">
+                <p class="font-semibold text-base text-gray-500 dark:text-gray-300 justify-center">
+                    <i class="fas fa-clock text-2xl text-yellow-500"></i>
+                    <span class="font-bold text-2xl">
+                        Time Limit:
+                    </span>
+                    <span class="text-2xl font-bold text-yellow-600 dark:text-yellow-400">
+                        {{ data.time_limit }} minutes
+                    </span>
+                </p>
+            </div>
+            <div class="bg-gray-200 dark:bg-gray-700 p-4 rounded-xl text-center flex flex-col items-center">
+                <p class="font-semibold text-base text-gray-500 dark:text-gray-300 justify-center">
+                    <i class="fas fa-check-circle text-3xl text-green-500"></i>
+                    <span class="font-bold text-2xl">
+                        Passing Score:
+                    </span>
+                    <span class="text-2xl font-bold text-green-600 dark:text-green-400">
+                    {{data.passing_score }}%
+                    </span>
+                </p>
+            </div>
+            <div class="bg-gray-200 dark:bg-gray-700 p-4 rounded-xl text-center flex flex-col items-center">
+                <p class="font-semibold text-base text-gray-500 dark:text-gray-300 justify-center">
+                    <i class="fas fa-tachometer-alt text-2xl text-purple-500"></i>
+                    <span class="font-bold text-2xl">
+                        Difficulty:
+                    </span>
+                    <span class="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                    {{ data.difficulty}}
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="flex justify-center">
+            <button hx-get="/start-exam/{{ tech_id }}/{{ data.id }}/{{ data.name | urlencode }}"
+                    hx-target="#content-area"
+                    hx-push-url="true"
+                    hx-swap="innerHTML"
+                    class="px-10 py-5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-xl font-semibold rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg flex items-center">
+                Start Exam Now
+            </button>
+
+        </div>
+
+    </div>
+</section>

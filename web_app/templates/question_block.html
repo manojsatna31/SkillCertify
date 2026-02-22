@@ -1,0 +1,193 @@
+<!-- templates/question_block.html -->
+<div id="question-container">
+
+    <form id="questionForm"
+          hx-post="/exam/submit-answer"
+          hx-target="#question-container"
+          hx-swap="outerHTML"
+          class="bg-slate-50 dark:bg-slate-900 p-2">
+
+        <!-- Question Header -->
+        <div class="flex justify-between items-center mb-1 p-4">
+            <div class="flex items-center space-x-3 bg-indigo-100 dark:bg-indigo-900/30 px-4 py-2 rounded-lg">
+                <div class="bg-indigo-600 p-3 rounded-full shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         class="h-6 w-6 text-white"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">Question Progress</p>
+                    <h3 class="text-xl font-bold  text-indigo-700 dark:text-indigo-300">
+                        <h3 class="text-xl font-bold  text-indigo-700 dark:text-indigo-300">
+                            Question {{ data.current_index + 1 }} of {{ data.total_questions }}
+                        </h3>
+                </div>
+            </div>
+            <div class="flex flex-col mb-1">
+                <div class="flex flex-col">
+                    {% set text_align_type = 'text-left' if (data.review_count > 0 and data.skipped_count > 0) else 'text-center' %}
+                    {% if data.review_count > 0 or data.skipped_count > 0 %}
+<!--                    <div class="{{ text_align_type }} px-4 py-3 border border-blue-500 rounded-2xl text-sm font-semibold text-blue-800 dark:text-blue-300  mb-4 shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">-->
+<!--                    <div class="marquee-content animate-marquee {{ text_align_type }} px-4 py-3 text-sm font-bold text-blue-800 dark:text-blue-300  mb-4  rounded-2xl shadow-lg border-4 border-sky-500 hover:scale-110 transition-transform duration-700">-->
+                    <div class="animate-bounce focus:animate-none hover:animate-none {{ text_align_type }} px-4 py-3 text-sm font-bold text-blue-800 dark:text-blue-300  mb-4  rounded-2xl shadow-lg border-4 border-sky-500 hover:scale-110 transition-transform duration-700">
+
+                        {% if data.review_count > 0 %}
+                        <span class="block mb-1">
+                        <i class="far fa-flag text-yellow-500 mr-2"></i> You have {{ data.review_count }} question{{ 's' if data.review_count > 1 }} marked for review
+                            </span>
+                        {% endif %}
+                        {% if data.skipped_count > 0 %}
+                        <span class="block">
+                        <i class="fas fa-circle-question text-red-500 mr-2"></i> You have {{ data.skipped_count }} Unanswered Question{{ 's' if data.skipped_count > 1 }}
+                            </span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center space-x-2">
+                    <!-- Mode Toggle -->
+                    <button type="submit"
+                            name="action"
+                            title="Click to Toggle Mode"
+                            value="{{ 'main' if data.mode == 'review' else 'review' }}"
+                            class="px-4 py-2 rounded-lg font-semibold {% if data.mode == 'main' and data.review_count == 0 %} bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-white rounded-lg hover:bg-gray-400 {% else %} bg-yellow-500 text-gray-800 dark:text-white hover:bg-yellow-600 {% endif %}"
+                            {% if data.review_count== 0 %}disabled{% endif %}>
+                        Switch to {{ ( 'main' if data.mode == 'review' else 'review' ) | upper }} Mode
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+            <!-- Question Text -->
+            <div class="flex justify-between items-center mb-2 p-4">
+                <div class="mb-2 text-xl font-semibold text-gray-800 dark:text-white">Q {{ data.current_index + 1 }}. {{ data.question_text }}</div>
+                <div>
+                    <button type="submit"
+                            name="toggle_review"
+                            value="true"
+                            class="px-4 py-2 text-sm font-bold border-2 border-yellow-500 text-yellow-500 rounded-2xl hover:bg-yellow-50 dark:hover:bg-yellow-900/20 transition-colors">
+                        <div class="flex items-center justify-center space-x-2">
+                            <i class="far fa-flag mr-1"></i>
+                            <span>
+                                    {% if data.marked_for_review %}
+                                        Unmark
+                                    {% else %}
+                                        Mark
+                                    {% endif %}
+                                    for Review
+                                </span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <!-- Options -->
+            <div class="space-y-4 mb-6 p-2">
+                {% for option in data.options %}
+                <label class="flex items-center p-1">
+                    <input type="radio"
+                           name="option"
+                           value="{{ loop.index0 }}"
+                           class="peer hidden"
+                           {% if data.selected_answer== loop.index0 %}checked{% endif %}>
+                    <span class="h-5 w-5 mr-3 border-2 border-gray-400 rounded-full peer-checked:border-blue-500 peer-checked:bg-blue-500"></span>
+                    <span>{{ option }}</span>
+                </label>
+                {% endfor %}
+            </div>
+            <!-- Hidden Fields -->
+            <input type="hidden" name="question_id" value="{{ data.question_id }}">
+            <!-- Navigation Buttons -->
+            <div class="flex justify-between">
+                <button type="submit"
+                        name="action"
+                        value="prev"
+                        class="px-4 py-2 rounded-lg transition-colors {% if data.is_first_question %} bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-400 cursor-not-allowed {% else %} bg-blue-500 hover:bg-blue-600 text-white text-lg font-semibold {% endif %}"
+                        {% if data.is_first_question %}disabled{% endif %}>
+                    <i class="fas fa-caret-left mr-3"></i>
+                    Previous
+                </button>
+                <button id="finishBtn"
+                        type="button"
+                        class="px-4 py-2 bg-green-600 text-white text-lg font-semibold rounded-lg hover:bg-green-700">
+                    Finish
+                </button>
+                <button type="submit"
+                        name="action"
+                        value="next"
+                        class="px-4 py-2 rounded-lg transition-colors {% if data.is_last_question %} bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-white cursor-not-allowed {% else %} bg-blue-500 hover:bg-blue-600 text-white text-lg font-semibold {% endif %}"
+                        {% if data.is_last_question %}disabled{% endif %}>
+                    Next <i class="fas fa-caret-right mr-3"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Hidden counts (backend will fill real values) -->
+        <input type="hidden" id="reviewCount" value="{{ data.review_count }}">
+        <input type="hidden" id="unansweredCount" value="{{ data.unanswered_count}}">
+    </form>
+
+    {% if data.review_count > 0 and data.skipped_count > 0%}
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+    {% else %}
+    <div class="grid grid-cols-1 sm:grid-cols-1 gap-2">
+    {% endif %}
+
+            {% if data.review_count > 0 %}
+            <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <div class="bg-slate-50 dark:bg-slate-900 border border-blue-500 rounded-2xl text-gray-800 dark:text-white p-4 rounded-lg">
+                    <h3 class="text-base font-semibold rounded-lg mb-3 flex items-center">
+                        <i class="far fa-flag text-yellow-500 mr-2"></i> Marked for Review
+                    </h3>
+                    <ul id="question-list" class="flex flex-wrap gap-6">
+                        {% for review_q in data.review_indices %}
+                        <li>
+                            <form hx-post="{{ url_for('jump_focus') }}"
+                            hx-target="#question-container"
+                            hx-swap="outerHTML">
+                            <input type="hidden" name="target_index" value="{{ review_q }}">
+                            <input type="hidden" name="focus_type" value="review">
+                            <button type="submit"
+                                    class="h-10 w-10 flex items-center justify-center font-semibold rounded-md transition-colors cursor-pointer text-gray-700 dark:text-gray-900 bg-yellow-400 hover:bg-yellow-500"
+                                    title="Go to question {{ review_q + 1 }}">{{ review_q + 1 }}
+                            </button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+            {% if data.skipped_count > 0 %}
+            <div class="p-4 bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <div class="bg-slate-50 dark:bg-slate-900 border border-red-500 rounded-2xl text-gray-800 dark:text-white p-4 rounded-lg">
+                    <h3 class="text-base font-semibold rounded-lg mb-3 flex items-center">
+                        <i class="fas fa-circle-question text-red-500 mr-2"></i> Unanswered Questions
+                    </h3>
+                    <ul id="unanswered-list" class="flex flex-wrap gap-6">
+                        {% for uq in data.skipped_indices %}
+                        <li>
+                            <form hx-post="{{ url_for('jump_focus') }}"
+                            hx-target="#question-container"
+                            hx-swap="outerHTML">
+                            <input type="hidden" name="target_index" value="{{ uq }}">
+                            <input type="hidden" name="focus_type" value="unanswered">
+                            <button type="submit"
+                                    class="h-10 w-10 flex items-center justify-center font-semibold rounded-md transition-colors cursor-pointer text-gray-700 dark:text-gray-900 bg-red-400 hover:bg-red-500"
+                                    title="Go to question {{ uq + 1 }}">{{ uq + 1 }}
+                            </button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
