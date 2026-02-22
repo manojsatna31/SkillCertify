@@ -1,5 +1,6 @@
 import copy
 import json
+import logging
 import os
 from pathlib import Path
 from web_app.config.config_loader import config
@@ -16,16 +17,299 @@ class DataLoader:
                 f"The specified data directory does not exist: {self.data_path}"
             )
 
-        self.manifest_file = Path(self.data_path).resolve().joinpath(config.get('MANIFEST_FILE', 'technologies.json'))
-        if not self.manifest_file.is_file():
+        # self.manifest_file = Path(self.data_path).resolve().joinpath(config.get('MANIFEST_FILE', 'technologies.json'))
+        self.manifest_file = Path(config.get('MANIFEST_FILE', 'technologies.json'))
+        if not Path(self.data_path).resolve().joinpath(self.manifest_file).is_file:
             raise FileNotFoundError(
                 f"The Manifest file does not exist: {self.manifest_file}"
             )
 
         # Cache for loaded technologies metadata
-        self.loaded_technologies: List[Dict[str, Any]] = self.load_technologies()
+        self.loaded_technologies: List[Dict[str, Any]] = (self.load_json(self.manifest_file)).get('technologies', [])
         # Cache for loaded exam set data files (to avoid reloading files repeatedly)
         self.loaded_exam_set: Dict[str, Dict[str, Any]] = {}
+
+# New Methods
+    def get_admin_dashboard_data(self):
+        technologies = self.get_all_technologies()
+        total_techs = len(technologies)
+        total_exam_sets = 0
+        total_questions = 0
+        for tech in technologies:
+            datafile_name = tech.get('datafile')
+            if not datafile_name:
+                continue
+            if not Path(self.data_path).resolve().joinpath(datafile_name).is_file:
+                logging.info(f"Warning: data file '{datafile_name}' not found. Skipping.")
+                continue
+            tech_data = self.load_json(datafile_name)
+            exam_sets = tech_data.get('exam_sets', [])
+            total_exam_sets += len(exam_sets)
+            for exam in exam_sets:
+                questions = exam.get('questions', [])
+                total_questions += len(questions)
+        return {
+            "technologies":technologies,
+            "total_techs": int(total_techs),
+            "total_exam_sets": int(total_exam_sets),
+            "total_questions": int(total_questions)
+
+        }
+
+    def get_all_technologies(self):
+        """Load all technologies from technologies.json"""
+        try:
+            return (self.load_json(self.manifest_file)).get('technologies', [])
+        except FileNotFoundError:
+            return []
+
+    def add_technology(self, tech_data):
+        """Add a new technology to technologies.json"""
+        try:
+            data = self.load_json(self.manifest_file)
+            # with open('technologies.json', 'r') as f:
+            #     data = json.load(f)
+
+            data['technologies'].append(tech_data)
+
+            # Save the changes
+            manifest_path = Path(self.data_path).resolve().joinpath(self.manifest_file)
+
+            with open(manifest_path, 'w') as f:
+                json.dump(data, f, indent=2)
+
+            # Update cache
+            self.loaded_technologies = data.get('technologies', [])
+
+            return True
+        except Exception as e:
+            print(f"Error adding technology: {e}")
+            return False
+
+    def update_technology(self, tech_id, tech_data):
+        """Update a technology in technologies.json"""
+        try:
+            data = self.load_json(self.manifest_file)
+            # with open('technologies.json', 'r') as f:
+            #     data = json.load(f)
+            # Check if technology exists
+            tech_exists = False
+
+            for i, tech in enumerate(data['technologies']):
+                if tech['id'] == tech_id:
+                    data['technologies'][i] = tech_data
+                    tech_exists = True
+                    break
+
+            # If technology doesn't exist, add it as new
+            if not tech_exists:
+                data['technologies'].append(tech_data)
+
+            # Save the changes
+            manifest_path = Path(self.data_path).resolve().joinpath(self.manifest_file)
+
+            with open(manifest_path, 'w') as f:
+                json.dump(data, f, indent=2)
+
+            # Update cache
+            self.loaded_technologies = data.get('technologies', [])
+
+            return True
+        except Exception as e:
+            print(f"Error updating/adding technology: {e}")
+            return False
+
+    def delete_technology(self, tech_id):
+        """Delete a technology from technologies.json"""
+        try:
+            data = self.load_json(self.manifest_file)
+            # with open('technologies.json', 'r') as f:
+            #     data = json.load(f)
+
+            data['technologies'] = [tech for tech in data['technologies'] if tech['id'] != tech_id]
+
+            with open(Path(self.data_path).resolve().joinpath(self.manifest_file), 'w') as f:
+                json.dump(data, f, indent=2)
+
+            return True
+        except Exception as e:
+            print(f"Error deleting technology: {e}")
+            return False
+
+    def get_exam_sets_for_technology(self, tech_id):
+        """Get all exam sets for a specific technology"""
+        try:
+            with open(f'data/{tech_id}.json', 'r') as f:
+                tech_data = json.load(f)
+
+            return tech_data.get('exam_sets', [])
+        except FileNotFoundError:
+            return []
+
+    def add_exam_set(self, tech_id, exam_set_data):
+        """Add an exam set to a technology"""
+        try:
+            with open(f'data/{tech_id}.json', 'r') as f:
+                tech_data = json.load(f)
+
+            if 'exam_sets' not in tech_data:
+                tech_data['exam_sets'] = []
+
+            tech_data['exam_sets'].append(exam_set_data)
+
+            with open(f'data/{tech_id}.json', 'w') as f:
+                json.dump(tech_data, f, indent=2)
+
+            return True
+        except Exception as e:
+            print(f"Error adding exam set: {e}")
+            return False
+
+    def update_exam_set(self, tech_id: str, set_id: str, exam_set_data: Dict) -> bool:
+        """Update an exam set in a technology"""
+        try:
+            tech_file = os.path.join(self.data_dir, f"{tech_id}.json")
+
+            # Load existing data
+            with open(tech_file, 'r') as f:
+                tech_data = json.load(f)
+
+            # Find and update exam set
+            for i, exam_set in enumerate(tech_data['exam_sets']):
+                if exam_set['id'] == set_id:
+                    tech_data['exam_sets'][i] = {**exam_set, **exam_set_data}
+                    break
+
+            # Save back to file
+            with open(tech_file, 'w') as f:
+                json.dump(tech_data, f, indent=2)
+
+            return True
+        except Exception as e:
+            print(f"Error updating exam set: {e}")
+            return False
+
+    def delete_exam_set(self, tech_id: str, set_id: str) -> bool:
+        """Delete an exam set from a technology"""
+        try:
+            tech_file = os.path.join(self.data_dir, f"{tech_id}.json")
+
+            # Load existing data
+            with open(tech_file, 'r') as f:
+                tech_data = json.load(f)
+
+            # Remove exam set
+            tech_data['exam_sets'] = [es for es in tech_data['exam_sets'] if es['id'] != set_id]
+
+            # Save back to file
+            with open(tech_file, 'w') as f:
+                json.dump(tech_data, f, indent=2)
+
+            return True
+        except Exception as e:
+            print(f"Error deleting exam set: {e}")
+            return False
+
+    def get_questions_for_exam_set(self, tech_id: str, set_id: str) -> List[Dict]:
+        """Get all questions for a specific exam set"""
+        try:
+            exam_set = self.get_exam_set(tech_id, set_id)
+            return exam_set.get('questions', []) if exam_set else []
+        except Exception as e:
+            print(f"Error getting questions: {e}")
+            return []
+
+    def get_question(self, tech_id: str, set_id: str, question_id: str) -> Optional[Dict]:
+        """Get a specific question by ID"""
+        questions = self.get_questions_for_exam_set(tech_id, set_id)
+        for question in questions:
+            if question['id'] == question_id:
+                return question
+        return None
+
+    def add_question(self, tech_id: str, set_id: str, question_data: Dict) -> bool:
+        """Add a question to an exam set"""
+        try:
+            tech_file = os.path.join(self.data_dir, f"{tech_id}.json")
+
+            # Load existing data
+            with open(tech_file, 'r') as f:
+                tech_data = json.load(f)
+
+            # Find the exam set
+            for exam_set in tech_data['exam_sets']:
+                if exam_set['id'] == set_id:
+                    # Generate ID if not provided
+                    if 'id' not in question_data:
+                        question_data['id'] = f"{set_id}-q{len(exam_set.get('questions', [])) + 1}"
+
+                    # Initialize questions array if not exists
+                    if 'questions' not in exam_set:
+                        exam_set['questions'] = []
+
+                    # Add question
+                    exam_set['questions'].append(question_data)
+                    break
+
+            # Save back to file
+            with open(tech_file, 'w') as f:
+                json.dump(tech_data, f, indent=2)
+
+            return True
+        except Exception as e:
+            print(f"Error adding question: {e}")
+            return False
+
+    def update_question(self, tech_id: str, set_id: str, question_id: str, question_data: Dict) -> bool:
+        """Update a question in an exam set"""
+        try:
+            tech_file = os.path.join(self.data_dir, f"{tech_id}.json")
+
+            # Load existing data
+            with open(tech_file, 'r') as f:
+                tech_data = json.load(f)
+
+            # Find and update the question
+            for exam_set in tech_data['exam_sets']:
+                if exam_set['id'] == set_id:
+                    for i, question in enumerate(exam_set.get('questions', [])):
+                        if question['id'] == question_id:
+                            exam_set['questions'][i] = {**question, **question_data}
+                            break
+                    break
+
+            # Save back to file
+            with open(tech_file, 'w') as f:
+                json.dump(tech_data, f, indent=2)
+
+            return True
+        except Exception as e:
+            print(f"Error updating question: {e}")
+            return False
+
+    def delete_question(self, tech_id: str, set_id: str, question_id: str) -> bool:
+        """Delete a question from an exam set"""
+        try:
+            tech_file = os.path.join(self.data_dir, f"{tech_id}.json")
+
+            # Load existing data
+            with open(tech_file, 'r') as f:
+                tech_data = json.load(f)
+
+            # Find and remove the question
+            for exam_set in tech_data['exam_sets']:
+                if exam_set['id'] == set_id:
+                    exam_set['questions'] = [q for q in exam_set.get('questions', []) if q['id'] != question_id]
+                    break
+
+            # Save back to file
+            with open(tech_file, 'w') as f:
+                json.dump(tech_data, f, indent=2)
+
+            return True
+        except Exception as e:
+            print(f"Error deleting question: {e}")
+            return False
 
     def load_json_file(self, file_path: Path) -> Any | None:
         """
@@ -56,7 +340,7 @@ class DataLoader:
             print(f"An unexpected error occurred while loading {file_path}: {e}")
             return None
 
-    def load_technologies(self) -> List[Dict[str, Any]]:
+    def load_json(self, json_file_name) -> List[Dict[str, Any]]:
         """
         Load and return all technologies from 'technologies.json'.
 
@@ -64,8 +348,8 @@ class DataLoader:
             list: List of technology dictionaries.
         """
         # technologies_file = self.data_path / 'technologies.json'
-        data = self.load_json_file(self.manifest_file)
-        return data.get('technologies', [])
+        data = self.load_json_file(Path(self.data_path).resolve().joinpath(json_file_name))
+        return data
 
     def get_technologies(self) -> List[Dict[str, Any]]:
         """
@@ -158,96 +442,6 @@ class DataLoader:
 
         return exam_set
 
-
-
-
-
-    # def load_data(self, filename: str) -> dict | list | None:
-    #     # Construct the full path to the target file
-    #     file_path = self.data_path / filename
-    #
-    #     try:
-    #         # Use a 'with' statement for safe file handling (ensures file is closed)
-    #         with open(file_path, 'r', encoding='utf-8') as f:
-    #             # Parse the JSON content and return it
-    #             data = json.load(f)
-    #             return data
-    #     except FileNotFoundError:
-    #         # Handle the case where the file doesn't exist
-    #         print(f"Error: File not found at {file_path}")
-    #         return None
-    #     except json.JSONDecodeError:
-    #         # Handle the case where the file is not valid JSON
-    #         print(f"Error: Could not decode JSON from {file_path}. Check for syntax errors.")
-    #         return None
-    #     except Exception as e:
-    #         # Catch any other unexpected errors during file processing
-    #         print(f"An unexpected error occurred while loading {file_path}: {e}")
-    #         return None
-    #
-    # def load_configured_technologies(self):
-    #     return self.load_data("technologies.json")
-
-    # def get_configured_technologies(self):
-    #     return self.loaded_technologies.get('technologies', [])
-    #
-    # def load_exam_data(self, file_name: str, sanitize: bool = False):
-    #     data = copy.deepcopy(self.load_data(file_name))
-    #     if sanitize:
-    #         exam_sets = data.get('exam_sets', {})
-    #         if isinstance(exam_sets, dict):
-    #             for exam_set_key, exam_set_value in exam_sets.items():
-    #                 if isinstance(exam_set_value, dict) and 'questions' in exam_set_value:
-    #                     exam_set_value.pop('questions', None)
-    #         elif isinstance(exam_sets, list):
-    #             for exam_set in exam_sets:
-    #                 if isinstance(exam_set, dict) and 'questions' in exam_set:
-    #                     exam_set.pop('questions', None)
-    #     return data
-    #
-    # def get_exam_sets_by_id(self, id):
-    #     try:
-    #         exam_set_file = self._find_exam_set_file_by_id(id)
-    #         if not exam_set_file:
-    #             print(f"No exam set file found for ID: {id}")
-    #             return None
-    #
-    #         exam_data = self.load_exam_data(exam_set_file, sanitize=True)
-    #         return exam_data.get('exam_sets', []) if isinstance(exam_data, dict) else []
-    #     except Exception as e:
-    #         print(f"[ERROR] get_exam_sets_by_id failed: {e}")
-    #         return None
-    #
-    # def get_tech_name_by_id(self, tech_id):
-    #     # Implement logic to get technology name by ID
-    #     # Example:
-    #     tech_data = self.load_configured_technologies()  # Implement this method
-    #     return tech_data.get(tech_id, {}).get('name', 'Unknown Technology')
-    #
-    # def get_question_by_topic(self, topic_id, question_num):
-    #     # Implement logic to get specific question
-    #     return {
-    #         'text': "Which of the following best describes REST API principles?",
-    #         'options': [
-    #             "To manage frontend routing and navigation.",
-    #             "To enable stateless client-server communication.",
-    #             "To handle user authentication workflows.",
-    #             "To implement real-time socket communication."
-    #         ]
-    #     }
-    #
-    # def _find_exam_set_file_by_id(self, tech_id):
-    #     """Helper to get the exam set file name for a given technology ID."""
-    #     configured_technologies = self.get_configured_technologies()
-    #     # configured_technologies = self.loaded_technologies
-    #
-    #     for tech in configured_technologies:
-    #         if str(tech.get("id")) == str(tech_id):
-    #             exam_file = tech.get("datafile", "")
-    #             print(f"[INFO] Found exam set file: {exam_file}")
-    #             return exam_file
-    #     return None
-    #
     def get_java_exam_sets(self):
         """
         Fetches and processes Java exam sets from a JSON file.
@@ -305,75 +499,40 @@ class DataLoader:
             if str(data.get("id")) == str(set_id) and data.get("name") == set_name:
                 return data
         return None
-    #
-    # # create function to load technologies from a file
-    # def load_technologies_from_file(self, file_name):
-    #     """
-    #     Loads technologies from a specified JSON file.
-    #
-    #     Args:
-    #         file_name (str): The name of the file containing technology data.
-    #
-    #     Returns:
-    #         dict: A dictionary containing the loaded technologies.
-    #     """
-    #     return self.load_data(file_name) if file_name else {}
-    #
-    # # create function to load exam sets from a file by technology ID
-    # def load_exam_sets_from_file(self, tech_id):
-    #     """
-    #     Loads exam sets from a file based on the technology ID.
-    #
-    #     Args:
-    #         tech_id (str): The ID of the technology for which to load exam sets.
-    #
-    #     Returns:
-    #         dict: A dictionary containing the loaded exam sets.
-    #     """
-    #     exam_set_file = self._find_exam_set_file_by_id(tech_id)
-    #     return self.load_exam_data(exam_set_file) if exam_set_file else {}
-    #
-    # # create function to load exam set by tech_id , set_id , set_name
-    # def load_exam_set_by_tech_id(self, tech_id, set_id, set_name):
-    #     """
-    #     Loads a specific exam set by technology ID, set ID, and set name.
-    #
-    #     Args:
-    #         tech_id (str): The ID of the technology.
-    #         set_id (str): The ID of the exam set.
-    #         set_name (str): The name of the exam set.
-    #
-    #     Returns:
-    #         dict: The loaded exam set if found, otherwise None.
-    #     """
-    #     exam_sets = self.load_exam_sets_from_file(tech_id)
-    #     for exam_set in exam_sets.get('exam_sets', []):
-    #         if str(exam_set.get("id")) == str(set_id) and exam_set.get("name") == set_name:
-    #             return exam_set
-    #     return None
 
-# -------------------- Example Usage --------------------
-if __name__ == '__main__':
-    # Initialize DataLoader (config will provide DATA_DIR)
-    data_loader = DataLoader()
+    def update_all_technologies(self, technologies_data: List[Dict[str, Any]]) -> bool:
+        """
+        Save all technologies in one go by updating the manifest file.
 
-    # 1. Get All Technologies
-    print("\n=== All Technologies ===")
-    print(json.dumps(data_loader.get_technologies(), indent=2))
+        Args:
+            technologies_data: Complete list of technology dictionaries to save
 
-    # 2. Get Exam Sets for a Technology ID
-    tech_id = 'tech-java'
-    print(f"\n=== Exam Sets for Technology ID '{tech_id}' ===")
-    exam_sets = data_loader.get_exam_catalog_by_technology_id(tech_id)
-    print(json.dumps(exam_sets, indent=2))
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        try:
+            # Create the complete structure for the manifest file
+            manifest_data = {
+                "technologies": technologies_data
+            }
 
-    # 3. Get Specific Exam Set (With Questions)
-    set_id = 'tech-java-set1'
-    print(f"\n=== Exam Set '{set_id}' with Questions ===")
-    exam_set_with_questions = data_loader.get_exam_set_by_id(tech_id, set_id, include_questions=True)
-    print(json.dumps(exam_set_with_questions, indent=2))
+            # Build the full path to the manifest file
+            manifest_path = Path(self.data_path).resolve().joinpath(self.manifest_file)
 
-    # 4. Get Specific Exam Set (Without Questions)
-    print(f"\n=== Exam Set '{set_id}' without Questions ===")
-    exam_set_without_questions = data_loader.get_exam_set_by_id(tech_id, set_id, include_questions=False)
-    print(json.dumps(exam_set_without_questions, indent=2))
+            # Ensure the directory exists
+            manifest_path.parent.mkdir(parents=True, exist_ok=True)
+
+            # Write the updated data to the manifest file
+            with open(manifest_path, 'w', encoding='utf-8') as f:
+                json.dump(manifest_data, f, indent=2, ensure_ascii=False)
+
+            # Update the cached technologies
+            self.loaded_technologies = technologies_data
+
+            logging.info(f"Successfully updated all technologies in {manifest_path}")
+            return True
+
+        except Exception as e:
+            logging.error(f"Error updating all technologies: {e}")
+            return False
+

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillCertify - Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .nav-tab {
+            cursor: pointer;
+            padding: 12px 20px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .nav-tab.active {
+            border-bottom-color: #3b82f6;
+            color: #3b82f6;
+            font-weight: 600;
+        }
+        .json-view {
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            line-height: 1.4;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .json-key {
+            color: #881391;
+        }
+        .json-string {
+            color: #c41a16;
+        }
+        .json-number {
+            color: #1c00cf;
+        }
+        .json-boolean {
+            color: #0d22aa;
+        }
+        .json-null {
+            color: #808080;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation Header -->
+    <nav class="bg-blue-600 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-graduation-cap text-2xl"></i>
+                    <span class="text-xl font-semibold">SkillCertify Admin</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded-lg transition">
+                        <i class="fas fa-home mr-2"></i>Back to Site
+                    </a>
+                    <div class="flex items-center">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff"
+                             alt="Admin" class="w-10 h-10 rounded-full">
+                        <span class="ml-2">Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Navigation Tabs -->
+    <div class="bg-white shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex space-x-2">
+                <div class="nav-tab active" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                </div>
+                <div class="nav-tab" data-tab="technologies">
+                    <i class="fas fa-laptop-code mr-2"></i>Technologies
+                </div>
+                <div class="nav-tab" data-tab="exam-sets">
+                    <i class="fas fa-file-alt mr-2"></i>Exam Sets
+                </div>
+                <div class="nav-tab" data-tab="questions">
+                    <i class="fas fa-question-circle mr-2"></i>Questions
+                </div>
+                <div class="nav-tab" data-tab="ai-generator">
+                    <i class="fas fa-robot mr-2"></i>AI Generator
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container mx-auto px-4 py-6">
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Admin Dashboard</h2>
+
+                <!-- Stats Overview -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-blue-50 rounded-lg p-6 border border-blue-100">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+                                <i class="fas fa-laptop-code text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold" id="tech-count">5</h3>
+                                <p class="text-gray-600">Technologies</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-lg p-6 border border-green-100">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                                <i class="fas fa-file-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold" id="exam-set-count">12</h3>
+                                <p class="text-gray-600">Exam Sets</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-purple-50 rounded-lg p-6 border border-purple-100">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
+                                <i class="fas fa-question-circle text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold" id="question-count">87</h3>
+                                <p class="text-gray-600">Questions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h3>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">New</span>
+                                <span class="ml-3 text-gray-600">Added Python technology</span>
+                                <span class="ml-auto text-sm text-gray-500">2 hours ago</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Update</span>
+                                <span class="ml-3 text-gray-600">Modified AWS exam set</span>
+                                <span class="ml-auto text-sm text-gray-500">1 day ago</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">AI</span>
+                                <span class="ml-3 text-gray-600">Generated 5 questions for JavaScript</span>
+                                <span class="ml-auto text-sm text-gray-500">2 days ago</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technologies Tab -->
+        <div id="technologies" class="tab-content">
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Manage Technologies</h2>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                        <i class="fas fa-plus mr-2"></i> Add Technology
+                    </button>
+                </div>
+
+                <!-- Technologies Table -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <i class="fab fa-aws text-orange-500"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">AWS</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">Amazon's cloud computing platform offering scalable infrastructure and services</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                            <i class="fab fa-node-js text-green-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">Node.js</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">JavaScript runtime environment</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                            <i class="fab fa-js text-yellow-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">JavaScript</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">Programming language for the web</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exam Sets Tab -->
+        <div id="exam-sets" class="tab-content">
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Manage Exam Sets</h2>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                        <i class="fas fa-plus mr-2"></i> Create Exam Set
+                    </button>
+                </div>
+
+                <!-- Exam Sets Table -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Technology</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Exam Set</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Difficulty</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Questions</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <i class="fab fa-aws text-orange-500"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">AWS</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm font-medium text-gray-900">AWS Certified Developer — Associate</div>
+                                    <div class="text-sm text-gray-500">Building and Optimizing Applications on AWS</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Associate</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">25</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                            <i class="fab fa-js text-yellow-600"></i>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-gray-900">JavaScript</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm font-medium text-gray-900">JavaScript Fundamentals</div>
+                                    <div class="text-sm text-gray-500">Core JavaScript concepts and syntax</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Beginner</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">15</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Tab -->
+        <div id="questions" class="tab-content">
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Manage Questions</h2>
+                    <div class="flex space-x-2">
+                        <select class="border border-gray-300 rounded-lg px-4 py-2">
+                            <option>Select Technology</option>
+                            <option>AWS</option>
+                            <option>JavaScript</option>
+                            <option>Node.js</option>
+                        </select>
+                        <select class="border border-gray-300 rounded-lg px-4 py-2">
+                            <option>Select Exam Set</option>
+                            <option>AWS Certified Developer — Associate</option>
+                            <option>JavaScript Fundamentals</option>
+                        </select>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+                            <i class="fas fa-plus mr-2"></i> Add Question
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Questions Table -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Question</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Domain</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Difficulty</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">d1_q027_s3</td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">What is the main goal of unsupervised learning?</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Fundamentals of AI and ML</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Easy</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">js_q015_s1</td>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm text-gray-900">What is the difference between let and var in JavaScript?</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Variables and Scoping</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Medium</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                    <button class="text-blue-600 hover:text-blue-900 mr-3">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button class="text-red-600 hover:text-red-900">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Generator Tab -->
+        <div id="ai-generator" class="tab-content">
+            <div class="bg-white rounded-lg shadow p-6 mb-6">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">AI Question Generator</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Input Section -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Generate Questions</h3>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Technology</label>
+                            <select class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option>Select Technology</option>
+                                <option>AWS</option>
+                                <option>JavaScript</option>
+                                <option>Node.js</option>
+                                <option>Python</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Exam Set</label>
+                            <select class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option>Select Exam Set (optional)</option>
+                                <option>AWS Certified Developer — Associate</option>
+                                <option>JavaScript Fundamentals</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Prompt</label>
+                            <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2 h-32" placeholder="Example: Generate 5 questions about AWS S3 with medium difficulty"></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Number of Questions</label>
+                            <input type="number" min="1" max="20" value="5" class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Difficulty</label>
+                            <select class="w-full border border-gray-300 rounded-lg px-4 py-2">
+                                <option>Easy</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
+                            </select>
+                        </div>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-robot mr-2"></i> Generate Questions
+                        </button>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Generated Questions</h3>
+                        <div class="json-view mb-4">
+                            <pre>{
+  "status": "ready",
+  "message": "Enter a prompt and click 'Generate Questions'"
+}</pre>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="flex-1 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center justify-center" disabled>
+                                <i class="fas fa-copy mr-2"></i> Copy JSON
+                            </button>
+                            <button class="flex-1 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center" disabled>
+                                <i class="fas fa-save mr-2"></i> Save to Exam Set
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab navigation
+            const tabs = document.querySelectorAll('.nav-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // Show active content
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === tabId) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+
+            // Simulate loading data (in a real app, this would be API calls)
+            function loadCounts() {
+                // These would be API calls in a real application
+                document.getElementById('tech-count').textContent = '5';
+                document.getElementById('exam-set-count').textContent = '12';
+                document.getElementById('question-count').textContent = '87';
+            }
+
+            loadCounts();
+        });
+    </script>
+</body>
+</html>

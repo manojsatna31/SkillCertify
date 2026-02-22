@@ -37,6 +37,13 @@ python-dotenv==1.0.1       # Allows loading config variables from .env files (op
 # For Redis-based session management (alternative to filesystem)
 # redis==5.0.1
 PyYAML==6.0.2
+
+
+groq==0.31.0
+
+pydantic==2.11.7
+
+
 #💡 Installation Tip:
 # Use this inside a virtual environment:
 # python -m venv venv

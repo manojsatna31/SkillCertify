@@ -122,7 +122,10 @@ Follow these steps to get SkillCertify running on your local machine.
 git clone https://github.com/your-username/SkillCertify.git
 cd SkillCertify
 ```
-
+#### Important Note: Update the pip first by running the below command
+```bash
+  python.exe -m pip install --upgrade pip
+```
 #### 3. Set Up the Virtual Environment
 
 Using a virtual environment is crucial for managing project dependencies cleanly.

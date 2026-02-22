@@ -1,0 +1,466 @@
+<style>
+    .icon-picker {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+      gap: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    .icon-option {
+      cursor: pointer;
+      text-align: center;
+      padding: 8px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+    }
+    .icon-option:hover {
+      border-color: #3b82f6;
+      background-color: #e0f2fe;
+    }
+    .save-btn {
+      transition: all 0.3s ease;
+    }
+    .save-btn.saving {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+    .id-input {
+      background-color: #f9fafb;
+    }
+</style>
+
+<div class="max-w-7xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">⚙️ Manage Technologies</h1>
+
+    <!-- Table -->
+    <div class="overflow-x-auto shadow-lg border rounded-lg">
+        <table class="min-w-full border-collapse divide-y divide-gray-200">
+            <thead class="bg-gray-200">
+            <tr>
+                <th class="px-4 py-2 text-left">S.No</th>
+                <th class="px-4 py-2 text-left">ID</th>
+                <th class="px-4 py-2 text-left">Name</th>
+                <th class="px-4 py-2 text-left">Icon</th>
+                <th class="px-4 py-2 text-left">Datafile</th>
+                <th class="px-4 py-2 text-left">Description</th>
+                <th class="px-4 py-2 text-center">Active</th>
+                <th class="px-4 py-2 text-center">Save</th>
+                <th class="px-4 py-2 text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="tech-table" class="divide-y divide-gray-200">
+            {% for tech in technologies %}
+            <tr class="hover:bg-gray-100" data-index="{{ loop.index0 }}" data-original="true">
+                <td class="px-4 py-2 text-center">{{ loop.index }}</td>
+                <td class="px-4 py-2">
+                    <input value="{{ tech.id }}" class="w-full border rounded p-1 id-input" readonly>
+                </td>
+                <td class="px-4 py-2"><input value="{{ tech.name|join(', ') }}" class="w-full border rounded p-1"
+                                             onchange="updateArray({{ loop.index0 }}, 'name', this.value)"></td>
+                <td class="px-4 py-2 text-center">
+                    <i class="{{ tech.icon[0] }} text-xl"></i>
+                    <button class="ml-2 text-blue-600 hover:underline" onclick="openIconModal({{ loop.index0 }})">
+                        Change
+                    </button>
+                </td>
+                <td class="px-4 py-2"><input value="{{ tech.datafile or '' }}" class="w-full border rounded p-1"
+                                             onchange="updateField({{ loop.index0 }}, 'datafile', this.value)"></td>
+                <td class="px-4 py-2"><textarea rows="2" class="w-full border rounded p-1"
+                                                onchange="updateField({{ loop.index0 }}, 'description', this.value)">{{ tech.description }}</textarea>
+                </td>
+                <td class="px-4 py-2 text-center">
+                    <input type="checkbox" {{ 'checked' if tech.active else '' }} onchange="updateField({{ loop.index0
+                    }}, 'active', this.checked)">
+                </td>
+                <td class="px-4 py-2 text-center">
+                    <button onclick="saveSingleTechnology({{ loop.index0 }})"
+                            class="save-btn px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">💾 Save
+                    </button>
+                </td>
+                <td class="px-4 py-2 text-center">
+                    <button class="text-red-600 hover:underline" onclick="deleteRow({{ loop.index0 }})">🗑️ Delete
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="mt-6 flex justify-center space-x-4">
+        <button onclick="addRow()" class="px-5 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700">➕ Add
+            Technology
+        </button>
+        <button onclick="saveAllTechnologies()"
+                class="px-5 py-2 bg-purple-600 text-white rounded-lg shadow hover:bg-purple-700">💾 Save All Technologies
+        </button>
+    </div>
+
+    <!-- Validation Result -->
+    <div id="validation-result" class="mt-6 p-4 border rounded bg-gray-50 text-sm whitespace-pre-wrap"></div>
+
+    <!-- Icon Picker Modal -->
+    <div id="icon-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-11/12 max-w-3xl">
+            <h2 class="text-lg font-bold mb-4">Select an Icon</h2>
+            <input type="text" id="icon-search" placeholder="Search icons..." class="w-full mb-4 p-2 border rounded">
+            <div class="icon-picker" id="icon-picker"></div>
+            <div class="mt-4 text-right">
+                <button onclick="closeIconModal()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal"
+         class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 w-11/12 max-w-md">
+            <h2 class="text-lg font-bold mb-4" id="confirmation-title">Confirm Action</h2>
+            <p id="confirmation-message" class="mb-6">Are you sure you want to perform this action?</p>
+            <div class="flex justify-end space-x-3">
+                <button onclick="closeConfirmationModal()"
+                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Cancel
+                </button>
+                <button onclick="confirmAction()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                        id="confirm-button">Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize technologies with data from server
+    let technologies = {{ technologies | tojson }};
+    let pendingAction = null;
+    let currentIconIndex = null;
+
+    // Track original IDs for validation
+    const originalIds = new Set(technologies.map(tech => tech.id));
+
+    // FontAwesome icons for the icon picker
+    const fontawesomeIcons = [
+      "fas fa-calculator text-blue-500","fab fa-aws text-orange-500","fas fa-mug-hot text-orange-600",
+      "fab fa-react text-blue-500","fab fa-angular text-red-600","fab fa-python text-blue-500",
+      "fab fa-html5 text-orange-500","fab fa-css3-alt text-blue-500","fas fa-database text-blue-500"
+    ];
+
+    // Initialize the table when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      renderTable();
+
+      // Set up the icon search functionality
+      const iconSearch = document.getElementById("icon-search");
+      if (iconSearch) {
+        iconSearch.addEventListener("input", (e) => {
+          populateIcons(e.target.value.trim());
+        });
+      }
+    });
+
+    function renderTable() {
+      const tbody = document.getElementById("tech-table");
+      tbody.innerHTML = "";
+
+      technologies.forEach((tech, index) => {
+        const isOriginal = originalIds.has(tech.id);
+        const row = `
+          <tr class="hover:bg-gray-100" data-index="${index}" data-original="${isOriginal}">
+            <td class="px-4 py-2 text-center">${index + 1}</td>
+            <td class="px-4 py-2">
+              <input value="${tech.id}"
+                     class="w-full border rounded p-1 ${isOriginal ? 'id-input' : ''}"
+                     ${isOriginal ? 'readonly' : ''}
+                     onchange="updateField(${index}, 'id', this.value)">
+            </td>
+            <td class="px-4 py-2"><input value="${tech.name.join(', ')}" class="w-full border rounded p-1" onchange="updateArray(${index}, 'name', this.value)"></td>
+            <td class="px-4 py-2 text-center">
+              <i class="${tech.icon[0]} text-xl"></i>
+              <button class="ml-2 text-blue-600 hover:underline" onclick="openIconModal(${index})">Change</button>
+            </td>
+            <td class="px-4 py-2"><input value="${tech.datafile || ''}" class="w-full border rounded p-1" onchange="updateField(${index}, 'datafile', this.value)"></td>
+            <td class="px-4 py-2"><textarea rows="2" class="w-full border rounded p-1" onchange="updateField(${index}, 'description', this.value)">${tech.description}</textarea></td>
+            <td class="px-4 py-2 text-center">
+              <input type="checkbox" ${tech.active ? 'checked' : ''} onchange="updateField(${index}, 'active', this.checked)">
+            </td>
+            <td class="px-4 py-2 text-center">
+              <button onclick="saveSingleTechnology(${index})" class="save-btn px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">💾 Save</button>
+            </td>
+            <td class="px-4 py-2 text-center">
+              <button class="text-red-600 hover:underline" onclick="deleteRow(${index})">🗑️ Delete</button>
+            </td>
+          </tr>`;
+        tbody.insertAdjacentHTML("beforeend", row);
+      });
+    }
+
+    function updateField(index, field, value) {
+      technologies[index][field] = value;
+    }
+
+    function updateArray(index, field, value) {
+      technologies[index][field] = value.split(",").map(v => v.trim()).filter(Boolean);
+    }
+
+    function addRow() {
+      technologies.push({
+        id: "",
+        name: [""],
+        icon: ["fas fa-question text-gray-400"],
+        datafile: "",
+        description: "",
+        active: false
+      });
+      renderTable();
+    }
+
+    function deleteRow(index) {
+      const techId = technologies[index].id;
+      const isOriginal = originalIds.has(techId);
+
+      showConfirmation(
+        "Delete Technology",
+        `Are you sure you want to delete the technology "${techId || 'New Technology'}"?`,
+        () => {
+          if (isOriginal) {
+            // API call to delete technology
+            fetch(`/admin/admin/api/technologies?id=${techId}`, {
+              method: 'DELETE',
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.status === "success") {
+                technologies.splice(index, 1);
+                originalIds.delete(techId);
+                renderTable();
+                showValidationResult("✅ Technology deleted successfully!", "success");
+              } else {
+                showValidationResult("❌ Error deleting technology", "error");
+              }
+            })
+            .catch(error => {
+              showValidationResult("❌ Error deleting technology: " + error.message, "error");
+            });
+          } else {
+            // Just remove from local array if it's a new technology
+            technologies.splice(index, 1);
+            renderTable();
+            showValidationResult("✅ Technology deleted successfully!", "success");
+          }
+        }
+      );
+    }
+
+    function validateTechnology(tech, index) {
+      // ID is required for all technologies
+      if (!tech.id) {
+        throw new Error(`Row ${index + 1}: ID is required`);
+      }
+
+      // Check for duplicate IDs
+      const isDuplicate = technologies.some((t, i) => i !== index && t.id === tech.id);
+      if (isDuplicate) {
+        throw new Error(`Row ${index + 1}: ID "${tech.id}" is already used by another technology`);
+      }
+
+      if (!tech.name.length || !tech.name[0]) {
+        throw new Error(`Row ${index + 1}: Name is required`);
+      }
+
+      // Only require datafile and description if technology is active
+      if (tech.active) {
+        if (!tech.datafile) {
+          throw new Error(`Row ${index + 1}: Datafile is required for active technologies`);
+        }
+        if (!tech.description) {
+          throw new Error(`Row ${index + 1}: Description is required for active technologies`);
+        }
+      }
+
+      return true;
+    }
+
+    function saveSingleTechnology(index) {
+      const tech = technologies[index];
+      const isOriginal = originalIds.has(tech.id);
+
+      try {
+        validateTechnology(tech, index);
+
+        showConfirmation(
+          "Save Technology",
+          `Are you sure you want to ${isOriginal ? 'update' : 'create'} the technology "${tech.id}"?`,
+          () => {
+            // Add saving class to button
+            const saveBtn = document.querySelector(`tr[data-index="${index}"] .save-btn`);
+            saveBtn.classList.add('saving');
+            saveBtn.innerHTML = '⏳ Saving...';
+
+            // Determine the API endpoint and method
+            const url = isOriginal ? `/admin/admin/api/technologies?id=${tech.id}` : '/admin/admin/api/technologies';
+            const method = isOriginal ? 'PUT' : 'POST';
+
+            // API call to save technology
+            fetch(url, {
+              method: method,
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(tech)
+            })
+            .then(response => {
+             if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json(); if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            }
+            )
+            .then(data => {
+              if (data.status === "success") {
+                showValidationResult(`✅ Technology ${isOriginal ? 'updated' : 'created'} successfully!`, "success");
+
+                // If it was a new technology, mark it as original now
+                if (!isOriginal) {
+                  originalIds.add(tech.id);
+                  const row = document.querySelector(`tr[data-index="${index}"]`);
+                  row.setAttribute('data-original', 'true');
+
+                  // Update the ID input to be readonly
+                  const idInput = row.querySelector('td:nth-child(2) input');
+                  idInput.classList.add('id-input');
+                  idInput.readOnly = true;
+                }
+              } else {
+                showValidationResult("❌ Error saving technology", "error");
+              }
+            })
+            .catch(error => {
+              showValidationResult("❌ Error saving technology: " + error.message, "error");
+            })
+            .finally(() => {
+              saveBtn.classList.remove('saving');
+              saveBtn.innerHTML = '💾 Save';
+            });
+          }
+        );
+      } catch (err) {
+        showValidationResult("❌ Validation Error: " + err.message, "error");
+      }
+    }
+
+    function saveAllTechnologies() {
+      try {
+        technologies.forEach((tech, i) => {
+          validateTechnology(tech, i);
+        });
+
+        const datafiles = technologies.filter(t => t.active).map(t => t.datafile);
+        const duplicates = datafiles.filter((df, i) => datafiles.indexOf(df) !== i);
+        if (duplicates.length) {
+          throw new Error(`Duplicate datafile(s) for active technologies: ${[...new Set(duplicates)].join(', ')}`);
+        }
+
+        showConfirmation(
+          "Save All Technologies",
+          `Are you sure you want to save all ${technologies.length} technologies?`,
+          () => {
+            // API call to save all technologies
+            fetch('/admin/admin/api/technologies?type=bulk', {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ technologies })
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.status === "success") {
+                showValidationResult("✅ All technologies saved successfully!", "success");
+                // Update original IDs
+                technologies.forEach(tech => originalIds.add(tech.id));
+                // Re-render to make all IDs readonly
+                renderTable();
+              } else {
+                showValidationResult("❌ Error saving technologies", "error");
+              }
+            })
+            .catch(error => {
+              showValidationResult("❌ Error saving technologies: " + error.message, "error");
+            });
+          }
+        );
+      } catch (err) {
+        showValidationResult("❌ Validation Error: " + err.message, "error");
+      }
+    }
+
+    function showValidationResult(message, type = "info") {
+      const resultDiv = document.getElementById("validation-result");
+      resultDiv.innerText = message;
+
+      // Set appropriate background color based on message type
+      if (type === "success") {
+        resultDiv.classList.add("bg-green-100", "text-green-800");
+        resultDiv.classList.remove("bg-red-100", "text-red-800", "bg-gray-50");
+      } else if (type === "error") {
+        resultDiv.classList.add("bg-red-100", "text-red-800");
+        resultDiv.classList.remove("bg-green-100", "text-green-800", "bg-gray-50");
+      } else {
+        resultDiv.classList.add("bg-gray-50");
+        resultDiv.classList.remove("bg-green-100", "text-green-800", "bg-red-100", "text-red-800");
+      }
+    }
+
+    // Icon picker logic
+    function openIconModal(index) {
+      currentIconIndex = index;
+      populateIcons();
+      document.getElementById("icon-modal").classList.remove("hidden");
+    }
+
+    function populateIcons(filter = "") {
+      const picker = document.getElementById("icon-picker");
+      picker.innerHTML = "";
+      fontawesomeIcons.filter(icon => icon.includes(filter)).forEach(icon => {
+        picker.innerHTML += `<div class='icon-option' onclick="selectIcon('${icon}')"><i class="${icon} text-xl"></i></div>`;
+      });
+    }
+
+    function selectIcon(icon) {
+      if (currentIconIndex !== null) {
+        technologies[currentIconIndex].icon = [icon];
+        renderTable();
+      }
+      closeIconModal();
+    }
+
+    function closeIconModal() {
+      document.getElementById("icon-modal").classList.add("hidden");
+    }
+
+    // Confirmation modal functions
+    function showConfirmation(title, message, callback) {
+      document.getElementById("confirmation-title").innerText = title;
+      document.getElementById("confirmation-message").innerText = message;
+      document.getElementById("confirmation-modal").classList.remove("hidden");
+      pendingAction = callback;
+    }
+
+    function closeConfirmationModal() {
+      document.getElementById("confirmation-modal").classList.add("hidden");
+      pendingAction = null;
+    }
+
+    function confirmAction() {
+      if (pendingAction) {
+        pendingAction();
+      }
+      closeConfirmationModal();
+    }
+</script>

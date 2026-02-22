@@ -1,0 +1,107 @@
+{
+  "id": "math_grade10",
+  "name": "Grade 10 Mathematics",
+  "icon": "fas fa-calculator text-blue-500 hover:text-blue-600 transform scale-125",
+  "description": "Exam sets designed to test foundational mathematical concepts for Grade 10 students.",
+  "exam_sets": [
+    {
+      "id": "math_grade10_set1",
+      "name": "Grade 10 Mathematics Exam Set 1",
+      "title": "Core Mathematical Concepts",
+      "focus_on": "This exam set focuses on testing basic algebra, geometry, and number system concepts appropriate for Grade 10 students.",
+      "key_skills_tested": [
+        {
+          "icon": "fas fa-ruler-triangle text-green-500 hover:text-green-600 transform scale-125",
+          "topic": "Geometry and Measurement"
+        },
+        {
+          "icon": "fas fa-calculator text-purple-500 hover:text-purple-600 transform scale-125",
+          "topic": "Algebra and Equations"
+        },
+        {
+          "icon": "fas fa-chart-line text-yellow-500 hover:text-yellow-600 transform scale-125",
+          "topic": "Number Systems and Operations"
+        }
+      ],
+      "difficulty": "medium",
+      "description": "This exam set is designed to assess understanding of core mathematical concepts including algebraic manipulation, geometric calculations, and number system operations.",
+      "icon": "fas fa-graduation-cap",
+      "passing_score": 70,
+      "active": true,
+      "total_questions": 5,
+      "time_limit": 30,
+      "questions": [
+        {
+          "id": "q1",
+          "domain": "Algebra",
+          "difficulty": "easy",
+          "question_text": "Solve for x: 2x + 5 = 11",
+          "options": [
+            "A) 2",
+            "B) 3",
+            "C) 4",
+            "D) 5"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "Subtract 5 from both sides: 2x = 6, then divide by 2: x = 3"
+        },
+        {
+          "id": "q2",
+          "domain": "Geometry",
+          "difficulty": "medium",
+          "question_text": "A triangle has sides of length 5cm, 6cm, and 7cm. What is its perimeter?",
+          "options": [
+            "A) 15cm",
+            "B) 16cm",
+            "C) 18cm",
+            "D) 19cm"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Perimeter is the sum of all sides: 5 + 6 + 7 = 18cm"
+        },
+        {
+          "id": "q3",
+          "domain": "Number Systems",
+          "difficulty": "hard",
+          "question_text": "Simplify: (2^3)^2",
+          "options": [
+            "A) 2^5",
+            "B) 2^6",
+            "C) 2^4",
+            "D) 2^2"
+          ],
+          "correct_answer_index": 1,
+          "explanation": "When raising a power to a power, multiply exponents: (2^3)^2 = 2^(3*2) = 2^6"
+        },
+        {
+          "id": "q4",
+          "domain": "Geometry",
+          "difficulty": "medium",
+          "question_text": "A rectangle has a length of 8cm and a width of 5cm. What is its area?",
+          "options": [
+            "A) 20cm²",
+            "B) 30cm²",
+            "C) 40cm²",
+            "D) 50cm²"
+          ],
+          "correct_answer_index": 2,
+          "explanation": "Area of a rectangle is length × width: 8 × 5 = 40cm²"
+        },
+        {
+          "id": "q5",
+          "domain": "Algebra",
+          "difficulty": "hard",
+          "question_text": "Solve for x: x^2 + 4x + 4 = 0",
+          "options": [
+            "A) x = -2",
+            "B) x = -1",
+            "C) x = 0",
+            "D) x = 1"
+          ],
+          "correct_answer_index": 0,
+          "explanation": "The equation can be factored as (x + 2)^2 = 0, so x = -2 is a repeated root"
+        }
+      ]
+    }
+  ]
+}

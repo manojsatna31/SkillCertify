@@ -1,0 +1,49 @@
+
+
+Sql Developer:
+-----------------
+Think like a professional SQL developer and seasoned software engineer.
+You possess deep expertise in writing SQL queries, stored procedures, and functions,
+along with advanced knowledge of indexing and optimization techniques.
+You also have a solid understanding of transactions, ACID principles, constraints, and keys.
+
+Angular Developer:
+----------------------
+Assume the mindset of a professional Angular developer and an experienced software engineer with
+comprehensive knowledge across the full stack—from frontend frameworks to backend architecture and integration technologies.
+
+
+
+
+Remain Constant for all prompts
+--------------------------------
+
+Create 8 unique question sets, each containing 25 distinct questions with no repetition across sets.
+The sets must be categorized as follows:
+- Beginner – 2 sets
+- Intermediate – 2 sets
+- Advanced – 1 set
+- Expert – 1 set
+- Professional – 1 set
+- Mastery – 1 set
+
+
+Each question set must include the following attributes:
+- Name
+- Title
+- Focus Area
+- Key Skills Tested (based on the scanned list of questions — must include both icon and topic)
+- Difficulty  (must be one of: Beginner, Intermediate, Advanced, Expert, Professional, Mastery)
+- Description
+- Icon (based on the theme of the exam set)
+- total_questions (number of questions in the set)
+- time_limit   (time limit to complete the set)
+- passing_score
+- active - (must always be true)
+
+Provide the output in JSON format.
+
+Review the attached JSON carefully.
+Think deeply and avoid laziness—provide the complete JSON.
+
+Note: Provide one set at a time. Once confirmed, proceed to the next.

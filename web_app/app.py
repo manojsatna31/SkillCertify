@@ -1,6 +1,7 @@
 # app.py
 
-from flask import Flask, render_template, session, request, redirect, url_for,render_template_string  # Flask core imports for web app, session, and request handling
+from flask import Flask, render_template, session, request, redirect, url_for, render_template_string, \
+    jsonify  # Flask core imports for web app, session, and request handling
 from web_app.utils.data_loader import DataLoader           # Import DataLoader to fetch technology and exam data
 from web_app.config.config_loader import config            # Import global config (not used directly here, but may be used elsewhere)
 from flask_session import Session                          # Flask-Session for server-side session management
@@ -9,6 +10,15 @@ from web_app.logging_config.logger import logger, inject_logger, get_context_log
 from uuid import uuid4
 from datetime import datetime, timedelta
 import time
+from pydantic import BaseModel
+from web_app.utils.groq_ai_loader import generate_groq_response
+# Load environment variables (create a .env file with GROQ_API_KEY=your_key_here)
+from dotenv import load_dotenv
+import json
+
+
+load_dotenv()
+
 
 app = Flask(__name__)                                     # Create Flask app instance
 app.secret_key = "your-secret-key"                        # Set secret key for session security
@@ -16,6 +26,10 @@ app.config['SESSION_TYPE'] = 'filesystem'                 # Use filesystem for s
 app.config['SESSION_PERMANENT'] = False                   # Sessions are not permanent (expire on browser close)
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(hours=2)  # # Add session timeout configuration # 2 hour timeout
 Session(app)                                              # Initialize Flask-Session extension
+from web_app.admin_routes import admin
+
+# Register admin blueprint
+app.register_blueprint(admin)
 
 # --- Initialize the Data Loader ---
 # Create a single, reusable instance of our DataLoader.
@@ -27,6 +41,10 @@ logger.info("Application Started")                        # Log application star
 
 # Simple in-memory cache of live exam sessions (exam_id -> ExamManager instance)
 _EXAMS = {}
+
+# Define a Pydantic model for the request body (optional but good practice)
+class PromptRequest(BaseModel):
+    prompt: str
 
 # Add session cleanup function
 def _clean_inactive_sessions():
@@ -50,7 +68,46 @@ def _get_manager() -> ExamManager:
     if not exam_id or exam_id not in _EXAMS:      # If not found or expired, return None
         return None
     return _EXAMS[exam_id]                        # Return the ExamManager instance for this session
+# New Code -- Start
+@app.route('/manage-tech')
+def manage_tech():
+    technologies = data_loader.get_technologies()  # Fetch list of available technologies
+    # return render_template('technologies-copy.html', technologies=technologies)  # Render technologies list
+    return render_template('Manage-Technologies.html', technologies=technologies)
+@app.route('/admin-panel')
+def admin_panel():
+    return render_template('Admin-Panel.html')
 
+
+
+@app.route('/user-prompt')
+def get_user_prompt():
+    logger.info("SkillCertify AI Question Generator UI")                    # Log home page access
+    return render_template('AI-Question-Generator.html')                  # Render the homepage template
+
+@app.route('/question_set', methods=["POST"])
+def get_question_set():
+    try:
+        data = request.get_json()
+        user_prompt = data.get('prompt')
+        if not user_prompt:
+            return jsonify({"error": "No prompt provided"}), 400
+
+        # Check if this is a large request (more than 20 questions)
+        is_large_request = any(word in user_prompt for word in ["40","45","50","55","60", "forty", "fifty", "large", "big", "extensive"])
+
+        # Generate response using Groq
+        result = generate_groq_response(user_prompt,is_large_request)
+        return jsonify(result)
+    except Exception as e:
+        # Handle any other unexpected errors (e.g., API errors, network issues)
+        print(f"An error occurred: {e}")
+        return "Error", 404
+
+
+
+
+# New Code -- End
 @app.route('/')
 def home():
     logger.info("Application Started")                    # Log home page access

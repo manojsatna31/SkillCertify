@@ -1,0 +1,173 @@
+<div id="questions" class="tab-content active fade-in">
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Manage Questions</h2>
+            <div class="flex space-x-2">
+                <select class="border border-gray-300 rounded-lg px-4 py-2 form-input" onchange="filterQuestions()">
+                    <option value="">All Technologies</option>
+                    {% for tech in technologies %}
+                    <option value="{{ tech.id }}">{{ tech.name[0] if tech.name else 'Unnamed' }}</option>
+                    {% endfor %}
+                </select>
+                <select class="border border-gray-300 rounded-lg px-4 py-2 form-input" onchange="filterQuestions()">
+                    <option value="">All Exam Sets</option>
+                    <!-- Will be populated dynamically based on selected technology -->
+                </select>
+                <button class="btn btn-primary" onclick="openModal('add-question-modal')">
+                    <i class="fas fa-plus mr-2"></i> Add Question
+                </button>
+            </div>
+        </div>
+
+        <!-- Questions Table -->
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Question</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Domain</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Difficulty</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for question in questions %}
+                    <tr class="table-row">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ question.id }}</td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm text-gray-900">{{ question.question_text }}</div>
+                            <div class="text-sm text-gray-500">{{ question.technology_name }} - {{ question.exam_set_name }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ question.domain }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                                {% if question.difficulty == 'Easy' %}bg-green-100 text-green-800
+                                {% elif question.difficulty == 'Medium' %}bg-yellow-100 text-yellow-800
+                                {% else %}bg-red-100 text-red-800{% endif %}">
+                                {{ question.difficulty }}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm">
+                            <button class="text-blue-600 hover:text-blue-900 mr-3" onclick="openModal('edit-question-modal')">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="text-red-600 hover:text-red-900" onclick="showConfirm('delete-question', '{{ question.id }}')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Add Question Modal -->
+<div class="modal" id="add-question-modal">
+    <div class="modal-content">
+        <div class="p-6 border-b">
+            <h3 class="text-xl font-semibold text-gray-800">Add Question</h3>
+        </div>
+        <div class="p-6">
+            <form id="add-question-form">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Technology</label>
+                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 form-input" required onchange="loadExamSets(this.value)">
+                        <option value="">Select Technology</option>
+                        {% for tech in technologies %}
+                        <option value="{{ tech.id }}">{{ tech.name[0] if tech.name else 'Unnamed' }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Exam Set</label>
+                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 form-input" required id="exam-set-select">
+                        <option value="">Select Exam Set</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Question Text</label>
+                    <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2 form-input h-24" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Domain</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 form-input" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Difficulty</label>
+                    <select class="w-full border border-gray-300 rounded-lg px-4 py-2 form-input" required>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Options</label>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <input type="radio" name="correct-option" value="0" class="mr-2" checked>
+                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 form-input" placeholder="Option A" required>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="correct-option" value="1" class="mr-2">
+                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 form-input" placeholder="Option B" required>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="correct-option" value="2" class="mr-2">
+                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 form-input" placeholder="Option C" required>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="radio" name="correct-option" value="3" class="mr-2">
+                            <input type="text" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 form-input" placeholder="Option D" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Explanation</label>
+                    <textarea class="w-full border border-gray-300 rounded-lg px-4 py-2 form-input h-24"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="flex justify-end p-6 border-t">
+            <button class="btn mr-2" onclick="closeModal('add-question-modal')">Cancel</button>
+            <button class="btn btn-primary" onclick="addQuestion()">Add Question</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function loadExamSets(techId) {
+    if (!techId) {
+        document.getElementById('exam-set-select').innerHTML = '<option value="">Select Exam Set</option>';
+        return;
+    }
+
+    fetch(`/admin/api/exam-sets?tech_id=${techId}`)
+        .then(response => response.json())
+        .then(examSets => {
+            const select = document.getElementById('exam-set-select');
+            select.innerHTML = '<option value="">Select Exam Set</option>';
+
+            examSets.forEach(examSet => {
+                const option = document.createElement('option');
+                option.value = examSet.id;
+                option.textContent = examSet.name;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading exam sets:', error);
+        });
+}
+
+function filterQuestions() {
+    // Implementation for filtering questions based on selected technology and exam set
+    const techSelect = document.querySelector('select:nth-of-type(1)');
+    const examSetSelect = document.querySelector('select:nth-of-type(2)');
+
+    // This would be implemented to filter the questions table
+    console.log('Filtering questions by:', techSelect.value, examSetSelect.value);
+}
+</script>

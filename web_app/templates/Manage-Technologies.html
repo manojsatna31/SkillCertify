@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="max-w-7xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6 text-center">⚙️ Manage Technologies</h1>
+
+  <!-- Table -->
+  <div class="overflow-x-auto shadow-lg border rounded-lg">
+    <table class="min-w-full border-collapse divide-y divide-gray-200 dark:divide-gray-700">
+      <thead class="bg-gray-200 dark:bg-gray-800">
+        <tr>
+          <th class="px-4 py-2 text-left">#</th>
+          <th class="px-4 py-2 text-left">ID</th>
+          <th class="px-4 py-2 text-left">Name</th>
+          <th class="px-4 py-2 text-left">Icons</th>
+          <th class="px-4 py-2 text-left">Datafile</th>
+          <th class="px-4 py-2 text-left">Description</th>
+          <th class="px-4 py-2 text-center">Active</th>
+          <th class="px-4 py-2 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tech-table" class="divide-y divide-gray-200 dark:divide-gray-700"></tbody>
+    </table>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="mt-6 flex justify-center space-x-4">
+    <button onclick="addRow()" class="px-5 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700">➕ Add Technology</button>
+    <button onclick="saveJson()" class="px-5 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700">💾 Save JSON</button>
+  </div>
+
+  <!-- Validation Result -->
+  <div id="validation-result" class="mt-6 p-4 border rounded bg-gray-50 dark:bg-gray-700 text-sm whitespace-pre-wrap"></div>
+
+  <!-- Icon Picker Modal -->
+  <div id="icon-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 w-11/12 max-w-3xl max-h-[80vh] overflow-y-auto">
+      <h2 class="text-lg font-bold mb-4">Select Icons (Multiple)</h2>
+      <input type="text" id="icon-search" placeholder="Search icons..." class="w-full mb-4 p-2 border rounded sticky top-0 bg-white dark:bg-gray-800">
+      <div class="icon-picker grid grid-cols-8 gap-4" id="icon-picker"></div>
+      <div class="mt-4 flex justify-between">
+        <button onclick="closeIconModal()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Close</button>
+        <button onclick="applySelectedIcons()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let technologies = {{ technologies | tojson }};
+  const fontawesomeIcons = [
+      "fab fa-python text-blue-500","fab fa-java text-red-600","fab fa-js-square text-yellow-500","fab fa-react text-blue-500","fab fa-angular text-red-600","fab fa-node-js text-green-600","fas fa-code text-indigo-500","fas fa-terminal text-gray-600","fas fa-laptop-code text-indigo-600","fas fa-database text-blue-500","fas fa-server text-purple-600","fab fa-docker text-blue-500","fab fa-git-alt text-orange-600","fab fa-github text-black","fab fa-gitlab text-orange-600","fab fa-aws text-orange-500","fas fa-cloud text-blue-500","fas fa-network-wired text-blue-600","fas fa-cogs text-orange-500","fas fa-lock text-gray-800","fas fa-shield-alt text-gray-700","fas fa-brain text-purple-700","fas fa-robot text-green-700","fas fa-microchip text-gray-700","fas fa-layer-group text-blue-600","fas fa-project-diagram text-indigo-600","fas fa-chart-bar text-blue-500","fas fa-chart-pie text-orange-500","fas fa-chart-line text-green-500","fas fa-calculator text-blue-500","fas fa-flask text-green-600","fas fa-vial text-yellow-500","fas fa-atom text-purple-600","fas fa-book text-indigo-600","fas fa-book-open text-blue-600","fas fa-graduation-cap text-green-600","fas fa-chalkboard-teacher text-orange-600","fas fa-user-graduate text-indigo-600","fas fa-lightbulb text-yellow-500","fas fa-users text-blue-600","fas fa-user-friends text-teal-600","fas fa-user-cog text-purple-600","fas fa-id-card text-gray-600","fas fa-briefcase text-pink-600","fas fa-comments text-blue-600","fas fa-envelope text-orange-600","fas fa-paper-plane text-green-600","fas fa-bell text-yellow-600","fas fa-square-root-alt text-indigo-600","fas fa-infinity text-purple-600","fas fa-superscript text-orange-500","fas fa-equals text-gray-700","fas fa-globe text-blue-600","fas fa-microscope text-green-600","fas fa-dna text-purple-600","fas fa-satellite text-indigo-600","fas fa-satellite-dish text-orange-600","fas fa-pencil-alt text-gray-600","fas fa-pen-nib text-indigo-600","fas fa-highlighter text-yellow-500","fas fa-ruler-combined text-green-600","fas fa-compass text-teal-600",  // Core Computing & Hardware
+      "fas fa-computer text-blue-600",
+      "fas fa-laptop-code text-indigo-500",
+      "fas fa-server text-gray-700",
+      "fas fa-microchip text-purple-600",
+      "fas fa-hard-drive text-blue-800",
+      "fas fa-memory text-cyan-500",
+      "fas fa-keyboard text-gray-500",
+      "fas fa-mouse text-gray-400",
+      "fas fa-display text-teal-500",
+      "fas fa-plug text-yellow-600",
+      "fas fa-mobile-screen-button text-pink-500",
+      "fas fa-tablet-screen-button text-purple-500",
+      "fas fa-print text-gray-600",
+      "fas fa-scanner text-amber-500",
+
+      // Programming & Software Development
+      "fas fa-code text-green-600",
+      "fas fa-terminal text-green-800",
+      "fas fa-file-code text-blue-400",
+      "fas fa-bug text-red-600",
+      "fas fa-gears text-gray-600",
+      "fas fa-folder-open text-yellow-400",
+      "fas fa-download text-sky-500",
+      "fas fa-upload text-lime-500",
+      "fas fa-rocket text-red-500",
+      "fas fa-bezier-curve text-fuchsia-500",
+      "fas fa-cubes text-emerald-600",
+
+      // Web Technologies & Internet
+      "fas fa-globe text-blue-400",
+      "fas fa-earth-americas text-green-500",
+      "fas fa-cloud text-blue-300",
+      "fas fa-browser text-purple-400",
+      "fas fa-link text-indigo-400",
+      "fas fa-arrows-rotate text-teal-400",
+
+      // Data Management & Analysis
+      "fas fa-database text-purple-700",
+      "fas fa-table text-green-700",
+      "fas fa-chart-bar text-cyan-600",
+      "fas fa-chart-line text-lime-600",
+      "fas fa-chart-pie text-pink-600",
+      "fas fa-magnifying-glass-chart text-orange-600",
+      "fas fa-filter text-blue-500",
+      "fas fa-sort text-gray-500",
+
+      // Networking & Cybersecurity
+      "fas fa-network-wired text-indigo-700",
+      "fas fa-wifi text-sky-400",
+      "fas fa-ethernet text-gray-700",
+      "fas fa-shield-halved text-green-700",
+      "fas fa-lock text-red-700",
+      "fas fa-lock-open text-green-500",
+      "fas fa-user-secret text-zinc-800",
+      "fas fa-key text-yellow-500",
+      "fas fa-fingerprint text-teal-600",
+      "fas fa-firewall text-red-800",
+
+      // Artificial Intelligence & Machine Learning
+      "fas fa-brain text-purple-500",
+      "fas fa-robot text-gray-600",
+      "fas fa-eye text-blue-700",
+      "fas fa-comments text-cyan-700",
+      "fas fa-wave-square text-indigo-400",
+
+      // Version Control & Collaboration (Brands)
+      "fab fa-github text-gray-800",
+      "fab fa-git-alt text-orange-600",
+      "fab fa-gitlab text-orange-700",
+      "fab fa-bitbucket text-blue-700",
+
+      // Popular Programming Languages & Frameworks (Brands)
+      "fab fa-python text-blue-700",
+      "fab fa-java text-red-700",
+      "fab fa-js text-yellow-500",
+      "fab fa-html5 text-orange-500",
+      "fab fa-css3-alt text-blue-500",
+      "fab fa-php text-purple-700",
+      "fab fa-node-js text-green-600",
+      "fab fa-react text-blue-400",
+      "fab fa-angular text-red-800",
+      "fab fa-vuejs text-green-500",
+      "fab fa-apple text-gray-900",
+      "fab fa-windows text-blue-600",
+      "fab fa-linux text-amber-600",
+      "fab fa-android text-green-700",
+      "fab fa-docker text-sky-700",
+      "fab fa-aws text-orange-500",
+      "fab fa-google text-red-500",
+      "fab fa-microsoft text-blue-700",
+      "fab fa-slack text-purple-600",
+      "fab fa-discord text-indigo-600",
+      "fab fa-stack-overflow text-orange-700",
+      "fab fa-npm text-red-600",
+      "fab fa-yarn text-blue-500",
+
+      // Academic & Educational Concepts
+      "fas fa-graduation-cap text-indigo-700",
+      "fas fa-book text-brown-700", // Using a conceptual brown for book
+      "fas fa-book-open text-teal-700",
+      "fas fa-lightbulb text-yellow-400",
+      "fas fa-chalkboard-user text-lime-700",
+      "fas fa-pencil text-gray-600",
+      "fas fa-flask text-green-500",
+      "fas fa-puzzle-piece text-orange-400",
+      "fas fa-comments text-blue-600",
+      "fas fa-person-chalkboard text-purple-600",
+      "fas fa-star text-amber-400",
+      "fas fa-award text-gold-500", // Conceptual gold color
+        "fas fa-calculator text-blue-500",
+        "fab fa-aws text-orange-500",
+        "fas fa-mug-hot text-orange-600",
+        "fab fa-react text-blue-500",
+        "fab fa-angular text-red-600",
+        "fab fa-python text-blue-500",
+        "fab fa-html5 text-orange-500",
+        "fab fa-css3-alt text-blue-500",
+        "fas fa-database text-blue-500",
+        "fab fa-js-square text-yellow-500",
+        "fab fa-vuejs text-green-500",
+        "fab fa-node-js text-green-600",
+        "fas fa-code text-indigo-500",
+        "fas fa-feather-alt text-blue-400",
+        "fab fa-docker text-blue-500",
+        "fas fa-network-wired text-blue-600",
+        "fas fa-cloud text-blue-500",
+        "fas fa-cogs text-orange-500",
+        "fab fa-git-alt text-orange-600",
+        "fab fa-github text-black",
+        "fab fa-gitlab text-orange-600"
+    ];
+
+  let currentIconIndex = null;
+  let selectedIcons = [];
+
+  function updateField(index, field, value) {
+    technologies[index][field] = value;
+  }
+
+  function updateArray(index, field, value) {
+    technologies[index][field] = value.split(",").map(v => v.trim()).filter(Boolean);
+  }
+
+  function addRow() {
+    technologies.push({ id: "", name: [""], icon: [], datafile: "", description: "", active: false });
+    renderTable();
+  }
+
+  function deleteRow(index) {
+    technologies.splice(index, 1);
+    renderTable();
+  }
+
+  function saveJson() {
+    try {
+      technologies.forEach((tech, i) => {
+        if (!tech.id) throw new Error(`Row ${i+1}: Missing ID`);
+        if (!tech.name.length || !tech.name[0]) throw new Error(`Row ${i+1}: Name is required`);
+        if (tech.active && !tech.datafile) throw new Error(`Row ${i+1}: Datafile is required if active`);
+        if (!tech.description) throw new Error(`Row ${i+1}: Description is required`);
+      });
+
+      const activeDatafiles = technologies.filter(t => t.active).map(t => t.datafile);
+      const duplicates = activeDatafiles.filter((df, i) => activeDatafiles.indexOf(df) !== i);
+      if (duplicates.length) throw new Error(`Duplicate datafile(s) among active technologies: ${[...new Set(duplicates)].join(', ')}`);
+
+      fetch("/update-tech-stack", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ technologies })
+      }).then(r => r.json()).then(res => {
+        document.getElementById("validation-result").innerText = "✅ Saved: " + JSON.stringify(res, null, 2);
+      }).catch(err => {
+        document.getElementById("validation-result").innerText = "❌ Save Error: " + err.message;
+      });
+
+    } catch (err) {
+      document.getElementById("validation-result").innerText = "❌ Validation Error: " + err.message;
+    }
+  }
+
+  function openIconModal(index) {
+    currentIconIndex = index;
+    selectedIcons = [...technologies[index].icon];
+    populateIcons();
+    document.getElementById("icon-modal").classList.remove("hidden");
+  }
+
+  function populateIcons(filter = "") {
+    const picker = document.getElementById("icon-picker");
+    picker.innerHTML = "";
+    fontawesomeIcons.filter(icon => icon.includes(filter)).forEach(icon => {
+      const isSelected = selectedIcons.includes(icon);
+      picker.innerHTML += `<div class='cursor-pointer text-center p-2 border rounded ${isSelected ? 'bg-blue-200' : ''}' onclick="toggleIconSelection('${icon}')"><i class="${icon} text-xl"></i></div>`;
+    });
+  }
+
+  function toggleIconSelection(icon) {
+    if (selectedIcons.includes(icon)) {
+      selectedIcons = selectedIcons.filter(i => i !== icon);
+    } else {
+      selectedIcons.push(icon);
+    }
+    populateIcons(document.getElementById("icon-search").value.trim());
+  }
+
+  function applySelectedIcons() {
+    if (currentIconIndex !== null) {
+      technologies[currentIconIndex].icon = [...selectedIcons];
+      renderTable();
+    }
+    closeIconModal();
+  }
+
+  function closeIconModal() {
+    document.getElementById("icon-modal").classList.add("hidden");
+  }
+
+  document.getElementById("icon-search").addEventListener("input", (e) => {
+    populateIcons(e.target.value.trim());
+  });
+
+  function renderTable() {
+    const tbody = document.getElementById("tech-table");
+    tbody.innerHTML = "";
+    technologies.forEach((tech, index) => {
+      const iconsHtml = tech.icon.map(ic => `<i class='${ic} text-xl mr-1'></i>`).join("");
+      const row = `
+        <tr class="hover:bg-gray-100 dark:hover:bg-gray-800">
+          <td class="px-4 py-2">${index+1}</td>
+          <td class="px-4 py-2"><input value="${tech.id}" class="w-full border rounded p-1" onchange="updateField(${index}, 'id', this.value)"></td>
+          <td class="px-4 py-2"><input value="${tech.name.join(', ')}" class="w-full border rounded p-1" onchange="updateArray(${index}, 'name', this.value)"></td>
+          <td class="px-4 py-2 text-center">
+            ${iconsHtml}
+            <button class="ml-2 text-blue-600 hover:underline" onclick="openIconModal(${index})">Change</button>
+          </td>
+          <td class="px-4 py-2"><input value="${tech.datafile || ''}" class="w-full border rounded p-1" onchange="updateField(${index}, 'datafile', this.value)"></td>
+          <td class="px-4 py-2"><textarea rows="2" class="w-full border rounded p-1" onchange="updateField(${index}, 'description', this.value)">${tech.description}</textarea></td>
+          <td class="px-4 py-2 text-center"><input type="checkbox" ${tech.active ? 'checked' : ''} onchange="updateField(${index}, 'active', this.checked)"></td>
+          <td class="px-4 py-2 text-center"><button class="text-red-600 hover:underline" onclick="deleteRow(${index})">🗑️ Delete</button></td>
+        </tr>`;
+      tbody.insertAdjacentHTML("beforeend", row);
+    });
+  }
+
+  renderTable();
+</script>
+{% endblock %}

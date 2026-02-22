@@ -1,0 +1,323 @@
+{
+  "technologies": [
+    {
+      "active": true,
+      "datafile": "math.json",
+      "description": "Math 10 Grade.",
+      "icon": [
+        "fas fa-calculator text-blue-500"
+      ],
+      "id": "academic-10-grade-math",
+      "name": [
+        "MATH"
+      ]
+    },
+    {
+      "active": true,
+      "datafile": "aws.json",
+      "description": "Amazon's cloud computing platform offering scalable infrastructure and services for application deployment.",
+      "icon": [
+        "fab fa-aws text-orange-500"
+      ],
+      "id": "tech-aws",
+      "name": [
+        "AWS"
+      ]
+    },
+    {
+      "active": true,
+      "datafile": "java.json",
+      "description": "Widely-used language with robust frameworks for building large-scale, enterprise-grade backend systems.",
+      "icon": [
+        "fas fa-mug-hot text-orange-600"
+      ],
+      "id": "tech-java",
+      "name": [
+        "Java (Spring Boot)"
+      ]
+    },
+    {
+      "active": true,
+      "datafile": "react.json",
+      "description": "A declarative, component-based JavaScript library for building modern user interfaces efficiently.",
+      "icon": [
+        "fab fa-react text-blue-500"
+      ],
+      "id": "tech-react",
+      "name": [
+        "React"
+      ]
+    },
+    {
+      "active": true,
+      "datafile": "angular.json",
+      "description": "A TypeScript-based framework for developing robust single-page web applications (SPA).",
+      "icon": [
+        "fab fa-angular text-red-600"
+      ],
+      "id": "tech-angular",
+      "name": [
+        "Angular"
+      ]
+    },
+    {
+      "active": true,
+      "datafile": "python.json",
+      "description": "High-level programming language with powerful frameworks for rapid backend development and REST APIs.",
+      "icon": [
+        "fab fa-python text-blue-500"
+      ],
+      "id": "tech-python",
+      "name": [
+        "Python (Django/Flask)"
+      ]
+    },
+    {
+      "active": true,
+      "datafile": "html5-css3.json",
+      "description": "Backbone of web content with semantic structure<br>Stylesheets for design, layout, and responsiveness.</br>",
+      "icon": [
+        "fab fa-html5 text-orange-500",
+        "fab fa-css3-alt text-blue-500"
+      ],
+      "id": "tech-html5-css3",
+      "name": [
+        "HTML5",
+        "CSS3"
+      ]
+    },
+    {
+      "active": true,
+      "datafile": "sql.json",
+      "description": "Open-source relational database known for reliability, scalability, and structured data management.",
+      "icon": [
+        "fas fa-database text-blue-500"
+      ],
+      "id": "tech-sql",
+      "name": [
+        "SQL"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Dynamic scripting language enabling interactivity, DOM manipulation, and client-side logic in web applications.",
+      "icon": [
+        "fab fa-js-square text-yellow-500"
+      ],
+      "id": "tech-javascript",
+      "name": [
+        "JavaScript"
+      ]
+    },
+    {
+      "active": false,
+      "description": "A lightweight and flexible progressive JavaScript framework for building interactive user interfaces.",
+      "icon": [
+        "fab fa-vuejs text-green-500"
+      ],
+      "id": "tech-vuejs",
+      "name": [
+        "Vue.js"
+      ]
+    },
+    {
+      "active": false,
+      "description": "JavaScript runtime built on Chrome's V8 engine, enabling server-side scripting and scalable backend services.",
+      "icon": [
+        "fab fa-node-js text-green-600"
+      ],
+      "id": "tech-nodejs",
+      "name": [
+        "Node.js"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Microsoft's framework for building secure and high-performance web, desktop, and cloud applications.",
+      "icon": [
+        "fas fa-code text-indigo-500"
+      ],
+      "id": "tech-dotnet",
+      "name": [
+        ".NET (C#)"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Statically typed language designed for high-concurrency, scalable, and performant backend services.",
+      "icon": [
+        "fas fa-feather-alt text-blue-400"
+      ],
+      "id": "tech-golang",
+      "name": [
+        "Go (Golang)"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Advanced open-source relational database focusing on extensibility and SQL compliance.",
+      "icon": [
+        "fas fa-database text-indigo-500"
+      ],
+      "id": "tech-postgresql",
+      "name": [
+        "PostgreSQL"
+      ]
+    },
+    {
+      "active": false,
+      "description": "NoSQL database using JSON-like documents, ideal for handling unstructured and flexible data models.",
+      "icon": [
+        "fas fa-database text-green-500"
+      ],
+      "id": "tech-mongodb",
+      "name": [
+        "MongoDB"
+      ]
+    },
+    {
+      "active": false,
+      "description": "In-memory key-value data store known for ultra-fast caching, session management, and pub/sub messaging.",
+      "icon": [
+        "fas fa-leaf text-green-500"
+      ],
+      "id": "tech-redis",
+      "name": [
+        "Redis"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Containerization platform for building, deploying, and managing applications in isolated environments.",
+      "icon": [
+        "fab fa-docker text-blue-500"
+      ],
+      "id": "tech-docker",
+      "name": [
+        "Docker"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Container orchestration system for automating deployment, scaling, and managing containerized applications.",
+      "icon": [
+        "fas fa-network-wired text-blue-600"
+      ],
+      "id": "tech-kubernetes",
+      "name": [
+        "Kubernetes"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Microsoft's cloud platform providing a wide range of services for application hosting, storage, and AI.",
+      "icon": [
+        "fas fa-cloud text-blue-500"
+      ],
+      "id": "tech-azure",
+      "name": [
+        "Azure"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Continuous Integration and Continuous Deployment tools for automating build, test, and release pipelines.",
+      "icon": [
+        "fas fa-cogs text-orange-500"
+      ],
+      "id": "tech-ci-cd",
+      "name": [
+        "CI/CD (Jenkins/GitHub Actions)"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Distributed version control system to track changes, collaborate, and manage source code history efficiently.",
+      "icon": [
+        "fab fa-git-alt text-orange-600"
+      ],
+      "id": "tech-git",
+      "name": [
+        "Git"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Web-based platform for code hosting, collaboration, pull requests, and project management using Git.",
+      "icon": [
+        "fab fa-github text-black dark:text-white"
+      ],
+      "id": "tech-github",
+      "name": [
+        "GitHub"
+      ]
+    },
+    {
+      "active": false,
+      "description": "DevOps platform providing Git repository management, CI/CD pipelines, and agile project tracking.",
+      "icon": [
+        "fab fa-gitlab text-orange-600"
+      ],
+      "id": "tech-gitlab",
+      "name": [
+        "GitLab"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Automated web browser testing framework used for end-to-end functional testing.",
+      "icon": [
+        "fas fa-mouse-pointer text-green-500"
+      ],
+      "id": "tech-selenium",
+      "name": [
+        "Selenium"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Unit testing framework for Java applications ensuring code reliability and correctness.",
+      "icon": [
+        "fas fa-vial text-green-600 "
+      ],
+      "id": "tech-junit",
+      "name": [
+        "JUnit"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Python testing framework simplifying unit tests with powerful fixtures and plugins.",
+      "icon": [
+        "fas fa-flask text-yellow-500"
+      ],
+      "id": "tech-pytest",
+      "name": [
+        "PyTest"
+      ]
+    },
+    {
+      "active": false,
+      "description": "Delightful JavaScript testing framework with focus on simplicity and coverage.",
+      "icon": [
+        "fas fa-grin-stars text-pink-500"
+      ],
+      "id": "tech-jest",
+      "name": [
+        "Jest"
+      ]
+    },
+    {
+      "id": "tech-jest-01",
+      "name": [
+        "Jest7878"
+      ],
+      "icon": [
+        "fas fa-mug-hot text-orange-600"
+      ],
+      "datafile": "",
+      "description": "Manoj",
+      "active": false
+    }
+  ]
+}

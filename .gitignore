@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 webapp/__pycache__/
 webapp/utils/__pycache__/
+webapp/noe_modules/
 *.py[cod]
 
 # Environments
@@ -16,6 +17,7 @@ flask_session/
 *.egg-info/
 dist/
 build/
+
 
 # IDE/Editor settings
 .idea

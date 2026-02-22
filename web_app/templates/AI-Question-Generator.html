@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillCertify - AI Question Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .input-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .output-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            color: #6e8efb;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #6e8efb;
+        }
+
+        button {
+            background: linear-gradient(to right, #6e8efb, #a777e3);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loader i {
+            font-size: 2rem;
+            color: #6e8efb;
+            margin-bottom: 10px;
+        }
+
+        .result-container {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .tech-card {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .tech-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .tech-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #6e8efb;
+        }
+
+        .tech-desc {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .question-set {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .set-name {
+            font-weight: 600;
+            color: #a777e3;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .question {
+            padding: 12px;
+            border-left: 3px solid #6e8efb;
+            background: #fafbff;
+            margin-bottom: 10px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .options {
+            padding-left: 20px;
+        }
+
+        .option {
+            margin-bottom: 5px;
+        }
+
+        .correct {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .easy {
+            background: #e0f8e9;
+            color: #28a745;
+        }
+
+        .medium {
+            background: #fff4e0;
+            color: #ff9900;
+        }
+
+        .hard {
+            background: #ffe8e8;
+            color: #ff4d4d;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #d0d0d0;
+        }
+
+        .examples {
+            margin-top: 25px;
+            background: #f8f9ff;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .examples h3 {
+            margin-bottom: 10px;
+            color: #6e8efb;
+        }
+
+        .example-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .example-pill {
+            background: #eef1ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .example-pill:hover {
+            background: #e0e6ff;
+        }
+
+        .json-container {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .json-key {
+            color: #63b3ed;
+        }
+
+        .json-string {
+            color: #90cdf4;
+        }
+
+        .json-number {
+            color: #fbb6ce;
+        }
+
+        .json-boolean {
+            color: #fbb6ce;
+        }
+
+        .copy-btn {
+            background: #4a5568;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .copy-btn:hover {
+            background: #2d3748;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #6e8efb;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 0 0 8px 8px;
+            margin-top: -10px;
+        }
+
+        .active .accordion-content {
+            display: block;
+        }
+
+        .active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #6e8efb;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border-left: 3px solid #6e8efb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SkillCertify AI Question Generator</h1>
+            <p>Generate customized question sets for any topic using AI</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Generate Questions</h2>
+                <div class="form-group">
+                    <label for="prompt">Enter your prompt:</label>
+                    <textarea id="prompt" placeholder="Example: Add 3 sets of unique questions, each having 5 questions for Geography for class 10 students"></textarea>
+                </div>
+
+                <button id="generate-btn">
+                    <i class="fas fa-magic"></i> Generate Questions
+                </button>
+
+                <div class="examples">
+                    <h3>Try these examples:</h3>
+                    <div class="example-pills">
+                        <div class="example-pill" data-prompt="Add 2 sets of unique questions, each having 5 questions for Python programming for beginners">Python for beginners</div>
+                        <div class="example-pill" data-prompt="Create 3 sets of questions, each with 4 questions about World History for high school students">World History</div>
+                        <div class="example-pill" data-prompt="Generate 1 set of 6 questions for basic Algebra for middle school">Basic Algebra</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h2>Results</h2>
+                <div class="loader" id="loader">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Generating your questions... This may take a few seconds</p>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" id="questions-header">
+                        <span>Generated Questions</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content" id="questions-content">
+                        <div class="result-container" id="result-container">
+                            <div class="empty-state">
+                                <i class="fas fa-file-alt"></i>
+                                <p>Your generated questions will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header" id="json-header">
+                        <span>JSON Response</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content" id="json-content">
+                        <div class="json-container" id="json-response">
+                            <pre>{
+    "status": "waiting_for_response"
+}</pre>
+                        </div>
+                        <button class="copy-btn" id="copy-json-btn">
+                            <i class="fas fa-copy"></i> Copy JSON
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generate-btn');
+            const promptInput = document.getElementById('prompt');
+            const loader = document.getElementById('loader');
+            const resultContainer = document.getElementById('result-container');
+            const jsonResponse = document.getElementById('json-response');
+            const copyJsonBtn = document.getElementById('copy-json-btn');
+            const examplePills = document.querySelectorAll('.example-pill');
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            // Add accordion functionality
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    header.parentElement.classList.toggle('active');
+                });
+            });
+
+            // Add click event to example pills
+            examplePills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    promptInput.value = pill.getAttribute('data-prompt');
+                });
+            });
+
+            // Copy JSON to clipboard
+            copyJsonBtn.addEventListener('click', () => {
+                const jsonText = jsonResponse.innerText;
+                navigator.clipboard.writeText(jsonText).then(() => {
+                    const originalText = copyJsonBtn.innerHTML;
+                    copyJsonBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => {
+                        copyJsonBtn.innerHTML = originalText;
+                    }, 2000);
+                });
+            });
+
+            // Generate button click event
+            generateBtn.addEventListener('click', () => {
+                const prompt = promptInput.value.trim();
+
+                if (!prompt) {
+                    alert('Please enter a prompt first');
+                    return;
+                }
+
+                // Show loader, hide previous results
+                loader.style.display = 'block';
+                resultContainer.innerHTML = '';
+                jsonResponse.innerHTML = '<pre>{\n    "status": "processing"\n}</pre>';
+
+                // Make API call to the backend
+                fetch('/question_set', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: prompt })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayResults(data);
+                    displayJsonResponse(data);
+                    loader.style.display = 'none';
+
+                    // Open both accordions after successful response
+                    document.querySelectorAll('.accordion').forEach(acc => {
+                        acc.classList.add('active');
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    loader.style.display = 'none';
+                    resultContainer.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>Error generating questions. Please try again.</p>
+                        </div>
+                    `;
+                    jsonResponse.innerHTML = `<pre>{
+    "error": "${error.message || 'Failed to generate questions'}"
+}</pre>`;
+                });
+            });
+
+            // Function to display results in the UI
+            function displayResults(data) {
+                // If the data matches the structure from the provided math.json
+                if (data.id && data.exam_sets) {
+                    resultContainer.innerHTML = `
+                        <div class="tech-card">
+                            <div class="tech-header">
+                                <div class="tech-name">${data.name}</div>
+                            </div>
+                            <div class="tech-desc">${data.description}</div>
+
+                            ${data.exam_sets.map(set => `
+                                <div class="question-set">
+                                    <div class="set-name">${set.name}</div>
+
+                                    ${set.questions.map((question, index) => `
+                                        <div class="question">
+                                            <div class="question-text">
+                                                <span class="question-number">${index + 1}</span>
+                                                ${question.question_text}
+                                            </div>
+                                            <div class="options">
+                                                ${question.options.map((option, optIndex) => `
+                                                    <div class="option ${optIndex === question.correct_answer_index ? 'correct' : ''}">
+                                                        ${option}
+                                                        ${optIndex === question.correct_answer_index ? ' <i class="fas fa-check"></i>' : ''}
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                            <div class="difficulty ${question.difficulty}">${question.difficulty}</div>
+                                            ${question.explanation ? `
+                                                <div class="explanation">
+                                                    <strong>Explanation:</strong> ${question.explanation}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+                // If the data matches the structure from the Groq API response
+                else if (data.technology_name && data.question_sets) {
+                    resultContainer.innerHTML = `
+                        <div class="tech-card">
+                            <div class="tech-header">
+                                <div class="tech-name">${data.technology_name}</div>
+                            </div>
+                            <div class="tech-desc">${data.technology_description}</div>
+
+                            ${data.question_sets.map(set => `
+                                <div class="question-set">
+                                    <div class="set-name">${set.set_name}</div>
+
+                                    ${set.questions.map((question, index) => `
+                                        <div class="question">
+                                            <div class="question-text">
+                                                <span class="question-number">${index + 1}</span>
+                                                ${question.question_text}
+                                            </div>
+                                            <div class="options">
+                                                ${question.options.map((option, optIndex) => `
+                                                    <div class="option ${optIndex === question.correct_answer_index ? 'correct' : ''}">
+                                                        ${String.fromCharCode(65 + optIndex)}. ${option}
+                                                        ${optIndex === question.correct_answer_index ? ' <i class="fas fa-check"></i>' : ''}
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                            <div class="difficulty ${question.difficulty}">${question.difficulty}</div>
+                                            ${question.explanation ? `
+                                                <div class="explanation">
+                                                    <strong>Explanation:</strong> ${question.explanation}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                } else {
+                    resultContainer.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>Unexpected data format received from server.</p>
+                        </div>
+                    `;
+                }
+            }
+
+            // Function to display formatted JSON response
+            function displayJsonResponse(data) {
+                // Format the JSON with syntax highlighting
+                const formattedJson = JSON.stringify(data, null, 4);
+
+                // Simple syntax highlighting
+                const highlightedJson = formattedJson
+                    .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?)/g, function(match) {
+                        let cls = 'json-string';
+                        if (/:$/.test(match)) {
+                            cls = 'json-key';
+                        } else if (/true|false/.test(match)) {
+                            cls = 'json-boolean';
+                        } else if (/[0-9]+/.test(match)) {
+                            cls = 'json-number';
+                        }
+                        return '<span class="' + cls + '">' + match + '</span>';
+                    });
+
+                jsonResponse.innerHTML = '<pre>' + highlightedJson + '</pre>';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<div id="dashboard" class="tab-content active fade-in">
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Admin Dashboard</h2>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-blue-50 rounded-lg p-6 border border-blue-100">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">{{ data.total_techs }}</h3>
+                        <p class="text-gray-600">Technologies</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-green-50 rounded-lg p-6 border border-green-100">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
+                        <i class="fas fa-file-alt text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">{{ data.total_exam_sets }}</h3>
+                        <p class="text-gray-600">Exam Sets</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-purple-50 rounded-lg p-6 border border-purple-100">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-purple-100 text-purple-600 mr-4">
+                        <i class="fas fa-question-circle text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">{{ data.total_questions }}</h3>
+                        <p class="text-gray-600">Questions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tech Stack Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-8 lg:grid-cols-4 gap-8  text-gray-800 dark:text-white">
+            {% for item in data.technologies %}
+            {% set card_classes =
+            "group block p-6 rounded-2xl border shadow-md transition-transform duration-300 hover:-translate-y-4
+            hover:shadow-2xl " ~
+            "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700"
+            %}
+
+            {% if item.active %}
+            <!-- Active Item Card -->
+            <div class="{{ card_classes }} cursor-default relative">
+
+                <!-- Icon + Name(s) -->
+                <div class="flex flex-wrap items-center gap-4 mb-4">
+                    {% for i in range(item.icon|length) %}
+                    <div class="flex items-center space-x-2">
+                        <i class="{{ item.icon[i] }} text-3xl group-hover:text-blue-500"></i>
+                        <h4 class="text-xl font-semibold">{{ item.name[i] }}</h4>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Description -->
+                <!--<p class="text-sm ext-gray-600 dark:text-gray-300">
+                    {{ item.description }}
+                </p>-->
+            </div>
+
+            {% else %}
+            <!-- Inactive Item Card -->
+            <div class="{{ card_classes }} cursor-default relative">
+                <!-- In Progress Badge -->
+                <div class="absolute -top-3 -left-3 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md flex items-center">
+                    <i class="fas fa-tools mr-2"></i> In Progress
+                </div>
+
+                <!-- Icon + Name(s) -->
+                <div class="flex flex-wrap items-center gap-4 mb-4">
+                    {% for i in range(item.icon|length) %}
+                    <div class="flex items-center space-x-2">
+                        <i class="{{ item.icon[i] }} text-3xl"></i>
+                        <h4 class="text-xl font-semibold">{{ item.name[i] }}</h4>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Description -->
+                <!--<p class="text-sm ext-gray-600 dark:text-gray-300">
+                    {{ item.description }}
+                </p>-->
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Recent Activity -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Recent Activity</h3>
+            <div class="bg-gray-50 rounded-lg p-4">
+                <ul class="space-y-3">
+                    {% for activity in recent_activities %}
+                    <li class="flex items-center">
+                        <span class="bg-{{ activity.color }}-100 text-{{ activity.color }}-800 text-xs font-medium px-2.5 py-0.5 rounded">{{ activity.type }}</span>
+                        <span class="ml-3 text-gray-600">{{ activity.message }}</span>
+                        <span class="ml-auto text-sm text-gray-500">{{ activity.time }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

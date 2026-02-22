@@ -1,0 +1,39 @@
+default:
+  # Application Configurations
+  SECRET_KEY: "default_secret_key"
+  MANIFEST_FILE: "technologies.json"
+  DATA_DIR: "web_app/data"
+  SESSION_TYPE: "filesystem"
+  SESSION_LIFETIME: 1800  # seconds
+  EXAM_TIME_LIMITS:
+    easy: 45
+    medium: 60
+    hard: 90
+
+  # Logging Configurations
+  log_dir: "logs"  # Directory where log files will be stored
+  log_format: "%(asctime)s - %(levelname)s - %(name)s - [%(module)s.%(funcName)s] - %(message)s"  # Log message format
+  max_file_size_mb: 5   # File rotation after 5MB
+  backup_count: 3       # Number of backup files to keep
+
+environments:
+  DEV:
+    LOG_LEVEL: "DEBUG"
+    log_file: "logs/dev_app.log"
+    console_level: DEBUG
+    file_level: DEBUG
+    enable_console: true
+
+  UAT:
+    LOG_LEVEL: "INFO"
+    log_file: "logs/uat_app.log"
+    console_level: INFO
+    file_level: INFO
+    enable_console: true
+
+  PROD:
+    LOG_LEVEL: "WARNING"
+    log_file: "logs/prod_app.log"
+    console_level: WARNING
+    file_level: WARNING
+    enable_console: false
